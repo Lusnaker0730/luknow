@@ -67,9 +67,24 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 重要臨床試驗 Late-breaker 討論整理</p>
 </div>
 
-<div class="article-count">4 篇文章</div>
+<div class="article-count">5 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-alert')">
+<div class="card-header">
+<span class="card-tag trial">Late-breaker</span>
+<div class="card-title">ALERT 試驗</div>
+<div class="card-subtitle">AI 自動化 EHR 警示改善嚴重瓣膜疾病治療不足。2,046 名患者叢集 RCT，轉介率 24% vs 19.9%，絕對增加 4.4%</div>
+<div class="card-meta">
+<span>Dr. Wayne Batchelor</span>
+<span>18:07</span>
+<span>ACC 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-champion')">
 <div class="card-header">
 <span class="card-tag trial">Late-breaker</span>
@@ -148,6 +163,113 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-alert'] = {
+title: 'ALERT 試驗',
+body: `【ACC 2026 Late-breaker：ALERT 試驗】
+自動化電子病歷警示能否改善嚴重瓣膜疾病的治療不足？
+
+來源：ACC 2026 Late-breaker Discussion｜Radcliffe Cardiology
+主持：Dr. Harriette Van Spall（McMaster University，加拿大）
+嘉賓：Dr. Wayne Batchelor（Inova Schar Heart and Vascular，美國）
+影片：https://www.youtube.com/watch?v=xNS5VJyblIM
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎研究背景
+
+嚴重瓣膜性心臟病（valvular heart disease）的治療不足是心臟病學中長期存在的問題。研究顯示，約 50% 的嚴重主動脈瓣狹窄（aortic stenosis, AS）患者從未被轉介至專科醫師進行進一步評估，這個問題已被認知多年，卻一直缺乏有效的系統性解決方案。
+
+ALERT 試驗的核心理念是：利用人工智慧（AI）與自然語言處理（NLP）技術，透過自動掃描心臟超音波報告來識別嚴重瓣膜疾病患者，並向其臨床醫師發送電子病歷（EHR）通知警示，促進及時的專科轉介與治療。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎試驗設計
+
+【試驗類型】實用性（pragmatic）、多中心、叢集隨機對照試驗（cluster-randomised），以臨床醫師為隨機化單位
+
+【技術平台】Tempus Next 平台——使用 AI 與 NLP 技術持續掃描心臟超音波報告，自動識別符合條件的患者
+
+【納入標準】
+・嚴重主動脈瓣狹窄（severe AS）
+・中重度至重度二尖瓣逆流（moderate-severe 或 severe MR）
+・尚未轉介至多專科心臟團隊的患者
+
+【隨機分組】以臨床醫師為單位隨機分配：
+→ 警示組（Alert arm）：376 位臨床醫師，1,034 名患者
+→ 無警示組（No alert arm）：389 位臨床醫師，1,012 名患者
+→ 總計 2,046 名患者
+
+【每位醫師平均患者數】2.6 名——不太可能造成警示疲勞
+
+【主要終點】90 天內多專科心臟團隊轉介或瓣膜介入治療的比例，採用分層勝率法（stratified win ratio）分析
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎患者特徵
+
+本試驗排除已轉介至多專科心臟團隊的患者，納入真正「被遺漏」的族群：
+
+【主動脈瓣狹窄患者】
+・平均主動脈瓣面積：0.85 cm²
+・平均壓差：31 mmHg
+・峰值壓差：51 mmHg
+→ 低流量低壓差 AS 患者比例較高，正是最容易被忽略的族群
+
+【二尖瓣逆流患者】
+・2/3 為中重度（3+）MR
+・1/3 為真正重度 MR
+・約 50% 射血分率 < 50%
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主要結果
+
+【主要複合終點（90 天）】
+  警示組：24% 獲得轉介或瓣膜介入
+  無警示組：19.9%
+  絕對差異：+4.4%
+  ✓ 達到統計學顯著性
+
+【次要終點】
+・多專科心臟團隊轉介時間：警示組顯著縮短
+・瓣膜介入治療時間：警示組顯著縮短
+→ 兩項個別終點均達統計學顯著性
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎亞組分析
+
+警示效果在所有預設亞組中一致，無顯著異質性：
+・年齡（> 65 歲 vs ≤ 65 歲）
+・性別、種族、社會剝奪指數
+・住院 vs 門診、城市 vs 鄉村
+・心臟科 vs 非心臟科醫師
+・五個參與研究中心
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎分析方法
+
+主要分析基於修正意向治療（Modified ITT）族群，排除了 102 例因研究中心失去 EHR 存取權限而無法執行的心臟超音波。此排除同時影響兩組，未造成偏差。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎實施考量
+
+・AI 軟體需與各醫療系統的 EHR 進行整合（API/HL7）
+・正式實施需支付軟體授權與部署費用
+・成本分析顯示介入帶來的效益足以證明成本合理性
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結論
+
+ALERT 試驗證明自動化 EHR 警示能顯著增加嚴重瓣膜疾病患者的及時轉介率與介入治療率。這是電子病歷臨床決策支持工具在瓣膜疾病領域的重要實證，未來將進一步分析臨床醫師層面差異與健康不平等議題。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+本文內容完全依據影片中的對談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
 articles['article-champion'] = {
 title: 'CHAMPION-AF 試驗',
 body: `【ACC 2026 學術討論：CHAMPION-AF 試驗】
