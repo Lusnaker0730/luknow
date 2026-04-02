@@ -28,6 +28,7 @@ nav a.active{background:var(--accent);color:#fff}
 .card-tag{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:10px}
 .card-tag.guideline{background:#fef3e2;color:#e67700}
 .card-tag.trial{background:#e8f0fe;color:#1a73e8}
+.card-tag.podcast{background:#e8f5e9;color:#2e7d32}
 .card-title{font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:6px;letter-spacing:-.01em}
 .card-subtitle{font-size:.88rem;color:var(--sub);line-height:1.5;margin-bottom:12px}
 .card-meta{font-size:.75rem;color:var(--sub);display:flex;gap:12px;flex-wrap:wrap}
@@ -67,9 +68,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 學術會議重點整理與臨床指南更新，整理自 YouTube 影片逐字稿，確保數據準確無幻覺。</p>
 </div>
 
-<div class="article-count">8 篇文章</div>
+<div class="article-count">9 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-glp1update')">
+<div class="card-header">
+<span class="card-tag podcast">Podcast</span>
+<div class="card-title">GLP-1 減重藥物：副作用、費用與一年後更新</div>
+<div class="card-subtitle">Mayo Clinic 營養師一年後再談 GLP-1：50-75% 使用者一年內停藥、心理健康副作用新證據、三重促效劑可達 20-24% 體重減輕、口服劑型即將問世</div>
+<div class="card-meta">
+<span>Tara Schmidt, RD</span>
+<span>Mayo Clinic</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-trifr')">
 <div class="card-header">
 <span class="card-tag trial">Late-breaker</span>
@@ -1050,6 +1065,163 @@ Dr. Butler：器械試驗需更長追蹤和臨床事件導向設計。
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 本文內容完全依據影片中的專家對談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
+
+articles['article-glp1update'] = {
+title: 'GLP-1 減重藥物：副作用、費用與一年後更新',
+body: `【GLP-1 減重藥物：副作用、費用與一年後的最新觀點】
+
+來源：Health Matters Podcast｜Mayo Clinic
+主持：Kristen Meinzer（記者、作家）
+來賓：Tara Schmidt（Mayo Clinic 註冊營養師，Rochester, Minnesota）
+影片：https://www.youtube.com/watch?v=UairbGF56NE
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+過去一年，GLP-1 受體促效劑（GLP-1 receptor agonists）持續成為最受關注的醫療話題之一。供給短缺已正式結束、保險覆蓋政策仍在變動、長期副作用的新數據不斷浮現——Mayo Clinic 營養師 Tara Schmidt 在一年後再次坐下來，分享她在臨床第一線的觀察與思考。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎什麼是 GLP-1？
+
+GLP-1 全名為 glucagon-like peptide 1，是人體自然分泌的荷爾蒙。GLP-1 受體促效劑是模擬此荷爾蒙作用的藥物，透過多重機制發揮效果：
+
+・大腦：降低食慾、增加飽足感
+・胃部：延緩胃排空，讓食物停留更久
+・胰臟：刺激胰島素分泌
+・肝臟：抑制升糖素（glucagon）分泌，減緩血糖上升
+
+GLP-1 最初是糖尿病用藥，現已獲 FDA 核准用於肥胖症（obesity）治療。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎一年來的變化：供給、費用與使用現況
+
+・供給短缺已結束，主要藥廠增產，市場競爭加劇
+・處方量大幅攀升，整體 GLP-1 支出持續增加
+・美國約八分之一人口（約 12%）曾使用 GLP-1，目前約 6% 正在使用中
+・費用方面：部分價格談判可能在 2027 年生效，但目前價格尚未明顯下降
+・2025 年底，美國聯邦政府宣布與主要藥廠達成五項協議，目標是將 GLP-1 價格降至與其他已開發國家相當的水準
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎複方藥（Compounded GLP-1s）的爭議
+
+在短缺期間，複方藥局（compounding pharmacies）被允許製作自家版本的 GLP-1。然而這些複方藥：
+
+・未經 FDA 核准
+・未經 FDA 審查其安全性、品質或有效性
+・現在 FDA 核准版本已廣泛供應，複方版本的必要性已降低
+
+Schmidt 表示，她對複方版本的成分來源、製造商是否合規、是否符合 FDA 安全標準等問題仍有很多疑慮。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎名人代言與社會文化影響
+
+GLP-1 的文化現象持續發酵。網球巨星 Serena Williams 成為遠距醫療公司 Ro 的代言人，該公司提供包含 GLP-1 的減重治療方案。
+
+Schmidt 認為此事有正反兩面：
+
+【正面】
+・有助降低肥胖症的社會污名
+・傳達「即使是頂尖運動員，體重管理也很困難」的訊息
+・Williams 公開表示她同時注重飲食與運動
+
+【負面】
+・可能強化「瘦＝健康」的社會審美標準
+・名人代言藥物的適當性本身就有爭議
+・在藥物短缺期間進行代言，凸顯了取得管道與特權的不平等
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎保險與長期使用的困境
+
+Schmidt 指出，隨著 GLP-1 取得管道改善，她聽到更多保險相關的挑戰：
+
+・保險覆蓋範圍、事前審查（prior authorization）、階梯式治療要求
+・部分保險在患者達到「健康體重」後停止給付——但 GLP-1 本應長期使用
+・停藥風險包括：體重回升、心血管風險重新升高、共病症復發
+
+此外，多學科照護（multidisciplinary care）仍然不足。許多患者只是取得藥物，卻沒有獲得飲食、運動、心理健康方面的配套指導。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎副作用：從腸胃不適到心理健康
+
+【停藥率驚人】
+根據 JAMA 的新研究，50% 至 75% 的 GLP-1 使用者在一年內停藥。主要原因包括費用、取得管道、達到目標體重，以及副作用。
+
+【心理健康相關副作用】
+
+・2024 年一項大型研究發現：肥胖症患者使用 GLP-1 後，焦慮與自殺行為的風險升高（與對照組比較）
+・2025 年一項研究顯示：在遺傳上傾向低多巴胺（dopamine）的人群中，GLP-1 可能驅動憂鬱與自殺意念
+・但另一項 2024 年研究發現：無已知精神健康診斷的 GLP-1 使用者，並未更容易發展出憂鬱或自殺行為
+
+目前 FDA 與歐洲藥品管理局（European Medicines Agency, EMA）均認定 GLP-1 在自殺風險方面的證據尚屬安全，但持續監測中。
+
+【多巴胺與「米色人生」】
+
+GLP-1 不僅作用於腸胃道和胰臟，也影響大腦中的多巴胺系統。這在降低食慾和成癮衝動方面可能是正面的，但對某些敏感個體，可能導致對生活整體愉悅感的下降——即所謂的「life in beige」。
+
+Schmidt 強調：如果感覺生活變得「灰灰的」，應該主動與醫療團隊溝通，可能需要調整劑量或加入其他介入措施。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎營養與飲食行為的改變
+
+Schmidt 在臨床觀察到的最大改變是「食物噪音」（food noise）的減少——患者表示不再整天想著食物，不再被驅使過度進食。
+
+然而她也提醒：
+
+・有些使用者出現進食不足、飲水不足的情況
+・即使在肥胖症的身體中，也可能發生營養不良（malnourishment）
+・「降低食慾」的旋鈕不能轉到最底——仍需確保充分攝取蛋白質、纖維和水分
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎經濟與食品產業的漣漪效應
+
+・Cornell 大學研究發現：GLP-1 使用者的雜貨支出下降，加工食品消費減少
+・運動服飾支出增加
+・食品業開始標榜「GLP-1 friendly」產品：高蛋白、高纖維、較小份量
+・部分餐廳已推出適合 GLP-1 使用者的菜單選項
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎未來展望
+
+① 口服劑型
+目前已有一款口服 GLP-1（Rybelsus）獲 FDA 核准用於血糖控制和降低心血管風險（尚未核准用於肥胖症）。Eli Lilly 預計將推出另一款口服劑型。口服化可能降低成本（省去注射筆和冷藏需求）。
+
+② 三重受體促效劑（Triple agonist）
+・單一促效劑（如 Wegovy）：僅作用於 GLP-1 受體
+・雙重促效劑（如 Zepbound）：作用於 GLP-1 和 GIP（gastric inhibitory peptide）受體
+・三重促效劑：同時作用於 GLP-1、GIP 和升糖素（glucagon/GCG）受體
+・目前研究中的三重促效劑可達約 20-24% 的體重減輕，接近減重手術的效果，且尚未觀察到體重下降的平台期
+
+③ 超越減重的適應症
+GLP-1 正在被研究用於：
+・成癮症（addiction）
+・慢性腎臟病（chronic kidney disease）
+・代謝功能障礙相關脂肪性肝炎（MASH，前稱脂肪肝）
+・神經退化性疾病，如阿茲海默症（Alzheimer's disease）
+
+④ Medicare 覆蓋
+Medicare 目前僅覆蓋 GLP-1 用於糖尿病或預防心血管事件，尚不覆蓋減重適應症。Schmidt 認為隨著 GLP-1 在心血管等領域的證據累積，未來覆蓋範圍可能擴大。
+
+⑤ 劑量調整
+Schmidt 提到她開始接受一個概念：在醫師指導下，已達健康體重的患者未來可能可以用更低的劑量維持治療。但她強調，任何劑量變更都必須由處方醫師決定，不應自行調整。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結語
+
+GLP-1 的浪潮仍在持續。隨著口服劑型、三重促效劑的發展，以及更多適應症的研究推進，這類藥物對醫療、經濟和社會文化的影響只會更加深遠。但同時，長期副作用、保險覆蓋、多學科照護的不足等問題仍待解決。最重要的是：GLP-1 不是神奇藥丸，它需要搭配飲食、運動和心理健康的全方位照護，才能發揮最佳效果。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+本文內容完全依據影片中的對談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
 };
 
 function openModal(id) {
