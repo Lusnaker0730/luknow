@@ -68,9 +68,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 學術會議重點整理與臨床指南更新，整理自 YouTube 影片逐字稿，確保數據準確無幻覺。</p>
 </div>
 
-<div class="article-count">11 篇文章</div>
+<div class="article-count">12 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-orbitacto')">
+<div class="card-header">
+<span class="card-tag trial">Late-breaker</span>
+<div class="card-title">ORBITA-CTO 試驗</div>
+<div class="card-subtitle">首個雙盲安慰劑對照 RCT 證實 CTO PCI 超越安慰劑的症狀改善。50 名患者，心絞痛評分 OR 4.38，額外 30.6 天無心絞痛日</div>
+<div class="card-meta">
+<span>Dr. Sarosh Khan / Dr. John Davies</span>
+<span>ACC 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-hf2026')">
 <div class="card-header">
 <span class="card-tag trial">Expert Commentary</span>
@@ -1405,6 +1419,149 @@ Martínez 教授總結他對心衰竭藥物治療的建議：
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 本文內容完全依據影片中的訪談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
+
+articles['article-orbitacto'] = {
+title: 'ORBITA-CTO 試驗',
+body: `【ORBITA-CTO 試驗】慢性完全阻塞病變的 PCI 在穩定型心絞痛中的療效——首個雙盲安慰劑對照隨機試驗
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：ACC 2026 Late-Breaking Clinical Trial｜PCRonline
+主講：Dr. Kalaivani Mahadevan（Portsmouth Hospitals' University NHS Trust）
+受訪：Dr. Sarosh Khan、Dr. John Davies（Essex Cardiothoracic Centre，英國）
+發表：同步刊登於 JACC
+影片：https://www.youtube.com/watch?v=J_zD1xG1bDw
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎前言
+
+慢性完全阻塞病變（Chronic Total Occlusion, CTO）的經皮冠狀動脈介入治療（PCI）在穩定型心絞痛（stable angina）中的角色，長期以來缺乏高品質的隨機對照證據。先前的 EURO-CTO 與 OPEN-CTO 研究雖顯示症狀改善，但均為非盲性設計，無法排除安慰劑效應。而 DECISION-CTO 試驗因高交叉率（近 20%）與統計效力不足，未能證實持續的症狀改善。
+
+ORBITA-CTO 試驗是第一個針對 CTO PCI 的雙盲、安慰劑對照隨機試驗，旨在回答一個根本性問題：CTO PCI 的症狀改善是否為真正的治療效果，還是僅為安慰劑效應？
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎試驗設計
+
+ORBITA-CTO 為多中心、雙盲、安慰劑對照隨機試驗，共評估 418 名患者，其中 112 名符合納入標準，最終 50 名患者以 1:1 隨機分配至 CTO PCI 組（25 人）或模擬手術組（25 人）。
+
+【納入條件】
+・單一血管 CTO 導致的穩定型心絞痛
+・經最佳藥物治療（≥3 種抗心絞痛藥物）後仍有症狀
+・缺血或存活心肌的客觀證據
+・血管直徑 ≥2.5mm
+・J-CTO 評分 ≤3
+・無顯著的旁觀者病變（左主幹 ≤50%、LAD/RCA/Cx/SVG ≤70%）
+
+【排除條件】
+・4 週內急性冠心症或非 CTO 病灶 PCI
+・需要血運重建的非 CTO 病變
+・藥物洗脫支架或雙抗血小板治療禁忌症
+
+【關鍵設計特色】
+・患者中位年齡 64 歲，以男性為主
+・隨機分配時停用所有抗心絞痛藥物，追蹤期間可依需要恢復使用
+・兩組均使用雙動脈通路（dual arterial access）
+・中位追蹤時間 174 天
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎盲性維護——開創性的方法學設計
+
+本試驗在盲性維護方面達到了前所未有的嚴格程度，堪稱介入心臟學的方法學標竿：
+
+① 時間遮蔽：移除導管室及走廊所有時鐘，術後 2 小時才歸還
+② 感官遮蔽：患者佩戴耳機播放音樂，並施予深度有意識鎮靜，使患者對術中過程無反應
+③ 模擬手術：安慰劑組接受 60 分鐘的模擬 PCI，包括導管操控、設備名稱口頭呼叫、充氣/放氣操作
+④ 腺苷注射：兩組均接受靜脈腺苷（IV adenosine）注射
+⑤ 術後隔離：PCI 團隊不與患者接觸，採用標準化腳本交接給設盲的恢復團隊
+⑥ 文件管理：標準化手術報告，手寫記錄安全存放於現場
+
+【盲性驗證（Bang's Blinding Index）】
+  CTO PCI 組：-0.08（95% CI -0.19 至 0.02）
+  安慰劑組：0.04（95% CI -0.17 至 0.25）
+  → 兩組均在 -0.2 至 +0.2 的優良盲性閾值內
+  ✓ 患者、臨床團隊及研究人員均達到「優良」盲性標準
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主要結果
+
+【主要療效指標——每日心絞痛序位臨床結局量表】
+  CTO PCI 顯示即時且持續的心絞痛症狀改善，超越安慰劑效應
+  勝算比（OR）：4.38（95% CrI 1.57–12.69）
+  獲益機率（Pr[Benefit]）：0.996
+  → 主要由心絞痛發作頻率下降所驅動
+
+【額外無心絞痛天數】
+  CTO PCI 組比安慰劑組多 30.6 天無心絞痛日
+  （95% CrI 11.1–50.7，Pr[Benefit] >0.999）
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎次要結果
+
+【SAQ 身體活動限制】
+  平均差異：+13.5 分｜Pr[Benefit] >0.999
+
+【SAQ 心絞痛頻率】
+  平均差異：+10.7 分（95% CrI 1.4–20.2）｜Pr[Benefit] = 0.988
+
+【SAQ 疾病特異性生活品質】
+  平均差異：+18.2 分｜Pr[Benefit] = 0.997
+
+【SAQ 總體評分】
+  平均差異：+13.7 分｜Pr[Benefit] = 0.997
+
+【醫師評估 CCS 心絞痛分級】
+  變化：-0.7（95% CrI -0.27 至 -1.13）
+  Pr[Benefit] >0.999
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎技術成功率與安全性
+
+・CTO PCI 組技術成功率：96%
+・約 30% 採用逆行途徑（retrograde approach）
+・✓ 無死亡事件
+・✓ 無心肌梗塞
+・✓ 無因心絞痛惡化而退出的患者
+・兩組術後抗心絞痛藥物使用無顯著差異
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎臨床意義與專家評論
+
+Dr. John Davies 指出，本試驗的發現「將安慰劑效應與真正的治療效果分離開來」，證明「CTO PCI 改善心絞痛症狀的效果是即時的、持續的且一致的」，支持在經過審慎選擇的患者中進行以症狀為導向的 PCI。
+
+Dr. Sergio Waxman（RWJ Barnabas Health）則提醒需注意外推性問題，指出這是「高度篩選的患者群體」，且術者均為經驗豐富的 CTO 專家（每年執行 ≥200 例 CTO PCI），建議 CTO PCI「仍應限於卓越中心執行」。
+
+Dr. Ziad Ali（St. Francis Hospital and Heart Center）總結認為，本試驗「證明了 CTO PCI 的獲益並非純粹來自患者的期待效應」。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎研究限制
+
+① 樣本量較小（n=50），屬先導性試驗
+② 僅納入 J-CTO 評分 0–3 的病變，不適用於更複雜的 CTO
+③ 需要經驗豐富的 CTO 術者及成熟的手術服務體系
+④ 追蹤期中位數 174 天，長期效益有待進一步驗證
+⑤ 外推至不同醫療環境時需謹慎
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結論
+
+ORBITA-CTO 是第一個針對 CTO 介入治療的雙盲、安慰劑對照隨機試驗，在方法學上樹立了新的標竿。試驗證實，在經過審慎篩選的單一血管 CTO 合併穩定型心絞痛患者中，CTO PCI 能夠產生超越安慰劑效應的即時且持續的症狀改善，包括心絞痛頻率下降、身體活動能力提升以及疾病特異性生活品質改善。這些發現為長期存在的「CTO PCI 是否真正有效」的爭論提供了確定性的答案，並可能為未來指南更新提供重要依據。
+
+值得注意的是，本試驗的結果適用於經驗豐富的 CTO 中心對審慎選擇的患者進行治療，不應被廣泛推廣至所有 CTO 患者或所有醫療機構。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 免責聲明
+本文內容依據 PCRonline 影片中的討論及多個學術來源整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。文中數據源自 ACC 2026 發表及同步刊登於 JACC 之原始論文。本文僅供醫療專業人士參考，不構成臨床診療建議。`
 };
 
 function openModal(id) {
