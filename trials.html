@@ -67,9 +67,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 重要臨床試驗 Late-breaker 討論整理</p>
 </div>
 
-<div class="article-count">7 篇文章</div>
+<div class="article-count">8 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-clair')">
+<div class="card-header">
+<span class="card-tag trial">Investigative Horizons</span>
+<div class="card-title">CLAiR 試驗 — AI 視網膜影像評估心血管風險</div>
+<div class="card-subtitle">前瞻性多中心試驗，874 人。AI 分析標準視網膜照片偵測 ASCVD 風險升高：敏感度 91.1%、特異度 86.2%，均超過預設閾值。30 秒出結果，非侵入性</div>
+<div class="card-meta">
+<span>Dr. Michael V. McConnell</span>
+<span>ACC 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-alert')">
 <div class="card-header">
 <span class="card-tag trial">Late-breaker</span>
@@ -865,6 +879,95 @@ Dr. Butler：器械試驗需更長追蹤和臨床事件導向設計。
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 本文內容完全依據影片中的專家對談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
+
+articles['article-clair'] = {
+title: 'CLAiR 試驗 — AI 視網膜影像評估心血管風險',
+body: `【ACC 2026 Investigative Horizons：CLAiR 試驗】
+AI 視網膜影像分析能否可靠評估動脈粥狀硬化心血管風險？
+
+來源：ACC 2026 Investigative Horizons Session｜Radcliffe Cardiology
+講者：Dr. Michael V. McConnell（Stanford University 預防心臟科醫師；Toku 首席健康長）
+影片：https://www.youtube.com/watch?v=M9AU-TAwuqA
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎研究背景
+
+早在 1960 年代，醫學界就已發現視網膜（retina）的變化與心血管疾病之間存在關聯。視網膜富含動脈和靜脈血管，高血壓、糖尿病等心血管危險因子會造成這些血管的損傷和形態改變。
+
+近年來，人工智慧（AI）的進步使我們能夠快速分析視網膜影像，並偵測出額外的訊號來協助評估心血管風險。McConnell 團隊先前已在回顧性資料中驗證其 AI 演算法可匹配傳統心血管風險評估方程式的結果，但真正需要的是一項前瞻性臨床試驗加以證實——這就是 CLAiR 試驗的目的。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎試驗設計
+
+・設計：前瞻性、多中心臨床試驗
+・樣本數：874 人
+・年齡範圍：40–75 歲
+・收案地點：美國 10 個眼科及基層醫療中心
+・納入條件：未服用降血脂藥物、無已知動脈粥狀硬化疾病
+・人口多樣性：50% 女性、19% 非裔美國人、26% 西班牙裔
+
+▎研究方法
+使用標準視網膜相機拍攝高解析度視網膜影像，透過 CLAiR AI 系統進行分析。AI 的輸出為二元結果：「風險升高」或「風險未升高」，對標現行的 ASCVD（atherosclerotic cardiovascular disease）10 年風險評估工具。在美國，ASCVD 風險 ≥ 7.5% 為啟動降血脂治療的 Class I 適應症。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主要終點與結果
+
+【主要終點：敏感度與特異度】
+・預設閾值：敏感度 ≥ 70%、特異度 ≥ 80%
+
+【結果】
+　敏感度（Sensitivity）：91.1%　✓ 超過預設閾值
+　特異度（Specificity）：86.2%　✓ 超過預設閾值
+　→ 信賴區間均超過預設門檻
+
+【其他數據】
+・在全體受試者中，26% 的人經標準風險評估工具判定 ASCVD 10 年風險 ≥ 7.5%
+・94% 的拍攝影像可被 CLAiR 系統使用
+・AI 演算法可在約 30–60 秒內回傳結果
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎技術優勢與可行性
+
+McConnell 強調 CLAiR 系統的幾項關鍵優勢：
+
+① 快速：僅需 30–60 秒即可取得結果
+② 非侵入性：使用常規眼科檢查中的標準視網膜照片，無輻射
+③ 高度可擴展：美國每年進行超過 1 億次眼科檢查，每次檢查都可成為篩檢心血管風險的機會
+④ 跨場域一致性：在眼科中心和基層醫療中心均有良好表現
+⑤ 跨設備相容性：在多種相機型號上均展現穩健結果
+⑥ 人口多樣性驗證：在多元族群中均達到強勁的敏感度與特異度
+
+McConnell 指出：「你眼底的影像蘊含豐富的健康資訊。」許多人在現有醫療體系中並不了解自己的心血管風險，而眼科檢查提供了一個獨特的篩檢入口——在患者進行例行眼科檢查時同步評估心血管風險，進而促成進一步的評估與預防性照護。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎限制
+
+・本試驗未納入孕婦及嚴重眼部疾病患者
+・視網膜攝影的可及性與保險覆蓋在美國各眼科診所之間存在差異
+・需要建立後續轉介路徑，確保被辨識為高風險的患者能獲得心血管專科評估
+・CLAiR 系統由 Toku 開發，試驗亦由 Toku 資助，McConnell 為 Toku 首席健康長
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎下一步
+
+CLAiR 系統已獲得美國 FDA「突破性設備」（Breakthrough Device）認定。McConnell 表示，下一個關鍵步驟是與 FDA 合作取得正式核准（FDA clearance），以便將產品推向市場。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎臨床意義
+
+CLAiR 試驗展示了一個令人興奮的概念：利用 AI 分析日常眼科檢查中的視網膜影像，即可快速、非侵入性地篩檢動脈粥狀硬化心血管風險。在一個多元化的前瞻性世代中，該系統的敏感度（91.1%）和特異度（86.2%）均顯著超過預設門檻，且在不同場域和設備間均展現一致性。考量到美國每年超過 1 億次眼科檢查的巨大基數，此技術若獲得 FDA 核准，有潛力大幅擴展心血管風險篩檢的覆蓋率，特別是觸及目前未被傳統風險評估所覆蓋的族群。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+本文內容完全依據影片中的訪談逐字稿整理，並參考 ACC 官方新聞稿補充試驗細節，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
 };
 
 function openModal(id) {
