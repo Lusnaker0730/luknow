@@ -84,9 +84,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 學術會議重點整理與臨床指南更新，整理自 YouTube 影片逐字稿，確保數據準確無幻覺。</p>
 </div>
 
-<div class="article-count">12 篇文章</div>
+<div class="article-count">13 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-coralreef')">
+<div class="card-header">
+<span class="card-tag trial">On-Treatment Analysis</span>
+<div class="card-title">CORALreef 合併分析：Enlicitide 持久降脂</div>
+<div class="card-subtitle">口服 PCSK9 抑制劑 enlicitide 合併兩試驗持續治療分析：24 週 LDL-C 降 64%、52 週降 60%，94% 患者持續服藥</div>
+<div class="card-meta">
+<span>Dr. Ann Marie Navar</span>
+<span>ACC 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-orbitacto')">
 <div class="card-header">
 <span class="card-tag trial">Late-breaker</span>
@@ -1435,6 +1449,76 @@ Martínez 教授總結他對心衰竭藥物治療的建議：
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 本文內容完全依據影片中的訪談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
+
+articles['article-coralreef'] = {
+title: 'CORALreef 合併分析：Enlicitide 持久降脂',
+body: `【CORALreef 合併分析】口服 PCSK9 抑制劑 Enlicitide 降低 LDL-C 的持久性：一年治療數據
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：ACC 2026 專家訪談｜Radcliffe Cardiology
+講者：Dr. Ann Marie Navar（UT Southwestern Medical Center，美國達拉斯）
+影片：https://www.youtube.com/watch?v=Inft7S3GfhQ
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎研究背景
+
+PCSK9 抑制劑已問世超過十年，單株抗體（monoclonal antibodies）如 evolocumab 和 alirocumab 能有效降低 LDL-C，但需要皮下注射給藥，限制了部分患者的接受度。Enlicitide 是一種新型巨環胜肽（macrocyclic peptide），作為口服 PCSK9 抑制劑，在血液中與 PCSK9 蛋白結合，阻止其與 LDL 受體交互作用，機轉與單株抗體相似，但最大優勢在於可以每日一次口服給藥，將 PCSK9 抑制劑的強效降脂能力以藥丸形式提供給患者。
+
+▎分析設計
+
+此次報告為 CORALreef Lipids 與 CORALreef HeFH 兩項試驗的合併「持續治療分析」（on-treatment analysis）。
+
+・CORALreef Lipids：收錄罹患或具動脈粥狀硬化性心血管疾病（ASCVD）風險、且在背景 statin 治療下 LDL-C 仍偏高的患者
+・CORALreef HeFH：收錄異合子家族性高膽固醇血症（heterozygous familial hypercholesterolaemia, HeFH）患者
+
+先前已發表的修正意向治療（modified intention-to-treat, mITT）分析納入所有受試者，無論是否持續用藥。而本次分析聚焦於持續服藥的患者群體——也就是回答臨床醫師最關心的問題：「如果患者持續服用 enlicitide，預期能得到什麼效果？」
+
+▎主要結果
+
+【LDL-C 降幅（相對於安慰劑）】
+  第 24 週：降低 64%
+  第 52 週：降低 60%
+  ✓ 降脂效果持久且穩定
+
+▎藥物耐受性與依從性
+
+Enlicitide 耐受性良好，停藥率低：
+
+・第 24 週停藥率：約 6%（94% 患者仍在服藥）
+・第 52 週停藥率：約 10%（近 90% 患者仍在服藥）
+
+由於絕大多數患者持續服藥，本次持續治療分析的結果與先前 mITT 分析高度一致。
+
+▎達標率
+
+在接受 enlicitide 治療的患者中，絕大多數能達到 LDL-C 目標值（55 或 70 mg/dL），顯示此藥物作為 statin 的附加治療具有強大的降脂效力。
+
+▎臨床意義
+
+Navar 教授指出，所有口服藥物都面臨患者依從性的挑戰。試驗中透過患者教育、持續激勵、強調依從性的重要等措施，維持了高依從率。將這些策略延伸至臨床實務，是未來實現同等降脂效果的關鍵。
+
+對於不願接受注射治療的患者，enlicitide 提供了一個重要的替代選擇——以每日一顆藥丸取代皮下注射，從患者選擇的角度而言意義重大。
+
+▎更廣泛的降脂趨勢
+
+Navar 教授也提到，近期 VESALIUS 試驗的數據進一步支持「LDL-C 越低越好」的概念，不僅適用於已確診 ASCVD 的患者，也適用於具有亞臨床動脈粥狀硬化或高風險糖尿病的族群。隨著越來越多降脂工具加入治療選項，臨床上已越來越沒有理由不在群體層面達到 LDL-C 控制目標。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎重點摘要
+
+① Enlicitide 為口服 PCSK9 抑制劑（巨環胜肽），每日一次口服給藥
+② 合併 CORALreef Lipids 與 HeFH 試驗的持續治療分析
+③ 第 24 週 LDL-C 降低 64%，第 52 週降低 60%（vs 安慰劑）
+④ 耐受性佳：94%（24 週）及近 90%（52 週）患者持續服藥
+⑤ 為不願接受注射的患者提供強效口服降脂選擇
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 本文內容完全依據影片中的專家訪談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。本文僅供醫療專業人員參考，不構成臨床建議。`
 };
 
 articles['article-orbitacto'] = {
