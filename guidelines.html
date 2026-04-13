@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>臨床指南 — 呂侑穎醫師的臨床筆記</title>
-<meta name="description" content="最新臨床指南更新重點整理：2026 ACC/AHA 血脂異常管理指南等。呂侑穎醫師以繁體中文整理國際心臟學指南變更要點。">
-<meta name="keywords" content="臨床指南,ACC,AHA,血脂異常,cholesterol guideline,心臟學,呂侑穎,2026指南">
+<meta name="description" content="最新臨床指南更新重點整理：2026 AHA/ACC 急性肺栓塞指南、2026 ACC/AHA 血脂異常管理指南等。呂侑穎醫師以繁體中文整理國際心臟學指南變更要點。">
+<meta name="keywords" content="臨床指南,ACC,AHA,急性肺栓塞,pulmonary embolism,PE guideline,血脂異常,cholesterol guideline,心臟學,呂侑穎,2026指南">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://lusnaker0730.github.io/luknow/guidelines.html">
@@ -80,9 +80,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>最新臨床指南更新重點整理</p>
 </div>
 
-<div class="article-count">2 篇文章</div>
+<div class="article-count">3 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-pe2026')">
+<div class="card-header">
+<span class="card-tag guideline">Guideline</span>
+<div class="card-title">2026 AHA/ACC 急性肺栓塞指南</div>
+<div class="card-subtitle">首部專屬指南：全新 A-E 五級臨床分類、進階治療矩陣、LMWH 優於 UFH、CTEPD 概念擴展、抗凝持續時間決策</div>
+<div class="card-meta">
+<span>Dr. Ruey Hu</span>
+<span>AHA/ACC 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-vhd2025')">
 <div class="card-header">
 <span class="card-tag guideline">Guideline</span>
@@ -130,6 +144,150 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-pe2026'] = {
+title: '2026 AHA/ACC 急性肺栓塞指南',
+body: `【2026 AHA/ACC 急性肺栓塞指南】首部專屬指南深度解析：分類、進階治療、抗凝與長期照護
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：Ruey Hu YouTube 教學頻道
+講者：Dr. Ruey Hu
+指南全稱：2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN Guideline for the Evaluation and Management of Acute Pulmonary Embolism in Adults
+影片：https://www.youtube.com/watch?v=rE-I4Jwq1UA
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+美國心臟學會（AHA）與美國心臟病學會（ACC）聯合九個共同贊助學會，發布了 2026 年急性肺栓塞（acute pulmonary embolism, PE）成人評估與管理指南。這是美國首部專門針對急性 PE 的 AHA/ACC 指南，全文超過 100 頁，由跨學科委員會撰寫。
+
+Dr. Ruey Hu 深入解析此指南的六大更新重點，以下為完整整理。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎一、全新臨床分類系統（Categories A-E）
+
+過去的分類系統存在明顯不足：2011 年 AHA 三級系統的「次大量」範圍過於寬泛；2019 年 ESC 四級系統的中間等級仍缺乏精確度。
+
+2026 AHA/ACC 系統引入五大類別（A-E），各類別再細分為亞類別，依據血流動力學、生物標記與影像學區分。當存在顯著低血氧或呼吸急促時，可加上呼吸修飾符「R」。
+
+【Category A：亞臨床 PE】
+・因其他原因做 CT 時意外發現的 PE，無相關症狀
+→ 可安全從急診出院，無需住院
+
+【Category B：低臨床嚴重度評分的症狀性 PE】
+定義：PESI class 1-2（≤85 分）、sPESI = 0、HESTIA = 0、或 BOVA ≤ 4
+・B1：亞段 PE ・B2：段以上或更近端 PE
+→ 一般建議入院但計畫早期出院
+
+【Category C：高臨床嚴重度評分的症狀性 PE】
+定義：PESI class 3-5（>85 分）、或 sPESI ≥ 1、或 HESTIA ≥ 1
+・C1：RV 影像正常 + 生物標記正常
+・C2：RV 異常或生物標記異常（僅其中之一）
+・C3：RV 異常且生物標記異常（兩者皆有）→ 關鍵門檻
+→ Category C 及以上均應住院
+
+【Category D：即將心肺衰竭】
+・D1：短暫低血壓（對容積擴張有反應），無器官灌注不足
+・D2：短暫低血壓 + 器官灌注不足（乳酸 > 2、AKI、意識改變、CI < 2.2、MAP < 60）
+
+【Category E：心肺衰竭】
+・E1：持續低血壓致心因性休克（SCAI stage C）
+・E2：難治性心因性休克（SCAI D/E）或心跳停止後 30 分鐘仍無 ROSC
+
+重要觀念：這些分類不是靜態快照，患者可能隨時間在類別間轉換，PE 管理需要持續重新評估。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎二、進階治療矩陣（Advanced Therapy Matrix）
+
+指南建立正式決策矩陣，將每個 PE 類別對應到四種再灌注方式：全身溶栓、導管導引溶栓（CDL）、機械血栓切除（MT）、外科肺栓塞切除。
+
+・Category A-C1：四種進階治療均為 Class 3（無益處）；全身溶栓為 Class 3 Harm
+・Category C2：全身溶栓 Class 3 Harm；CDL/MT 為 Class 2B；外科 Class 3
+・Category C3：溶栓/CDL/MT 為 Class 2B；外科 Class 3 Harm
+・Category D1-D2：溶栓/CDL/MT 為 Class 2B；外科 Class 2B
+・Category E1：四種治療均為 Class 2A ✓
+・Category E2：外科 Class 3（無益處）；CDL/MT 不適用；VA-ECMO 為建議橋接
+
+關鍵試驗：
+・FLAME 試驗（115 名 E1 患者）：MT 院內死亡率 1.9% vs 對照組 29.5%
+・PEITHO 試驗（1,006 名 C3-D2 患者）：溶栓預防心血管塌陷但增加出血
+・PEERLESS 試驗（550 名 C2-D2 患者）：CDL vs MT 30 天死亡率和大出血無顯著差異
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎三、抗凝治療建議
+
+【重大改變：LMWH 優於 UFH】
+・Class 1：Category C1-E1 需初始腸外抗凝時，LMWH 優於 UFH
+→ Meta-analysis 顯示 LMWH 更有效減少復發 VTE，且不增加大出血
+→ 優勢：可預測藥動學、不需常規監測、較低 HIT 發生率
+
+【口服抗凝】
+・Class 1：DOAC 優於 VKA（除非有禁忌）
+・Category A-B 可直接啟動 DOAC；Category C1 起應啟動 LMWH
+
+【特殊族群】
+・APS：確診血栓性 APS → VKA 優於 DOAC
+・CKD 2-3：DOAC 優於 VKA；CKD 4-5/透析：apixaban vs VKA 尚不確定
+・懷孕：LMWH 或 UFH；DOAC/warfarin 為 Class 3 Harm
+・腦腫瘤：DOAC 可優於 LMWH 降低 ICH 風險（Class 2B）
+
+【Anti-Xa 監測】
+・Class 3 Harm：大多數患者不需常規監測
+・例外：嚴重 CKD（CrCl < 30）→ 合理監測
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎四、重症照護支持
+
+・Norepinephrine 為首選升壓劑；≤ 15 μg/min 時對 PVR 幾無影響，> 15 μg/min 改加第二種升壓劑
+・容積復甦：D1-D2 小量輸液（≤ 500 mL），避免 RV 過載
+・吸入性肺血管擴張劑（如 inhaled NO）可降低 RV 後負荷（Class 2B）
+・Class 3 Harm：不應在無臨床必要時對 C-E 患者深度鎮靜和機械通氣（消除代償性交感張力）
+→ 麻醉誘導後 19-28% 患者需要 CPR
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎五、慢性血栓栓塞性肺疾病（CTEPD）
+
+指南刻意使用「CTEPD」取代較狹義的「CTEPH」，涵蓋有或無靜息肺高壓的持續症狀患者。
+
+・Class 1：抗凝 ≥ 3 個月後仍有呼吸困難 → 應進行 CTEPD 評估
+・Class 2A：TTE + VQ 掃描優於單獨 TTE（VQ 排除 CTEPD 的 NPV 接近 100%）
+・Class 2A：CPET 可用於排除 CTEPD
+・確診 CTEPD+PH → 轉診專業中心（PTE 手術和 BPA 為容積依賴性手術）
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎六、急性後照護與抗凝持續時間
+
+・首次 PE 無主要可逆因子 → 延長抗凝超過 3-6 個月（Class 1）
+・首次 PE 因主要可逆因子 → 3-6 個月後停藥（Class 1）
+・持續性因子（癌症、自體免疫、IBD）→ 延長抗凝（Class 2A）
+・次要可逆因子 → 共享決策（Class 2A）
+・延長抗凝選擇：DOAC 優於 VKA（Class 1）
+・旅行建議：鼓勵早期下床活動；長途旅行穿壓力襪（Class 2A）
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎十大 Take-home Messages
+
+① 全新 A-E 臨床分類系統，增強嚴重度分類和治療決策精確度
+② Category A 可安全從急診出院
+③ Category B 建議早期出院
+④ Category C/D/E 均應住院
+⑤ 進階治療對 E1 合理（2A），對 D1-D2 可考慮
+⑥ PERT 團隊建議用於改善照護時效性
+⑦ LMWH 優於 UFH
+⑧ DOAC 優於 VKA
+⑨ 無主要可逆因子 → 延長抗凝
+⑩ 至少 1 年內每次回診篩檢 CTEPD
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+本文內容完全依據影片中的講解逐字稿整理，僅反映影片中討論的指南內容與觀點，不包含額外推論。`
+};
+
 articles['article-lipid'] = {
 title: '2026 ACC/AHA 血脂異常管理指南',
 body: `【2026 ACC/AHA 血脂異常管理指南】
