@@ -80,9 +80,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 重要臨床試驗 Late-breaker 討論整理</p>
 </div>
 
-<div class="article-count">11 篇文章</div>
+<div class="article-count">12 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-cspcrt')">
+<div class="card-header">
+<span class="card-tag trial">Expert Commentary</span>
+<div class="card-title">導引系統節律治療（CSP）：取代或輔助 CRT？</div>
+<div class="card-subtitle">EHRA 2026 專家對談：希氏束與左束支節律的演進、Geisinger 植入流程、HeartSync 與巴西試驗矛盾結果、影像導引 CSP 的未來</div>
+<div class="card-meta">
+<span>Dr. Pugal Vijayaraman / Dr. Kenneth Ellenbogen</span>
+<span>EHRA 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-coralreef')">
 <div class="card-header">
 <span class="card-tag trial">On-Treatment Analysis</span>
@@ -260,6 +274,153 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-cspcrt'] = {
+title: '導引系統節律治療（CSP）：取代或輔助 CRT？',
+body: `【EHRA 2026 專家對談】導引系統節律治療（CSP）：取代或輔助 CRT？
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：Radcliffe Cardiology｜EHRA 2026（巴黎）專家對談
+對談者：
+・Dr. Kenneth Ellenbogen（主持人）
+・Dr. Pugal Vijayaraman（Geisinger School of Medicine）
+影片：https://www.youtube.com/watch?v=ldDPRYekNkU
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎前言
+
+心臟再同步治療（cardiac resynchronization therapy, CRT）傳統上以雙心室節律（BiV）加上冠狀竇（CS）電極導線完成。但近十年來，導引系統節律治療（CSP）——包含希氏束節律（HBP）與左束支節律（LBBP）——已快速崛起，挑戰 BiV 的標準地位。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎一、CSP 的發展歷史
+
+【希氏束節律（HBP）】
+・約 20 年前開始嘗試
+・最初用於心搏過緩適應症，取代右心室（RV）節律
+・相較 RV 節律可減少節律誘發心肌病
+・可有效矯正 LBBB 與 RBBB
+・挑戰：植入時閾值高、後期閾值上升
+
+【左束支區節律（LBBP）】
+・為克服 HBP 的閾值問題而發展
+・過去數年成為 CSP 領域評估重點
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎二、Geisinger 的 CSP 植入流程
+
+【LBBB 病人的決策路徑】
+① 先在 H 束區域高輸出起搏
+② 評估是否能完全矯正 LBBB
+  → 可完全矯正 → 進行 LBBP，確認 LBB capture
+  → 無法 capture 或矯正不完全 → 快速轉為 BiV
+
+【混合傳導疾病（mixed conduction disease）】
+・LBBB + 瀰漫性傳導延遲
+→ HOT-CRT（Vijayaraman 與 Ellenbogen 共同發展）
+→ 結合 CSP + LV 節律達到最大電氣再同步
+
+【情境化選擇】
+・IVCD 但無 LBBB → HBP + CS 節律
+・可矯正部分 LBBB + IVCD → LBBP + CS 節律
+・無 LBB capture → 低門檻回 BiV
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎三、四電極植入挑戰與新型 ICD 電極
+
+【挑戰】
+・需放 4 條電極（CRT-D 病人）
+・血管通路、MRI 相容性、額外電極
+
+【進展】
+・Medtronic OmniaSecure 電極：已 FDA 核准用於 LBBP
+・另一款完成臨床試驗，將於 HRS late-breaking 公布
+
+【策略】
+・典型清晰 LBBB → 傳統三電極 BiV
+・IVCD 或混合疾病 → OmniaSecure 放 LBB 位置 + CS 電極
+→ 維持 MRI 條件相容、不需額外電極
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎四、關鍵臨床試驗：CSP vs BiV 的矛盾證據
+
+【HeartSync 研究（中國，5 中心）】
+・LBBP 在典型 LBBB 病人優於 BiV ✓
+
+【巴西研究】
+・LBBP 反而劣於 BiV ✗
+・患者多為 Chagas 病
+
+【兩研究的關鍵差異】
+・LBB capture 判定標準不同
+・HRS/EHRA 過去標準特異性在 CRT 族群不佳
+・需要重新設計 LBB capture 判定標準
+
+【結論】
+→ 無 LBB capture → 臨床結果不佳
+→ 此時寧可回 BiV
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎五、階層式心臟節律（Hierarchical Cardiac Pacing）
+
+去年 HRS late-breaking clinical trial 介紹此概念。
+
+【核心發現】
+・CT 影像回溯分析 CSP 病人
+・電極越近端、越接近 H 束 → 重塑結果越好
+・支持傳統推論：盡可能接近 H 束節律
+
+【成功率目標】
+・若能看見近端傳導系統並獲得傷害電流
+→ CSP 成功率可達 90% 以上
+・若 40-60% 才在傳導系統
+→ 不會優於 CS 電極
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎六、影像導引 CSP：democratizing 此術式
+
+【目前挑戰】
+・傷害電流無法告知解剖位置
+・ECG 判讀：越深入傳導系統標準越差
+・多數醫師不願花時間做多種節律操作
+
+【影像導引願景】
+・類似 EP/ablation 的進化過程
+・多數 CRT 為選擇性病例，有時間影像導引
+・軟體未來越來越精進
+
+【Ellenbogen 預測】
+→ 視覺化傳導系統可確保電極到位
+→ 若不推進影像導引，試驗會被「電極亂放」拖累
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎七、結論
+
+【共識要點】
+・CSP 目標是捕捉 LV 心內膜，而非 LV 心外膜
+・成為 Class 1 仍需更多高品質試驗
+・需可靠判定 LBB capture 的新標準
+・近端傳導系統節律是關鍵
+・影像 + 電生理 mapping 為必要組合
+
+【進行中試驗】
+・多項中大型臨床試驗進行中
+・歷史上並非所有 CRT 試驗皆顯示益處，但整體統合分析對 LBBB 病人是強有力工具
+
+CSP 必須朝 EP/ablation 同方向演進——結合影像與 mapping，協助醫師到達近端傳導系統，為 CRT 病人達成最大電氣再同步。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+本文內容完全依據影片中的訪談逐字稿整理，僅反映對談中討論的觀點、經驗與試驗結果，不包含額外推論。`
+};
+
 articles['article-alert'] = {
 title: 'ALERT 試驗',
 body: `【ACC 2026 Late-breaker：ALERT 試驗】
