@@ -42,6 +42,7 @@ nav a.active{background:var(--accent);color:#fff}
 .card-tag.guideline{background:#fef3e2;color:#e67700}
 .card-tag.trial{background:#e8f0fe;color:#1a73e8}
 .card-tag.podcast{background:#e8f5e9;color:#2e7d32}
+.card-tag.meeting{background:#f0e8fe;color:#6f42c1}
 .card-title{font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:6px;letter-spacing:-.01em}
 .card-subtitle{font-size:.88rem;color:var(--sub);line-height:1.5;margin-bottom:12px}
 .card-meta{font-size:.75rem;color:var(--sub);display:flex;gap:12px;flex-wrap:wrap}
@@ -72,6 +73,7 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <a href="index.html" class="active">全部</a>
 <a href="trials.html">臨床試驗</a>
 <a href="guidelines.html">臨床指南</a>
+<a href="meetings.html">會議重點</a>
 <a href="cath.html">心導管介紹</a>
 <a href="cad.html">冠狀動脈疾病</a>
 <a href="hf.html">心臟衰竭</a>
@@ -84,9 +86,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 學術會議重點整理與臨床指南更新，整理自 YouTube 影片逐字稿，確保數據準確無幻覺。</p>
 </div>
 
-<div class="article-count">17 篇文章</div>
+<div class="article-count">18 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-ehra2026-boveda')">
+<div class="card-header">
+<span class="card-tag meeting">Meeting Highlights</span>
+<div class="card-title">EHRA 2026：六大將改變實務的試驗</div>
+<div class="card-subtitle">Prof Serge Boveda 巴黎現場精選：FACIL-AF/PERFECT-PAF（PFA vs Cryo）、CEPAF（首線消融）、LEFT-BUNDLE-CRT/LECART（LBB pacing）、ULYSSES（超音波導引穿刺）</div>
+<div class="card-meta">
+<span>Prof. Serge Boveda</span>
+<span>EHRA 2026</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-cspcrt')">
 <div class="card-header">
 <span class="card-tag trial">Expert Commentary</span>
@@ -349,6 +365,99 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-ehra2026-boveda'] = {
+title: 'EHRA 2026：六大將改變實務的試驗',
+body: `【EHRA 2026｜六大將改變臨床實務的試驗】
+Prof Serge Boveda 巴黎現場重點整理
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：Radcliffe Cardiology｜EHRA 2026 Late-breaking Highlights
+講者：Prof Serge Boveda（Clinic Pasteur, Toulouse, France）
+地點：法國巴黎 EHRA 2026
+影片：https://www.youtube.com/watch?v=Pf3e3s7V7ds
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎前言
+
+Prof Serge Boveda 在 EHRA 2026 巴黎現場，挑選出本屆 late-breaking session 中他認為最具臨床影響力、最可能改變日常實務的隨機試驗，重點聚焦於心房顫動消融（AF ablation）、心室節律同步治療（CRT）以及血管穿刺技術三大主題。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主題一｜陣發性心房顫動：PFA vs. Cryoablation
+
+兩項歐洲隨機試驗同時發表，一項來自法國、一項來自比利時：
+
+・PERFECT-PAF（比利時布魯塞爾大學）
+・FACIL-AF（法國格勒諾布爾大學附設醫院）
+
+兩項試驗合計約 500 名受試者，設計皆為 pulmonary vein isolation（PV 隔離）中 PFA（脈衝場消融）對比 Cryoablation（冷凍球囊消融）。
+
+【結果】
+  ✓ PFA 對比 Cryoablation 達到 non-inferiority
+  ✓ PFA 併發症有較少的趨勢（trend for less complications）
+
+→ Boveda 指出，兩項試驗傳遞一致的訊息：在陣發性心房顫動的 PV 隔離，PFA 並不劣於 Cryoablation，且在安全性上有較佳傾向。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主題二｜持續性心房顫動：首線 Cryoablation vs. 抗心律不整藥物
+
+大會第二天發表的中國試驗，針對持續性（persistent）心房顫動族群：
+
+・受試者約 500 名
+・比較首線（first-line）Cryoablation 與抗心律不整藥物治療
+
+【結果】
+  ✓ Cryoablation 表現優於抗心律不整藥物
+  → 支持在持續性 AF 患者採用第一線消融策略
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主題三｜Device Therapy：LBB Pacing vs. CRT Pacing
+
+兩項重量級試驗同場發表，比較 Left Bundle Branch（LBB）pacing 與傳統 CRT pacing：
+
+・LEFT-BUNDLE-CRT（比利時）
+・LECART（西班牙瓦倫西亞）
+
+兩項試驗隨機分派的病人數大致相當，分別對應 CRT 組與 LBB pacing 組。
+
+【結果】
+  ✓ 兩項試驗均顯示 LBB pacing 在 outcome 上具有優越性（superiority）
+
+→ Boveda 認為，這些結果將強力支持 LBB pacing 在節律同步治療中的角色。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎主題四｜ULYSSES 試驗：超音波導引靜脈穿刺
+
+來自德國的多中心試驗，可能對每日臨床操作影響最大：
+
+・1,700 名受試者隨機分派
+・比較 echo/ultrasound-guided puncture（超音波導引穿刺）與 standard approach（不使用超音波的傳統方式）
+・臨床情境：AF ablation 的靜脈穿刺
+
+【結果】
+  ✓ Ultrasound-guided puncture 併發症較少
+  → Boveda 表示，這項結果將「確立」（impose）超音波導引穿刺成為 AF 消融術中降低併發症的標準做法
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎總結
+
+Boveda 在這段現場分享中，歸納出 EHRA 2026 可能改變臨床實務的幾個方向：
+
+① 陣發性 AF：PFA 與 Cryoablation 療效相當，PFA 安全性有優勢傾向
+② 持續性 AF：首線 Cryoablation 優於抗心律不整藥物
+③ Device therapy：LBB pacing 在兩項獨立試驗中優於 CRT pacing
+④ 操作安全：超音波導引穿刺應成為 AF 消融標準作法
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 本文內容完全依據影片中 Prof Serge Boveda 的對談逐字稿整理，僅反映影片中所提及的研究數據與觀點，不包含額外推論。詳細試驗設計、統計數據與臨床適應症，仍應以各試驗正式發表的完整論文為準。`
+};
 articles['article-cspcrt'] = {
 title: '導引系統節律治療（CSP）：取代或輔助 CRT？',
 body: `【EHRA 2026 專家對談】導引系統節律治療（CSP）：取代或輔助 CRT？
