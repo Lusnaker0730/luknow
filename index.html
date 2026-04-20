@@ -86,9 +86,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>ACC 2026 學術會議重點整理與臨床指南更新，整理自 YouTube 影片逐字稿，確保數據準確無幻覺。</p>
 </div>
 
-<div class="article-count">18 篇文章</div>
+<div class="article-count">19 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-longevity-mayo')">
+<div class="card-header">
+<span class="card-tag podcast">Podcast</span>
+<div class="card-title">為長壽而吃：Mayo Clinic 心臟科醫師的 NEWS 法則</div>
+<div class="card-subtitle">Dr. Stephen Kopecky 解析 11 種長壽食物、NEWS 七件事（北東西南）、Lifespan vs Healthspan、補充品真相：60% 美國人吃補充品但壽命輸地中海國家</div>
+<div class="card-meta">
+<span>Dr. Stephen Kopecky / Tara Schmidt, RD</span>
+<span>Mayo Clinic</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-ehra2026-boveda')">
 <div class="card-header">
 <span class="card-tag meeting">Meeting Highlights</span>
@@ -365,6 +379,206 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-longevity-mayo'] = {
+title: '為長壽而吃：Mayo Clinic 心臟科醫師的 NEWS 法則',
+body: `【為長壽而吃】Mayo Clinic 心臟科醫師：11 種長壽食物 × NEWS 法則 × 補充品的真相
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：Mayo Clinic「On Nutrition」Podcast
+主持：Tara Schmidt（Mayo Clinic 註冊營養師，Rochester, MN）
+來賓：Dr. Stephen Kopecky（Mayo Clinic 心臟科醫師，《Live Younger Longer》作者）
+影片：https://www.youtube.com/watch?v=8yE-p-YOgyM
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎前言：人類活得越來越久，但活得健康嗎？
+
+美國約 60% 的人口患有某種慢性疾病——糖尿病、心臟病、肥胖。我們在「金色年華」吃些什麼、做些什麼，能避開這些命運？
+
+Dr. Kopecky 用最直接的話開場：
+
+  「沒有任何資料顯示『把對我們有益的東西放進藥丸、再用 10 倍價賣給我們』可以讓人活更久。我不是說不可能，而是這件事從未被證實過。」
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎核心觀念：Lifespan vs. Healthspan
+
+・Lifespan（壽命）：你活了幾歲
+・Healthspan（健康壽命）：你健康地活了幾歲
+・在美國，平均 lifespan 比 healthspan 長 20 年——意思是人生最後 20 年常在病痛中度過
+
+【生理年齡 vs. 實際年齡】
+  ・Chronological age：出生年起算
+  ・Biological age（細胞年齡）：身體實際的「老化程度」
+  ・Mayo 有一項 ECG-H 檢查，可推算「心臟年齡」與實際年齡比對
+  ・好消息：細胞年齡是可逆的，因為細胞每天都在更新
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎長壽 NEWS 法則（北東西南）
+
+Dr. Kopecky 為了好記，把六大健康習慣排成方位：
+
+  N（North）= Nutrition 營養
+  E（East）= Exercise 運動
+  W（West）= Weight 體重
+  S（South）= Smoking 吸菸 / Spirits 酒精 / Social-Stress 社交與壓力 / Sleep 睡眠
+
+→ 但其實是 7 件事，因為 South 包含 4 個 S
+→ Weight 排最後是因為：「如果你規律運動、體能好，體重沒那麼重要——體適能勝過體重，每一次都贏」
+→ 這些事彼此牽連：睡不好 → 吃得不好 → 不想運動 → 體重上升
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎11 種長壽食物
+
+① 豆類與莢豆（Beans & Legumes）
+  ・幾乎是所有 evidence-based 飲食法的共通項
+  ・高纖、高蛋白
+  ・與全穀類搭配可補足完整蛋白質
+  ・口訣：「能對半剝開的就是莢豆」（花生也是）
+
+② 辣椒（Chili Peppers）
+  ・辣椒素：抗發炎、止痛
+  ・多色（紅綠黃藍紫）富含不同抗氧化物
+
+③ 可可（Cocoa）
+  ・高纖、高抗氧化物
+
+④ 酪梨（Avocados）
+  ・「不要配太多薯片吃酪梨醬」
+
+⑤ 橄欖油（Olive Oil）
+  ・地中海飲食的核心
+  ・Nurses' Health Study：地中海飲食 40–50% 的好處來自抗發炎成分（橄欖油 + 堅果 + 蔬果 + 莢豆）
+  ・避開：玉米油、紅花油、芥花油等高度加工油
+
+⑥ 燕麥（Oats）
+  ・三大「黏性可溶性纖維」之一
+  ・降低膽固醇、養腸道菌叢
+
+⑦ 富含脂肪的魚（Fatty Fish）
+  ・每週 3 次效果勝於吃魚油膠囊
+
+⑧ 堅果與種子（Nuts & Seeds）
+
+⑨ 深綠葉菜（Leafy Greens）
+  ・地球上約 30 萬種可食植物 vs. 30 種可馴化動物
+
+⑩ 莓果（Berries）
+  ・鉀、鎂、維生素 C、K、纖維、益生元、抗氧化物
+
+⑪ 發酵乳製品（Fermented Dairy）
+  ・優格、克菲爾、起司
+  ・補充腸道菌叢
+  ・益生菌補充劑「不如吃發酵乳製品或德國酸菜」
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎飲食整體心得
+
+・11 樣中有 8 樣是植物性
+・腸道菌叢最愛 = 纖維（「無熱量碳水化合物」）
+・特級初榨橄欖油 + 堅果：地中海飲食的抗發炎核心
+・地中海飲食是公認最能延長 lifespan 與 healthspan 的飲食模式
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎隨年齡變化的飲食重點
+
+▸ 補水更重要
+  ・成人女性至少 2 公升/天，男性 3 公升/天
+  ・服用 GLP-1 減重藥者：至少 3 公升/天
+
+▸ 熱量需要變少，但蛋白質需求變多
+  ・1.2–1.3 公克蛋白質 / 公斤理想體重
+  ・蛋白奶昔是少數值得「喝熱量」的場合
+  ・吃多蛋白也要搭配運動，否則只變脂肪
+
+▸ 植物性飲食 ≠ 一定健康
+  ・大量超加工食品不會延壽
+  ・冷凍蔬果：Mayo Clinic 百年前先驅的「flash-freeze」技術可保留營養
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎補充品（Supplements）：實話實說
+
+【NAD+】
+  ✗ 進入體內被分解成菸鹼酸（B 群）再重組
+  → 直接吃深綠葉菜就好
+
+【白藜蘆醇 Resveratrol】
+  ✗ 紅酒中抗氧化物做成藥丸
+  → 直接吃葡萄就好
+
+【CoQ10】
+  ・服用 statin 會降低 CoQ10
+  ・若補：選擇 Ubiquinol（OL 結尾）優於 Ubiquinone
+  ・劑量：約 200 mg/day，試 3 個月
+
+【脂溶性維生素 E、D】
+  ⚠ 過量會儲存在脂肪細胞
+  ✗ 高劑量 E + β-胡蘿蔔素 → 增加心血管事件
+  ⚠ 一個 E 試驗因癌症發生率升高提前中止
+  ・維生素 D：高緯度地區合理補充
+
+【精脒 Spermidine】
+  ✗ 沒有資料證明優於均衡飲食
+
+【鎂 Magnesium】
+  ・利尿劑使用者可考慮
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎美國 vs. 地中海國家：補充品悖論
+
+  美國：60% 人口服用補充品
+  義大利：約 5%
+  希臘：約 30%
+
+  → 義大利、希臘人壽命與健康壽命都比美國人長
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎補充品的三個重要警示
+
+① 沒有任何補充品被證實可以延長壽命
+② 補充品是處方藥之後第二大的「肝功能異常元凶」
+   ・FDA 不規範、不檢驗
+③ 補充品無法抵銷壞飲食
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎額外迷思澄清：嬰兒胡蘿蔔
+
+聽眾提問：聽說嬰兒胡蘿蔔有「氯漂白」是真的嗎？
+
+  ・「嬰兒胡蘿蔔」不是特殊品種，是大胡蘿蔔切小、削皮
+  ・營養價值與整根胡蘿蔔相同
+  ・短暫氯水清洗 → 符合 FDA 與 WHO 飲用水標準
+  ・氯的用途與自來水殺菌一樣——是消毒，不是漂白
+  ・結論：盡情吃
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結論：長壽不是「一件事」
+
+Charles Mayo（Mayo Clinic 創辦人之一）：
+
+  「我希望人們明白，疾病是從多麼微小的事情開始的。」
+
+長壽從來不是「一個動作」、「一顆藥丸」、「一種食物」，而是：
+
+  ✓ NEWS 七件事的長期堆疊
+  ✓ 11 種食物的日常選擇
+  ✓ 對水分、蛋白質、纖維的留意
+  ✗ 不是補充品、不是排毒、不是「逆齡黑科技」
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 本文內容完全依據 Mayo Clinic「On Nutrition」Podcast 中 Dr. Stephen Kopecky 與 Tara Schmidt 的對談逐字稿整理，僅反映影片中討論的觀點與建議，不包含額外推論。個別補充品使用、藥物交互作用、特殊疾病飲食建議，請諮詢您的醫師或營養師。`
+};
 articles['article-ehra2026-boveda'] = {
 title: 'EHRA 2026：六大將改變實務的試驗',
 body: `【EHRA 2026｜六大將改變臨床實務的試驗】
