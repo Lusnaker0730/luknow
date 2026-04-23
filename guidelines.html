@@ -81,9 +81,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>最新臨床指南更新重點整理</p>
 </div>
 
-<div class="article-count">3 篇文章</div>
+<div class="article-count">4 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-diastology-ase2025')">
+<div class="card-header">
+<span class="card-tag guideline">Guideline</span>
+<div class="card-title">2025 ASE 超音波舒張期評估指南</div>
+<div class="card-subtitle">Dr. Elias Hanna 教學：E'、E/E'、TR velocity 三大核心 + PV 波形、LA reservoir strain、L lump、IVRT 等擴充變數；含 AF / MAC 特殊情境與運動壓力測試陽性標準</div>
+<div class="card-meta">
+<span>Dr. Elias Hanna</span>
+<span>ASE 2025</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-pe2026')">
 <div class="card-header">
 <span class="card-tag guideline">Guideline</span>
@@ -145,6 +159,252 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-diastology-ase2025'] = {
+title: '2025 ASE 超音波舒張期評估指南',
+body: `【Echo 舒張期評估：2025 ASE 指南精華與演算法】
+Dr. Elias Hanna 的簡化教學
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：YouTube｜Elias Hanna 頻道
+講者：Dr. Elias Hanna
+主題：2025 ASE 指南下的超音波舒張期功能評估
+影片：https://www.youtube.com/watch?v=3MsngAG8Pjs
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎前言：2016 vs. 2025 指南
+
+【2016 指南四大變數】
+  ① E' 降低 → 純粹反映舒張功能異常與心肌放鬆受損
+  ② E/E' 升高 → LA 壓力最佳替代指標
+  ③ TR velocity ≥2.8 m/s
+  ④ LA volume index
+
+→ 2 項：舒張功能異常，LA 壓力正常或不明
+→ 3 項以上：舒張功能異常 + LA 壓力升高
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎2025 ASE 指南：精神不變，變數擴增
+
+新增替代變數：
+  ・Pulmonary vein S/D 逆轉
+  ・Pulmonary vein A 反流異常
+  ・Isovolumic relaxation time (IVRT)
+  ・LA reservoir strain
+  ・L lump
+  ・Pulmonic regurgitation end-diastolic velocity
+
+Dr. Hanna 加一項：嚴重 LV 肥厚（ESC HFA-PEFF 演算法用）
+
+▎整體邏輯
+  ・2 項 → 舒張異常 + LA 壓力正常/不明
+  ・3 項 → 舒張異常 + LA 壓力升高
+    → E/A <2：Grade II
+    → E/A ≥2：Grade III
+
+在 HFrEF 中，變數改用來判定 LA 壓力。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎從二尖瓣血流一眼看出 LA 壓力
+
+【綠框一：反向 E/A <0.8 + E <50 cm/s】
+  → LA 壓力正常（不論有無舒張異常）
+
+【綠框二：E/A >2 在 >40 歲患者】
+  → LA 壓力升高
+  → <40 歲 E/A >2 可能是正常劇烈 LV 回彈
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎E' 為什麼是最純粹的舒張功能指標
+
+E' 只受 LV 放鬆影響，與 LA 壓力無關。
+
+▸ 正確測量
+  ・脈衝都普勒游標放在二尖瓣環與心室肌交界 5 mm 內
+  ・游標平行瓣環運動平面
+  ・取實心波形頂端
+
+▸ 正常 medial E' < lateral E'
+  因為內側瓣環連到心臟纖維骨架；外側是肌肉
+
+▸ 例外：Constrictive pericarditis 時 medial E' 反而保留
+
+▸ 2025 新正常值（多數病人 >40 歲）
+  ・Medial E' ≥ 6 cm/s
+  ・Lateral E' ≥ 7 cm/s（40–65 歲可放寬 8）
+  ・平均 E' ≥ 6.5–7 cm/s
+  ・<40 歲才套用舊標準
+
+▸ E' 不可靠的四種心衰竭
+  ① AF ② 高輸出心衰 ③ LVEF 正常 MR ④ Constrictive pericarditis
+
+▸ E' 數值不準
+  ・人工二尖瓣 ・瓣環成形環 ・嚴重 MAC
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎E 速度：LA 壓力與 LV 放鬆雙重決定
+
+  LV 放鬆快（年輕）→ E 大
+  LA 壓力高 → E 大
+  Tachycardia 或 PR 長 → E 小
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎E/E' 公式：LA 壓力最純粹的替代
+
+  E ∝ LA 壓力 × LV 放鬆
+  E' ∝ LV 放鬆
+  ∴ E/E' ∝ LA 壓力
+
+【異常標準】
+  ・Septal E/E' ≥ 15
+  ・Lateral E/E' ≥ 13
+  ・Average E/E' ≥ 14
+
+【重要計算】
+  Average E/E' = E ÷ [(Septal E' + Lateral E') / 2]
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎LA 容積：LA 壓力的歷史足跡
+
+LA 擴大反映某時刻壓力曾升高，不等於當下仍高。
+
+【仍可能正常】長期代償良好／偶發性壓力升高
+【非 LV 異常原因】持續性 AF、嚴重肥胖、二尖瓣疾病
+
+測量：Apical 4 + 2 chamber，收縮末期，Method of disks
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎E DT：高壓下 E 又高又短
+
+【異常：DT <140–160 ms】
+
+此類患者降心率無助填充，反需輕微 tachycardia。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎L lump：LA 無法 accommodate
+
+【異常：L wave ≥ 40 cm/s】
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎IVRT：LA 壓力越高，IVRT 越短（反直覺）
+
+  ・代償期舒張異常 → IVRT 延長
+  ・失代償高 LA 壓力 → IVRT <70 ms
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎肺靜脈波形
+
+  S 對應 X descent（S=X）
+  D 對應 Y descent
+  A reversal 對應心房收縮
+
+▸ <40 歲：D > S
+▸ 老年人：S ≥ D
+
+【異常標準】
+  ・S/D <2/3
+  ・完整 S reversal：重度 MR 最特異
+
+▎PV A reversal：LVEDP 獨家指標
+
+【異常】
+  ・振幅 >35 cm/s
+  ・比 mitral A duration 長 >30 ms
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎B bump（M-mode）
+
+Parasternal long axis 的 M-mode 下，二尖瓣於心房收縮後 LVEDP 過高造成瓣葉反向推開 → 反映 LVEDP。
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎實例：Grade III 舒張功能異常
+
+Dr. Hanna 示範案例：
+  ・Lateral E' = 6 cm/s
+  ・E/A = 3
+  ・L lump ≈ 50 cm/s
+  ・DT <160 ms
+  ・Lateral E/E' = 23
+  ・PV S/D 反轉
+  ・PV A duration 157 ms vs. mitral A 95 ms
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎LA Reservoir Strain
+
+【正常：>+18%】
+
+LA compliance 耗盡 → 無法擴張 → 壓力飆升
+→ 低 LA reservoir strain = LA 壓力升高
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎PR velocity：肺動脈壓推估
+
+▸ End-diastolic velocity² ≈ PAD − RVEDP
+  PAD ≈ velocity² + RA pressure
+
+▸ 限制：數值小，測量誤差大
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎特殊情境 ①｜AF
+
+【AF 專用】
+  ・Medial E/E' cutoff 改為 ≥ 11
+  ・推薦：低 DT、低 IVRT
+  ・多心動週期平均（5 週期）
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎特殊情境 ②｜MAC
+
+MAC 使 E/E' 失準，改用：
+  ・E/A <0.8：正常
+  ・E/A >1.8：LA 壓力升高
+  ・IVRT <80 ms：LA 壓力升高
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎舒張期運動壓力測試
+
+▸ 測量時機：跑步機後 1–2 分鐘恢復期（心跳約 100）
+  → 不在 peak exercise（E 與 A 會融合）
+
+【陽性判讀】
+  ・Septal E/E' ≥ 15
+  ・Average E/E' ≥ 14
+  ・TR velocity >3.2 m/s（非靜息 2.8）
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結論演算法
+
+  ① 三大核心：E'、E/E'、TR velocity（+ LA volume）
+  ② 擴充變數：PV S/D、PV A reversal、IVRT、LA strain、L lump、PR、LVH
+
+  ▸ 2 項 → 舒張異常 + LA 壓力正常/不明（Grade I）
+  ▸ 3 項 → 舒張異常 + LA 壓力升高
+    → E/A <2：Grade II
+    → E/A ≥2：Grade III
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 本文內容完全依據 Dr. Elias Hanna 在 YouTube 上的對 2025 ASE 指南教學影片逐字稿整理，僅反映影片中講解的觀點與建議，不包含額外推論。實際臨床判讀仍應參考完整 2025 ASE 指南原文、個別病患情境與其他臨床資訊。`
+};
 articles['article-pe2026'] = {
 title: '2026 AHA/ACC 急性肺栓塞指南',
 body: `【2026 AHA/ACC 急性肺栓塞指南】首部專屬指南深度解析：分類、進階治療、抗凝與長期照護
