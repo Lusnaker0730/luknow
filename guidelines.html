@@ -81,9 +81,23 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 <p>最新臨床指南更新重點整理</p>
 </div>
 
-<div class="article-count">4 篇文章</div>
+<div class="article-count">5 篇文章</div>
 
 <div class="cards">
+<div class="card" onclick="openModal('article-ehra-aad-compendium')">
+<div class="card-header">
+<span class="card-tag guideline">Guideline</span>
+<div class="card-title">EHRA 抗心律不整藥物實用大全</div>
+<div class="card-subtitle">消融時代為何仍需要 AAD？ABC 框架（Appropriate/Backup/Complementary）、Vaughan Williams 更新（Class 0、1D）、三步驟選藥流程、新型吸入/噴霧型 PIP</div>
+<div class="card-meta">
+<span>Prof. José Luis Merino</span>
+<span>Radcliffe / EHRA 2025</span>
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</div>
 <div class="card" onclick="openModal('article-diastology-ase2025')">
 <div class="card-header">
 <span class="card-tag guideline">Guideline</span>
@@ -159,6 +173,179 @@ footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;bor
 
 <script>
 const articles = {};
+articles['article-ehra-aad-compendium'] = {
+title: 'EHRA 抗心律不整藥物實用大全 - 消融時代為何仍需要 AAD',
+body: `【EHRA 抗心律不整藥物實用大全】消融時代為何仍需要 AAD？
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+來源：Arrhythmia Academy Journal Club｜Radcliffe Cardiology
+主持：Prof. Serge Boveda（Clinic Pasteur, Toulouse, 法國）
+講者：Prof. José Luis Merino（La Paz University Hospital, Madrid, 西班牙；EHRA 主席 2022–2024）
+影片：https://www.youtube.com/watch?v=6vpMwRzumec
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎為什麼消融時代還需要抗心律不整藥物？
+
+導管消融技術不斷進步，但抗心律不整藥物（anti-arrhythmic drugs, AAD）在臨床上仍扮演核心角色。以西班牙為例：
+
+・人口約 5,000 萬，AF 盛行率約 1.5%
+・推估 AF 患者約 75 萬人
+・2023 年僅執行約 10,000 例 AF 消融
+→ 約 1.5% 的 AF 患者實際接受消融治療
+
+即便在歐洲消融比例最高的比利時，比例也仍偏低。一項美國近期的登錄研究亦顯示，許多 AF 患者在消融後仍持續使用 AAD。
+
+→ AAD 在可見的未來仍是不可或缺的治療工具
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎ABC 框架：AAD 的三類臨床定位
+
+EHRA 文件提出 ABC 框架，協助臨床決策：
+
+【A. Appropriate（適當的主要適應症）】
+・急性期心律不整治療
+・通道病變（channelopathies）的初級治療
+・患者偏好等情境
+
+【B. Backup（後備治療）】
+・消融失敗
+・消融出現副作用
+
+【C. Complementary（輔助治療）】
+・消融前等待期或術後過渡期（後消融瞬時恢復期）
+・ICD 患者：避免過多裝置電擊
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎Vaughan Williams 分類更新
+
+舊版分類無法涵蓋新藥物與新機轉，更新版本納入：
+
+・Class 0：If 電流阻斷劑（如 ivabradine）
+・Class 1D：ranolazine（新增子分類）
+・Class 2 擴展：除 β 阻斷劑外，亦納入 β 致效劑、迷走神經活化劑
+・其他納入：adenosine 等
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎AAD 選擇的三步驟流程
+
+【第一步：確認主要靶點】
+→ 第一欄（竇房結 / 房室結）：
+　Class 0、2、4
+　（ivabradine、β 阻斷劑、鈣離子通道阻斷劑、digoxin）
+→ 第二欄（心房或心室肌肉）：
+　Class 1、Class 3
+
+【第二步：是否有心室功能不良或心肌疤痕？】
+若有：
+✗ 避免第一欄的鈣離子通道阻斷劑
+✗ 避免第二欄的 Class 1 藥物
+
+【第三步：是否有重度（advanced）心衰竭？】
+若有：
+✗ 避免 dofetilide
+✗ 避免 sotalol
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎臨床案例：一位被 amiodarone「治好太久」的病人
+
+【病史】
+・77 歲男性，被動吸煙者
+・有心肌梗塞病史
+・輕度心室功能不良
+・頻繁陣發性 AF 發作
+
+【依流程圖建議的選擇】
+→ 因為患者沒有進階心臟病、EF 仍保留
+→ 應優先選擇 dronedarone
+
+【實際治療】
+→ 給予 amiodarone（在許多國家是常見選擇）
+
+【五年後】
+・出現呼吸困難
+・胸部 X 光與 CT 異常，病理確認為 amiodarone 引起的肺毒性
+✓ 停藥並給予類固醇後 3 個月，影像顯著改善
+
+→ 提醒：amiodarone 雖極為有效，但長期使用需密切監測肺、甲狀腺等器官毒性
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎AAD 安全性：毒性與致心律不整風險
+
+【典型毒性】
+・amiodarone：甲狀腺機能低下／亢進、肺毒性
+
+【致心律不整（pro-arrhythmia）風險】
+・高風險：quinidine（QT 延長）
+・中風險：flecainide、propafenone
+　→ 不延長 QT，但可能將 AF 轉為心房撲動（atrial flutter）
+・低風險：β 阻斷劑、amiodarone、dronedarone
+　→ 多以心搏過慢（bradyarrhythmia）表現
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎口袋藥（Pill in the Pocket）的未來：仍然光明
+
+傳統口服 PIP（如 flecainide、propafenone）仍有效，但新型給藥方式正在崛起：
+
+【吸入型 flecainide】
+・吸入後直接進入血流與左心房
+・起效快速
+・臨床試驗結果：與安慰劑相比有顯著差異
+・轉律效率仍中等（首次試驗劑量保守，避免副作用）
+
+【鼻噴劑 etripamil（鈣離子通道阻斷劑）】
+・FDA 已核准用於陣發性室上心搏過速（SVT）轉律
+・患者可在家中自行使用，便利性高
+・另一試驗：用於 AF 心率控制
+　→ 雖然半衰期短，但心率控制效果可持續至少 3 小時
+　　（推測：早期控制心率後，自律神經反饋有助維持效果）
+
+→ 「Pill in the pocket」並未過時，反而正在演化成「Spray in the pocket」
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎心室心律不整（VA）的 AAD 處方
+
+【根據心臟結構分流】
+→ 無進階心臟病：選項較多
+→ 有進階心臟病：選擇受限
+
+【多型性 VT】
+→ 多與通道病變相關，依特定通道（如 LQT 各型）選擇用藥
+
+【藥物組合策略】
+✓ 安全且常用：β 阻斷劑 + 其他 AAD
+✓ 已熟悉：amiodarone + quinidine + mexiletine
+✓ 較少用但仍可用：sotalol + mexiletine 或 flecainide
+✗ 文件中亦明列「不建議的組合」
+
+※ 任何 AAD 組合都需在嚴密監控下使用
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+▎結語與延伸閱讀
+
+EHRA 抗心律不整藥物實用大全：
+・主檔：發表於 Europace（約 91 頁，含豐富圖表與補充資料）
+・摘要版（10 個重點訊息）：發表於 European Heart Journal
+
+【核心訊息】
+① 消融時代並未取代 AAD，反而需要更系統化的選藥策略
+② ABC 框架幫助釐清 AAD 在臨床的真實定位
+③ 安全性與致心律不整風險，與藥效同等重要
+④ 新型給藥方式（吸入、噴霧）正為患者提供更多便利選項
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠ 本文內容完全依據影片中的對談逐字稿整理，僅反映影片中討論的研究數據與觀點，不包含額外推論。`
+};
 articles['article-diastology-ase2025'] = {
 title: '2025 ASE 超音波舒張期評估指南',
 body: `【Echo 舒張期評估：2025 ASE 指南精華與演算法】
