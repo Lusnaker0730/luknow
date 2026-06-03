@@ -33,6 +33,7 @@ const BASE_PAGES = [
   { f: 'cad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'hf.html',         changefreq: 'monthly', priority: '0.8' },
   { f: 'htn.html',        changefreq: 'monthly', priority: '0.8' },
+  { f: 'chol.html',       changefreq: 'monthly', priority: '0.8' },
 ];
 
 const slug = id => id.replace(/^article-/, '');
@@ -116,6 +117,7 @@ const NAV = `<nav>
 <a href="../cad.html">冠狀動脈疾病</a>
 <a href="../hf.html">心臟衰竭</a>
 <a href="../htn.html">高血壓</a>
+<a href="../chol.html">膽固醇</a>
 </nav>`;
 
 const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
@@ -296,6 +298,22 @@ function migrateListPage(file) {
 }
 
 // ---------------------------------------------------------------------------
+// 4b. Ensure hand-written root pages carry the full nav (idempotent)
+// ---------------------------------------------------------------------------
+const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html'];
+function ensureNav() {
+  let n = 0;
+  for (const f of ROOT_HTML) {
+    let html = read(f);
+    if (html.includes('href="chol.html"')) continue;
+    const before = html;
+    html = html.replace(/(<a href="htn\.html"[^>]*>高血壓<\/a>)/, '$1\n<a href="chol.html">膽固醇</a>');
+    if (html !== before) { write(f, html); n++; }
+  }
+  console.log(`  ensureNav: added 膽固醇 link to ${n} page(s)`);
+}
+
+// ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
 function main() {
@@ -314,6 +332,7 @@ function main() {
     const r = migrateListPage(f);
     console.log(`  migrated ${f}: ${r.cards} cards -> links${r.changed ? '' : ' (no change)'}`);
   }
+  ensureNav();
   console.log('done.');
 }
 
