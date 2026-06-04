@@ -22,7 +22,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://lusnaker0730.github.io/luknow';
 const OG_IMAGE = BASE_URL + '/og-image.png';
-const TODAY = '2026-06-03';
+const TODAY = '2026-06-04';
 const LIST_PAGES = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html'];
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
@@ -34,6 +34,8 @@ const BASE_PAGES = [
   { f: 'hf.html',         changefreq: 'monthly', priority: '0.8' },
   { f: 'htn.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'chol.html',       changefreq: 'monthly', priority: '0.8' },
+  { f: 'stroke.html',     changefreq: 'monthly', priority: '0.8' },
+  { f: 'afib.html',       changefreq: 'monthly', priority: '0.8' },
 ];
 
 const slug = id => id.replace(/^article-/, '');
@@ -118,6 +120,8 @@ const NAV = `<nav>
 <a href="../hf.html">心臟衰竭</a>
 <a href="../htn.html">高血壓</a>
 <a href="../chol.html">膽固醇</a>
+<a href="../stroke.html">中風</a>
+<a href="../afib.html">心房顫動</a>
 </nav>`;
 
 const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
@@ -300,17 +304,28 @@ function migrateListPage(file) {
 // ---------------------------------------------------------------------------
 // 4b. Ensure hand-written root pages carry the full nav (idempotent)
 // ---------------------------------------------------------------------------
-const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html'];
+const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html'];
+// topic-page nav links in order; each missing one is inserted right after the previous link
+const NAV_CHAIN = [
+  { href: 'htn.html',    label: '高血壓' },
+  { href: 'chol.html',   label: '膽固醇' },
+  { href: 'stroke.html', label: '中風' },
+  { href: 'afib.html',   label: '心房顫動' },
+];
 function ensureNav() {
-  let n = 0;
+  let changed = 0;
   for (const f of ROOT_HTML) {
     let html = read(f);
-    if (html.includes('href="chol.html"')) continue;
     const before = html;
-    html = html.replace(/(<a href="htn\.html"[^>]*>高血壓<\/a>)/, '$1\n<a href="chol.html">膽固醇</a>');
-    if (html !== before) { write(f, html); n++; }
+    for (let i = 1; i < NAV_CHAIN.length; i++) {
+      const cur = NAV_CHAIN[i], prev = NAV_CHAIN[i - 1];
+      if (html.includes(`href="${cur.href}"`)) continue;
+      const re = new RegExp(`(<a href="${prev.href.replace(/\./g, '\\.')}"[^>]*>${prev.label}</a>)`);
+      html = html.replace(re, `$1\n<a href="${cur.href}">${cur.label}</a>`);
+    }
+    if (html !== before) { write(f, html); changed++; }
   }
-  console.log(`  ensureNav: added 膽固醇 link to ${n} page(s)`);
+  console.log(`  ensureNav: updated ${changed} page(s)`);
 }
 
 // ---------------------------------------------------------------------------
