@@ -36,6 +36,10 @@ const BASE_PAGES = [
   { f: 'chol.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'stroke.html',     changefreq: 'monthly', priority: '0.8' },
   { f: 'afib.html',       changefreq: 'monthly', priority: '0.8' },
+  { f: 'mi.html',         changefreq: 'monthly', priority: '0.8' },
+  { f: 'dm.html',         changefreq: 'monthly', priority: '0.8' },
+  { f: 'pad.html',        changefreq: 'monthly', priority: '0.8' },
+  { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
 ];
 
 const slug = id => id.replace(/^article-/, '');
@@ -122,6 +126,10 @@ const NAV = `<nav>
 <a href="../chol.html">膽固醇</a>
 <a href="../stroke.html">中風</a>
 <a href="../afib.html">心房顫動</a>
+<a href="../mi.html">心臟病發作</a>
+<a href="../dm.html">糖尿病</a>
+<a href="../pad.html">周邊動脈疾病</a>
+<a href="../le8.html">保健八要素</a>
 </nav>`;
 
 const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
@@ -304,13 +312,17 @@ function migrateListPage(file) {
 // ---------------------------------------------------------------------------
 // 4b. Ensure hand-written root pages carry the full nav (idempotent)
 // ---------------------------------------------------------------------------
-const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html'];
+const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html'];
 // topic-page nav links in order; each missing one is inserted right after the previous link
 const NAV_CHAIN = [
   { href: 'htn.html',    label: '高血壓' },
   { href: 'chol.html',   label: '膽固醇' },
   { href: 'stroke.html', label: '中風' },
   { href: 'afib.html',   label: '心房顫動' },
+  { href: 'mi.html',     label: '心臟病發作' },
+  { href: 'dm.html',     label: '糖尿病' },
+  { href: 'pad.html',    label: '周邊動脈疾病' },
+  { href: 'le8.html',    label: '保健八要素' },
 ];
 function ensureNav() {
   let changed = 0;
