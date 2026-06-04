@@ -29,6 +29,7 @@ const BASE_PAGES = [
   { f: 'trials.html',     changefreq: 'weekly',  priority: '0.9' },
   { f: 'guidelines.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'meetings.html',   changefreq: 'weekly',  priority: '0.9' },
+  { f: 'health.html',     changefreq: 'monthly', priority: '0.8' },
   { f: 'cath.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'hf.html',         changefreq: 'monthly', priority: '0.8' },
@@ -114,23 +115,19 @@ function loadArticles() {
 // ---------------------------------------------------------------------------
 // 2. Post page template
 // ---------------------------------------------------------------------------
-const NAV = `<nav>
-<a href="../index.html">全部</a>
-<a href="../trials.html">臨床試驗</a>
-<a href="../guidelines.html">臨床指南</a>
-<a href="../meetings.html">會議重點</a>
-<a href="../cath.html">心導管介紹</a>
-<a href="../cad.html">冠狀動脈疾病</a>
-<a href="../hf.html">心臟衰竭</a>
-<a href="../htn.html">高血壓</a>
-<a href="../chol.html">膽固醇</a>
-<a href="../stroke.html">中風</a>
-<a href="../afib.html">心房顫動</a>
-<a href="../mi.html">心臟病發作</a>
-<a href="../dm.html">糖尿病</a>
-<a href="../pad.html">周邊動脈疾病</a>
-<a href="../le8.html">保健八要素</a>
-</nav>`;
+const TOPNAV = [
+  ['index.html', '全部'],
+  ['trials.html', '臨床試驗'],
+  ['guidelines.html', '臨床指南'],
+  ['meetings.html', '會議重點'],
+  ['health.html', '衛教'],
+];
+function navHtml(active, prefix) {
+  return '<nav>\n' + TOPNAV.map(([href, label]) =>
+    `<a href="${prefix}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`
+  ).join('\n') + '\n</nav>';
+}
+const NAV = navHtml(null, '../');
 
 const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b;--accent:#0071e3;--border:#d2d2d7;--shadow:0 2px 12px rgba(0,0,0,.08)}
@@ -312,32 +309,22 @@ function migrateListPage(file) {
 // ---------------------------------------------------------------------------
 // 4b. Ensure hand-written root pages carry the full nav (idempotent)
 // ---------------------------------------------------------------------------
-const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html'];
-// topic-page nav links in order; each missing one is inserted right after the previous link
-const NAV_CHAIN = [
-  { href: 'htn.html',    label: '高血壓' },
-  { href: 'chol.html',   label: '膽固醇' },
-  { href: 'stroke.html', label: '中風' },
-  { href: 'afib.html',   label: '心房顫動' },
-  { href: 'mi.html',     label: '心臟病發作' },
-  { href: 'dm.html',     label: '糖尿病' },
-  { href: 'pad.html',    label: '周邊動脈疾病' },
-  { href: 'le8.html',    label: '保健八要素' },
-];
-function ensureNav() {
-  let changed = 0;
+const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'health.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html'];
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html']);
+function navActiveFor(f) {
+  if (TOPNAV.some(([h]) => h === f)) return f;   // a top-level page → itself active
+  if (TOPIC_PAGES.has(f)) return 'health.html';  // a 衛教 topic page → 衛教 active
+  return null;
+}
+// Replace every root page's <nav>...</nav> with the canonical 5-item nav (idempotent)
+function rewriteNav() {
+  let n = 0;
   for (const f of ROOT_HTML) {
-    let html = read(f);
-    const before = html;
-    for (let i = 1; i < NAV_CHAIN.length; i++) {
-      const cur = NAV_CHAIN[i], prev = NAV_CHAIN[i - 1];
-      if (html.includes(`href="${cur.href}"`)) continue;
-      const re = new RegExp(`(<a href="${prev.href.replace(/\./g, '\\.')}"[^>]*>${prev.label}</a>)`);
-      html = html.replace(re, `$1\n<a href="${cur.href}">${cur.label}</a>`);
-    }
-    if (html !== before) { write(f, html); changed++; }
+    const html = read(f);
+    const out = html.replace(/<nav>[\s\S]*?<\/nav>/, navHtml(navActiveFor(f), ''));
+    if (out !== html) { write(f, out); n++; }
   }
-  console.log(`  ensureNav: updated ${changed} page(s)`);
+  console.log(`  rewriteNav: updated ${n} page(s)`);
 }
 
 // ---------------------------------------------------------------------------
@@ -359,7 +346,7 @@ function main() {
     const r = migrateListPage(f);
     console.log(`  migrated ${f}: ${r.cards} cards -> links${r.changed ? '' : ' (no change)'}`);
   }
-  ensureNav();
+  rewriteNav();
   console.log('done.');
 }
 
