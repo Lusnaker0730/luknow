@@ -348,6 +348,26 @@ function applyShell(file, active) {
 }
 
 // ---------------------------------------------------------------------------
+// place a topic illustration at the top of each 衛教 page hero (idempotent)
+// ---------------------------------------------------------------------------
+const TOPIC_ILLO = {
+  'cath.html': ['cath', '心導管檢查'], 'cad.html': ['cad', '冠狀動脈疾病'], 'hf.html': ['hf', '心臟衰竭'],
+  'htn.html': ['htn', '高血壓'], 'chol.html': ['chol', '膽固醇'], 'stroke.html': ['stroke', '中風'],
+  'afib.html': ['afib', '心房顫動'], 'mi.html': ['mi', '心臟病發作'], 'dm.html': ['dm', '糖尿病'],
+  'pad.html': ['pad', '周邊動脈疾病'], 'le8.html': ['le8', '心血管保健八要素'],
+};
+function placeIllos() {
+  let n = 0;
+  for (const [file, [key, label]] of Object.entries(TOPIC_ILLO)) {
+    const html = read(file);
+    if (html.includes('class="topic-illo"')) continue;
+    const out = html.replace('<div class="hero">', `<div class="hero">\n<img class="topic-illo" src="img/illo/${key}.jpg" alt="${label}插畫" width="168" height="168">`);
+    if (out !== html) { write(file, out); n++; }
+  }
+  console.log(`  placeIllos: ${n} page(s)`);
+}
+
+// ---------------------------------------------------------------------------
 // sitemap
 // ---------------------------------------------------------------------------
 function renderSitemap(articles) {
@@ -391,6 +411,8 @@ function main() {
     if (applyShell(f, navActiveFor(f))) n++;
   }
   console.log(`  applyShell: updated ${n} root page(s)`);
+
+  placeIllos();
 
   write('sitemap.xml', renderSitemap(articles));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + articles.length} urls`);
