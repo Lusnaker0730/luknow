@@ -226,12 +226,12 @@ ${shellHeader('index.html', '')}
 <a href="health.html" class="more">查看全部 11 個主題 →</a>
 </div>
 <div class="tilegrid">
-<a class="tile" href="htn.html"><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="chol.html"><span class="tag risk">危險因子</span><h4>膽固醇</h4><p>LDL／HDL／三酸甘油酯、血脂參考數值，以及如何控制。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="dm.html"><span class="tag risk">危險因子</span><h4>糖尿病與心血管</h4><p>為何大幅提高心臟病與中風風險，以及 ABC 控制重點。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="stroke.html"><span class="tag disease">疾病</span><h4>中風</h4><p>三種類型、F.A.S.T. 辨識、為何分秒必爭、風險與預防。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="afib.html"><span class="tag disease">疾病</span><h4>心房顫動</h4><p>中風風險約 5 倍、診斷，以及抗凝／心率／節律三方向治療。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="le8.html"><span class="tag prevent">預防保健</span><h4>保健八要素</h4><p>Life's Essential 8：四項健康行為＋四項健康因子。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="htn.html"><img class="tile-illo" src="img/illo/htn.jpg" alt=""><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="chol.html"><img class="tile-illo" src="img/illo/chol.jpg" alt=""><span class="tag risk">危險因子</span><h4>膽固醇</h4><p>LDL／HDL／三酸甘油酯、血脂參考數值，以及如何控制。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="dm.html"><img class="tile-illo" src="img/illo/dm.jpg" alt=""><span class="tag risk">危險因子</span><h4>糖尿病與心血管</h4><p>為何大幅提高心臟病與中風風險，以及 ABC 控制重點。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="stroke.html"><img class="tile-illo" src="img/illo/stroke.jpg" alt=""><span class="tag disease">疾病</span><h4>中風</h4><p>三種類型、F.A.S.T. 辨識、為何分秒必爭、風險與預防。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="afib.html"><img class="tile-illo" src="img/illo/afib.jpg" alt=""><span class="tag disease">疾病</span><h4>心房顫動</h4><p>中風風險約 5 倍、診斷，以及抗凝／心率／節律三方向治療。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="le8.html"><img class="tile-illo" src="img/illo/le8.jpg" alt=""><span class="tag prevent">預防保健</span><h4>保健八要素</h4><p>Life's Essential 8：四項健康行為＋四項健康因子。</p><span class="go">閱讀 →</span></a>
 </div>
 </div>
 </section>
@@ -366,6 +366,16 @@ function placeIllos() {
   }
   console.log(`  placeIllos: ${n} page(s)`);
 }
+// add a thumbnail illustration to each 衛教 card on health.html (idempotent)
+function placeHubIllos() {
+  const file = 'health.html';
+  let html = read(file);
+  if (html.includes('class="card-illo"')) { console.log('  placeHubIllos: already present'); return; }
+  html = html.replace(/<a class="card" href="([a-z0-9]+)\.html">\s*\n<div class="card-header">/g,
+    (m, key) => `<a class="card" href="${key}.html">\n<img class="card-illo" src="img/illo/${key}.jpg" alt="">\n<div class="card-header">`);
+  write(file, html);
+  console.log('  placeHubIllos: health.html updated');
+}
 
 // ---------------------------------------------------------------------------
 // sitemap
@@ -413,6 +423,7 @@ function main() {
   console.log(`  applyShell: updated ${n} root page(s)`);
 
   placeIllos();
+  placeHubIllos();
 
   write('sitemap.xml', renderSitemap(articles));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + articles.length} urls`);

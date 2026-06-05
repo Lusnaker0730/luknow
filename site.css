@@ -50,6 +50,8 @@ nav.top a.cta:hover{background:var(--accent);color:#fff}
 .hero p{color:var(--ink-2);max-width:36em;margin:0 auto;font-size:1.02rem}
 .topic-illo{display:block;width:168px;height:168px;object-fit:contain;margin:0 auto 4px;mix-blend-mode:multiply}
 @media(max-width:520px){.topic-illo{width:132px;height:132px}}
+.card-illo{display:block;width:100%;height:130px;object-fit:contain;padding:14px 14px 0;mix-blend-mode:multiply}
+.tile-illo{display:block;width:82px;height:82px;object-fit:contain;margin-bottom:8px;mix-blend-mode:multiply}
 .article-count{position:relative;z-index:2;text-align:center;color:var(--muted);font-size:.82rem;letter-spacing:.04em;margin-top:14px}
 
 /* ---------- card grid (index / list / health) ---------- */
