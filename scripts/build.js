@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 /*
- * luknow static-site builder
- * --------------------------------------------------
- * Single source of truth: data/articles.json
- *   (bootstrapped on first run from the articles{} object in index.html)
+ * luknow static-site builder  (visual system v2 — site.css)
+ * --------------------------------------------------------------
+ * Single source of truth for articles: data/articles.json
+ * Single source of truth for styling : site.css
  *
  * What it does:
- *   1. Load the 22 article records (id, title, body, tag, subtitle, meta, date)
- *   2. Generate posts/<slug>.html for each — full <head> SEO + MedicalWebPage JSON-LD
- *   3. Regenerate sitemap.xml (8 base pages + every post)
- *   4. Migrate the 4 list pages (index/trials/guidelines/meetings):
- *        - card  <div onclick="openModal('id')">  →  <a href="posts/slug.html">
- *        - drop the duplicated articles{} <script> and the modal markup
- *      (idempotent — safe to re-run)
+ *   1. Load article records from data/articles.json
+ *   2. Generate index.html (branded homepage incl. full article grid)
+ *   3. Generate posts/<slug>.html (article pages, shared shell)
+ *   4. Apply the shared shell (fonts + site.css + canonical header/footer)
+ *      to every other root page, replacing their inline <style>/<header>/<footer>
+ *   5. Regenerate sitemap.xml
  *
  * Usage:  node scripts/build.js
  */
@@ -22,8 +21,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://lusnaker0730.github.io/luknow';
 const OG_IMAGE = BASE_URL + '/og-image.png';
-const TODAY = '2026-06-04';
-const LIST_PAGES = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html'];
+const TODAY = '2026-06-05';
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
   { f: 'trials.html',     changefreq: 'weekly',  priority: '0.9' },
@@ -42,79 +40,8 @@ const BASE_PAGES = [
   { f: 'pad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
 ];
-
-const slug = id => id.replace(/^article-/, '');
-const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
-const write = (f, c) => fs.writeFileSync(path.join(ROOT, f), c);
-
-const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const escAttr = s => escHtml(s).replace(/"/g, '&quot;');
-const decodeEnt = s => String(s)
-  .replace(/&rarr;/g, '→').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
-  .replace(/&gt;/g, '>').replace(/&middot;/g, '·').replace(/&le;/g, '≤').replace(/&ge;/g, '≥');
-const toDesc = s => decodeEnt(String(s).replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim().slice(0, 150);
-
-// ---------------------------------------------------------------------------
-// 1. Load articles (bootstrap from index.html on first run)
-// ---------------------------------------------------------------------------
-function extractFromIndex() {
-  const html = read('index.html');
-  const start = html.indexOf('const articles = {};');
-  const end = html.indexOf('function openModal');
-  if (start < 0 || end < 0) throw new Error('Cannot locate articles{} block in index.html');
-  const code = html.slice(start, end);
-  const articles = new Function(code + '\nreturn articles;')();
-
-  // card metadata (tag / subtitle / meta spans) per id
-  const meta = {};
-  const cardRe = /<div class="card" onclick="openModal\('([^']+)'\)">([\s\S]*?)<div class="card-footer">/g;
-  let m;
-  while ((m = cardRe.exec(html)) !== null) {
-    const id = m[1], inner = m[2];
-    const tag = inner.match(/<span class="card-tag (\w+)">([^<]*)<\/span>/);
-    const sub = inner.match(/<div class="card-subtitle">([\s\S]*?)<\/div>/);
-    const metaBlock = inner.match(/<div class="card-meta">([\s\S]*?)<\/div>/);
-    const spans = metaBlock ? [...metaBlock[1].matchAll(/<span>([^<]*)<\/span>/g)].map(x => x[1].trim()) : [];
-    meta[id] = {
-      tagCls: tag ? tag[1] : 'trial',
-      tagLabel: tag ? tag[2] : '文章',
-      subtitle: sub ? sub[1].trim() : '',
-      metaSpans: spans,
-    };
-  }
-
-  const records = Object.keys(articles).map(id => {
-    const md = meta[id] || { tagCls: 'trial', tagLabel: '文章', subtitle: '', metaSpans: [] };
-    const date = (md.metaSpans.find(s => /^\d{4}-\d{2}-\d{2}$/.test(s))) || null;
-    return {
-      id, slug: slug(id),
-      title: articles[id].title,
-      body: articles[id].body,
-      tagCls: md.tagCls,
-      tagLabel: md.tagLabel,
-      subtitle: md.subtitle,
-      meta: md.metaSpans,
-      date,
-    };
-  });
-  return records;
-}
-
-function loadArticles() {
-  const dataPath = path.join(ROOT, 'data', 'articles.json');
-  if (fs.existsSync(dataPath)) {
-    return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-  }
-  const records = extractFromIndex();
-  fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });
-  fs.writeFileSync(dataPath, JSON.stringify(records, null, 2));
-  console.log(`  bootstrapped data/articles.json (${records.length} records)`);
-  return records;
-}
-
-// ---------------------------------------------------------------------------
-// 2. Post page template
-// ---------------------------------------------------------------------------
+const ROOT_HTML = BASE_PAGES.map(p => p.f);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html']);
 const TOPNAV = [
   ['index.html', '全部'],
   ['trials.html', '臨床試驗'],
@@ -122,57 +49,236 @@ const TOPNAV = [
   ['meetings.html', '會議重點'],
   ['health.html', '衛教'],
 ];
-function navHtml(active, prefix) {
-  return '<nav>\n' + TOPNAV.map(([href, label]) =>
-    `<a href="${prefix}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`
-  ).join('\n') + '\n</nav>';
+
+const slug = id => id.replace(/^article-/, '');
+const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
+const write = (f, c) => fs.writeFileSync(path.join(ROOT, f), c);
+const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escAttr = s => escHtml(s).replace(/"/g, '&quot;');
+const decodeEnt = s => String(s).replace(/&rarr;/g, '→').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&middot;/g, '·').replace(/&le;/g, '≤').replace(/&ge;/g, '≥');
+const toDesc = s => decodeEnt(String(s).replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim().slice(0, 150);
+
+function loadArticles() {
+  const dataPath = path.join(ROOT, 'data', 'articles.json');
+  if (!fs.existsSync(dataPath)) throw new Error('data/articles.json not found');
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 }
-const NAV = navHtml(null, '../');
 
-const STYLE = `*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b;--accent:#0071e3;--border:#d2d2d7;--shadow:0 2px 12px rgba(0,0,0,.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
-header{background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.header-inner{max-width:980px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.site-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
-.site-title span{color:var(--accent)}
-.site-title a{color:inherit;text-decoration:none}
-nav{display:flex;gap:4px;flex-wrap:wrap}
-nav a{padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:500;color:var(--sub);text-decoration:none;transition:all .2s}
-nav a:hover{background:rgba(0,113,227,.08);color:var(--accent)}
-.content-wrap{max-width:760px;margin:0 auto;padding:28px 24px 60px}
-.back-link{display:inline-block;color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:500;margin-bottom:18px}
-.back-link:hover{text-decoration:underline}
-.article-head{margin-bottom:18px}
-.card-tag{display:inline-block;font-size:.72rem;font-weight:600;padding:3px 12px;border-radius:20px;margin-bottom:12px}
-.card-tag.guideline{background:#fef3e2;color:#e67700}
-.card-tag.trial{background:#e8f0fe;color:#1a73e8}
-.card-tag.podcast{background:#e8f5e9;color:#2e7d32}
-.card-tag.meeting{background:#f0e8fe;color:#6f42c1}
-.article-head h1{font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1.35}
-.article-meta{margin-top:10px;font-size:.82rem;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap}
-.content-card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden}
-.article-body{padding:32px 30px;white-space:pre-wrap;font-size:.94rem;line-height:1.9;font-family:"Noto Sans TC",-apple-system,sans-serif;color:#222}
-@media(max-width:520px){.article-body{padding:24px 18px}.article-head h1{font-size:1.4rem}}
-footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.78rem;border-top:1px solid var(--border);margin-top:40px}`;
+// ---------------------------------------------------------------------------
+// shared shell pieces
+// ---------------------------------------------------------------------------
+function headLinks(prefix) {
+  return `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${prefix}site.css">`;
+}
+function shellHeader(active, prefix) {
+  const links = TOPNAV.map(([href, label]) =>
+    `<a href="${prefix}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`).join('\n');
+  return `<header>
+<div class="wrap nav-row">
+<a href="${prefix}index.html" class="brand"><span class="mark">呂侑穎<em>·</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
+<nav class="top">
+${links}
+<a href="${prefix}health.html" class="cta">探索衛教 →</a>
+</nav>
+</div>
+</header>`;
+}
+function shellFooter(prefix) {
+  return `<footer>
+<div class="foot-grid">
+<div>
+<div class="fmark">呂侑穎<em>·</em>臨床筆記</div>
+<p>心臟醫學的臨床筆記與實證衛教，整理自 ACC／AHA／ESC 等國際會議與指南。內容依公開醫療資源整理，不構成個別診療建議。</p>
+</div>
+<div class="col">
+<h5>內容</h5>
+<a href="${prefix}trials.html">臨床試驗</a>
+<a href="${prefix}guidelines.html">臨床指南</a>
+<a href="${prefix}meetings.html">會議重點</a>
+<a href="${prefix}index.html">全部文章</a>
+</div>
+<div class="col">
+<h5>衛教</h5>
+<a href="${prefix}health.html">衛教專區</a>
+<a href="${prefix}htn.html">高血壓</a>
+<a href="${prefix}chol.html">膽固醇</a>
+<a href="${prefix}le8.html">保健八要素</a>
+</div>
+</div>
+<div class="foot-bottom">
+<span>© 2026 呂侑穎醫師的臨床筆記</span>
+<span>內容僅供衛教與學術參考，不構成臨床診療建議</span>
+</div>
+</footer>`;
+}
+function navActiveFor(f) {
+  if (TOPNAV.some(([h]) => h === f)) return f;
+  if (TOPIC_PAGES.has(f)) return 'health.html';
+  return null;
+}
 
+// ---------------------------------------------------------------------------
+// homepage
+// ---------------------------------------------------------------------------
+function renderHome(articles) {
+  const cards = articles.map(a => `<a class="card" href="posts/${a.slug}.html">
+<div class="card-header">
+<span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
+<div class="card-title">${escHtml(a.title)}</div>
+<div class="card-subtitle">${escHtml(a.subtitle)}</div>
+<div class="card-meta">${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('')}</div>
+</div>
+<div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
+</a>`).join('\n');
+
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'WebSite',
+    name: '呂侑穎醫師的臨床筆記',
+    description: '整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。',
+    url: BASE_URL + '/', inLanguage: 'zh-TW',
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
+  };
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>呂侑穎醫師的臨床筆記 — 心臟醫學．臨床筆記與衛教</title>
+<meta name="description" content="呂侑穎醫師的臨床筆記：整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
+<meta name="keywords" content="呂侑穎,心臟內科,臨床筆記,心臟醫學,臨床試驗,臨床指南,心血管衛教,cardiology,ACC,AHA,ESC">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${BASE_URL}/index.html">
+<meta property="og:title" content="呂侑穎醫師的臨床筆記 — 心臟醫學．臨床筆記與衛教">
+<meta property="og:description" content="整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${BASE_URL}/index.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader('index.html', '')}
+
+<div class="home-hero">
+<svg class="ecg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 L380,60 L420,60 L445,20 L475,100 L505,44 L535,60 L900,60 L935,60 L960,30 L988,92 L1015,60 L1440,60"/></svg>
+<div class="hero-grid">
+<div class="hero-copy">
+<div class="eyebrow reveal d1">心臟內科 · 實證整理</div>
+<h1 class="reveal d2">心臟的事，<br>值得<span class="hl">好好說清楚</span>。</h1>
+<p class="lead reveal d3">把 ACC、AHA、ESC 等國際會議與最新指南的心臟醫學重點，連同實證衛教，整理成<strong>準確、好讀的繁體中文</strong>——給同行，也給每一位想懂自己心臟的人。</p>
+<div class="hero-cta reveal d4">
+<a href="health.html" class="btn btn-primary">瀏覽衛教專區 →</a>
+<a href="#notes" class="btn btn-ghost">看臨床筆記</a>
+</div>
+<div class="hero-stats reveal d5">
+<div class="s"><b>${articles.length}</b><span>篇文章筆記</span></div>
+<div class="s"><b>11</b><span>衛教主題</span></div>
+<div class="s"><b>ACC·AHA·ESC</b><span>國際實證來源</span></div>
+</div>
+</div>
+<div class="portrait reveal d3">
+<div class="blob"></div>
+<div class="frame"><img src="img/dr-lu.jpg" alt="呂侑穎醫師 — 心臟內科"></div>
+<div class="badge">
+<span class="dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span>
+<div><b>呂侑穎 醫師</b><span>Cardiology · 心臟內科</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<section class="band">
+<div class="wrap">
+<div class="about">
+<div>
+<div class="lbl">關於這個站</div>
+<h3>讓世界級的心臟醫學，<br>變成你讀得懂的中文。</h3>
+<p>從 late-breaking 臨床試驗、最新指南，到日常的心血管衛教——我把專業的內容拆解、翻譯、整理成有條理又準確的筆記。所有數據都標註來源，不加入額外推論。</p>
+</div>
+<div class="principles">
+<div class="pr"><span class="n">01</span><div><b>有憑有據</b><span>每篇都標明 ACC／AHA／ESC 等來源，數據忠於原文。</span></div></div>
+<div class="pr"><span class="n">02</span><div><b>深入淺出</b><span>專業術語首次出現附原文，一般人也讀得懂。</span></div></div>
+<div class="pr"><span class="n">03</span><div><b>持續更新</b><span>跟著國際會議與指南，定期整理新內容。</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap">
+<div class="sec-head">
+<div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
+<a href="health.html" class="more">查看全部 11 個主題 →</a>
+</div>
+<div class="tilegrid">
+<a class="tile" href="htn.html"><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="chol.html"><span class="tag risk">危險因子</span><h4>膽固醇</h4><p>LDL／HDL／三酸甘油酯、血脂參考數值，以及如何控制。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="dm.html"><span class="tag risk">危險因子</span><h4>糖尿病與心血管</h4><p>為何大幅提高心臟病與中風風險，以及 ABC 控制重點。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="stroke.html"><span class="tag disease">疾病</span><h4>中風</h4><p>三種類型、F.A.S.T. 辨識、為何分秒必爭、風險與預防。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="afib.html"><span class="tag disease">疾病</span><h4>心房顫動</h4><p>中風風險約 5 倍、診斷，以及抗凝／心率／節律三方向治療。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="le8.html"><span class="tag prevent">預防保健</span><h4>保健八要素</h4><p>Life's Essential 8：四項健康行為＋四項健康因子。</p><span class="go">閱讀 →</span></a>
+</div>
+</div>
+</section>
+
+<section class="band" id="notes">
+<div class="wrap">
+<div class="sec-head">
+<div><div class="kicker">Clinical Notes</div><h2>臨床筆記</h2></div>
+<span class="more">共 ${articles.length} 篇</span>
+</div>
+<div class="cards" style="padding-left:0;padding-right:0">
+${cards}
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap">
+<div class="closing">
+<svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,45 L560,45 L590,12 L620,78 L650,45 L820,45 L855,45 L880,20 L910,70 L935,45 L1440,45" fill="none" stroke="#f0a59d" stroke-width="2.5" stroke-linecap="round"/></svg>
+<div class="kicker">From bench to bedside, in 中文</div>
+<h2>把最新的心臟醫學，帶到你面前。</h2>
+<a href="health.html" class="btn btn-primary">開始閱讀 →</a>
+</div>
+</div>
+</section>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
+// ---------------------------------------------------------------------------
+// article post
+// ---------------------------------------------------------------------------
 function renderPost(a) {
   const url = `${BASE_URL}/posts/${a.slug}.html`;
   const desc = toDesc(a.subtitle || a.body);
-  const metaHtml = a.meta.map(s => `<span>${escHtml(s)}</span>`).join('\n');
+  const metaHtml = (a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('\n');
   const jsonld = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalWebPage',
-    headline: a.title,
-    name: a.title,
-    description: desc,
-    url,
-    inLanguage: 'zh-TW',
-    image: OG_IMAGE,
+    '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+    headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
     publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
-    dateModified: TODAY,
-    mainEntityOfPage: url,
+    dateModified: TODAY, mainEntityOfPage: url,
   };
   if (a.date) jsonld.datePublished = a.date;
 
@@ -201,20 +307,11 @@ function renderPost(a) {
 <script type="application/ld+json">
 ${JSON.stringify(jsonld)}
 </script>
-<style>
-${STYLE}
-</style>
+${headLinks('../')}
 </head>
 <body>
 
-<header>
-<div class="header-inner">
-<div>
-<div class="site-title"><a href="../index.html">呂侑穎醫師的<span>臨床筆記</span></a></div>
-</div>
-${NAV}
-</div>
-</header>
+${shellHeader(null, '../')}
 
 <div class="content-wrap">
 <a class="back-link" href="../index.html">&larr; 回到全部文章</a>
@@ -230,9 +327,7 @@ ${metaHtml}
 </div>
 </div>
 
-<footer>
-&copy; 2026 呂侑穎醫師的臨床筆記 &middot; 內容依據公開資料整理，不包含額外推論
-</footer>
+${shellFooter('../')}
 
 </body>
 </html>
@@ -240,26 +335,34 @@ ${metaHtml}
 }
 
 // ---------------------------------------------------------------------------
-// 3. sitemap
+// apply shared shell to a hand-written root page (swap style/header/footer)
+// ---------------------------------------------------------------------------
+function applyShell(file, active) {
+  let html = read(file);
+  const before = html;
+  html = html.replace(/<style>[\s\S]*?<\/style>/, headLinks(''));
+  html = html.replace(/<header>[\s\S]*?<\/header>/, shellHeader(active, ''));
+  html = html.replace(/<footer>[\s\S]*?<\/footer>/, shellFooter(''));
+  if (html !== before) write(file, html);
+  return html !== before;
+}
+
+// ---------------------------------------------------------------------------
+// sitemap
 // ---------------------------------------------------------------------------
 function renderSitemap(articles) {
-  const urls = [];
-  for (const p of BASE_PAGES) {
-    urls.push(`  <url>
+  const urls = BASE_PAGES.map(p => `  <url>
     <loc>${BASE_URL}/${p.f}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`);
-  }
-  for (const a of articles) {
-    urls.push(`  <url>
+  for (const a of articles) urls.push(`  <url>
     <loc>${BASE_URL}/posts/${a.slug}.html</loc>
     <lastmod>${a.date || TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
-  }
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join('\n')}
@@ -268,85 +371,29 @@ ${urls.join('\n')}
 }
 
 // ---------------------------------------------------------------------------
-// 4. Migrate list pages (idempotent)
-// ---------------------------------------------------------------------------
-function migrateListPage(file) {
-  let html = read(file);
-  const before = html;
-  let cards = 0;
-
-  // card opening: div+onclick -> anchor+href
-  html = html.replace(/<div class="card" onclick="openModal\('([^']+)'\)">/g, (mm, id) => {
-    cards++;
-    return `<a class="card" href="posts/${slug(id)}.html">`;
-  });
-
-  // card closing: the </div> right after the read-btn footer -> </a>
-  html = html.replace(
-    /(<div class="card-footer">\s*<span class="read-btn">閱讀全文 &rarr;<\/span>\s*<\/div>\s*)<\/div>/g,
-    '$1</a>'
-  );
-
-  // .card CSS: make the anchor behave like the old block + reset link styling
-  html = html.replace(
-    'overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid var(--border)}',
-    'overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid var(--border);text-decoration:none;color:inherit;display:block}'
-  );
-
-  // remove modal markup
-  html = html.replace(
-    /\s*<div class="modal-overlay" id="modalOverlay"[\s\S]*?<div class="modal-body" id="modalBody"><\/div>\s*<\/div>\s*<\/div>/,
-    ''
-  );
-
-  // remove the duplicated articles{} + modal-function <script> block
-  html = html.replace(/\s*<script>\s*const articles = \{\};[\s\S]*?<\/script>/, '');
-
-  write(file, html);
-  return { cards, changed: before !== html };
-}
-
-// ---------------------------------------------------------------------------
-// 4b. Ensure hand-written root pages carry the full nav (idempotent)
-// ---------------------------------------------------------------------------
-const ROOT_HTML = ['index.html', 'trials.html', 'guidelines.html', 'meetings.html', 'health.html', 'cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html'];
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'le8.html']);
-function navActiveFor(f) {
-  if (TOPNAV.some(([h]) => h === f)) return f;   // a top-level page → itself active
-  if (TOPIC_PAGES.has(f)) return 'health.html';  // a 衛教 topic page → 衛教 active
-  return null;
-}
-// Replace every root page's <nav>...</nav> with the canonical 5-item nav (idempotent)
-function rewriteNav() {
-  let n = 0;
-  for (const f of ROOT_HTML) {
-    const html = read(f);
-    const out = html.replace(/<nav>[\s\S]*?<\/nav>/, navHtml(navActiveFor(f), ''));
-    if (out !== html) { write(f, out); n++; }
-  }
-  console.log(`  rewriteNav: updated ${n} page(s)`);
-}
-
-// ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
 function main() {
-  console.log('luknow build');
+  console.log('luknow build (v2)');
   const articles = loadArticles();
   console.log(`  ${articles.length} articles loaded`);
 
+  write('index.html', renderHome(articles));
+  console.log('  wrote index.html (branded homepage)');
+
   fs.mkdirSync(path.join(ROOT, 'posts'), { recursive: true });
   for (const a of articles) write(`posts/${a.slug}.html`, renderPost(a));
-  console.log(`  generated ${articles.length} pages in posts/`);
+  console.log(`  generated ${articles.length} posts/`);
+
+  let n = 0;
+  for (const f of ROOT_HTML) {
+    if (f === 'index.html') continue;
+    if (applyShell(f, navActiveFor(f))) n++;
+  }
+  console.log(`  applyShell: updated ${n} root page(s)`);
 
   write('sitemap.xml', renderSitemap(articles));
-  console.log(`  sitemap.xml: ${BASE_PAGES.length} base + ${articles.length} posts = ${BASE_PAGES.length + articles.length} urls`);
-
-  for (const f of LIST_PAGES) {
-    const r = migrateListPage(f);
-    console.log(`  migrated ${f}: ${r.cards} cards -> links${r.changed ? '' : ' (no change)'}`);
-  }
-  rewriteNav();
+  console.log(`  sitemap.xml: ${BASE_PAGES.length + articles.length} urls`);
   console.log('done.');
 }
 
