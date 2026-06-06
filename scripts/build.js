@@ -271,11 +271,12 @@ ${shellFooter('')}
 // ---------------------------------------------------------------------------
 function renderPost(a) {
   const url = `${BASE_URL}/posts/${a.slug}.html`;
+  const ogImg = `${BASE_URL}/img/og/${a.slug}.png`;
   const desc = toDesc(a.subtitle || a.body);
   const metaHtml = (a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('\n');
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
-    headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
+    headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
     publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
@@ -298,11 +299,11 @@ function renderPost(a) {
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
-<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${OG_IMAGE}">
+<meta name="twitter:image" content="${ogImg}">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 ${JSON.stringify(jsonld)}
