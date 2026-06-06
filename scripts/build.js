@@ -64,6 +64,13 @@ function loadArticles() {
   return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 }
 
+// Weekly featured reading — curated external reads (Chinese 導讀 + link to source)
+function loadFeatured() {
+  const dataPath = path.join(ROOT, 'data', 'featured.json');
+  if (!fs.existsSync(dataPath)) return [];
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+}
+
 // ---------------------------------------------------------------------------
 // shared shell pieces
 // ---------------------------------------------------------------------------
@@ -98,6 +105,7 @@ function shellFooter(prefix) {
 <a href="${prefix}trials.html">臨床試驗</a>
 <a href="${prefix}guidelines.html">臨床指南</a>
 <a href="${prefix}meetings.html">會議重點</a>
+<a href="${prefix}featured.html">每周精選閱讀</a>
 <a href="${prefix}index.html">全部文章</a>
 </div>
 <div class="col">
@@ -123,7 +131,30 @@ function navActiveFor(f) {
 // ---------------------------------------------------------------------------
 // homepage
 // ---------------------------------------------------------------------------
-function renderHome(articles) {
+function renderFeaturedBand(featured) {
+  if (!featured || !featured.length) return '';
+  const f = featured[0];
+  return `<section class="band">
+<div class="wrap">
+<div class="sec-head">
+<div><div class="kicker">Weekly Reading</div><h2>每周精選閱讀</h2></div>
+<a href="featured.html" class="more">看全部精選 →</a>
+</div>
+<a class="weekly-card" href="featured/${f.slug}.html">
+<div class="weekly-badge"><span class="wk">本周</span><span class="lbl">精選</span></div>
+<div class="weekly-body">
+<span class="card-tag reading">${escHtml(f.tagLabel || '精選閱讀')}</span>
+<h3 class="weekly-title">${escHtml(f.title)}</h3>
+<p class="weekly-lead">${escHtml(f.lead || '')}</p>
+<div class="weekly-meta"><span>來源 ${escHtml(f.sourceLabel || f.source || '')}</span><span>${escHtml(f.date || '')}</span></div>
+<span class="read-btn">讀重點導讀 →</span>
+</div>
+</a>
+</div>
+</section>`;
+}
+
+function renderHome(articles, featured) {
   const cards = articles.map(a => `<a class="card" href="posts/${a.slug}.html">
 <div class="card-header">
 <span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
@@ -218,6 +249,8 @@ ${shellHeader('index.html', '')}
 </div>
 </div>
 </section>
+
+${renderFeaturedBand(featured)}
 
 <section class="band">
 <div class="wrap">
@@ -336,6 +369,149 @@ ${shellFooter('../')}
 }
 
 // ---------------------------------------------------------------------------
+// weekly featured reading — 導讀 page (featured/<slug>.html)
+// ---------------------------------------------------------------------------
+function renderFeaturedPost(f) {
+  const url = `${BASE_URL}/featured/${f.slug}.html`;
+  const desc = toDesc(f.lead || f.body);
+  const srcLabel = f.sourceLabel || f.source || '原文';
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+    headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
+    publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
+    dateModified: TODAY, mainEntityOfPage: url,
+    citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
+  };
+  if (f.date) jsonld.datePublished = f.date;
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(f.title)} — 每周精選閱讀 — 呂侑穎醫師的臨床筆記</title>
+<meta name="description" content="${escAttr(desc)}">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${url}">
+<meta property="og:title" content="${escAttr(f.title)}">
+<meta property="og:description" content="${escAttr(desc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('../')}
+</head>
+<body>
+
+${shellHeader(null, '../')}
+
+<div class="content-wrap">
+<a class="back-link" href="../featured.html">&larr; 回到每周精選閱讀</a>
+<div class="article-head">
+<span class="card-tag reading">${escHtml(f.tagLabel || '精選閱讀')}</span>
+<h1>${escHtml(f.title)}</h1>
+<div class="article-meta">
+<span>來源 ${escHtml(srcLabel)}</span>
+<span>${escHtml(f.date || '')}</span>
+</div>
+</div>
+<div class="content-card">
+<div class="article-body">${escHtml(f.body)}</div>
+</div>
+<div class="source-cta">
+<a class="btn btn-primary" href="${escAttr(f.sourceUrl)}" target="_blank" rel="noopener noreferrer">閱讀原文（${escHtml(srcLabel)}）→</a>
+<p class="source-note">原文出處：${escHtml(f.source || srcLabel)}。本頁為中文重點導讀，著作權屬原作者所有；完整與最新內容請以原文為準。</p>
+</div>
+</div>
+
+${shellFooter('../')}
+
+</body>
+</html>
+`;
+}
+
+// ---------------------------------------------------------------------------
+// weekly featured reading — archive list (featured.html)
+// ---------------------------------------------------------------------------
+function renderFeaturedArchive(featured) {
+  const cards = featured.map(f => `<a class="card" href="featured/${f.slug}.html">
+<div class="card-header">
+<span class="card-tag reading">${escHtml(f.tagLabel || '精選閱讀')}</span>
+<div class="card-title">${escHtml(f.title)}</div>
+<div class="card-subtitle">${escHtml(f.lead || '')}</div>
+<div class="card-meta"><span>來源 ${escHtml(f.sourceLabel || f.source || '')}</span><span>${escHtml(f.date || '')}</span></div>
+</div>
+<div class="card-footer"><span class="read-btn">讀重點導讀 →</span></div>
+</a>`).join('\n');
+
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: '每周精選閱讀', url: BASE_URL + '/featured.html', inLanguage: 'zh-TW',
+    description: '每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文。',
+  };
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每周精選閱讀 — 呂侑穎醫師的臨床筆記</title>
+<meta name="description" content="每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文，整理自 AHA／ACC／ESC 等權威來源。">
+<meta name="keywords" content="心血管,精選閱讀,衛教,膽固醇,AHA,ACC,ESC,呂侑穎">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${BASE_URL}/featured.html">
+<meta property="og:title" content="每周精選閱讀 — 呂侑穎醫師的臨床筆記">
+<meta property="og:description" content="每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${BASE_URL}/featured.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader(null, '')}
+
+<div class="hero">
+<h1>每周精選閱讀</h1>
+<p>每周精選一篇值得一讀的心血管好文，附上中文重點導讀，並連回原文出處。</p>
+</div>
+<div class="article-count">${featured.length} 篇精選</div>
+
+<div class="cards">
+${cards}
+</div>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
+// ---------------------------------------------------------------------------
 // apply shared shell to a hand-written root page (swap style/header/footer)
 // ---------------------------------------------------------------------------
 function applyShell(file, active) {
@@ -381,16 +557,28 @@ function placeHubIllos() {
 // ---------------------------------------------------------------------------
 // sitemap
 // ---------------------------------------------------------------------------
-function renderSitemap(articles) {
+function renderSitemap(articles, featured) {
   const urls = BASE_PAGES.map(p => `  <url>
     <loc>${BASE_URL}/${p.f}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`);
+  urls.push(`  <url>
+    <loc>${BASE_URL}/featured.html</loc>
+    <lastmod>${(featured[0] && featured[0].date) || TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`);
   for (const a of articles) urls.push(`  <url>
     <loc>${BASE_URL}/posts/${a.slug}.html</loc>
     <lastmod>${a.date || TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
+  for (const f of featured) urls.push(`  <url>
+    <loc>${BASE_URL}/featured/${f.slug}.html</loc>
+    <lastmod>${f.date || TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
@@ -408,13 +596,22 @@ function main() {
   console.log('luknow build (v2)');
   const articles = loadArticles();
   console.log(`  ${articles.length} articles loaded`);
+  const featured = loadFeatured();
+  console.log(`  ${featured.length} featured reads loaded`);
 
-  write('index.html', renderHome(articles));
+  write('index.html', renderHome(articles, featured));
   console.log('  wrote index.html (branded homepage)');
 
   fs.mkdirSync(path.join(ROOT, 'posts'), { recursive: true });
   for (const a of articles) write(`posts/${a.slug}.html`, renderPost(a));
   console.log(`  generated ${articles.length} posts/`);
+
+  if (featured.length) {
+    write('featured.html', renderFeaturedArchive(featured));
+    fs.mkdirSync(path.join(ROOT, 'featured'), { recursive: true });
+    for (const f of featured) write(`featured/${f.slug}.html`, renderFeaturedPost(f));
+    console.log(`  generated featured.html + ${featured.length} featured/`);
+  }
 
   let n = 0;
   for (const f of ROOT_HTML) {
@@ -426,8 +623,8 @@ function main() {
   placeIllos();
   placeHubIllos();
 
-  write('sitemap.xml', renderSitemap(articles));
-  console.log(`  sitemap.xml: ${BASE_PAGES.length + articles.length} urls`);
+  write('sitemap.xml', renderSitemap(articles, featured));
+  console.log(`  sitemap.xml: ${BASE_PAGES.length + 1 + articles.length + featured.length} urls`);
   console.log('done.');
 }
 

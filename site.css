@@ -66,6 +66,7 @@ nav.top a.cta:hover{background:var(--accent);color:#fff}
 .card-tag.podcast,.card-tag.prevent{background:rgba(15,122,130,.1);color:var(--teal)}
 .card-tag.meeting{background:#efe2f3;color:#7a4a8c}
 .card-tag.disease{background:rgba(196,61,52,.1);color:var(--accent)}
+.card-tag.reading{background:rgba(20,50,58,.08);color:var(--ink)}
 .card-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.35;margin-bottom:7px;letter-spacing:-.01em;color:var(--ink)}
 .card-subtitle{font-size:.87rem;color:var(--ink-2);line-height:1.6;margin-bottom:12px}
 .card-meta{font-size:.74rem;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
@@ -211,3 +212,25 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .closing svg{position:absolute;left:0;bottom:0;width:100%;height:90px;opacity:.25}
 .closing .kicker{color:#d98b84;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
 .closing h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.18;margin-bottom:26px;max-width:16em;margin-inline:auto;color:#fff}
+
+/* ---------- weekly featured reading ---------- */
+.weekly-card{display:flex;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 34px;position:relative;overflow:hidden;transition:.25s;color:inherit}
+.weekly-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
+.weekly-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d9cfba}
+.weekly-badge{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;width:96px;padding-right:28px;border-right:1px solid var(--line);text-align:center}
+.weekly-badge .wk{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--accent);line-height:1.05}
+.weekly-badge .lbl{font-size:.7rem;letter-spacing:.16em;color:var(--muted);margin-top:5px}
+.weekly-body{flex:1;min-width:0}
+.weekly-body .card-tag{margin-bottom:10px}
+.weekly-title{font-family:var(--serif);font-size:1.32rem;font-weight:600;line-height:1.34;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px}
+.weekly-lead{font-size:.92rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px}
+.weekly-meta{font-size:.76rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.weekly-card .read-btn{font-size:.86rem}
+.weekly-card:hover .read-btn{letter-spacing:.02em}
+@media(max-width:600px){.weekly-card{flex-direction:column;align-items:stretch;gap:16px;padding:24px 22px}
+  .weekly-badge{flex-direction:row;width:auto;gap:8px;padding:0 0 14px;border-right:none;border-bottom:1px solid var(--line);justify-content:flex-start}
+  .weekly-badge .wk{font-size:1.2rem}}
+
+/* ---------- featured 導讀: source CTA ---------- */
+.source-cta{text-align:center;margin-top:26px;padding:8px 16px}
+.source-cta .source-note{margin-top:14px;font-size:.78rem;color:var(--muted);line-height:1.7;max-width:34em;margin-inline:auto}
