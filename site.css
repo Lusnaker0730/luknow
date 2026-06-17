@@ -231,6 +231,11 @@ section.band{position:relative;z-index:2;padding:30px 0}
   .weekly-badge{flex-direction:row;width:auto;gap:8px;padding:0 0 14px;border-right:none;border-bottom:1px solid var(--line);justify-content:flex-start}
   .weekly-badge .wk{font-size:1.2rem}}
 
+/* ---------- featured 導讀: lead figure ---------- */
+.article-figure{margin:0 0 22px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:0 2px 14px rgba(20,50,58,.06)}
+.article-figure img{display:block;width:100%;height:auto}
+.article-figure figcaption{padding:11px 18px;font-size:.8rem;color:var(--muted);text-align:center;border-top:1px solid var(--line);line-height:1.6}
+
 /* ---------- featured 導讀: source CTA ---------- */
 .source-cta{text-align:center;margin-top:26px;padding:8px 16px}
 .source-cta .source-note{margin-top:14px;font-size:.78rem;color:var(--muted);line-height:1.7;max-width:34em;margin-inline:auto}

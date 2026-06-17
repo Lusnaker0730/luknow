@@ -400,9 +400,12 @@ function renderFeaturedPost(f) {
   const url = `${BASE_URL}/featured/${f.slug}.html`;
   const desc = toDesc(f.lead || f.body);
   const srcLabel = f.sourceLabel || f.source || '原文';
+  const ogImg = f.image ? `${BASE_URL}/${f.image}` : OG_IMAGE;
+  const ogW = f.image ? (f.imageW || 1200) : 1200;
+  const ogH = f.image ? (f.imageH || 630) : 630;
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
-    headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
+    headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
     publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
@@ -426,11 +429,11 @@ function renderFeaturedPost(f) {
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
-<meta property="og:image" content="${OG_IMAGE}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="${ogImg}">
+<meta property="og:image:width" content="${ogW}">
+<meta property="og:image:height" content="${ogH}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${OG_IMAGE}">
+<meta name="twitter:image" content="${ogImg}">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 ${JSON.stringify(jsonld)}
@@ -451,6 +454,7 @@ ${shellHeader(null, '../')}
 <span>${escHtml(f.date || '')}</span>
 </div>
 </div>
+${f.image ? `<figure class="article-figure"><img src="../${escAttr(f.image)}" alt="${escAttr(f.title)}" width="${ogW}" height="${ogH}" loading="lazy">${f.imageCaption ? `<figcaption>${escHtml(f.imageCaption)}</figcaption>` : ''}</figure>` : ''}
 <div class="content-card">
 <div class="article-body">${escHtml(f.body)}</div>
 </div>
