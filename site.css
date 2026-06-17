@@ -234,3 +234,50 @@ section.band{position:relative;z-index:2;padding:30px 0}
 /* ---------- featured 導讀: source CTA ---------- */
 .source-cta{text-align:center;margin-top:26px;padding:8px 16px}
 .source-cta .source-note{margin-top:14px;font-size:.78rem;color:var(--muted);line-height:1.7;max-width:34em;margin-inline:auto}
+
+/* ---------- clinic schedule (門診時刻表) ---------- */
+.clinic-wrap{max-width:var(--maxw);margin:0 auto;padding:10px 28px 16px;position:relative;z-index:2}
+@media(max-width:640px){.clinic-wrap{padding:8px 20px 16px}}
+.clinic-card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 2px 14px rgba(20,50,58,.06);overflow:hidden;margin-bottom:24px}
+.clinic-card .ch{padding:18px 26px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.16rem;font-weight:600;color:var(--ink)}
+.clinic-card .cb{padding:22px 26px}
+@media(max-width:520px){.clinic-card .cb{padding:16px 14px}}
+.sched-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sched-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.sched-table th,.sched-table td{padding:13px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.sched-table thead th{background:var(--paper);font-weight:700;color:var(--ink);font-size:.84rem}
+.sched-table tbody th{background:var(--paper);text-align:left;white-space:nowrap;color:var(--ink-2);font-weight:700;font-size:.84rem;padding-left:14px}
+.sched-table tbody th small{display:block;font-weight:400;color:var(--muted);font-size:.72rem;margin-top:2px}
+.sched-table td.on{color:var(--accent);font-weight:700}
+.sched-table td.on.alt{color:var(--teal)}
+.sched-table td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle}
+.sched-table td.on.alt .dot{background:var(--teal)}
+.sched-table td small{display:block;font-weight:400;color:var(--muted);font-size:.7rem;margin-top:1px}
+.sched-table td.off{color:var(--line)}
+.sched-table tr:last-child td,.sched-table tr:last-child th{border-bottom:none}
+.clinic-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:.78rem;color:var(--muted)}
+.clinic-legend span{display:inline-flex;align-items:center;gap:6px}
+.clinic-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.session-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+.session-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.session-box .d{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.04rem;margin-bottom:5px}
+.session-box .d span{font-weight:500;color:var(--ink-2);font-size:.86rem}
+.session-box .t{color:var(--accent);font-weight:700;font-size:.95rem}
+.session-box .p{color:var(--muted);font-size:.78rem;margin-top:4px}
+.date-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.date-pill{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:7px 13px;font-size:.86rem;color:var(--ink-2);font-weight:600}
+.clinic-note{background:#fbf6ec;border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;margin-top:6px;font-size:.86rem;color:var(--ink-2);line-height:1.8}
+.clinic-note strong{color:var(--ink)}
+
+/* clinic band on homepage */
+.clinic-home{display:block;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 34px;position:relative;overflow:hidden;transition:.25s;color:inherit}
+.clinic-home::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal)}
+.clinic-home:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d9cfba}
+.clinic-home h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.clinic-home>p{font-size:.9rem;color:var(--ink-2);margin-bottom:14px}
+.clinic-home .sessions{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px}
+.clinic-home .pill{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.83rem;color:var(--ink-2)}
+.clinic-home .pill b{color:var(--accent);font-weight:700}
+.clinic-home .read-btn{font-size:.86rem}
+.clinic-home:hover .read-btn{letter-spacing:.02em}
+@media(max-width:520px){.clinic-home{padding:24px 22px}}

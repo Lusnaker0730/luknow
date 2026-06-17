@@ -48,7 +48,29 @@ const TOPNAV = [
   ['guidelines.html', '臨床指南'],
   ['meetings.html', '會議重點'],
   ['health.html', '衛教'],
+  ['clinic.html', '門診時刻表'],
 ];
+
+// 門診時刻表 — single source of truth (drives clinic.html + homepage band)
+const CLINIC = {
+  hospital: '台北台安醫院',
+  dept: '心臟內科',
+  doctor: '呂侑穎 醫師',
+  amTime: '09:00–12:00',
+  pmTime: '13:30–17:00',
+  // weekly recurring sessions
+  sessions: [
+    { day: '週一', period: '下午', time: '13:30–17:00' },
+    { day: '週三', period: '下午', time: '13:30–17:00' },
+    { day: '週四', period: '下午', time: '13:30–17:00' },
+    { day: '週日', period: '上午', time: '09:00–12:00', note: '隔週' },
+  ],
+  // biweekly Sunday clinics, every 2 weeks starting 2026-07-05
+  sundayDates: ['2026-07-05', '2026-07-19', '2026-08-02', '2026-08-16', '2026-08-30',
+    '2026-09-13', '2026-09-27', '2026-10-11', '2026-10-25', '2026-11-08',
+    '2026-11-22', '2026-12-06', '2026-12-20'],
+  sundayPeriodLabel: '2026 下半年',
+};
 
 const slug = id => id.replace(/^article-/, '');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -106,6 +128,7 @@ function shellFooter(prefix) {
 <a href="${prefix}guidelines.html">臨床指南</a>
 <a href="${prefix}meetings.html">會議重點</a>
 <a href="${prefix}featured.html">每周精選閱讀</a>
+<a href="${prefix}clinic.html">門診時刻表</a>
 <a href="${prefix}index.html">全部文章</a>
 </div>
 <div class="col">
@@ -249,6 +272,8 @@ ${shellHeader('index.html', '')}
 </div>
 </div>
 </section>
+
+${renderClinicBand(CLINIC)}
 
 ${renderFeaturedBand(featured)}
 
@@ -512,6 +537,143 @@ ${shellFooter('')}
 }
 
 // ---------------------------------------------------------------------------
+// clinic schedule (門診時刻表) — clinic.html
+// ---------------------------------------------------------------------------
+const fmtMD = iso => { const [, m, d] = iso.split('-'); return `${+m}/${+d}`; };
+
+function renderClinicGrid(c) {
+  const days = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
+  const periods = [['上午', c.amTime], ['下午', c.pmTime]];
+  const find = (day, period) => c.sessions.find(s => s.day === day && s.period === period);
+  const head = `<tr><th>時段</th>${days.map(d => `<th>${d}</th>`).join('')}</tr>`;
+  const rows = periods.map(([p, t]) => {
+    const cells = days.map(d => {
+      const s = find(d, p);
+      if (!s) return '<td class="off">—</td>';
+      const alt = s.note ? ' alt' : '';
+      const note = s.note ? `<small>${escHtml(s.note)}</small>` : '';
+      return `<td class="on${alt}"><span class="dot"></span>看診${note}</td>`;
+    }).join('');
+    return `<tr><th>${p}<small>${escHtml(t)}</small></th>${cells}</tr>`;
+  }).join('\n');
+  return `<div class="sched-scroll"><table class="sched-table"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function renderClinic(c) {
+  const url = `${BASE_URL}/clinic.html`;
+  const desc = `${c.hospital}${c.dept}${c.doctor.replace(/\s/g, '')}門診時刻表：週一、三、四下午 ${c.pmTime}，週日上午 ${c.amTime}（隔週）。實際門診請以醫院官方掛號系統公告為準。`;
+  const sessionBoxes = c.sessions.map(s =>
+    `<div class="session-box"><div class="d">${escHtml(s.day)}<span> ${escHtml(s.period)}診</span></div><div class="t">${escHtml(s.time)}</div>${s.note ? `<div class="p">${escHtml(s.note)}看診</div>` : ''}</div>`).join('\n');
+  const datePills = c.sundayDates.map(d => `<span class="date-pill">${fmtMD(d)}（日）</span>`).join('\n');
+
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+    name: `${c.doctor.replace(/\s/g, '')}門診時刻表`, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
+    dateModified: TODAY, mainEntityOfPage: url,
+    about: {
+      '@type': 'Physician', name: c.doctor.replace(/\s*醫師$/, ''), medicalSpecialty: 'Cardiovascular',
+      worksFor: { '@type': 'Hospital', name: c.hospital },
+    },
+    publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
+  };
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>門診時刻表 — ${escHtml(c.hospital)}${escHtml(c.dept)} ${escHtml(c.doctor)}</title>
+<meta name="description" content="${escAttr(desc)}">
+<meta name="keywords" content="呂侑穎,門診時刻表,門診時間,台北台安醫院,心臟內科,看診時間,掛號">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${url}">
+<meta property="og:title" content="門診時刻表 — ${escAttr(c.hospital)}${escAttr(c.dept)} ${escAttr(c.doctor)}">
+<meta property="og:description" content="${escAttr(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader('clinic.html', '')}
+
+<div class="hero">
+<h1>門診時刻表</h1>
+<p>${escHtml(c.hospital)} · ${escHtml(c.dept)} · ${escHtml(c.doctor)}</p>
+</div>
+
+<div class="clinic-wrap">
+
+<div class="session-grid">
+${sessionBoxes}
+</div>
+
+<div class="clinic-card">
+<div class="ch">每週門診表</div>
+<div class="cb">
+${renderClinicGrid(c)}
+<div class="clinic-legend">
+<span><i style="background:var(--accent)"></i>固定每週看診</span>
+<span><i style="background:var(--teal)"></i>隔週看診（週日上午）</span>
+<span><i style="background:var(--line)"></i>無門診</span>
+</div>
+</div>
+</div>
+
+<div class="clinic-card">
+<div class="ch">隔週週日門診日期（${escHtml(c.sundayPeriodLabel)}）</div>
+<div class="cb">
+<div class="date-pills">
+${datePills}
+</div>
+</div>
+</div>
+
+<div class="clinic-note">
+<strong>掛號提醒：</strong>實際門診時間、診號與停診／代診資訊，請以<strong>台北台安醫院官方網站與掛號系統公告為準</strong>。隔週週日門診日期可能因假期或醫院安排調整，前往就診前請先確認。本表僅供參考，不構成預約掛號。
+</div>
+
+</div>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
+function renderClinicBand(c) {
+  const pills = c.sessions.map(s =>
+    `<span class="pill">${escHtml(s.day)}${escHtml(s.period)} <b>${escHtml(s.time)}</b>${s.note ? `（${escHtml(s.note)}）` : ''}</span>`).join('');
+  return `<section class="band">
+<div class="wrap">
+<div class="sec-head">
+<div><div class="kicker">Clinic Hours</div><h2>門診時刻表</h2></div>
+<a href="clinic.html" class="more">完整門診資訊 →</a>
+</div>
+<a class="clinic-home" href="clinic.html">
+<h3>${escHtml(c.hospital)} · ${escHtml(c.dept)}</h3>
+<p>${escHtml(c.doctor)}</p>
+<div class="sessions">${pills}</div>
+<span class="read-btn">查看完整門診時刻表 →</span>
+</a>
+</div>
+</section>`;
+}
+
+// ---------------------------------------------------------------------------
 // apply shared shell to a hand-written root page (swap style/header/footer)
 // ---------------------------------------------------------------------------
 function applyShell(file, active) {
@@ -570,6 +732,12 @@ function renderSitemap(articles, featured) {
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`);
+  urls.push(`  <url>
+    <loc>${BASE_URL}/clinic.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
   for (const a of articles) urls.push(`  <url>
     <loc>${BASE_URL}/posts/${a.slug}.html</loc>
     <lastmod>${a.date || TODAY}</lastmod>
@@ -602,6 +770,9 @@ function main() {
   write('index.html', renderHome(articles, featured));
   console.log('  wrote index.html (branded homepage)');
 
+  write('clinic.html', renderClinic(CLINIC));
+  console.log('  wrote clinic.html (門診時刻表)');
+
   fs.mkdirSync(path.join(ROOT, 'posts'), { recursive: true });
   for (const a of articles) write(`posts/${a.slug}.html`, renderPost(a));
   console.log(`  generated ${articles.length} posts/`);
@@ -624,7 +795,7 @@ function main() {
   placeHubIllos();
 
   write('sitemap.xml', renderSitemap(articles, featured));
-  console.log(`  sitemap.xml: ${BASE_PAGES.length + 1 + articles.length + featured.length} urls`);
+  console.log(`  sitemap.xml: ${BASE_PAGES.length + 2 + articles.length + featured.length} urls`);
   console.log('done.');
 }
 
