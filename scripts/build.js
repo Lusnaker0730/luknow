@@ -107,7 +107,7 @@ function shellHeader(active, prefix) {
     `<a href="${prefix}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`).join('\n');
   return `<header>
 <div class="wrap nav-row">
-<a href="${prefix}index.html" class="brand"><span class="mark">呂侑穎<em>·</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
+<a href="${prefix}index.html" class="brand"><span class="mark">呂侑穎醫師<em>·</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
 <nav class="top">
 ${links}
 <a href="${prefix}health.html" class="cta">探索衛教 →</a>
@@ -119,7 +119,7 @@ function shellFooter(prefix) {
   return `<footer>
 <div class="foot-grid">
 <div>
-<div class="fmark">呂侑穎<em>·</em>臨床筆記</div>
+<div class="fmark">呂侑穎醫師<em>·</em>臨床筆記</div>
 <p>心臟醫學的臨床筆記與實證衛教，整理自 ACC／AHA／ESC 等國際會議與指南。內容依公開醫療資源整理，不構成個別診療建議。</p>
 </div>
 <div class="col">
