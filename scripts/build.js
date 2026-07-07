@@ -40,10 +40,11 @@ const BASE_PAGES = [
   { f: 'pad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'dvt.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'mvp.html',        changefreq: 'monthly', priority: '0.8' },
+  { f: 'as.html',         changefreq: 'monthly', priority: '0.8' },
   { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'le8.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'le8.html']);
 const TOPNAV = [
   ['index.html', '全部'],
   ['trials.html', '臨床試驗'],
