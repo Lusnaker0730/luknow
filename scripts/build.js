@@ -399,6 +399,27 @@ ${shellFooter('../')}
 // ---------------------------------------------------------------------------
 // weekly featured reading — 導讀 page (featured/<slug>.html)
 // ---------------------------------------------------------------------------
+function renderFeaturedTables(f) {
+  if (!Array.isArray(f.tables) || !f.tables.length) return '';
+  return f.tables.map(t => {
+    const head = (t.headers || []).map(h => `<th>${escHtml(String(h))}</th>`).join('');
+    const rows = (t.rows || []).map(r =>
+      `<tr>${(r || []).map(c => `<td>${escHtml(String(c))}</td>`).join('')}</tr>`).join('\n');
+    const notes = Array.isArray(t.notes) && t.notes.length
+      ? `<div class="table-notes">${t.notes.map(n => `<p>${escHtml(String(n))}</p>`).join('')}</div>` : '';
+    return `<div class="featured-table">
+${t.title ? `<h3 class="table-title">${escHtml(t.title)}</h3>` : ''}
+${t.caption ? `<p class="table-caption">${escHtml(t.caption)}</p>` : ''}
+<div class="table-wrap"><table class="stage-table">
+<thead><tr>${head}</tr></thead>
+<tbody>
+${rows}
+</tbody>
+</table></div>
+${notes}
+</div>`;
+  }).join('\n');
+}
 function renderFeaturedPost(f) {
   const url = `${BASE_URL}/featured/${f.slug}.html`;
   const desc = toDesc(f.lead || f.body);
@@ -460,6 +481,7 @@ ${shellHeader(null, '../')}
 ${f.image ? `<figure class="article-figure"><img src="../${escAttr(f.image)}" alt="${escAttr(f.title)}" width="${ogW}" height="${ogH}" loading="lazy">${f.imageCaption ? `<figcaption>${escHtml(f.imageCaption)}</figcaption>` : ''}</figure>` : ''}
 <div class="content-card">
 <div class="article-body">${escHtml(f.body)}</div>
+${renderFeaturedTables(f)}
 </div>
 <div class="source-cta">
 <a class="btn btn-primary" href="${escAttr(f.sourceUrl)}" target="_blank" rel="noopener noreferrer">閱讀原文（${escHtml(srcLabel)}）→</a>
