@@ -194,9 +194,11 @@ function renderHome(articles, featured) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'WebSite',
     name: '呂侑穎醫師的臨床筆記',
+    alternateName: ['呂侑穎醫師', '呂侑穎醫師 臨床筆記', '呂侑穎'],
     description: '整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。',
     url: BASE_URL + '/', inLanguage: 'zh-TW',
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師' },
+    publisher: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師' },
   };
 
   return `<!DOCTYPE html>
