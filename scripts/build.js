@@ -42,10 +42,11 @@ const BASE_PAGES = [
   { f: 'mvp.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'as.html',         changefreq: 'monthly', priority: '0.8' },
   { f: 'tg.html',         changefreq: 'monthly', priority: '0.8' },
+  { f: 'stent.html',      changefreq: 'monthly', priority: '0.8' },
   { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'le8.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'stent.html', 'le8.html']);
 const TOPNAV = [
   ['index.html', '全部'],
   ['trials.html', '臨床試驗'],
@@ -61,12 +62,13 @@ const CLINIC = {
   dept: '心臟內科',
   doctor: '呂侑穎 醫師',
   amTime: '09:00–12:00',
-  pmTime: '13:30–17:00',
+  pmTime: '14:00–17:00',
   // weekly recurring sessions
   sessions: [
-    { day: '週一', period: '下午', time: '13:30–17:00' },
-    { day: '週三', period: '下午', time: '13:30–17:00' },
-    { day: '週四', period: '下午', time: '13:30–17:00' },
+    { day: '週一', period: '下午', time: '14:00–17:00' },
+    { day: '週二', period: '上午', time: '09:00–12:00', note: '8月起' },
+    { day: '週三', period: '下午', time: '14:00–17:00' },
+    { day: '週四', period: '下午', time: '14:00–17:00' },
     { day: '週日', period: '上午', time: '09:00–12:00', note: '隔週' },
   ],
   // biweekly Sunday clinics, every 2 weeks starting 2026-07-05
@@ -593,7 +595,7 @@ function renderClinicGrid(c) {
 
 function renderClinic(c) {
   const url = `${BASE_URL}/clinic.html`;
-  const desc = `${c.hospital}${c.dept}${c.doctor.replace(/\s/g, '')}門診時刻表：週一、三、四下午 ${c.pmTime}，週日上午 ${c.amTime}（隔週）。實際門診請以醫院官方掛號系統公告為準。`;
+  const desc = `${c.hospital}${c.dept}${c.doctor.replace(/\s/g, '')}門診時刻表：週一、三、四下午 ${c.pmTime}，週二上午 ${c.amTime}（2026 年 8 月起新增），週日上午 ${c.amTime}（隔週）。實際門診請以醫院官方掛號系統公告為準。`;
   const sessionBoxes = c.sessions.map(s =>
     `<div class="session-box"><div class="d">${escHtml(s.day)}<span> ${escHtml(s.period)}診</span></div><div class="t">${escHtml(s.time)}</div>${s.note ? `<div class="p">${escHtml(s.note)}看診</div>` : ''}</div>`).join('\n');
   const datePills = c.sundayDates.map(d => `<span class="date-pill">${fmtMD(d)}（日）</span>`).join('\n');
@@ -658,7 +660,7 @@ ${sessionBoxes}
 ${renderClinicGrid(c)}
 <div class="clinic-legend">
 <span><i style="background:var(--accent)"></i>固定每週看診</span>
-<span><i style="background:var(--teal)"></i>隔週看診（週日上午）</span>
+<span><i style="background:var(--teal)"></i>週日上午隔週／週二上午 8 月起新增</span>
 <span><i style="background:var(--line)"></i>無門診</span>
 </div>
 </div>
@@ -674,6 +676,7 @@ ${datePills}
 </div>
 
 <div class="clinic-note">
+<strong>新增門診：</strong>自 <strong>2026 年 8 月</strong>起，新增 <strong>週二上午（09:00–12:00）</strong>門診。<br>
 <strong>掛號提醒：</strong>實際門診時間、診號與停診／代診資訊，請以<strong>台北台安醫院官方網站與掛號系統公告為準</strong>。隔週週日門診日期可能因假期或醫院安排調整，前往就診前請先確認。本表僅供參考，不構成預約掛號。
 </div>
 
