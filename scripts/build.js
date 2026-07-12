@@ -21,7 +21,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://lusnaker0730.github.io/luknow';
 const OG_IMAGE = BASE_URL + '/og-image.png';
-const TODAY = '2026-06-05';
+const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期，供 lastmod / dateModified 使用
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
   { f: 'trials.html',     changefreq: 'weekly',  priority: '0.9' },
