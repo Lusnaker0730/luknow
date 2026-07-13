@@ -28,6 +28,7 @@ const BASE_PAGES = [
   { f: 'guidelines.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'meetings.html',   changefreq: 'weekly',  priority: '0.9' },
   { f: 'health.html',     changefreq: 'monthly', priority: '0.8' },
+  { f: 'about.html',      changefreq: 'yearly',  priority: '0.7' },
   { f: 'cath.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'hf.html',         changefreq: 'monthly', priority: '0.8' },
@@ -135,6 +136,7 @@ function shellFooter(prefix) {
 <a href="${prefix}meetings.html">會議重點</a>
 <a href="${prefix}featured.html">每周精選閱讀</a>
 <a href="${prefix}clinic.html">門診時刻表</a>
+<a href="${prefix}about.html">醫師介紹</a>
 <a href="${prefix}index.html">全部文章</a>
 </div>
 <div class="col">
@@ -200,8 +202,8 @@ function renderHome(articles, featured) {
     alternateName: ['呂侑穎醫師', '呂侑穎醫師 臨床筆記', '呂侑穎'],
     description: '整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。',
     url: BASE_URL + '/', inLanguage: 'zh-TW',
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師' },
-    publisher: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
+    publisher: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
   };
 
   return `<!DOCTYPE html>
@@ -271,6 +273,7 @@ ${shellHeader('index.html', '')}
 <div class="lbl">關於這個站</div>
 <h3>讓世界級的心臟醫學，<br>變成你讀得懂的中文。</h3>
 <p>從 late-breaking 臨床試驗、最新指南，到日常的心血管衛教——我把專業的內容拆解、翻譯、整理成有條理又準確的筆記。所有數據都標註來源，不加入額外推論。</p>
+<p style="margin-top:14px"><strong>呂侑穎醫師</strong>——台北台安醫院心臟內科主治醫師，具內科、心臟內科、介入性心臟血管、重症四項專科資格。<a href="about.html" style="color:var(--accent);font-weight:600">看完整醫師簡介 →</a></p>
 </div>
 <div class="principles">
 <div class="pr"><span class="n">01</span><div><b>有憑有據</b><span>每篇都標明 ACC／AHA／ESC 等來源，數據忠於原文。</span></div></div>
@@ -289,7 +292,7 @@ ${renderFeaturedBand(featured)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
-<a href="health.html" class="more">查看全部 11 個主題 →</a>
+<a href="health.html" class="more">查看全部 16 個主題 →</a>
 </div>
 <div class="tilegrid">
 <a class="tile" href="htn.html"><img class="tile-illo" src="img/illo/htn.jpg" alt=""><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
@@ -343,7 +346,7 @@ function renderPost(a) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
     publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
   };
@@ -435,7 +438,7 @@ function renderFeaturedPost(f) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '醫師' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
     publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
     citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
