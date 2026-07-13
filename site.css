@@ -303,3 +303,24 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .crumb .sep{margin:0 7px;opacity:.45}
 .crumb .cur{color:var(--muted)}
 @media(max-width:520px){.crumb{padding:16px 20px 0;font-size:.76rem}}
+
+/* ---------- 心血管風險計算器 ---------- */
+.calc{max-width:var(--readw);margin:0 auto;padding:8px 24px 64px;position:relative;z-index:2}
+.calc-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 24px 26px;box-shadow:var(--shadow)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+@media(max-width:560px){.calc-grid{grid-template-columns:1fr}}
+.calc-field{display:flex;flex-direction:column;gap:6px}
+.calc-field label{font-size:.86rem;font-weight:600;color:var(--ink-2)}
+.calc-field label .u{font-weight:400;color:var(--muted);font-size:.78rem}
+.calc-field input,.calc-field select{padding:10px 12px;border:1px solid var(--line);border-radius:9px;font:inherit;background:#fff;color:var(--ink);width:100%;box-sizing:border-box}
+.calc-field input:focus,.calc-field select:focus{outline:none;border-color:var(--teal)}
+.calc-btn{margin-top:22px;width:100%;padding:13px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-size:1.02rem;font-weight:700;cursor:pointer;font-family:inherit}
+.calc-btn:hover{background:var(--accent-deep)}
+.calc-err{color:var(--accent-deep);font-size:.9rem;margin-top:14px;text-align:center;display:none}
+.calc-err.show{display:block}
+.calc-result{margin-top:22px;padding:24px 20px;border-radius:14px;text-align:center;display:none;border:1px solid var(--line)}
+.calc-result.show{display:block}
+.calc-result .risk-lbl{font-size:.85rem;color:var(--ink-2);letter-spacing:.04em}
+.calc-result .risk-num{font-family:var(--serif);font-size:3.1rem;font-weight:700;line-height:1.05;margin:4px 0}
+.calc-result .risk-band{font-weight:700;font-size:1.05rem}
+.calc-result .risk-note{font-size:.9rem;color:var(--ink-2);margin-top:14px;line-height:1.8;text-align:left}

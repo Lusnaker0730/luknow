@@ -29,6 +29,7 @@ const BASE_PAGES = [
   { f: 'meetings.html',   changefreq: 'weekly',  priority: '0.9' },
   { f: 'health.html',     changefreq: 'monthly', priority: '0.8' },
   { f: 'about.html',      changefreq: 'yearly',  priority: '0.7' },
+  { f: 'risk.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cath.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cad.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'hf.html',         changefreq: 'monthly', priority: '0.8' },
@@ -56,6 +57,7 @@ const TOPNAV = [
   ['meetings.html', '會議重點'],
   ['health.html', '衛教'],
   ['clinic.html', '門診時刻表'],
+  ['risk.html', '風險計算'],
   ['about.html', '醫師介紹'],
 ];
 
@@ -138,6 +140,7 @@ function shellFooter(prefix) {
 <a href="${prefix}meetings.html">會議重點</a>
 <a href="${prefix}featured.html">每周精選閱讀</a>
 <a href="${prefix}clinic.html">門診時刻表</a>
+<a href="${prefix}risk.html">風險計算器</a>
 <a href="${prefix}about.html">醫師介紹</a>
 <a href="${prefix}index.html">全部文章</a>
 </div>
