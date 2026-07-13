@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>心血管風險計算器（10 年 ASCVD 風險）— 呂侑穎醫師的臨床筆記</title>
-<meta name="description" content="全中文心血管風險計算器：依 2013 ACC/AHA Pooled Cohort Equations 估算 10 年動脈粥狀硬化性心血管疾病（ASCVD）風險。輸入年齡、性別、膽固醇、血壓、糖尿病與吸菸等，立即算出風險百分比與分級。純衛教參考，不構成診斷。">
-<meta name="keywords" content="心血管風險計算器,ASCVD,10年風險,Pooled Cohort Equations,PCE,冠心病風險,中風風險,膽固醇,血壓,他汀,呂侑穎">
+<title>心血管風險計算器（AHA PREVENT）— 呂侑穎醫師的臨床筆記</title>
+<meta name="description" content="全中文心血管風險計算器，採用最新 AHA PREVENT 方程式（2023，現行指引建議取代舊版 Pooled Cohort Equations）：不分種族、納入腎功能 eGFR 與 BMI，估算 10 年與 30 年的動脈粥狀硬化性心血管疾病（ASCVD）、總心血管疾病與心臟衰竭風險。純衛教參考，不構成診斷。">
+<meta name="keywords" content="心血管風險計算器,PREVENT,AHA PREVENT,ASCVD,10年風險,30年風險,心臟衰竭,eGFR,BMI,他汀,冠心病風險,中風風險,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://lusnaker0730.github.io/luknow/risk.html">
-<meta property="og:title" content="心血管風險計算器（10 年 ASCVD 風險）— 呂侑穎醫師的臨床筆記">
-<meta property="og:description" content="全中文心血管風險計算器：依 ACC/AHA Pooled Cohort Equations 估算 10 年 ASCVD 風險，立即算出風險百分比與分級。">
+<meta property="og:title" content="心血管風險計算器（AHA PREVENT）— 呂侑穎醫師的臨床筆記">
+<meta property="og:description" content="採用最新 AHA PREVENT 方程式的全中文心血管風險計算器：不分種族、納入 eGFR 與 BMI，算出 10 年與 30 年 ASCVD、總 CVD 與心衰風險。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lusnaker0730.github.io/luknow/risk.html">
 <meta property="og:locale" content="zh_TW">
@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://lusnaker0730.github.io/luknow/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（10 年 ASCVD 風險）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://lusnaker0730.github.io/luknow/risk.html","description":"依 2013 ACC/AHA Pooled Cohort Equations 估算 10 年 ASCVD 風險的全中文計算器。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://lusnaker0730.github.io/luknow/about.html"},"publisher":{"@type":"Organization","name":"呂侑穎醫師的臨床筆記"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（AHA PREVENT）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://lusnaker0730.github.io/luknow/risk.html","description":"採用 AHA PREVENT 方程式估算 10 年與 30 年心血管疾病風險的全中文計算器。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://lusnaker0730.github.io/luknow/about.html"},"publisher":{"@type":"Organization","name":"呂侑穎醫師的臨床筆記"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://lusnaker0730.github.io/luknow/"},{"@type":"ListItem","position":2,"name":"心血管風險計算器","item":"https://lusnaker0730.github.io/luknow/risk.html"}]}
@@ -55,39 +55,47 @@
 
 <div class="hero">
 <h1>心血管風險計算器</h1>
-<p>10 年 ASCVD 風險估算 · 依 ACC／AHA Pooled Cohort Equations · 全中文</p>
+<p>AHA PREVENT 方程式（2023，現行指引建議）· 10 年與 30 年風險 · 全中文</p>
 </div>
 
 <div class="calc">
 <div class="calc-card">
 <div class="calc-grid">
 <div class="calc-field">
-<label for="age">年齡 <span class="u">40–79 歲</span></label>
-<input id="age" type="number" inputmode="numeric" min="40" max="79" placeholder="例：55">
+<label for="age">年齡 <span class="u">30–79 歲</span></label>
+<input id="age" type="number" inputmode="numeric" min="30" max="79" placeholder="例：50">
 </div>
 <div class="calc-field">
 <label for="sex">生理性別</label>
 <select id="sex"><option value="male">男性</option><option value="female">女性</option></select>
 </div>
 <div class="calc-field">
-<label for="race">族群</label>
-<select id="race"><option value="white">白人／其他（含亞洲族群）</option><option value="black">非裔美國人</option></select>
-</div>
-<div class="calc-field">
 <label for="tc">總膽固醇 <span class="u">mg/dL，130–320</span></label>
-<input id="tc" type="number" inputmode="numeric" min="130" max="320" placeholder="例：213">
+<input id="tc" type="number" inputmode="numeric" min="130" max="320" placeholder="例：200">
 </div>
 <div class="calc-field">
 <label for="hdl">高密度膽固醇 HDL <span class="u">mg/dL，20–100</span></label>
-<input id="hdl" type="number" inputmode="numeric" min="20" max="100" placeholder="例：50">
+<input id="hdl" type="number" inputmode="numeric" min="20" max="100" placeholder="例：45">
 </div>
 <div class="calc-field">
 <label for="sbp">收縮壓 <span class="u">mmHg，90–200</span></label>
-<input id="sbp" type="number" inputmode="numeric" min="90" max="200" placeholder="例：120">
+<input id="sbp" type="number" inputmode="numeric" min="90" max="200" placeholder="例：140">
+</div>
+<div class="calc-field">
+<label for="egfr">腎絲球過濾率 eGFR <span class="u">mL/min，15–140</span></label>
+<input id="egfr" type="number" inputmode="numeric" min="15" max="140" placeholder="例：90">
+</div>
+<div class="calc-field">
+<label for="bmi">身體質量指數 BMI <span class="u">kg/m²，18–50</span></label>
+<input id="bmi" type="number" inputmode="decimal" min="18" max="50" step="0.1" placeholder="例：25">
 </div>
 <div class="calc-field">
 <label for="treated">是否服用降血壓藥物？</label>
 <select id="treated"><option value="0">否</option><option value="1">是</option></select>
+</div>
+<div class="calc-field">
+<label for="statin">是否服用他汀（statin）？</label>
+<select id="statin"><option value="0">否</option><option value="1">是</option></select>
 </div>
 <div class="calc-field">
 <label for="dm">是否有糖尿病？</label>
@@ -98,7 +106,7 @@
 <select id="smk"><option value="0">否</option><option value="1">是</option></select>
 </div>
 </div>
-<button class="calc-btn" id="calcBtn" type="button">計算 10 年風險</button>
+<button class="calc-btn" id="calcBtn" type="button">計算風險</button>
 <div class="calc-err" id="err"></div>
 <div class="calc-result" id="result">
 <div class="risk-lbl">10 年 ASCVD 風險（心臟病與中風）</div>
@@ -110,22 +118,28 @@
 
 <div class="content-wrap" style="padding-top:26px">
 <div class="content-body">
-<h2>這個計算器在算什麼？</h2>
-<p>它估算你未來 <strong>10 年內發生「動脈粥狀硬化性心血管疾病（ASCVD）」的機率</strong>——也就是心臟病發作、冠心病死亡或中風的整體風險。計算依據是美國心臟學會與心臟病學會（ACC／AHA）2013 年提出、廣泛使用的 <strong>Pooled Cohort Equations（PCE）</strong>。</p>
-<h2>風險分級怎麼看？</h2>
+<h2>為什麼用 PREVENT？</h2>
+<p>這個計算器採用美國心臟學會（AHA）於 2023 年發表的 <strong>PREVENT 方程式</strong>，這也是<strong>現行指引建議取代舊版 Pooled Cohort Equations（PCE）</strong>的新工具。相較於舊版，PREVENT <strong>不再分種族</strong>、把年齡下修到 <strong>30 歲</strong>起，並額外納入<strong>腎功能（eGFR）與體型（BMI）</strong>，能同時估算 <strong>10 年與 30 年</strong>的風險，也把<strong>心臟衰竭</strong>納入評估——更貼近「心、腎、代謝」整體照護的觀念。</p>
+<h2>它會算出什麼？</h2>
+<ul>
+<li><strong>ASCVD 風險：</strong>心臟病發作、冠心病死亡或中風的整體機率（主要指標）。</li>
+<li><strong>總心血管疾病（Total CVD）：</strong>ASCVD 再加上心臟衰竭。</li>
+<li><strong>心臟衰竭（HF）風險</strong>。</li>
+</ul>
+<h2>風險分級怎麼看？（以 10 年 ASCVD 為準）</h2>
 <ul>
 <li><strong>低風險：</strong>小於 5%</li>
 <li><strong>邊緣風險：</strong>5% – 7.4%</li>
 <li><strong>中度風險：</strong>7.5% – 19.9%</li>
 <li><strong>高風險：</strong>20% 以上</li>
 </ul>
-<p>一般而言，風險達 <strong>7.5% 以上</strong>時，指引建議與醫師討論是否開始他汀類（statin）藥物；<strong>5%–7.5%</strong> 之間則屬邊緣，可再參考家族史、發炎指標、冠狀動脈鈣化分數等「風險增強因子」一起判斷。無論分數高低，<strong>控制三高、戒菸、健康飲食與運動</strong>都是根本。</p>
+<p>一般而言，風險達 <strong>7.5% 以上</strong>時，指引建議與醫師討論是否開始他汀類（statin）藥物；<strong>5%–7.5%</strong> 之間屬邊緣，可再參考家族史、發炎指標、冠狀動脈鈣化分數等一起判斷。無論分數高低，<strong>控制三高、戒菸、健康飲食與運動</strong>都是根本。</p>
 <div class="warning">
-<strong>重要提醒：</strong>本計算器源自<strong>美國族群</strong>的資料，適用 <strong>40–79 歲</strong>、且<strong>尚未發生過心血管疾病</strong>者。亞洲族群請選「其他」，結果可能高估或低估，<strong>僅供衛教參考、不是診斷工具</strong>。實際風險與治療，請由您的醫師依整體狀況評估。
+<strong>重要提醒：</strong>PREVENT 由<strong>美國族群</strong>資料建立，適用 <strong>30–79 歲</strong>、<strong>尚未發生過心血管疾病</strong>者（30 年風險僅適用 30–59 歲）。用於亞洲族群時結果可能有偏差，<strong>僅供衛教參考、不是診斷工具</strong>。實際風險與治療，請由您的醫師依整體狀況評估。
 </div>
 </div>
 <div class="source">
-計算公式：2013 ACC／AHA Guideline on the Assessment of Cardiovascular Risk（Goff DC 等，<em>Circulation</em> 2014）之 Pooled Cohort Equations。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。
+計算公式：美國心臟學會 PREVENT 方程式（Khan SS 等，<em>Circulation</em> 2024;149:430-449）之基礎（base）模型。係數取自官方補充資料並已對照驗證。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。
 </div>
 </div>
 </div>
@@ -163,25 +177,34 @@
 
 <script>
 (function(){
-  var PCE={
-    wm:{b:{lnAge:12.344,lnTC:11.853,lnAgeTC:-2.664,lnHDL:-7.990,lnAgeHDL:1.769,lnTSBP:1.797,lnUSBP:1.764,smk:7.837,lnAgeSmk:-1.795,dm:0.658},s0:0.9144,mean:61.18},
-    wf:{b:{lnAge:-29.799,lnAge2:4.884,lnTC:13.540,lnAgeTC:-3.114,lnHDL:-13.578,lnAgeHDL:3.149,lnTSBP:2.019,lnUSBP:1.957,smk:7.574,lnAgeSmk:-1.665,dm:0.661},s0:0.9665,mean:-29.1817},
-    bm:{b:{lnAge:2.469,lnTC:0.302,lnHDL:-0.307,lnTSBP:1.916,lnUSBP:1.809,smk:0.549,dm:0.645},s0:0.8954,mean:19.5425},
-    bf:{b:{lnAge:17.114,lnTC:0.940,lnHDL:-18.920,lnAgeHDL:4.475,lnTSBP:29.291,lnAgeTSBP:-6.432,lnUSBP:27.820,lnAgeUSBP:-6.087,smk:0.691,dm:0.874},s0:0.9533,mean:86.6081}
+  // AHA PREVENT base-model coefficients (Khan 2024, Circulation) — verified against reference case
+  var PV={
+    ascvd10:{f:[0.719883,0.117697,-0.151185,-0.083536,0.359285,0.834858,0.483108,0,0,0.486462,0.039778,0.226531,-0.059237,-0.039576,0.084442,-0.056784,0.032569,-0.103598,-0.241754,-0.079114,0,-0.167149,-3.819975],m:[0.709985,0.165866,-0.114429,-0.283721,0.323998,0.71896,0.395697,0,0,0.369007,0.020362,0.203652,-0.086558,-0.032292,0.114563,-0.03,0.023275,-0.092702,-0.201852,-0.097053,0,-0.121708,-3.500655]},
+    cvd10:{f:[0.793933,0.030524,-0.160686,-0.2394,0.360078,0.86676,0.536074,0,0,0.604592,0.043377,0.315167,-0.147765,-0.066361,0.119788,-0.081972,0.030677,-0.094635,-0.27057,-0.078715,0,-0.163781,-3.307728],m:[0.768853,0.073617,-0.095443,-0.434735,0.336266,0.769286,0.438687,0,0,0.537898,0.016483,0.288879,-0.133735,-0.047592,0.150273,-0.051787,0.019117,-0.104948,-0.225195,-0.089507,0,-0.15437,-3.031168]},
+    hf10:{f:[0.899823,0,0,-0.455977,0.35765,1.038346,0.583916,-0.007229,0.299771,0.745164,0.055709,0.353444,0,-0.098151,0,0,0,-0.094666,-0.358104,-0.115945,-0.003878,-0.188429,-4.310409],m:[0.897264,0,0,-0.681147,0.363446,0.923776,0.502374,-0.048584,0.372693,0.692692,0.025183,0.298092,0,-0.049773,0,0,0,-0.12892,-0.304092,-0.140169,0.006813,-0.179778,-3.946391]},
+    ascvd30:{f:[0.46692,-0.089312,0.12569,-0.154225,-0.001809,0.322949,0.629671,0.268292,0,0,0.100106,0.049966,0.187529,0.015248,-0.027612,0.073615,-0.052196,0.031692,-0.10461,-0.272779,-0.153091,0,-0.129915,-1.974074],m:[0.39941,-0.093748,0.174464,-0.120203,-0.066512,0.275304,0.479026,0.178263,0,0,-0.021879,0.060255,0.142118,0.0136,-0.021826,0.101315,-0.031262,0.020673,-0.092093,-0.215995,-0.154881,0,-0.071255,-1.736444]},
+    cvd30:{f:[0.550308,-0.092837,0.040979,-0.166331,-0.162865,0.32995,0.679389,0.319611,0,0,0.18571,0.055353,0.2894,-0.075688,-0.056367,0.107102,-0.075144,0.030179,-0.099878,-0.320617,-0.160786,0,-0.145079,-1.318827],m:[0.462731,-0.098428,0.083609,-0.102982,-0.214035,0.290432,0.533128,0.214191,0,0,0.115556,0.060378,0.232714,-0.027211,-0.038449,0.134192,-0.051176,0.016587,-0.110144,-0.258594,-0.156641,0,-0.116678,-1.148204]},
+    hf30:{f:[0.625437,-0.098304,0,0,-0.391924,0.314229,0.833079,0.343865,0.059487,0.252554,0.298164,0.066716,0.333921,0,-0.089318,0,0,0,-0.09743,-0.404855,-0.198299,-0.003562,-0.156421,-2.205379],m:[0.568154,-0.104839,0,0,-0.476156,0.30324,0.684034,0.265627,0.083311,0.26999,0.25418,0.063892,0.258363,0,-0.039194,0,0,0,-0.126912,-0.327357,-0.204302,-0.018283,-0.134262,-1.95751]}
   };
-  function ascvd(o){
-    var key=(o.race==='black'?'b':'w')+(o.sex==='male'?'m':'f');
-    var c=PCE[key].b,s0=PCE[key].s0,mean=PCE[key].mean;
-    var lnAge=Math.log(o.age),lnTC=Math.log(o.tc),lnHDL=Math.log(o.hdl),lnSBP=Math.log(o.sbp);
-    var x=0;
-    x+=(c.lnAge||0)*lnAge; x+=(c.lnAge2||0)*lnAge*lnAge;
-    x+=(c.lnTC||0)*lnTC; x+=(c.lnAgeTC||0)*lnAge*lnTC;
-    x+=(c.lnHDL||0)*lnHDL; x+=(c.lnAgeHDL||0)*lnAge*lnHDL;
-    if(o.treated){ x+=(c.lnTSBP||0)*lnSBP; x+=(c.lnAgeTSBP||0)*lnAge*lnSBP; }
-    else { x+=(c.lnUSBP||0)*lnSBP; x+=(c.lnAgeUSBP||0)*lnAge*lnSBP; }
-    x+=(c.smk||0)*(o.smoker?1:0); x+=(c.lnAgeSmk||0)*lnAge*(o.smoker?1:0);
-    x+=(c.dm||0)*(o.diabetes?1:0);
-    return (1-Math.pow(s0,Math.exp(x-mean)))*100;
+  var CF=0.02586; // mg/dL -> mmol/L (cholesterol)
+  function prep(o){
+    var age=(o.age-55)/10;
+    var nonhdl=(o.tc-o.hdl)*CF-3.5;
+    var hdl=(o.hdl*CF-1.3)/0.3;
+    var sbplt=(Math.min(o.sbp,110)-110)/20;
+    var sbpge=(Math.max(o.sbp,110)-130)/20;
+    var bmilt=(Math.min(o.bmi,30)-25)/5;
+    var bmige=(Math.max(o.bmi,30)-30)/5;
+    var egfrlt=(Math.min(o.egfr,60)-60)/-15;
+    var egfrge=(Math.max(o.egfr,60)-90)/-15;
+    var dm=o.dm,smk=o.smk,ah=o.treated,st=o.statin;
+    return {age:age,base:[age,nonhdl,hdl,sbplt,sbpge,dm,smk,bmilt,bmige,egfrlt,egfrge,ah,st,ah*sbpge,st*nonhdl,age*nonhdl,age*hdl,age*sbpge,age*dm,age*smk,age*bmige,age*egfrlt,1]};
+  }
+  function riskFrom(coef, p, is30){
+    var t=p.base.slice();
+    if(is30){ t.splice(1,0,p.age*p.age); }
+    var s=0; for(var i=0;i<coef.length;i++) s+=coef[i]*t[i];
+    return (1/(1+Math.exp(-s)))*100;
   }
   function band(r){
     if(r<5) return {t:'低風險',c:'#2e9e5b',bg:'#e7f4ec'};
@@ -189,43 +212,54 @@
     if(r<20) return {t:'中度風險',c:'#c96a26',bg:'#fbeee2'};
     return {t:'高風險',c:'#c0392b',bg:'#fbeae7'};
   }
-  function note(r){
+  function advice(r){
     var base='數值高低都一樣：控制三高、戒菸、健康飲食與規律運動，是降低風險的根本。';
-    if(r>=20) return '屬高風險。指引建議積極介入，通常包含他汀類藥物。請盡快與醫師討論完整的預防與治療計畫。<br>'+base;
-    if(r>=7.5) return '達到指引建議「與醫師討論是否開始他汀類（statin）藥物」的門檻。<br>'+base;
-    if(r>=5) return '屬邊緣風險。可再參考家族史、脂蛋白(a)、發炎指標或冠狀動脈鈣化分數等「風險增強因子」，與醫師一起判斷。<br>'+base;
+    if(r>=20) return '屬高風險。指引建議積極介入，通常包含他汀類藥物，請盡快與醫師討論。'+base;
+    if(r>=7.5) return '達到指引建議「與醫師討論是否開始他汀類（statin）藥物」的門檻。'+base;
+    if(r>=5) return '屬邊緣風險，可再參考家族史、冠狀動脈鈣化分數等風險增強因子，與醫師一起判斷。'+base;
     return '目前屬低風險，但不代表可以放鬆。'+base;
   }
   function num(id){ return parseFloat(document.getElementById(id).value); }
-  function show(el){ el.classList.add('show'); }
-  function hide(el){ el.classList.remove('show'); }
+  function pct(x){ return x.toFixed(1)+'%'; }
   document.getElementById('calcBtn').addEventListener('click',function(){
     var err=document.getElementById('err'), res=document.getElementById('result');
-    hide(res);
-    var age=num('age'),tc=num('tc'),hdl=num('hdl'),sbp=num('sbp');
-    var problems=[];
-    if(!(age>=40&&age<=79)) problems.push('年齡需在 40–79 歲');
-    if(!(tc>=130&&tc<=320)) problems.push('總膽固醇需在 130–320 mg/dL');
-    if(!(hdl>=20&&hdl<=100)) problems.push('HDL 需在 20–100 mg/dL');
-    if(!(sbp>=90&&sbp<=200)) problems.push('收縮壓需在 90–200 mmHg');
-    if(problems.length){ err.innerHTML='請檢查：'+problems.join('、'); show(err); return; }
-    hide(err);
-    var r=ascvd({
-      age:age,tc:tc,hdl:hdl,sbp:sbp,
+    res.classList.remove('show');
+    var age=num('age'),tc=num('tc'),hdl=num('hdl'),sbp=num('sbp'),egfr=num('egfr'),bmi=num('bmi');
+    var p=[];
+    if(!(age>=30&&age<=79)) p.push('年齡需在 30–79 歲');
+    if(!(tc>=130&&tc<=320)) p.push('總膽固醇需在 130–320 mg/dL');
+    if(!(hdl>=20&&hdl<=100)) p.push('HDL 需在 20–100 mg/dL');
+    if(!(sbp>=90&&sbp<=200)) p.push('收縮壓需在 90–200 mmHg');
+    if(!(egfr>=15&&egfr<=140)) p.push('eGFR 需在 15–140 mL/min');
+    if(!(bmi>=18&&bmi<=50)) p.push('BMI 需在 18–50');
+    if(p.length){ err.innerHTML='請檢查：'+p.join('、'); err.classList.add('show'); return; }
+    err.classList.remove('show');
+    var o={age:age,tc:tc,hdl:hdl,sbp:sbp,egfr:egfr,bmi:bmi,
       sex:document.getElementById('sex').value,
-      race:document.getElementById('race').value,
-      treated:document.getElementById('treated').value==='1',
-      diabetes:document.getElementById('dm').value==='1',
-      smoker:document.getElementById('smk').value==='1'
-    });
-    var b=band(r);
-    document.getElementById('riskNum').textContent=r.toFixed(1)+'%';
+      treated:document.getElementById('treated').value==='1'?1:0,
+      statin:document.getElementById('statin').value==='1'?1:0,
+      dm:document.getElementById('dm').value==='1'?1:0,
+      smk:document.getElementById('smk').value==='1'?1:0};
+    var sx=o.sex==='female'?'f':'m';
+    var pp=prep(o);
+    var a10=riskFrom(PV.ascvd10[sx],pp,false);
+    var c10=riskFrom(PV.cvd10[sx],pp,false);
+    var h10=riskFrom(PV.hf10[sx],pp,false);
+    var b=band(a10);
+    document.getElementById('riskNum').textContent=pct(a10);
     document.getElementById('riskNum').style.color=b.c;
-    var bandEl=document.getElementById('riskBand');
-    bandEl.textContent=b.t; bandEl.style.color=b.c;
-    document.getElementById('riskNote').innerHTML=note(r);
+    var be=document.getElementById('riskBand'); be.textContent=b.t; be.style.color=b.c;
+    var note='<strong>10 年風險：</strong>總心血管疾病 '+pct(c10)+' ‧ 心臟衰竭 '+pct(h10);
+    if(age<60){
+      var a30=riskFrom(PV.ascvd30[sx],pp,true);
+      var c30=riskFrom(PV.cvd30[sx],pp,true);
+      var h30=riskFrom(PV.hf30[sx],pp,true);
+      note+='<br><strong>30 年風險：</strong>ASCVD '+pct(a30)+' ‧ 總 CVD '+pct(c30)+' ‧ 心臟衰竭 '+pct(h30);
+    }
+    note+='<br><br>'+advice(a10);
+    document.getElementById('riskNote').innerHTML=note;
     res.style.background=b.bg; res.style.borderColor=b.c;
-    show(res);
+    res.classList.add('show');
     res.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 })();
