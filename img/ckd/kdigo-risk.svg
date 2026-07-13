@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 670 454" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" role="img" aria-label="KDIGO 慢性腎臟病風險分層，依 eGFR 與尿蛋白">
+<text x="335.0" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#14323a">CKD 風險分層：腎功能 × 尿蛋白（KDIGO）</text>
+<text x="415.0" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#3c5158">尿液白蛋白／肌酸酐比（UACR, mg/g）</text>
+<text x="265.0" y="86" text-anchor="middle" font-size="13" fill="#3c5158">A1｜&lt;30</text>
+<text x="415.0" y="86" text-anchor="middle" font-size="13" fill="#3c5158">A2｜30–300</text>
+<text x="565.0" y="86" text-anchor="middle" font-size="13" fill="#3c5158">A3｜&gt;300</text>
+<text x="26" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#3c5158" transform="rotate(-90 26 240)">腎絲球過濾率 eGFR（mL/min）</text>
+<text x="178" y="124.0" text-anchor="end" font-size="13" fill="#3c5158">G1｜≥90</text>
+<rect x="190" y="96" width="147" height="45" rx="4" fill="#2e9e5b"/>
+<text x="263.5" y="125.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">低</text>
+<rect x="340" y="96" width="147" height="45" rx="4" fill="#e6b800"/>
+<text x="413.5" y="125.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">中</text>
+<rect x="490" y="96" width="147" height="45" rx="4" fill="#e8843c"/>
+<text x="563.5" y="125.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">高</text>
+<text x="178" y="172.0" text-anchor="end" font-size="13" fill="#3c5158">G2｜60–89</text>
+<rect x="190" y="144" width="147" height="45" rx="4" fill="#2e9e5b"/>
+<text x="263.5" y="173.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">低</text>
+<rect x="340" y="144" width="147" height="45" rx="4" fill="#e6b800"/>
+<text x="413.5" y="173.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">中</text>
+<rect x="490" y="144" width="147" height="45" rx="4" fill="#e8843c"/>
+<text x="563.5" y="173.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">高</text>
+<text x="178" y="220.0" text-anchor="end" font-size="13" fill="#3c5158">G3a｜45–59</text>
+<rect x="190" y="192" width="147" height="45" rx="4" fill="#e6b800"/>
+<text x="263.5" y="221.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">中</text>
+<rect x="340" y="192" width="147" height="45" rx="4" fill="#e8843c"/>
+<text x="413.5" y="221.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">高</text>
+<rect x="490" y="192" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="563.5" y="221.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<text x="178" y="268.0" text-anchor="end" font-size="13" fill="#3c5158">G3b｜30–44</text>
+<rect x="190" y="240" width="147" height="45" rx="4" fill="#e8843c"/>
+<text x="263.5" y="269.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">高</text>
+<rect x="340" y="240" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="413.5" y="269.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="490" y="240" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="563.5" y="269.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<text x="178" y="316.0" text-anchor="end" font-size="13" fill="#3c5158">G4｜15–29</text>
+<rect x="190" y="288" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="263.5" y="317.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="340" y="288" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="413.5" y="317.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="490" y="288" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="563.5" y="317.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<text x="178" y="364.0" text-anchor="end" font-size="13" fill="#3c5158">G5｜&lt;15</text>
+<rect x="190" y="336" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="263.5" y="365.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="340" y="336" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="413.5" y="365.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="490" y="336" width="147" height="45" rx="4" fill="#d64545"/>
+<text x="563.5" y="365.0" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">極高</text>
+<rect x="190" y="405" width="16" height="16" rx="3" fill="#2e9e5b"/>
+<text x="212" y="418" font-size="13" fill="#3c5158">低風險</text>
+<rect x="300" y="405" width="16" height="16" rx="3" fill="#e6b800"/>
+<text x="322" y="418" font-size="13" fill="#3c5158">中度</text>
+<rect x="410" y="405" width="16" height="16" rx="3" fill="#e8843c"/>
+<text x="432" y="418" font-size="13" fill="#3c5158">高</text>
+<rect x="520" y="405" width="16" height="16" rx="3" fill="#d64545"/>
+<text x="542" y="418" font-size="13" fill="#3c5158">極高</text>
+</svg>

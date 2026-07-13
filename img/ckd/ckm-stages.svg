@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 210" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" role="img" aria-label="心腎代謝症候群 CKM 0到4期連續光譜">
+<text x="500.0" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#14323a">心腎代謝症候群（CKM）0–4 期連續光譜</text>
+<rect x="20" y="52" width="176" height="120" rx="12" fill="#7d8a8c"/>
+<text x="108.0" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">第 0 期</text>
+<text x="108.0" y="130" text-anchor="middle" font-size="15" fill="#fff">無危險因子</text>
+<path d="M198 112.0 l14 0 m-6 -5 l6 5 l-6 5" stroke="#9aa5a7" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="218" y="52" width="176" height="120" rx="12" fill="#0f7a82"/>
+<text x="306.0" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">第 1 期</text>
+<text x="306.0" y="130" text-anchor="middle" font-size="15" fill="#fff">過重／肥胖</text>
+<path d="M396 112.0 l14 0 m-6 -5 l6 5 l-6 5" stroke="#9aa5a7" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="416" y="52" width="176" height="120" rx="12" fill="#d9a441"/>
+<text x="504.0" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">第 2 期</text>
+<text x="504.0" y="130" text-anchor="middle" font-size="15" fill="#fff">代謝異常＋CKD</text>
+<path d="M594 112.0 l14 0 m-6 -5 l6 5 l-6 5" stroke="#9aa5a7" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="614" y="52" width="176" height="120" rx="12" fill="#e8843c"/>
+<text x="702.0" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">第 3 期</text>
+<text x="702.0" y="130" text-anchor="middle" font-size="15" fill="#fff">亞臨床心血管病</text>
+<path d="M792 112.0 l14 0 m-6 -5 l6 5 l-6 5" stroke="#9aa5a7" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="812" y="52" width="176" height="120" rx="12" fill="#c43d34"/>
+<text x="900.0" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">第 4 期</text>
+<text x="900.0" y="130" text-anchor="middle" font-size="15" fill="#fff">臨床心血管病</text>
+<text x="500.0" y="200" text-anchor="middle" font-size="14" fill="#7d8a8c">← 從危險因子到臨床心血管疾病，風險逐步累積（越右風險越高）→</text>
+</svg>
