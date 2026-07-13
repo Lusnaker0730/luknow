@@ -119,7 +119,9 @@ function shellHeader(active, prefix) {
   return `<header>
 <div class="wrap nav-row">
 <a href="${prefix}index.html" class="brand"><span class="mark">呂侑穎醫師<em>·</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
-<nav class="top">
+<input type="checkbox" id="nav-check" class="nav-check" aria-hidden="true">
+<label for="nav-check" class="nav-burger" aria-label="開關選單"><span></span><span></span><span></span></label>
+<nav class="top" id="topnav">
 ${links}
 <a href="${prefix}health.html" class="cta">探索衛教 →</a>
 </nav>

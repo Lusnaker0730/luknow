@@ -324,3 +324,19 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .calc-result .risk-num{font-family:var(--serif);font-size:3.1rem;font-weight:700;line-height:1.05;margin:4px 0}
 .calc-result .risk-band{font-weight:700;font-size:1.05rem}
 .calc-result .risk-note{font-size:.9rem;color:var(--ink-2);margin-top:14px;line-height:1.8;text-align:left}
+
+/* ---------- 手機漢堡選單（純 CSS，checkbox 技巧） ---------- */
+.nav-check{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.nav-burger{display:none}
+@media(max-width:860px){
+  .nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:40px;margin-left:auto;padding:8px 9px;box-sizing:border-box;cursor:pointer;border-radius:10px}
+  .nav-burger:hover{background:rgba(196,61,52,.06)}
+  .nav-burger span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s}
+  nav.top{display:none;flex-basis:100%;width:100%;flex-direction:column;align-items:stretch;gap:2px;margin-top:8px;flex-wrap:nowrap}
+  .nav-check:checked ~ nav.top{display:flex}
+  nav.top a{font-size:.95rem;padding:12px 14px;border-radius:9px}
+  nav.top a.cta{display:block;text-align:center;margin:8px 0 2px}
+  .nav-check:checked ~ .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-check:checked ~ .nav-burger span:nth-child(2){opacity:0}
+  .nav-check:checked ~ .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
