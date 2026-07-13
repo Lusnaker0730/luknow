@@ -55,6 +55,7 @@ const TOPNAV = [
   ['meetings.html', '會議重點'],
   ['health.html', '衛教'],
   ['clinic.html', '門診時刻表'],
+  ['about.html', '醫師介紹'],
 ];
 
 // 門診時刻表 — single source of truth (drives clinic.html + homepage band)
