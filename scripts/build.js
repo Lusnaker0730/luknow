@@ -734,6 +734,7 @@ const TOPIC_ILLO = {
   'htn.html': ['htn', '高血壓'], 'chol.html': ['chol', '膽固醇'], 'stroke.html': ['stroke', '中風'],
   'afib.html': ['afib', '心房顫動'], 'mi.html': ['mi', '心臟病發作'], 'dm.html': ['dm', '糖尿病'],
   'pad.html': ['pad', '周邊動脈疾病'], 'le8.html': ['le8', '心血管保健八要素'],
+  'ckd.html': ['ckd', '慢性腎臟病'], 'stent.html': ['stent', '可吸收支架'],
 };
 function placeIllos() {
   let n = 0;
