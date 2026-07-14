@@ -120,7 +120,7 @@ function shellHeader(active, prefix) {
     `<a href="${prefix}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`).join('\n');
   return `<header>
 <div class="wrap nav-row">
-<a href="${prefix}index.html" class="brand"><span class="mark">呂侑穎醫師<em>·</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
+<a href="${prefix}index.html" class="brand"><span class="mark">台安醫院心臟內科<em>。</em>呂侑穎醫師<em>。</em>臨床筆記</span><span class="sub">Cardiology Notes</span></a>
 <input type="checkbox" id="nav-check" class="nav-check" aria-hidden="true">
 <label for="nav-check" class="nav-burger" aria-label="開關選單"><span></span><span></span><span></span></label>
 <nav class="top" id="topnav">
@@ -134,7 +134,7 @@ function shellFooter(prefix) {
   return `<footer>
 <div class="foot-grid">
 <div>
-<div class="fmark">呂侑穎醫師<em>·</em>臨床筆記</div>
+<div class="fmark">台安醫院心臟內科<em>。</em>呂侑穎醫師<em>。</em>臨床筆記</div>
 <p>心臟醫學的臨床筆記與實證衛教，整理自 ACC／AHA／ESC 等國際會議與指南。內容依公開醫療資源整理，不構成個別診療建議。</p>
 </div>
 <div class="col">
@@ -158,7 +158,7 @@ function shellFooter(prefix) {
 </div>
 </div>
 <div class="foot-bottom">
-<span>© 2026 呂侑穎醫師的臨床筆記</span>
+<span>© 2026 台安醫院心臟內科。呂侑穎醫師。臨床筆記</span>
 <span>內容僅供衛教與學術參考，不構成臨床診療建議</span>
 </div>
 </footer>`;
@@ -208,7 +208,7 @@ function renderHome(articles, featured) {
 
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'WebSite',
-    name: '呂侑穎醫師的臨床筆記',
+    name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記',
     alternateName: ['呂侑穎醫師', '呂侑穎醫師 臨床筆記', '呂侑穎'],
     description: '整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。',
     url: BASE_URL + '/', inLanguage: 'zh-TW',
@@ -221,18 +221,18 @@ function renderHome(articles, featured) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>呂侑穎醫師的臨床筆記 — 心臟醫學．臨床筆記與衛教</title>
-<meta name="description" content="呂侑穎醫師的臨床筆記：整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
+<title>台安醫院心臟內科。呂侑穎醫師。臨床筆記 — 心臟醫學．臨床筆記與衛教</title>
+<meta name="description" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記：整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
 <meta name="keywords" content="呂侑穎,心臟內科,臨床筆記,心臟醫學,臨床試驗,臨床指南,心血管衛教,cardiology,ACC,AHA,ESC">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${BASE_URL}/index.html">
-<meta property="og:title" content="呂侑穎醫師的臨床筆記 — 心臟醫學．臨床筆記與衛教">
+<meta property="og:title" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記 — 心臟醫學．臨床筆記與衛教">
 <meta property="og:description" content="整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${BASE_URL}/index.html">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${OG_IMAGE}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -357,7 +357,7 @@ function renderPost(a) {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
-    publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
+    publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
   };
   if (a.date) jsonld.datePublished = a.date;
@@ -367,7 +367,7 @@ function renderPost(a) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(a.title)} — 呂侑穎醫師的臨床筆記</title>
+<title>${escHtml(a.title)} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
 <meta name="description" content="${escAttr(desc)}">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
@@ -377,7 +377,7 @@ function renderPost(a) {
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -449,7 +449,7 @@ function renderFeaturedPost(f) {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
-    publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
+    publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
     citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
   };
@@ -460,7 +460,7 @@ function renderFeaturedPost(f) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(f.title)} — 每周精選閱讀 — 呂侑穎醫師的臨床筆記</title>
+<title>${escHtml(f.title)} — 每周精選閱讀 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
 <meta name="description" content="${escAttr(desc)}">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
@@ -470,7 +470,7 @@ function renderFeaturedPost(f) {
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="${ogW}">
 <meta property="og:image:height" content="${ogH}">
@@ -539,18 +539,18 @@ function renderFeaturedArchive(featured) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每周精選閱讀 — 呂侑穎醫師的臨床筆記</title>
+<title>每周精選閱讀 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
 <meta name="description" content="每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文，整理自 AHA／ACC／ESC 等權威來源。">
 <meta name="keywords" content="心血管,精選閱讀,衛教,膽固醇,AHA,ACC,ESC,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${BASE_URL}/featured.html">
-<meta property="og:title" content="每周精選閱讀 — 呂侑穎醫師的臨床筆記">
+<meta property="og:title" content="每周精選閱讀 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:description" content="每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${BASE_URL}/featured.html">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${OG_IMAGE}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -621,7 +621,7 @@ function renderClinic(c) {
       '@type': 'Physician', name: c.doctor.replace(/\s*醫師$/, ''), medicalSpecialty: 'Cardiovascular',
       worksFor: { '@type': 'Hospital', name: c.hospital },
     },
-    publisher: { '@type': 'Organization', name: '呂侑穎醫師的臨床筆記' },
+    publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
   };
 
   return `<!DOCTYPE html>
@@ -640,7 +640,7 @@ function renderClinic(c) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:site_name" content="呂侑穎醫師的臨床筆記">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${OG_IMAGE}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
