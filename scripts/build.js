@@ -19,7 +19,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const BASE_URL = 'https://lusnaker0730.github.io/luknow';
+const BASE_URL = 'https://drluyy.com';
 const OG_IMAGE = BASE_URL + '/og-image.png';
 const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期，供 lastmod / dateModified 使用
 const BASE_PAGES = [
