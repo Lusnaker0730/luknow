@@ -27,6 +27,7 @@ const BASE_PAGES = [
   { f: 'trials.html',     changefreq: 'weekly',  priority: '0.9' },
   { f: 'guidelines.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'meetings.html',   changefreq: 'weekly',  priority: '0.9' },
+  { f: 'news.html',       changefreq: 'weekly',  priority: '0.9' },
   { f: 'health.html',     changefreq: 'monthly', priority: '0.8' },
   { f: 'about.html',      changefreq: 'yearly',  priority: '0.7' },
   { f: 'risk.html',       changefreq: 'monthly', priority: '0.8' },
@@ -55,6 +56,7 @@ const TOPNAV = [
   ['trials.html', '臨床試驗'],
   ['guidelines.html', '臨床指南'],
   ['meetings.html', '會議重點'],
+  ['news.html', '醫療新知'],
   ['health.html', '衛教'],
   ['clinic.html', '門診時刻表'],
   ['risk.html', '風險計算'],
@@ -140,6 +142,7 @@ function shellFooter(prefix) {
 <a href="${prefix}trials.html">臨床試驗</a>
 <a href="${prefix}guidelines.html">臨床指南</a>
 <a href="${prefix}meetings.html">會議重點</a>
+<a href="${prefix}news.html">醫療新知</a>
 <a href="${prefix}featured.html">每周精選閱讀</a>
 <a href="${prefix}clinic.html">門診時刻表</a>
 <a href="${prefix}risk.html">風險計算器</a>
@@ -400,7 +403,7 @@ ${metaHtml}
 </div>
 </div>
 <div class="content-card">
-<div class="article-body">${escHtml(a.body)}</div>
+${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}<div class="article-body">${escHtml(a.body)}</div>
 </div>
 </div>
 
