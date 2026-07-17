@@ -48,10 +48,11 @@ const BASE_PAGES = [
   { f: 'ckd.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'stent.html',      changefreq: 'monthly', priority: '0.8' },
   { f: 'heart-stent.html', changefreq: 'monthly', priority: '0.9' },
+  { f: 'weight-loss-injection.html', changefreq: 'monthly', priority: '0.9' },
   { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'le8.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html']);
 const TOPNAV = [
   ['index.html', '全部'],
   ['trials.html', '臨床試驗'],
@@ -303,7 +304,7 @@ ${renderFeaturedBand(featured)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
-<a href="health.html" class="more">查看全部 18 個主題 →</a>
+<a href="health.html" class="more">查看全部 19 個主題 →</a>
 </div>
 <div class="tilegrid">
 <a class="tile" href="htn.html"><img class="tile-illo" src="img/illo/htn.jpg" alt=""><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
