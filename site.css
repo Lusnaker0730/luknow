@@ -234,6 +234,15 @@ section.band{position:relative;z-index:2;padding:30px 0}
   .weekly-badge{flex-direction:row;width:auto;gap:8px;padding:0 0 14px;border-right:none;border-bottom:1px solid var(--line);justify-content:flex-start}
   .weekly-badge .wk{font-size:1.2rem}}
 
+/* ---------- social share bar ---------- */
+.share-bar{max-width:var(--readw);margin:6px auto 40px;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line)}
+.share-label{font-size:.9rem;color:var(--muted);font-weight:500}
+.share-btn{display:inline-flex;align-items:center;padding:7px 17px;border-radius:999px;font-size:.85rem;font-weight:600;color:#fff;text-decoration:none;transition:opacity .15s,transform .15s}
+.share-btn:hover{opacity:.9;transform:translateY(-1px)}
+.share-btn.line{background:#06C755}
+.share-btn.fb{background:#1877F2}
+.share-btn.x{background:#111}
+
 /* ---------- featured 導讀: lead figure ---------- */
 .article-figure{margin:0 0 22px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:0 2px 14px rgba(20,50,58,.06)}
 .article-figure img{display:block;width:100%;height:auto}

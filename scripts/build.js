@@ -766,6 +766,38 @@ function placeHubIllos() {
   write(file, html);
   console.log('  placeHubIllos: health.html updated');
 }
+// social share bar (LINE / Facebook / X) — injected before <footer> on article pages (idempotent)
+function shareBar(url) {
+  const u = encodeURIComponent(url);
+  return `<div class="share-bar">
+<span class="share-label">分享這篇：</span>
+<a class="share-btn line" href="https://social-plugins.line.me/lineit/share?url=${u}" target="_blank" rel="noopener" aria-label="分享到 LINE">LINE</a>
+<a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener" aria-label="分享到 Facebook">Facebook</a>
+<a class="share-btn x" href="https://twitter.com/intent/tweet?url=${u}" target="_blank" rel="noopener" aria-label="分享到 X">X</a>
+</div>`;
+}
+function placeShare() {
+  const files = [...TOPIC_PAGES];
+  for (const d of ['posts', 'featured']) {
+    const dir = path.join(ROOT, d);
+    if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir)) if (f.endsWith('.html')) files.push(`${d}/${f}`);
+  }
+  let n = 0;
+  for (const f of files) {
+    const p = path.join(ROOT, f);
+    if (!fs.existsSync(p)) continue;
+    let html = fs.readFileSync(p, 'utf8');
+    if (html.includes('class="share-bar"')) continue;
+    const m = html.match(/<link rel="canonical" href="([^"]+)">/);
+    if (!m) continue;
+    const i = html.indexOf('<footer>');
+    if (i < 0) continue;
+    html = html.slice(0, i) + shareBar(m[1]) + '\n\n' + html.slice(i);
+    fs.writeFileSync(p, html);
+    n++;
+  }
+  console.log(`  placeShare: ${n} page(s)`);
+}
 
 // ---------------------------------------------------------------------------
 // sitemap
@@ -844,6 +876,7 @@ function main() {
 
   placeIllos();
   placeHubIllos();
+  placeShare();
 
   write('sitemap.xml', renderSitemap(articles, featured));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + 2 + articles.length + featured.length} urls`);
