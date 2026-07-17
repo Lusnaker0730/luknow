@@ -213,8 +213,8 @@ function renderHome(articles, featured) {
     alternateName: ['呂侑穎醫師', '呂侑穎醫師 臨床筆記', '呂侑穎'],
     description: '整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。',
     url: BASE_URL + '/', inLanguage: 'zh-TW',
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctorcard/doctorcard.php?doctorid=058' },
-    publisher: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctorcard/doctorcard.php?doctorid=058' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058' },
+    publisher: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058' },
   };
 
   return `<!DOCTYPE html>
@@ -357,7 +357,7 @@ function renderPost(a) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctorcard/doctorcard.php?doctorid=058' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058' },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
   };
@@ -449,7 +449,7 @@ function renderFeaturedPost(f) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
-    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctorcard/doctorcard.php?doctorid=058' },
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: 'https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058' },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
     dateModified: TODAY, mainEntityOfPage: url,
     citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
