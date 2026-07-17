@@ -25,7 +25,7 @@
 <rect width="414" height="182" rx="14" fill="#fffdf9" stroke="#e3dbcc"/>
 <circle cx="38" cy="40" r="19" fill="#c43d34"/><text x="38" y="47" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">3</text>
 <text x="70" y="47" font-size="19" font-weight="700" fill="#14323a">誰適合？</text>
-<text x="24" y="94" font-size="15.5" fill="#3c5158">BMI ≥30，或 ≥27 併相關共病；</text>
+<text x="24" y="94" font-size="15.5" fill="#3c5158">身體質量指數（BMI）≥30，或 ≥27 併共病；</text>
 <text x="24" y="122" font-size="15.5" fill="#3c5158">需搭配飲食、運動與行為支持。</text>
 </g>
 <!-- 4 -->
@@ -73,8 +73,8 @@
 <rect width="414" height="182" rx="14" fill="#fffdf9" stroke="#e3dbcc"/>
 <circle cx="38" cy="40" r="19" fill="#c43d34"/><text x="38" y="47" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">9</text>
 <text x="70" y="47" font-size="19" font-weight="700" fill="#14323a">長期注意事項</text>
-<text x="24" y="94" font-size="15.5" fill="#3c5158">MTC／MEN2 禁用、手術前需停藥；</text>
-<text x="24" y="122" font-size="15.5" fill="#3c5158">注意脫水、糖尿病視網膜病變。</text>
+<text x="24" y="94" font-size="15" fill="#3c5158">甲狀腺髓質癌、第二型多發性內分泌腫瘤者不宜；</text>
+<text x="24" y="122" font-size="15" fill="#3c5158">手術前需停藥，注意脫水、糖尿病視網膜病變。</text>
 </g>
 <!-- 10 -->
 <g transform="translate(458,922)">
