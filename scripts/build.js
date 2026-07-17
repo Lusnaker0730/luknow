@@ -21,6 +21,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://drluyy.com';
 const OG_IMAGE = BASE_URL + '/og-image.png';
+const GA_ID = 'G-BC1Z8X6BQT';
 const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期，供 lastmod / dateModified 使用
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
@@ -798,6 +799,33 @@ function placeShare() {
   }
   console.log(`  placeShare: ${n} page(s)`);
 }
+// inject Google Analytics (gtag.js) before </head> on every page (idempotent)
+function placeAnalytics() {
+  const tag = `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');
+</script>
+`;
+  const dirs = ['.', 'posts', 'featured'];
+  let n = 0;
+  for (const d of dirs) {
+    const dir = path.join(ROOT, d);
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith('.html')) continue;
+      const p = path.join(dir, f);
+      let html = fs.readFileSync(p, 'utf8');
+      if (html.includes(GA_ID) || !html.includes('</head>')) continue;
+      html = html.replace('</head>', tag + '</head>');
+      fs.writeFileSync(p, html); n++;
+    }
+  }
+  console.log(`  placeAnalytics: ${n} page(s)`);
+}
 
 // ---------------------------------------------------------------------------
 // sitemap
@@ -877,6 +905,7 @@ function main() {
   placeIllos();
   placeHubIllos();
   placeShare();
+  placeAnalytics();
 
   write('sitemap.xml', renderSitemap(articles, featured));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + 2 + articles.length + featured.length} urls`);
