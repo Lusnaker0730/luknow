@@ -283,15 +283,16 @@ ${shellHeader('index.html', '')}
 <div class="wrap">
 <div class="about">
 <div>
-<div class="lbl">關於這個站</div>
-<h3>讓世界級的心臟醫學，<br>變成你讀得懂的中文。</h3>
-<p>從 late-breaking 臨床試驗、最新指南，到日常的心血管衛教——我把專業的內容拆解、翻譯、整理成有條理又準確的筆記。所有數據都標註來源，不加入額外推論。</p>
-<p style="margin-top:14px"><strong>呂侑穎醫師</strong>——台北台安醫院心臟內科主治醫師，具內科、心臟內科、介入性心臟血管、重症四項專科資格。<a href="about.html" style="color:var(--accent);font-weight:600">看完整醫師簡介 →</a></p>
+<div class="lbl">關於醫師</div>
+<h3>呂侑穎 醫師</h3>
+<p>台北台安醫院心臟內科主治醫師。長期把 ACC／AHA／ESC 等國際會議與最新指南的心臟醫學重點，拆解、翻譯、整理成準確又好讀的繁體中文——給同行，也給每一位想懂自己心臟的人。</p>
+<p style="margin-top:14px"><a href="about.html" style="color:var(--accent);font-weight:600">看完整醫師簡介 →</a></p>
 </div>
 <div class="principles">
-<div class="pr"><span class="n">01</span><div><b>有憑有據</b><span>每篇都標明 ACC／AHA／ESC 等來源，數據忠於原文。</span></div></div>
-<div class="pr"><span class="n">02</span><div><b>深入淺出</b><span>專業術語首次出現附原文，一般人也讀得懂。</span></div></div>
-<div class="pr"><span class="n">03</span><div><b>持續更新</b><span>跟著國際會議與指南，定期整理新內容。</span></div></div>
+<div class="pr"><span class="n">✓</span><div><b>內科專科</b><span>Internal Medicine</span></div></div>
+<div class="pr"><span class="n">✓</span><div><b>心臟內科專科</b><span>Cardiology</span></div></div>
+<div class="pr"><span class="n">✓</span><div><b>介入性心臟血管專科</b><span>Interventional Cardiology</span></div></div>
+<div class="pr"><span class="n">✓</span><div><b>重症專科</b><span>Critical Care</span></div></div>
 </div>
 </div>
 </div>
@@ -326,6 +327,23 @@ ${renderFeaturedBand(featured)}
 </div>
 <div class="cards" style="padding-left:0;padding-right:0">
 ${cards}
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap">
+<div class="about">
+<div>
+<div class="lbl">關於這個站</div>
+<h3>讓世界級的心臟醫學，<br>變成你讀得懂的中文。</h3>
+<p>從 late-breaking 臨床試驗、最新指南，到日常的心血管衛教——我把專業的內容拆解、翻譯、整理成有條理又準確的筆記。所有數據都標註來源，不加入額外推論。</p>
+</div>
+<div class="principles">
+<div class="pr"><span class="n">01</span><div><b>有憑有據</b><span>每篇都標明 ACC／AHA／ESC 等來源，數據忠於原文。</span></div></div>
+<div class="pr"><span class="n">02</span><div><b>深入淺出</b><span>專業術語首次出現附原文，一般人也讀得懂。</span></div></div>
+<div class="pr"><span class="n">03</span><div><b>持續更新</b><span>跟著國際會議與指南，定期整理新內容。</span></div></div>
+</div>
 </div>
 </div>
 </section>
