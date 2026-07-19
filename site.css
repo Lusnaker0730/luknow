@@ -68,6 +68,7 @@ nav.top a.cta:hover{background:var(--accent);color:#fff}
 .card-tag.disease{background:rgba(196,61,52,.1);color:var(--accent)}
 .card-tag.reading{background:rgba(20,50,58,.08);color:var(--ink)}
 .card-tag.news{background:#fbe6da;color:#c05a2a}
+.card-tag.symptom{background:#eef3ef;color:#4a6b60}
 @media(max-width:860px){.dept{display:none}}
 .article-hero{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
 .card-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.35;margin-bottom:7px;letter-spacing:-.01em;color:var(--ink)}
