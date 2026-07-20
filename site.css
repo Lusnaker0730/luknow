@@ -206,6 +206,7 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .tag.prevent{background:rgba(15,122,130,.1);color:var(--teal)}
 .tag.risk{background:#f6ecd9;color:#a9762a}
 .tag.disease{background:rgba(196,61,52,.1);color:var(--accent)}
+.tag.exam{background:rgba(15,122,130,.1);color:var(--teal)}
 .tile h4{font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--ink);margin-bottom:7px;letter-spacing:-.01em}
 .tile p{font-size:.86rem;color:var(--ink-2);line-height:1.6}
 .tile .go{margin-top:14px;font-size:.82rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}

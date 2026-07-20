@@ -311,6 +311,8 @@ ${renderFeaturedBand(featured)}
 <a href="health.html" class="more">查看全部 20 個主題 →</a>
 </div>
 <div class="tilegrid">
+<a class="tile" href="cath.html"><img class="tile-illo" src="img/illo/cath.jpg" alt=""><span class="tag exam">檢查介紹</span><h4>心導管檢查</h4><p>適應症、流程、住院幾天、傷口大小、風險與術後照護。</p><span class="go">閱讀 →</span></a>
+<a class="tile" href="heart-stent.html"><img class="tile-illo" src="img/illo/stent.jpg" alt=""><span class="tag exam">治療介紹</span><h4>心臟支架</h4><p>為什麼放支架、裸金屬／塗藥／可吸收怎麼選、術後吃藥與照護。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="htn.html"><img class="tile-illo" src="img/illo/htn.jpg" alt=""><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="chol.html"><img class="tile-illo" src="img/illo/chol.jpg" alt=""><span class="tag risk">危險因子</span><h4>膽固醇</h4><p>LDL／HDL／三酸甘油酯、血脂參考數值，以及如何控制。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="dm.html"><img class="tile-illo" src="img/illo/dm.jpg" alt=""><span class="tag risk">危險因子</span><h4>糖尿病與心血管</h4><p>為何大幅提高心臟病與中風風險，以及 ABC 控制重點。</p><span class="go">閱讀 →</span></a>
