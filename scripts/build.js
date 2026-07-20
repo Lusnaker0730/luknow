@@ -25,6 +25,7 @@ const GA_ID = 'G-BC1Z8X6BQT';
 const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期，供 lastmod / dateModified 使用
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
+  { f: 'posts.html',      changefreq: 'weekly',  priority: '0.9' },
   { f: 'trials.html',     changefreq: 'weekly',  priority: '0.9' },
   { f: 'guidelines.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'meetings.html',   changefreq: 'weekly',  priority: '0.9' },
@@ -56,7 +57,7 @@ const BASE_PAGES = [
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
 const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html']);
 const TOPNAV = [
-  ['index.html', '全部'],
+  ['posts.html', '全部'],
   ['trials.html', '臨床試驗'],
   ['guidelines.html', '臨床指南'],
   ['meetings.html', '會議重點'],
@@ -151,7 +152,7 @@ function shellFooter(prefix) {
 <a href="${prefix}clinic.html">門診時刻表</a>
 <a href="${prefix}risk.html">風險計算器</a>
 <a href="${prefix}about.html">醫師介紹</a>
-<a href="${prefix}index.html">全部文章</a>
+<a href="${prefix}posts.html">全部文章</a>
 </div>
 <div class="col">
 <h5>衛教</h5>
@@ -200,7 +201,7 @@ function renderFeaturedBand(featured) {
 }
 
 function renderHome(articles, featured) {
-  const cards = articles.map(a => `<a class="card" href="posts/${a.slug}.html">
+  const cards = articles.slice(0, 4).map(a => `<a class="card" href="posts/${a.slug}.html">
 <div class="card-header">
 <span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
 <div class="card-title">${escHtml(a.title)}</div>
@@ -324,7 +325,7 @@ ${renderFeaturedBand(featured)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Clinical Notes</div><h2>臨床筆記</h2></div>
-<span class="more">共 ${articles.length} 篇</span>
+<a href="posts.html" class="more">查看全部 ${articles.length} 篇 →</a>
 </div>
 <div class="cards" style="padding-left:0;padding-right:0">
 ${cards}
@@ -593,6 +594,75 @@ ${shellHeader(null, '')}
 <p>每周精選一篇值得一讀的心血管好文，附上中文重點導讀，並連回原文出處。</p>
 </div>
 <div class="article-count">${featured.length} 篇精選</div>
+
+<div class="cards">
+${cards}
+</div>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
+// ---------------------------------------------------------------------------
+// all clinical notes listing — posts.html
+// ---------------------------------------------------------------------------
+function renderNotesPage(articles) {
+  const cards = articles.map(a => `<a class="card" href="posts/${a.slug}.html">
+<div class="card-header">
+<span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
+<div class="card-title">${escHtml(a.title)}</div>
+<div class="card-subtitle">${escHtml(a.subtitle)}</div>
+<div class="card-meta">${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('')}</div>
+</div>
+<div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
+</a>`).join('\n');
+
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: '全部臨床筆記', url: BASE_URL + '/posts.html', inLanguage: 'zh-TW',
+    description: '呂侑穎醫師的心臟醫學臨床筆記全部文章，整理自 ACC、AHA、ESC 等國際會議與最新指南。',
+  };
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部臨床筆記 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<meta name="description" content="呂侑穎醫師的心臟醫學臨床筆記全部文章：臨床試驗、臨床指南、會議重點、醫療新知與 Podcast 整理，來源為 ACC、AHA、ESC 等國際會議與最新指南。">
+<meta name="keywords" content="臨床筆記,心臟醫學,臨床試驗,臨床指南,會議重點,醫療新知,呂侑穎">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${BASE_URL}/posts.html">
+<meta property="og:title" content="全部臨床筆記 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:description" content="呂侑穎醫師的心臟醫學臨床筆記全部文章，整理自 ACC、AHA、ESC 等國際會議與最新指南。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${BASE_URL}/posts.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader('posts.html', '')}
+
+<div class="hero">
+<h1>臨床筆記</h1>
+<p>心臟醫學的臨床筆記與實證整理，涵蓋臨床試驗、指南、會議重點與醫療新知，來源為 ACC／AHA／ESC 等國際會議與最新指南。</p>
+</div>
+<div class="article-count">${articles.length} 篇文章</div>
 
 <div class="cards">
 ${cards}
@@ -899,6 +969,9 @@ function main() {
 
   write('index.html', renderHome(articles, featured));
   console.log('  wrote index.html (branded homepage)');
+
+  write('posts.html', renderNotesPage(articles));
+  console.log('  wrote posts.html (全部臨床筆記)');
 
   write('clinic.html', renderClinic(CLINIC));
   console.log('  wrote clinic.html (門診時刻表)');
