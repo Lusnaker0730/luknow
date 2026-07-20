@@ -751,6 +751,9 @@ ${shellHeader('clinic.html', '')}
 <div class="hero">
 <h1>門診時刻表</h1>
 <p>${escHtml(c.hospital)} · ${escHtml(c.dept)} · ${escHtml(c.doctor)}</p>
+<div class="hero-cta" style="justify-content:center;margin-top:20px">
+<a href="https://www.tahsda.org.tw/Register/add_dr.php?doc=058" target="_blank" rel="noopener" class="btn btn-primary">前往台安醫院線上掛號 →</a>
+</div>
 </div>
 
 <div class="clinic-wrap">
@@ -782,7 +785,7 @@ ${datePills}
 
 <div class="clinic-note">
 <strong>新增門診：</strong>自 <strong>2026 年 8 月</strong>起，新增 <strong>週二上午（09:00–12:00）</strong>門診。<br>
-<strong>掛號提醒：</strong>實際門診時間、診號與停診／代診資訊，請以<strong>台北台安醫院官方網站與掛號系統公告為準</strong>。隔週週日門診日期可能因假期或醫院安排調整，前往就診前請先確認。本表僅供參考，不構成預約掛號。
+<strong>掛號提醒：</strong>實際門診時間、診號與停診／代診資訊，請以<strong>台北台安醫院官方網站與<a href="https://www.tahsda.org.tw/Register/add_dr.php?doc=058" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">線上掛號系統</a>公告為準</strong>。隔週週日門診日期可能因假期或醫院安排調整，前往就診前請先確認。本表僅供參考，不構成預約掛號。
 </div>
 
 </div>
