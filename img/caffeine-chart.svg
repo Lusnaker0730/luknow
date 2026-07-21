@@ -1,73 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="660" viewBox="0 0 980 660" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
-  <rect width="980" height="660" fill="#f7f3ec"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="680" viewBox="0 0 980 680" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+  <rect width="980" height="680" fill="#f7f3ec"/>
   <!-- title -->
   <text x="40" y="56" font-size="34" font-weight="700" fill="#14323a">一天 400 毫克咖啡因，大概是「幾杯」？</text>
-  <text x="40" y="88" font-size="17" fill="#3c5158">以每份濃縮咖啡（espresso，約 30ml）≈ 63 毫克估算；實際依容量、烘焙與品牌而異，請以杯身標示為準。</text>
+  <text x="40" y="88" font-size="16" fill="#3c5158">超商咖啡以 7-11 CITY CAFE 官方標示為例；其餘為常見參考值。實際依品項、容量與品牌而異。</text>
 
-  <!-- chart geometry: bars start x=300, scale 1.5px/mg, 400mg line at x=900 -->
-  <!-- gridlines -->
+  <!-- gridlines: x0=300, 1.5px/mg, 400mg at x=900 -->
   <g stroke="#e3dbcc" stroke-width="1">
-    <line x1="300" y1="120" x2="300" y2="500"/>
-    <line x1="450" y1="120" x2="450" y2="500"/>
-    <line x1="600" y1="120" x2="600" y2="500"/>
-    <line x1="750" y1="120" x2="750" y2="500"/>
+    <line x1="300" y1="120" x2="300" y2="520"/>
+    <line x1="450" y1="120" x2="450" y2="520"/>
+    <line x1="600" y1="120" x2="600" y2="520"/>
+    <line x1="750" y1="120" x2="750" y2="520"/>
   </g>
   <g font-size="13" fill="#7d8a8c" text-anchor="middle">
-    <text x="300" y="516">0</text>
-    <text x="450" y="516">100</text>
-    <text x="600" y="516">200</text>
-    <text x="750" y="516">300</text>
+    <text x="300" y="536">0</text>
+    <text x="450" y="536">100</text>
+    <text x="600" y="536">200</text>
+    <text x="750" y="536">300</text>
   </g>
 
   <!-- 400 mg limit line -->
-  <line x1="900" y1="112" x2="900" y2="512" stroke="#c43d34" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <line x1="900" y1="112" x2="900" y2="532" stroke="#c43d34" stroke-width="2.5" stroke-dasharray="7 5"/>
   <text x="900" y="106" font-size="15" font-weight="700" fill="#c43d34" text-anchor="middle">每日建議上限 400 mg</text>
 
-  <!-- bars: y start 138, step 52, height 30 -->
-  <!-- 1 即溶咖啡 60 -->
-  <text x="288" y="159" font-size="16" fill="#14323a" text-anchor="end">即溶咖啡 1 杯</text>
-  <rect x="300" y="142" width="90" height="30" rx="5" fill="#0f7a82"/>
-  <text x="398" y="163" font-size="14" font-weight="700" fill="#0f7a82">≈ 60 mg</text>
+  <!-- rows: y start 142, step 52, bar h 30 -->
+  <!-- 1 即溶 60 -->
+  <text x="288" y="163" font-size="16" fill="#14323a" text-anchor="end">即溶咖啡 1 杯</text>
+  <rect x="300" y="146" width="90" height="30" rx="5" fill="#0f7a82"/>
+  <text x="398" y="167" font-size="14" font-weight="700" fill="#0f7a82">≈ 60 mg</text>
 
   <!-- 2 濃縮 1 份 63 -->
-  <text x="288" y="211" font-size="16" fill="#14323a" text-anchor="end">濃縮咖啡 1 份（1 shot）</text>
-  <rect x="300" y="194" width="95" height="30" rx="5" fill="#0f7a82"/>
-  <text x="403" y="215" font-size="14" font-weight="700" fill="#0f7a82">≈ 63 mg</text>
+  <text x="288" y="215" font-size="16" fill="#14323a" text-anchor="end">濃縮咖啡 1 份（1 shot）</text>
+  <rect x="300" y="198" width="95" height="30" rx="5" fill="#0f7a82"/>
+  <text x="403" y="219" font-size="14" font-weight="700" fill="#0f7a82">≈ 63 mg</text>
 
-  <!-- 3 膠囊 80 (60-120) -->
-  <text x="288" y="263" font-size="16" fill="#14323a" text-anchor="end">膠囊咖啡 1 顆</text>
-  <rect x="300" y="246" width="120" height="30" rx="5" fill="#0f7a82"/>
-  <text x="428" y="267" font-size="14" font-weight="700" fill="#0f7a82">≈ 60–120 mg</text>
+  <!-- 3 手沖 95 -->
+  <text x="288" y="267" font-size="16" fill="#14323a" text-anchor="end">手沖／美式 馬克杯 240ml</text>
+  <rect x="300" y="250" width="142" height="30" rx="5" fill="#0f7a82"/>
+  <text x="450" y="271" font-size="14" font-weight="700" fill="#0f7a82">≈ 95 mg</text>
 
-  <!-- 4 手沖 95 -->
-  <text x="288" y="315" font-size="16" fill="#14323a" text-anchor="end">手沖／美式 馬克杯 240ml</text>
-  <rect x="300" y="298" width="142" height="30" rx="5" fill="#0f7a82"/>
-  <text x="450" y="319" font-size="14" font-weight="700" fill="#0f7a82">≈ 95 mg</text>
+  <!-- 4 膠囊 60-120 -->
+  <text x="288" y="319" font-size="16" fill="#14323a" text-anchor="end">膠囊咖啡 1 顆</text>
+  <rect x="300" y="302" width="135" height="30" rx="5" fill="#c9962a"/>
+  <text x="443" y="323" font-size="14" font-weight="700" fill="#c9962a">≈ 60–120 mg</text>
 
-  <!-- 5 超商拿鐵 中杯 2shot 130 -->
-  <text x="288" y="367" font-size="16" fill="#14323a" text-anchor="end">超商拿鐵 中杯（約 2 shot）</text>
-  <rect x="300" y="350" width="195" height="30" rx="5" fill="#c9962a"/>
-  <text x="503" y="371" font-size="14" font-weight="700" fill="#c9962a">≈ 130 mg</text>
+  <!-- 5 超商大杯拿鐵 ~200 -->
+  <text x="288" y="371" font-size="16" fill="#14323a" text-anchor="end">超商 大杯拿鐵</text>
+  <rect x="300" y="354" width="300" height="30" rx="5" fill="#c9962a"/>
+  <text x="608" y="375" font-size="14" font-weight="700" fill="#c9962a">≈ 200 mg</text>
 
-  <!-- 6 超商美式 大杯 2-3shot 190 -->
-  <text x="288" y="419" font-size="16" fill="#14323a" text-anchor="end">超商美式 大杯（約 2–3 shot）</text>
-  <rect x="300" y="402" width="285" height="30" rx="5" fill="#c9962a"/>
-  <text x="593" y="423" font-size="14" font-weight="700" fill="#c9962a">≈ 150–225 mg</text>
+  <!-- 6 超商大杯美式 ~300 -->
+  <text x="288" y="423" font-size="16" fill="#14323a" text-anchor="end">超商 大杯美式</text>
+  <rect x="300" y="406" width="450" height="30" rx="5" fill="#c43d34"/>
+  <text x="758" y="427" font-size="14" font-weight="700" fill="#c43d34">≈ 300 mg</text>
 
-  <!-- 7 能量飲料 120 (80-160) -->
-  <text x="288" y="471" font-size="16" fill="#14323a" text-anchor="end">能量飲料 1 罐</text>
-  <rect x="300" y="454" width="180" height="30" rx="5" fill="#c9962a"/>
-  <text x="488" y="475" font-size="14" font-weight="700" fill="#c9962a">≈ 80–160 mg</text>
+  <!-- 7 特大濃萃美式 500+ (capped visually) -->
+  <text x="288" y="475" font-size="16" fill="#14323a" text-anchor="end">特大濃萃美式</text>
+  <rect x="300" y="458" width="600" height="30" rx="5" fill="#9c2f28"/>
+  <text x="470" y="479" font-size="14" font-weight="700" fill="#ffffff">≈ 500+ mg　單杯就破上限！</text>
 
   <!-- summary strip -->
-  <rect x="40" y="548" width="900" height="44" rx="10" fill="#14323a"/>
-  <text x="60" y="576" font-size="17" fill="#ffffff">每日上限 400 mg ≈ <tspan font-weight="700">4 杯手沖</tspan> ／ <tspan font-weight="700">約 6 份濃縮</tspan> ／ <tspan font-weight="700">2–3 杯超商大杯</tspan></text>
+  <rect x="40" y="560" width="900" height="44" rx="10" fill="#14323a"/>
+  <text x="60" y="588" font-size="17" fill="#ffffff">每日上限 400 mg ≈ <tspan font-weight="700">約 1 杯大杯美式 ＋ 1 杯拿鐵</tspan> 就差不多到頂了</text>
 
   <!-- traffic-light legend -->
   <g font-size="14" fill="#3c5158">
-    <text x="40" y="626" font-weight="700" fill="#14323a">台灣連鎖店杯身標示：</text>
-    <circle cx="205" cy="621" r="8" fill="#0f7a82"/><text x="219" y="626">綠 ≤100 mg</text>
-    <circle cx="330" cy="621" r="8" fill="#c9962a"/><text x="344" y="626">黃 101–200 mg</text>
-    <circle cx="480" cy="621" r="8" fill="#c43d34"/><text x="494" y="626">紅 ≥201 mg（整杯總量）</text>
+    <text x="40" y="638" font-weight="700" fill="#14323a">台灣連鎖店杯身標示：</text>
+    <circle cx="205" cy="633" r="8" fill="#0f7a82"/><text x="219" y="638">綠 ≤100 mg</text>
+    <circle cx="330" cy="633" r="8" fill="#c9962a"/><text x="344" y="638">黃 101–200 mg</text>
+    <circle cx="480" cy="633" r="8" fill="#c43d34"/><text x="494" y="638">紅 ≥201 mg（整杯總量）</text>
   </g>
 </svg>
