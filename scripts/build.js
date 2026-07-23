@@ -54,9 +54,10 @@ const BASE_PAGES = [
   { f: 'weight-loss-injection.html', changefreq: 'monthly', priority: '0.9' },
   { f: 'le8.html',        changefreq: 'monthly', priority: '0.8' },
   { f: 'coffee.html',     changefreq: 'monthly', priority: '0.8' },
+  { f: 'lipoprotein-a.html', changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html']);
 const TOPNAV = [
   ['posts.html', '全部'],
   ['trials.html', '臨床試驗'],
@@ -309,7 +310,7 @@ ${renderFeaturedBand(featured)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
-<a href="health.html" class="more">查看全部 21 個主題 →</a>
+<a href="health.html" class="more">查看全部 22 個主題 →</a>
 </div>
 <div class="tilegrid">
 <a class="tile" href="cath.html"><img class="tile-illo" src="img/illo/cath.jpg" alt=""><span class="tag exam">檢查介紹</span><h4>心導管檢查</h4><p>適應症、流程、住院幾天、傷口大小、風險與術後照護。</p><span class="go">閱讀 →</span></a>
