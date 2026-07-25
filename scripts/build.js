@@ -71,6 +71,14 @@ const TOPNAV = [
   ['about.html', '醫師介紹'],
 ];
 
+// 分類頁 → 對應的文章 tagCls（卡片與計數由 build 依 articles.json 自動生成）
+const CATEGORY_PAGES = {
+  'trials.html':     ['trial'],
+  'guidelines.html': ['guideline'],
+  'meetings.html':   ['meeting', 'podcast'],
+  'news.html':       ['news'],
+};
+
 // 門診時刻表 — single source of truth (drives clinic.html + homepage band)
 const CLINIC = {
   hospital: '台北台安醫院',
@@ -968,6 +976,52 @@ ${urls.join('\n')}
 // ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
+// replace the inner content of a <div> block, matching the correct closing tag
+function replaceDivBlock(html, openTag, newInner) {
+  const start = html.indexOf(openTag);
+  if (start < 0) return html;
+  const innerStart = start + openTag.length;
+  const re = /<div[\s>]|<\/div>/g;
+  re.lastIndex = innerStart;
+  let depth = 1, m;
+  while ((m = re.exec(html))) {
+    if (m[0] === '</div>') {
+      depth--;
+      if (depth === 0) return html.slice(0, innerStart) + '\n' + newInner + '\n' + html.slice(m.index);
+    } else depth++;
+  }
+  return html;
+}
+
+function categoryCard(a) {
+  return `<a class="card" href="posts/${a.slug}.html">
+<div class="card-header">
+<span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
+<div class="card-title">${escHtml(a.title)}</div>
+<div class="card-subtitle">${escHtml(a.subtitle)}</div>
+<div class="card-meta">
+${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('\n')}
+</div>
+</div>
+<div class="card-footer">
+<span class="read-btn">閱讀全文 &rarr;</span>
+</div>
+</a>`;
+}
+
+// auto-fill category listing pages (news/trials/guidelines/meetings) from articles.json
+function buildCategoryPages(articles) {
+  for (const [file, tags] of Object.entries(CATEGORY_PAGES)) {
+    const list = articles.filter(a => tags.includes(a.tagCls));
+    const cards = list.map(categoryCard).join('\n\n');
+    let html = read(file);
+    html = replaceDivBlock(html, '<div class="cards">', cards);
+    html = html.replace(/<div class="article-count">[^<]*<\/div>/, `<div class="article-count">${list.length} 篇文章</div>`);
+    write(file, html);
+    console.log(`  category ${file}: ${list.length} card(s)`);
+  }
+}
+
 function main() {
   console.log('luknow build (v2)');
   const articles = loadArticles();
@@ -1001,6 +1055,8 @@ function main() {
     if (applyShell(f, navActiveFor(f))) n++;
   }
   console.log(`  applyShell: updated ${n} root page(s)`);
+
+  buildCategoryPages(articles);
 
   placeIllos();
   placeHubIllos();
