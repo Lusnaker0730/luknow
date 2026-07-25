@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="咖啡與心臟插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<path d="M62 62 L74 62 L79 50 L86 74 L91 60 L104 60" fill="none" stroke="#c43d34" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="84" cy="142" rx="34" ry="5" fill="#0c666d"/>
+<path d="M60 82 L108 82 L102 128 C101 135 96 140 89 140 L79 140 C72 140 67 135 66 128 Z" fill="#0f7a82"/>
+<path d="M108 92 C126 90 126 118 106 116" fill="none" stroke="#0f7a82" stroke-width="7" stroke-linecap="round"/>
+<ellipse cx="84" cy="82" rx="24" ry="5.5" fill="#fffdf9"/>
+<ellipse cx="84" cy="82" rx="19" ry="4" fill="#6f4a37"/>
+</svg>

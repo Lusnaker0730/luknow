@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="維生素D 插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<g stroke="#c9962a" stroke-width="3.4" stroke-linecap="round">
+<line x1="84" y1="40" x2="84" y2="30"/>
+<line x1="84" y1="106" x2="84" y2="116"/>
+<line x1="52" y1="72" x2="42" y2="72"/>
+<line x1="116" y1="72" x2="126" y2="72"/>
+<line x1="62" y1="50" x2="55" y2="43"/>
+<line x1="106" y1="50" x2="113" y2="43"/>
+<line x1="62" y1="94" x2="55" y2="101"/>
+<line x1="106" y1="94" x2="113" y2="101"/>
+</g>
+<circle cx="84" cy="72" r="22" fill="#e8b24a"/>
+<g transform="rotate(-22 88 122)">
+<rect x="66" y="112" width="44" height="20" rx="10" fill="#fffdf9" stroke="#0c666d" stroke-width="2.5"/>
+<path d="M66 122 a10 10 0 0 1 10 -10 h12 v20 h-12 a10 10 0 0 1 -10 -10 Z" fill="#0f7a82"/>
+</g>
+</svg>

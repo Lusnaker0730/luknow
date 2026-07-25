@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="心悸插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<path d="M84 120 C57 99 45 84 45 68 C45 57 54 49 64 49 C73 49 80 54 84 62 C88 54 95 49 104 49 C114 49 123 57 123 68 C123 84 111 99 84 120 Z" fill="#c43d34"/>
+<path d="M49 86 H68 L74 69 L83 103 L90 80 L95 90 H120" fill="none" stroke="#fffdf9" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
