@@ -242,11 +242,11 @@ function renderHome(articles, featured) {
 <meta name="keywords" content="呂侑穎,心臟內科,臨床筆記,心臟醫學,臨床試驗,臨床指南,心血管衛教,cardiology,ACC,AHA,ESC">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="${BASE_URL}/index.html">
+<link rel="canonical" href="${BASE_URL}/">
 <meta property="og:title" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記 — 心臟醫學．臨床筆記與衛教">
 <meta property="og:description" content="整理自 ACC、AHA、ESC 等國際會議與指南的心臟醫學重點，以及實證衛教，用準確、好讀的繁體中文呈現。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="${BASE_URL}/index.html">
+<meta property="og:url" content="${BASE_URL}/">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
 <meta property="og:image" content="${OG_IMAGE}">
@@ -937,7 +937,7 @@ gtag('config', '${GA_ID}');
 // ---------------------------------------------------------------------------
 function renderSitemap(articles, featured) {
   const urls = BASE_PAGES.map(p => `  <url>
-    <loc>${BASE_URL}/${p.f}</loc>
+    <loc>${BASE_URL}/${p.f === 'index.html' ? '' : p.f}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
