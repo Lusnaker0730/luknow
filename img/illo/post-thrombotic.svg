@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="血栓後症候群插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<rect x="70" y="36" width="27" height="80" rx="13" fill="#cfe0dd" stroke="#0f7a82" stroke-width="2.6"/>
+<path d="M70 106 v10 q0 13 13 13 h27 q7 0 7 -7 q0 -6 -8 -7 l-19 -3 q-9 -1 -9 -13 Z" fill="#cfe0dd" stroke="#0f7a82" stroke-width="2.6"/>
+<path d="M84 46 q8 9 0 18 q-8 9 0 18 q8 8 0 16" fill="none" stroke="#c43d34" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="88" cy="59" r="2.6" fill="#c43d34"/>
+<circle cx="80" cy="77" r="2.6" fill="#c43d34"/>
+<circle cx="88" cy="95" r="2.6" fill="#c43d34"/>
+</svg>
