@@ -58,6 +58,7 @@ const BASE_PAGES = [
   { f: 'vitamin-d.html',  changefreq: 'monthly', priority: '0.8' },
   { f: 'psvt.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'post-thrombotic.html', changefreq: 'monthly', priority: '0.8' },
+  { f: 'quiz-vitamin-d.html', changefreq: 'monthly', priority: '0.7' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
 const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html']);
