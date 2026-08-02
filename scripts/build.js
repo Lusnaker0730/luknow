@@ -69,6 +69,7 @@ const TOPNAV = [
   ['meetings.html', '會議重點'],
   ['news.html', '醫療新知'],
   ['health.html', '衛教'],
+  ['quizzes.html', '測驗'],
   ['clinic.html', '門診時刻表'],
   ['risk.html', '風險計算'],
   ['about.html', '醫師介紹'],
@@ -938,7 +939,7 @@ gtag('config', '${GA_ID}');
 // ---------------------------------------------------------------------------
 // sitemap
 // ---------------------------------------------------------------------------
-function renderSitemap(articles, featured) {
+function renderSitemap(articles, featured, quizzes) {
   const urls = BASE_PAGES.map(p => `  <url>
     <loc>${BASE_URL}/${p.f === 'index.html' ? '' : p.f}</loc>
     <lastmod>${TODAY}</lastmod>
@@ -968,6 +969,18 @@ function renderSitemap(articles, featured) {
     <lastmod>${f.date || TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>`);
+  urls.push(`  <url>
+    <loc>${BASE_URL}/quizzes.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
+  for (const q of (quizzes || [])) urls.push(`  <url>
+    <loc>${BASE_URL}/quiz-${q.slug}.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>`);
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1025,11 +1038,170 @@ function buildCategoryPages(articles) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// 衛教知識測驗 — data/quizzes.json → quiz-<slug>.html + quizzes.html
+// ---------------------------------------------------------------------------
+function loadQuizzes() {
+  const p = path.join(ROOT, 'data', 'quizzes.json');
+  if (!fs.existsSync(p)) return [];
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+function gaSnippet() {
+  return `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');
+</script>`;
+}
+
+function renderQuizPage(quiz) {
+  const url = `${BASE_URL}/quiz-${quiz.slug}.html`;
+  const desc = quiz.metaDesc || quiz.subtitle;
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+    name: quiz.title, description: desc, url, inLanguage: 'zh-TW',
+    author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
+    publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
+    dateModified: TODAY, mainEntityOfPage: url,
+  };
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(quiz.title)} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<meta name="description" content="${escAttr(desc)}">
+<meta name="keywords" content="${escAttr(quiz.keywords || '衛教測驗,呂侑穎')}">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${url}">
+<meta property="og:title" content="${escAttr(quiz.title)}">
+<meta property="og:description" content="${escAttr(quiz.subtitle)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+${gaSnippet()}
+</head>
+<body>
+
+${shellHeader('quizzes.html', '')}
+
+<nav class="crumb" aria-label="breadcrumb"><a href="index.html">首頁</a><span class="sep">›</span><a href="quizzes.html">知識測驗</a><span class="sep">›</span><span class="cur">${escHtml(quiz.shortTitle || quiz.title)}</span></nav>
+
+<div class="hero">
+<h1>${escHtml(quiz.title)}</h1>
+<p>${escHtml(quiz.subtitle)}</p>
+</div>
+
+<div class="quiz-intro"><p>${quiz.intro}</p></div>
+
+<div class="quiz-wrap">
+<div id="quiz"></div>
+<div class="quiz-score" id="score"></div>
+</div>
+
+<div class="quiz-wrap" style="padding-top:0">
+<div class="source">
+${quiz.source}${quiz.related ? `｜想看完整說明請見 <a href="${quiz.related}">${escHtml(quiz.relatedLabel || '衛教全文')}</a>` : ''}
+</div>
+</div>
+
+${shellFooter('')}
+
+<script>window.QUIZ_DATA = ${JSON.stringify(quiz.questions)};</script>
+<script src="quiz.js"></script>
+
+</body>
+</html>
+`;
+}
+
+function renderQuizzesIndex(quizzes) {
+  const cards = quizzes.map(q => `<a class="card" href="quiz-${q.slug}.html">
+<div class="card-header">
+<span class="card-tag exam">知識測驗</span>
+<div class="card-title">${escHtml(q.title)}</div>
+<div class="card-subtitle">${escHtml(q.subtitle)}</div>
+<div class="card-meta"><span>${q.questions.length} 題</span></div>
+</div>
+<div class="card-footer"><span class="read-btn">開始測驗 &rarr;</span></div>
+</a>`).join('\n');
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: '衛教知識測驗', url: BASE_URL + '/quizzes.html', inLanguage: 'zh-TW',
+    description: '心血管與健康衛教的互動小測驗，測完即時看正解與依據。',
+  };
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衛教知識測驗 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<meta name="description" content="心血管與健康衛教的互動小測驗：測完即時看正解與依據，整理自國際指南與臨床試驗。台安醫院心臟內科呂侑穎醫師。">
+<meta name="keywords" content="衛教測驗,健康知識測驗,心臟衛教,維生素D 測驗,呂侑穎">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${BASE_URL}/quizzes.html">
+<meta property="og:title" content="衛教知識測驗 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:description" content="心血管與健康衛教的互動小測驗：測完即時看正解與依據。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${BASE_URL}/quizzes.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+${gaSnippet()}
+</head>
+<body>
+
+${shellHeader('quizzes.html', '')}
+
+<div class="hero">
+<h1>衛教知識測驗</h1>
+<p>用互動小測驗，測測你的健康觀念——測完立刻看正解與依據</p>
+</div>
+<div class="article-count">${quizzes.length} 個測驗</div>
+
+<div class="cards">
+${cards}
+</div>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
 function main() {
   console.log('luknow build (v2)');
   const articles = loadArticles();
   console.log(`  ${articles.length} articles loaded`);
   const featured = loadFeatured();
+  const quizzes = loadQuizzes();
   console.log(`  ${featured.length} featured reads loaded`);
 
   write('index.html', renderHome(articles, featured));
@@ -1052,6 +1224,12 @@ function main() {
     console.log(`  generated featured.html + ${featured.length} featured/`);
   }
 
+  if (quizzes.length) {
+    for (const q of quizzes) write(`quiz-${q.slug}.html`, renderQuizPage(q));
+    write('quizzes.html', renderQuizzesIndex(quizzes));
+    console.log(`  generated quizzes.html + ${quizzes.length} quiz page(s)`);
+  }
+
   let n = 0;
   for (const f of ROOT_HTML) {
     if (f === 'index.html') continue;
@@ -1066,7 +1244,7 @@ function main() {
   placeShare();
   placeAnalytics();
 
-  write('sitemap.xml', renderSitemap(articles, featured));
+  write('sitemap.xml', renderSitemap(articles, featured, quizzes));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + 2 + articles.length + featured.length} urls`);
   console.log('done.');
 }
