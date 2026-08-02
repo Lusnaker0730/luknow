@@ -205,10 +205,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://drluyy.com/quiz-vitamin-d.html</loc>
+    <loc>https://drluyy.com/fish-oil.html</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://drluyy.com/featured.html</loc>
@@ -413,6 +413,12 @@
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://drluyy.com/quiz-fish-oil.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://drluyy.com/quiz-heart-stent.html</loc>

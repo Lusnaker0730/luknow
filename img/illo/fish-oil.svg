@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="魚油插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<g>
+<ellipse cx="76" cy="70" rx="32" ry="19" fill="#0f7a82"/>
+<path d="M104 70 L126 56 L126 84 Z" fill="#0f7a82"/>
+<circle cx="60" cy="65" r="3.4" fill="#fffdf9"/>
+<path d="M70 60 q8 4 0 8" fill="none" stroke="#0c666d" stroke-width="2" stroke-linecap="round"/>
+</g>
+<g transform="rotate(-24 96 112)">
+<ellipse cx="96" cy="112" rx="22" ry="12" fill="#e8b24a" stroke="#c9962a" stroke-width="2"/>
+<ellipse cx="88" cy="108" rx="5" ry="3" fill="#fffdf9" opacity=".65"/>
+</g>
+</svg>
