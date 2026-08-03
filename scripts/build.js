@@ -146,6 +146,7 @@ function shellHeader(active, prefix) {
 <label for="nav-check" class="nav-burger" aria-label="開關選單"><span></span><span></span><span></span></label>
 <nav class="top" id="topnav">
 ${links}
+<a href="${prefix}search.html" class="nav-search" aria-label="站內搜尋">🔍 搜尋</a>
 <a href="${prefix}health.html" class="cta">探索衛教 →</a>
 </nav>
 </div>
@@ -1197,6 +1198,65 @@ ${shellFooter('')}
 `;
 }
 
+// ---------------------------------------------------------------------------
+// 站內搜尋 — build 掃描各頁 title/description/keywords → search-index.json
+// ---------------------------------------------------------------------------
+function buildSearchIndex(articles, quizzes) {
+  const items = [];
+  const grab = (file, url, cat) => {
+    if (!fs.existsSync(path.join(ROOT, file))) return;
+    const html = read(file);
+    const pick = re => { const m = html.match(re); return m ? m[1] : ''; };
+    const title = pick(/<title>([^<]*)<\/title>/).split(' — ')[0].trim();
+    const desc = pick(/name="description" content="([^"]*)"/);
+    const kw = pick(/name="keywords" content="([^"]*)"/);
+    if (title) items.push({ t: title, d: desc, k: kw, u: url, c: cat });
+  };
+  for (const f of TOPIC_PAGES) grab(f, f, '衛教');
+  [['health.html', '衛教專區'], ['about.html', '醫師介紹'], ['clinic.html', '門診時刻表'], ['risk.html', '風險計算'], ['featured.html', '精選閱讀']].forEach(([f, c]) => grab(f, f, c));
+  for (const a of articles) grab(`posts/${a.slug}.html`, `posts/${a.slug}.html`, a.tagLabel || '文章');
+  for (const q of quizzes) grab(`quiz-${q.slug}.html`, `quiz-${q.slug}.html`, '測驗');
+  write('search-index.json', JSON.stringify(items));
+  console.log(`  search-index.json: ${items.length} entries`);
+}
+
+function renderSearchPage() {
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>站內搜尋 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<meta name="description" content="搜尋台安醫院心臟內科呂侑穎醫師臨床筆記站內的衛教主題、文章與知識測驗。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="${BASE_URL}/search.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+${headLinks('')}
+${gaSnippet()}
+</head>
+<body>
+
+${shellHeader('search.html', '')}
+
+<div class="hero">
+<h1>站內搜尋</h1>
+<p>輸入關鍵字，搜尋衛教主題、文章與知識測驗</p>
+</div>
+
+<div class="search-box">
+<input type="search" id="search-input" placeholder="例如：心悸、膽固醇、腳腫、支架、魚油…" autocomplete="off" autofocus aria-label="站內搜尋">
+</div>
+<div class="search-results" id="search-results"></div>
+
+${shellFooter('')}
+
+<script src="search.js"></script>
+
+</body>
+</html>
+`;
+}
+
 function main() {
   console.log('luknow build (v2)');
   const articles = loadArticles();
@@ -1230,6 +1290,10 @@ function main() {
     write('quizzes.html', renderQuizzesIndex(quizzes));
     console.log(`  generated quizzes.html + ${quizzes.length} quiz page(s)`);
   }
+
+  write('search.html', renderSearchPage());
+  buildSearchIndex(articles, quizzes);
+  console.log('  wrote search.html + search-index.json');
 
   let n = 0;
   for (const f of ROOT_HTML) {

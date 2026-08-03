@@ -226,6 +226,18 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .quiz-score.show{display:block}
 .quiz-score b{color:var(--accent)}
 .quiz-again{display:inline-block;margin-top:12px;font-size:.9rem;color:var(--accent);font-weight:600;cursor:pointer;background:none;border:none}
+/* 站內搜尋 */
+.nav-search{color:var(--ink-2)}
+.search-box{max-width:640px;margin:6px auto 0;padding:0 28px}
+.search-box input{width:100%;padding:14px 18px;font:inherit;font-size:1.05rem;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);box-sizing:border-box}
+.search-box input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,61,52,.12)}
+.search-results{max-width:640px;margin:0 auto;padding:10px 28px 46px}
+.search-count,.search-empty{color:var(--muted);font-size:.9rem;margin:14px 2px}
+.search-result{display:block;padding:14px 16px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:var(--card);transition:border-color .15s,box-shadow .15s}
+.search-result:hover{border-color:var(--accent);box-shadow:0 8px 22px -12px rgba(20,50,58,.35)}
+.sr-cat{display:inline-block;font-size:.68rem;font-weight:700;color:var(--teal);background:rgba(15,122,130,.1);padding:2px 9px;border-radius:999px;margin-bottom:7px}
+.sr-title{display:block;font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.sr-desc{display:block;font-size:.85rem;color:var(--ink-2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .tile h4{font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--ink);margin-bottom:7px;letter-spacing:-.01em}
 .tile p{font-size:.86rem;color:var(--ink-2);line-height:1.6}
 .tile .go{margin-top:14px;font-size:.82rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
