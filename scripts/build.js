@@ -910,6 +910,42 @@ function placeShare() {
   }
   console.log(`  placeShare: ${n} page(s)`);
 }
+
+// 留言區（Cusdis）— 注入衛教頁與文章底部（先審後顯示為 Cusdis 預設；idempotent）
+const CUSDIS_HOST = 'https://cusdis.com';
+const CUSDIS_APP_ID = '0587d292-27ab-4082-bc76-15c0cd50293d';
+function placeComments() {
+  if (!CUSDIS_APP_ID) return;
+  const files = [...TOPIC_PAGES];
+  for (const d of ['posts', 'featured']) {
+    const dir = path.join(ROOT, d);
+    if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir)) if (f.endsWith('.html')) files.push(`${d}/${f}`);
+  }
+  let n = 0;
+  for (const f of files) {
+    const p = path.join(ROOT, f);
+    if (!fs.existsSync(p)) continue;
+    let html = fs.readFileSync(p, 'utf8');
+    if (html.includes('id="cusdis_thread"')) continue;
+    const cm = html.match(/<link rel="canonical" href="([^"]+)">/);
+    if (!cm) continue;
+    const url = cm[1];
+    const tm = html.match(/<title>([^<]*)<\/title>/);
+    const title = (tm ? tm[1] : '').split(' — ')[0].trim();
+    const block = `<section class="comments-wrap">
+<h2 class="comments-title">留言與回饋</h2>
+<p class="comments-note">歡迎在下方留下你的想法或問題，留言經審核後才會公開顯示。<strong>提醒：本區不提供個別診療，個人病情請就醫或掛號諮詢。</strong></p>
+<div id="cusdis_thread" data-host="${CUSDIS_HOST}" data-app-id="${CUSDIS_APP_ID}" data-page-id="${url}" data-page-url="${url}" data-page-title="${escAttr(title)}"></div>
+<script async defer src="${CUSDIS_HOST}/js/cusdis.es.js"></script>
+</section>`;
+    const i = html.indexOf('<footer>');
+    if (i < 0) continue;
+    html = html.slice(0, i) + block + '\n\n' + html.slice(i);
+    fs.writeFileSync(p, html);
+    n++;
+  }
+  console.log(`  placeComments: ${n} page(s)`);
+}
 // inject Google Analytics (gtag.js) before </head> on every page (idempotent)
 function placeAnalytics() {
   const tag = `<!-- Google tag (gtag.js) -->
@@ -1307,6 +1343,7 @@ function main() {
   placeIllos();
   placeHubIllos();
   placeShare();
+  placeComments();
   placeAnalytics();
 
   write('sitemap.xml', renderSitemap(articles, featured, quizzes));
