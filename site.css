@@ -69,6 +69,13 @@ nav.top a.cta:hover{background:var(--accent);color:#fff}
 .card-tag.reading{background:rgba(20,50,58,.08);color:var(--ink)}
 .card-tag.news{background:#fbe6da;color:#c05a2a}
 .card-tag.symptom{background:#eef3ef;color:#4a6b60}
+.card-tag.treatment{background:rgba(58,90,156,.1);color:#3a5a9c}
+/* 衛教分類快捷篩選 */
+.cat-filter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:920px;margin:0 auto 26px;padding:0 20px}
+.cat-chip{font-family:inherit;font-size:.82rem;font-weight:700;letter-spacing:.03em;color:var(--ink);background:#fff;border:1.5px solid rgba(20,50,58,.15);border-radius:999px;padding:7px 16px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.cat-chip:hover{border-color:var(--teal);color:var(--teal)}
+.cat-chip.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.card.is-hidden{display:none}
 @media(max-width:860px){.dept{display:none}}
 .article-hero{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
 .card-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.35;margin-bottom:7px;letter-spacing:-.01em;color:var(--ink)}

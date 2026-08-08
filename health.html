@@ -69,9 +69,19 @@ gtag('config', 'G-BC1Z8X6BQT');
 
 <div class="article-count">28 個衛教主題</div>
 
+<div class="cat-filter" role="tablist" aria-label="衛教分類篩選">
+<button class="cat-chip active" data-filter="all" aria-selected="true">全部</button>
+<button class="cat-chip" data-filter="prevent" aria-selected="false">預防保健</button>
+<button class="cat-chip" data-filter="risk" aria-selected="false">危險因子</button>
+<button class="cat-chip" data-filter="disease" aria-selected="false">疾病介紹</button>
+<button class="cat-chip" data-filter="symptom" aria-selected="false">症狀介紹</button>
+<button class="cat-chip" data-filter="exam" aria-selected="false">檢查介紹</button>
+<button class="cat-chip" data-filter="treatment" aria-selected="false">治療介紹</button>
+</div>
+
 <div class="cards">
 
-<a class="card" href="le8.html">
+<a class="card" href="le8.html" data-cat="prevent">
 <img class="card-illo" src="img/illo/le8.jpg" alt="">
 <div class="card-header">
 <span class="card-tag prevent">預防保健</span>
@@ -81,27 +91,27 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="weight-loss-injection.html">
+<a class="card" href="weight-loss-injection.html" data-cat="prevent">
 <img class="card-illo" src="img/illo/weight.svg" alt="">
 <div class="card-header">
-<span class="card-tag prevent">體重管理</span>
+<span class="card-tag prevent">預防保健</span>
 <div class="card-title">減重針（瘦瘦針）</div>
 <div class="card-subtitle">GLP-1 與猛健樂怎麼分類與差別、減重效果、心血管好處、副作用與注意事項</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="fish-oil.html">
+<a class="card" href="fish-oil.html" data-cat="prevent">
 <img class="card-illo" src="img/illo/fish-oil.svg" alt="">
 <div class="card-header">
-<span class="card-tag prevent">保健營養</span>
+<span class="card-tag prevent">預防保健</span>
 <div class="card-title">魚油</div>
 <div class="card-subtitle">魚油對心臟到底好不好？好處、2024 的心房顫動爭議、每天該吃多少、誰適合補</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="vitamin-d.html">
+<a class="card" href="vitamin-d.html" data-cat="prevent">
 <img class="card-illo" src="img/illo/vitamin-d.svg" alt="">
 <div class="card-header">
 <span class="card-tag prevent">預防保健</span>
@@ -111,17 +121,17 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="coffee.html">
+<a class="card" href="coffee.html" data-cat="prevent">
 <img class="card-illo" src="img/illo/coffee.svg" alt="">
 <div class="card-header">
-<span class="card-tag prevent">生活型態</span>
+<span class="card-tag prevent">預防保健</span>
 <div class="card-title">咖啡與心臟</div>
 <div class="card-subtitle">有心律不整、心臟病還能喝咖啡嗎？一天幾杯才安全、咖啡因含量對照，從 2026 美國心臟協會聲明與 DECAF 試驗看起</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="htn.html">
+<a class="card" href="htn.html" data-cat="risk">
 <img class="card-illo" src="img/illo/htn.jpg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -131,7 +141,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="chol.html">
+<a class="card" href="chol.html" data-cat="risk">
 <img class="card-illo" src="img/illo/chol.jpg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -141,7 +151,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="lipoprotein-a.html">
+<a class="card" href="lipoprotein-a.html" data-cat="risk">
 <img class="card-illo" src="img/illo/lipoprotein-a.svg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -151,7 +161,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="tg.html">
+<a class="card" href="tg.html" data-cat="risk">
 <img class="card-illo" src="img/illo/tg.jpg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -161,7 +171,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="metabolic-syndrome.html">
+<a class="card" href="metabolic-syndrome.html" data-cat="risk">
 <img class="card-illo" src="img/illo/metabolic-syndrome.svg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -171,7 +181,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="dm.html">
+<a class="card" href="dm.html" data-cat="risk">
 <img class="card-illo" src="img/illo/dm.jpg" alt="">
 <div class="card-header">
 <span class="card-tag risk">危險因子</span>
@@ -181,157 +191,157 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="ckd.html">
+<a class="card" href="ckd.html" data-cat="disease">
 <img class="card-illo" src="img/illo/ckd.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">慢性腎臟病</div>
 <div class="card-subtitle">為何沉默無症狀、為何最常見死因是心臟病與中風、eGFR＋尿蛋白篩檢與現代護腎護心治療</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="coronary-calcium.html">
+<a class="card" href="coronary-calcium.html" data-cat="exam">
 <img class="card-illo" src="img/illo/coronary-calcium.svg" alt="">
 <div class="card-header">
-<span class="card-tag exam">檢查發現</span>
+<span class="card-tag exam">檢查介紹</span>
 <div class="card-title">冠狀動脈鈣化</div>
 <div class="card-subtitle">健檢低劑量電腦斷層意外發現心臟鈣化該怎麼辦？鈣化分數的意義、要不要做心導管、如何保養心臟</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="cad.html">
+<a class="card" href="cad.html" data-cat="disease">
 <img class="card-illo" src="img/illo/cad.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">冠狀動脈疾病</div>
 <div class="card-subtitle">動脈粥狀硬化、症狀、風險因子、診斷、治療與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="mi.html">
+<a class="card" href="mi.html" data-cat="disease">
 <img class="card-illo" src="img/illo/mi.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">心臟病發作</div>
 <div class="card-subtitle">警訊（含女性差異）、與心臟驟停的差別、發作當下怎麼辦</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="hf.html">
+<a class="card" href="hf.html" data-cat="disease">
 <img class="card-illo" src="img/illo/hf.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">心臟衰竭</div>
 <div class="card-subtitle">分類、ACC/AHA 分期、NYHA 分級、症狀、治療與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="psvt.html">
+<a class="card" href="psvt.html" data-cat="disease">
 <img class="card-illo" src="img/illo/psvt.svg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">陣發性上心室頻脈</div>
 <div class="card-subtitle">心跳突然狂飆、又突然停止是怎麼回事？成因、症狀、發作時的迷走神經刺激術，以及導管電燒如何根治</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="afib.html">
+<a class="card" href="afib.html" data-cat="disease">
 <img class="card-illo" src="img/illo/afib.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">心房顫動</div>
 <div class="card-subtitle">中風風險約 5 倍、症狀、診斷，以及抗凝／心率／節律三方向治療</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="palpitations.html">
+<a class="card" href="palpitations.html" data-cat="symptom">
 <img class="card-illo" src="img/illo/palpitations.svg" alt="">
 <div class="card-header">
-<span class="card-tag symptom">症狀</span>
+<span class="card-tag symptom">症狀介紹</span>
 <div class="card-title">心悸</div>
 <div class="card-subtitle">心悸是什麼感覺、良性與需注意的原因、哪些危險徵兆要立刻就醫、如何檢查與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="stroke.html">
+<a class="card" href="stroke.html" data-cat="disease">
 <img class="card-illo" src="img/illo/stroke.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">中風</div>
 <div class="card-subtitle">三種類型、F.A.S.T. 辨識、為何分秒必爭、風險與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="pad.html">
+<a class="card" href="pad.html" data-cat="disease">
 <img class="card-illo" src="img/illo/pad.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">周邊動脈疾病</div>
 <div class="card-subtitle">間歇性跛行、ABI 踝肱指數、為何是心臟病與中風的警訊</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="post-thrombotic.html">
+<a class="card" href="post-thrombotic.html" data-cat="disease">
 <img class="card-illo" src="img/illo/post-thrombotic.svg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">血栓後症候群</div>
 <div class="card-subtitle">深層靜脈栓塞治好了，腿卻還是腫脹、沉重、痛？認識這個常見長期後遺症的成因、症狀、壓力治療與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="dvt.html">
+<a class="card" href="dvt.html" data-cat="disease">
 <img class="card-illo" src="img/illo/dvt.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">深層靜脈栓塞</div>
 <div class="card-subtitle">靜脈血栓、致命肺栓塞的風險、久坐久站與術後風險、抗凝治療與預防</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="mvp.html">
+<a class="card" href="mvp.html" data-cat="disease">
 <img class="card-illo" src="img/illo/mvp.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">二尖瓣膜脫垂</div>
 <div class="card-subtitle">瓣葉脫垂與二尖瓣逆流、喀擦聲＋雜音、多數良性、追蹤與二尖瓣修補</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="as.html">
+<a class="card" href="as.html" data-cat="disease">
 <img class="card-illo" src="img/illo/as.jpg" alt="">
 <div class="card-header">
-<span class="card-tag disease">疾病</span>
+<span class="card-tag disease">疾病介紹</span>
 <div class="card-title">主動脈瓣狹窄</div>
 <div class="card-subtitle">瓣膜鈣化變窄、胸痛昏厥喘的警訊、為何一旦有症狀就需置換瓣膜（SAVR／TAVR）</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="heart-stent.html">
+<a class="card" href="heart-stent.html" data-cat="treatment">
 <img class="card-illo" src="img/illo/stent.jpg" alt="">
 <div class="card-header">
-<span class="card-tag exam">治療介紹</span>
+<span class="card-tag treatment">治療介紹</span>
 <div class="card-title">心臟支架</div>
 <div class="card-subtitle">支架是什麼、裸金屬／塗藥／可吸收怎麼選、放支架流程與術後吃藥照護</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="cath.html">
+<a class="card" href="cath.html" data-cat="exam">
 <img class="card-illo" src="img/illo/cath.jpg" alt="">
 <div class="card-header">
 <span class="card-tag exam">檢查介紹</span>
@@ -341,10 +351,10 @@ gtag('config', 'G-BC1Z8X6BQT');
 <div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
 </a>
 
-<a class="card" href="stent.html">
+<a class="card" href="stent.html" data-cat="treatment">
 <img class="card-illo" src="img/illo/stent.jpg" alt="">
 <div class="card-header">
-<span class="card-tag exam">治療新知</span>
+<span class="card-tag treatment">治療介紹</span>
 <div class="card-title">可吸收支架</div>
 <div class="card-subtitle">會被身體吸收的心臟支架、鎂合金新一代、優缺點與適合對象</div>
 </div>
@@ -385,5 +395,29 @@ gtag('config', 'G-BC1Z8X6BQT');
 </div>
 </footer>
 
+
+<!-- cat-filter-js -->
+<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.cat-chip'));
+  var cards=[].slice.call(document.querySelectorAll('.cards .card'));
+  var count=document.querySelector('.article-count');
+  var total=cards.length;
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var f=chip.getAttribute('data-filter');
+      chips.forEach(function(c){c.classList.remove('active');c.setAttribute('aria-selected','false');});
+      chip.classList.add('active');chip.setAttribute('aria-selected','true');
+      var shown=0;
+      cards.forEach(function(card){
+        var ok=(f==='all'||card.getAttribute('data-cat')===f);
+        card.classList.toggle('is-hidden',!ok);
+        if(ok)shown++;
+      });
+      if(count)count.textContent=(f==='all'?total+' 個衛教主題':shown+' 個主題');
+    });
+  });
+})();
+</script>
 </body>
 </html>
