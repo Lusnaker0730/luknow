@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="減肥藥物插圖">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<g transform="rotate(-18 78 76)">
+<path d="M52 58 H104 a18 18 0 0 1 0 36 H52 a18 18 0 0 1 0 -36 Z" fill="#0f7a82"/>
+<path d="M78 58 H104 a18 18 0 0 1 0 36 H78 Z" fill="#e6b3ad"/>
+<rect x="76.5" y="58" width="3" height="36" fill="#fffdf9"/>
+</g>
+<circle cx="108" cy="118" r="20" fill="#e8b24a"/>
+<line x1="95" y1="118" x2="121" y2="118" stroke="#fffdf9" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
