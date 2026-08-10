@@ -64,6 +64,20 @@ const BASE_PAGES = [
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
 const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html', 'fish-oil.html', 'metabolic-syndrome.html', 'coronary-calcium.html']);
+// 每頁專屬社群分享圖：檔名 → img/og/<name>.png（衛教頁自動用 slug，其餘手列）
+const OG_MAP = {};
+for (const f of TOPIC_PAGES) OG_MAP[f] = f.replace('.html', '');
+Object.assign(OG_MAP, {
+  'index.html': 'index', 'posts.html': 'posts', 'trials.html': 'trials',
+  'guidelines.html': 'guidelines', 'meetings.html': 'meetings', 'news.html': 'news',
+  'health.html': 'health', 'about.html': 'about', 'clinic.html': 'clinic',
+  'risk.html': 'risk', 'quizzes.html': 'quizzes', 'featured.html': 'featured',
+  'quiz-fish-oil.html': 'quiz-fish-oil', 'quiz-heart-stent.html': 'quiz-heart-stent',
+  'quiz-lipoprotein-a.html': 'quiz-lipoprotein-a', 'quiz-vitamin-d.html': 'quiz-vitamin-d',
+  'featured/coffee-and-heart.html': 'coffee-and-heart',
+  'featured/resorbable-stent.html': 'resorbable-stent',
+  'featured/aha-cholesterol-guideline-top10.html': 'aha-cholesterol-guideline-top10',
+});
 const TOPNAV = [
   ['posts.html', '全部'],
   ['trials.html', '臨床試驗'],
@@ -974,6 +988,22 @@ gtag('config', '${GA_ID}');
   }
   console.log(`  placeAnalytics: ${n} page(s)`);
 }
+// 每頁專屬社群分享圖：把 og:image / twitter:image 指到 img/og/<name>.png（若已產生）
+function placeOgImages() {
+  let n = 0;
+  for (const [file, name] of Object.entries(OG_MAP)) {
+    const p = path.join(ROOT, file);
+    if (!fs.existsSync(p)) continue;
+    if (!fs.existsSync(path.join(ROOT, 'img', 'og', `${name}.png`))) continue;
+    let html = fs.readFileSync(p, 'utf8');
+    const url = `${BASE_URL}/img/og/${name}.png`;
+    const before = html;
+    html = html.replace(/(<meta property="og:image" content=")[^"]*(">)/, `$1${url}$2`);
+    html = html.replace(/(<meta name="twitter:image" content=")[^"]*(">)/, `$1${url}$2`);
+    if (html !== before) { fs.writeFileSync(p, html); n++; }
+  }
+  console.log(`  placeOgImages: ${n} page(s)`);
+}
 
 // ---------------------------------------------------------------------------
 // sitemap
@@ -1346,6 +1376,7 @@ function main() {
   placeShare();
   placeComments();
   placeAnalytics();
+  placeOgImages();
 
   write('sitemap.xml', renderSitemap(articles, featured, quizzes));
   console.log(`  sitemap.xml: ${BASE_PAGES.length + 2 + articles.length + featured.length} urls`);

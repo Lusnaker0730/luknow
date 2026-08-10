@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" role="img" aria-label="心臟脈搏標誌">
+<circle cx="84" cy="84" r="80" fill="#ece5d8"/>
+<path d="M84 120 C57 99 45 84 45 68 C45 57 54 49 64 49 C73 49 80 54 84 61 C88 54 95 49 104 49 C114 49 123 57 123 68 C123 84 111 99 84 120 Z" fill="#e6b3ad"/>
+<polyline points="49,86 66,86 73,70 80,104 87,78 93,86 119,86" fill="none" stroke="#fffdf9" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
