@@ -63,9 +63,10 @@ const BASE_PAGES = [
   { f: 'coronary-calcium.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'weight-loss-medications.html', changefreq: 'monthly', priority: '0.9' },
   { f: 'low-diastolic-bp.html', changefreq: 'monthly', priority: '0.8' },
+  { f: 'cardio-oncology.html', changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html', 'fish-oil.html', 'metabolic-syndrome.html', 'coronary-calcium.html', 'weight-loss-medications.html', 'low-diastolic-bp.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html', 'fish-oil.html', 'metabolic-syndrome.html', 'coronary-calcium.html', 'weight-loss-medications.html', 'low-diastolic-bp.html', 'cardio-oncology.html']);
 // 每頁專屬社群分享圖：檔名 → img/og/<name>.png（衛教頁自動用 slug，其餘手列）
 const OG_MAP = {};
 for (const f of TOPIC_PAGES) OG_MAP[f] = f.replace('.html', '');
@@ -342,7 +343,7 @@ ${renderFeaturedBand(featured)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
-<a href="health.html" class="more">查看全部 30 個主題 →</a>
+<a href="health.html" class="more">查看全部 31 個主題 →</a>
 </div>
 <div class="tilegrid">
 <a class="tile" href="cath.html"><img class="tile-illo" src="img/illo/cath.jpg" alt=""><span class="tag exam">檢查介紹</span><h4>心導管檢查</h4><p>適應症、流程、住院幾天、傷口大小、風險與術後照護。</p><span class="go">閱讀 →</span></a>
