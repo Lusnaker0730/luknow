@@ -86,6 +86,7 @@ const OTHER = [
   { name: 'coffee-and-heart',   title: '咖啡與心臟',       label: '精選閱讀', tone: 'ink',  illo: 'img/illo/coffee.svg' },
   { name: 'resorbable-stent',   title: '可吸收支架',       label: '精選閱讀', tone: 'ink',  illo: 'img/illo/stent.jpg' },
   { name: 'aha-cholesterol-guideline-top10', title: 'AHA 膽固醇指南十大重點', label: '精選閱讀', tone: 'ink', illo: 'img/illo/chol.jpg' },
+  { name: 'dcb-bifurcation', title: '分岔病灶與藥物塗層氣球', label: '醫療新知', tone: 'orange', illo: 'img/illo/stent.jpg' },
 ];
 
 // ── 卡片 HTML ─────────────────────────────────────
