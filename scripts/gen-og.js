@@ -87,6 +87,7 @@ const OTHER = [
   { name: 'resorbable-stent',   title: '可吸收支架',       label: '精選閱讀', tone: 'ink',  illo: 'img/illo/stent.jpg' },
   { name: 'aha-cholesterol-guideline-top10', title: 'AHA 膽固醇指南十大重點', label: '精選閱讀', tone: 'ink', illo: 'img/illo/chol.jpg' },
   { name: 'dcb-bifurcation', title: '分岔病灶與藥物塗層氣球', label: '醫療新知', tone: 'orange', illo: 'img/illo/stent.jpg' },
+  { name: 'glp1-dementia', title: '瘦瘦針能預防失智嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/stroke.jpg' },
 ];
 
 // ── 卡片 HTML ─────────────────────────────────────
