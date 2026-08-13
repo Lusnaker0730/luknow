@@ -89,6 +89,7 @@ const OTHER = [
   { name: 'dcb-bifurcation', title: '分岔病灶與藥物塗層氣球', label: '醫療新知', tone: 'orange', illo: 'img/illo/stent.jpg' },
   { name: 'glp1-dementia', title: '瘦瘦針能預防失智嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/stroke.jpg' },
   { name: 'fish-oil-evidence', title: '魚油能顧心臟嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/fish-oil.svg' },
+  { name: 'zeus-inflammation', title: '抗發炎能救心臟嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/cad.jpg' },
 ];
 
 // ── 卡片 HTML ─────────────────────────────────────
