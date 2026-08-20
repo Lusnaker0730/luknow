@@ -22,10 +22,13 @@
 <meta name="twitter:image" content="https://drluyy.com/img/og/risk.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（AHA PREVENT）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://drluyy.com/risk.html","description":"採用 AHA PREVENT 方程式估算 10 年與 30 年心血管疾病風險的全中文計算器。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://drluyy.com/about.html","sameAs":["https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058","https://www.threads.com/@aluminum001"]},"publisher":{"@type":"Organization","name":"台安醫院心臟內科。呂侑穎醫師。臨床筆記"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（AHA PREVENT）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://drluyy.com/risk.html","description":"採用 AHA PREVENT 方程式估算 10 年與 30 年心血管疾病風險的全中文計算器。","dateModified":"2026-08-20","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://drluyy.com/about.html","sameAs":["https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058","https://www.threads.com/@aluminum001"]},"publisher":{"@type":"Organization","name":"台安醫院心臟內科。呂侑穎醫師。臨床筆記"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://drluyy.com/"},{"@type":"ListItem","position":2,"name":"心血管風險計算器","item":"https://drluyy.com/risk.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-TW","mainEntity":[{"@type":"Question","name":"AHA PREVENT 和舊版 ASCVD 計算器（Pooled Cohort Equations）差在哪？為什麼舊版常被說「高估」？","acceptedAnswer":{"@type":"Answer","text":"舊版的 Pooled Cohort Equations（PCE，2013 年）以較早年代、族群較單一的資料建立，套用到現在的族群時普遍會高估風險，算出來的數字往往偏高。PREVENT 用更新、更大、更多元的美國世代資料重新校準，並做了幾項改變：不再分種族、年齡下修到 30 歲起、額外納入腎功能（eGFR）與體型（BMI）、同時給 10 年與 30 年兩個時間尺度，還把心臟衰竭納入評估。因此同一個人用 PREVENT 算，數字常會比舊版低一些，也更貼近實際。"}},{"@type":"Question","name":"風險要到幾 % 才需要開始吃他汀（statin）？","acceptedAnswer":{"@type":"Answer","text":"臨床上常聽到的「7.5% 以上與醫師討論、20% 以上積極介入」這組門檻，其實是依舊版 PCE 訂出來的。由於 PREVENT 的估值通常比舊版低，把同一個數字門檻直接套到 PREVENT 上並不完全對等，指引也還在持續調整中。要不要吃他汀不是只看一個百分比，還要一起看壞膽固醇（LDL）數值、家族史、糖尿病、冠狀動脈鈣化分數等因素。請把分數當作和醫師討論的起點，而不是自行決定用藥的依據。"}},{"@type":"Question","name":"「30 年風險」是給誰看的？年輕人該看哪個？","acceptedAnswer":{"@type":"Answer","text":"對比較年輕的人（尤其 50 歲以下），10 年風險常常算起來很低，容易讓人以為還早、不用管，但看不出長期累積下來的負擔。30 年風險就是為了補這個缺口，適用 30–59 歲，能反映提早控制三高、戒菸、調整生活型態的長期效益。本計算器在你未滿 60 歲時，會自動一併算出 30 年的估計值。"}},{"@type":"Question","name":"台灣人／亞洲人用 PREVENT 準嗎？","acceptedAnswer":{"@type":"Answer","text":"PREVENT 是用美國族群的資料建立的，沒有在台灣本土族群上驗證校準，套用到亞洲或台灣人身上可能有偏差（有機會高估、也可能低估）。台灣另有本土的心血管風險評估工具，臨床上醫師可能會併同參考。這個結果僅供衛教參考，實際判讀請讓醫師結合你的在地檢查資料與整體狀況一起評估。"}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,12 +150,27 @@ gtag('config', 'G-BC1Z8X6BQT');
 <li><strong>高風險：</strong>20% 以上</li>
 </ul>
 <p>一般而言，風險達 <strong>7.5% 以上</strong>時，指引建議與醫師討論是否開始他汀類（statin）藥物；<strong>5%–7.5%</strong> 之間屬邊緣，可再參考家族史、發炎指標、冠狀動脈鈣化分數等一起判斷。無論分數高低，<strong>控制三高、戒菸、健康飲食與運動</strong>都是根本。</p>
+
+<h2 id="faq">常見問答</h2>
+
+<h3>AHA PREVENT 和舊版 ASCVD 計算器（Pooled Cohort Equations）差在哪？為什麼舊版常被說「高估」？</h3>
+<p>舊版的 Pooled Cohort Equations（PCE，2013 年）以較早年代、族群較單一的資料建立，套用到現在的族群時<strong>普遍會高估風險</strong>，也就是算出來的數字往往偏高。PREVENT 用<strong>更新、更大、更多元的美國世代資料重新校準</strong>，並做了幾項改變：<strong>不再分種族</strong>、年齡下修到 <strong>30 歲</strong>起、額外納入<strong>腎功能（eGFR）與體型（BMI）</strong>、同時給<strong>10 年與 30 年</strong>兩個時間尺度，還把<strong>心臟衰竭</strong>納入評估。因此同一個人用 PREVENT 算，數字常會比舊版低一些，也更貼近實際。</p>
+
+<h3>風險要到幾 % 才需要開始吃他汀（statin）？</h3>
+<p>臨床上常聽到的「<strong>7.5% 以上與醫師討論、20% 以上積極介入</strong>」這組門檻，其實是<strong>依舊版 PCE 訂出來的</strong>。由於 PREVENT 的估值通常比舊版低，把同一個數字門檻直接套到 PREVENT 上並不完全對等，指引也還在持續調整中。更重要的是，要不要吃他汀不是只看一個百分比，還要一起看<strong>壞膽固醇（LDL）數值、家族史、糖尿病、冠狀動脈鈣化分數</strong>等因素。<strong>請把分數當作和醫師討論的起點，而不是自行決定用藥的依據。</strong></p>
+
+<h3>「30 年風險」是給誰看的？年輕人該看哪個？</h3>
+<p>對比較年輕的人（尤其 50 歲以下），10 年風險常常算起來很低，容易讓人以為「還早、不用管」，但看不出長期累積下來的負擔。<strong>30 年風險</strong>就是為了補這個缺口，適用 <strong>30–59 歲</strong>，能反映提早控制三高、戒菸、調整生活型態的長期效益。本計算器在你<strong>未滿 60 歲</strong>時，會自動一併算出 30 年的估計值。</p>
+
+<h3>台灣人／亞洲人用 PREVENT 準嗎？</h3>
+<p>要保留一點空間。PREVENT 是用<strong>美國族群</strong>的資料建立的，<strong>沒有在台灣本土族群上驗證校準</strong>，套用到亞洲或台灣人身上可能有偏差（有機會高估、也可能低估）。台灣另有本土的心血管風險評估工具，臨床上醫師可能會併同參考。所以這個結果<strong>僅供衛教參考</strong>，實際判讀請讓醫師結合你的在地檢查資料與整體狀況一起評估。</p>
+
 <div class="warning">
 <strong>重要提醒：</strong>PREVENT 由<strong>美國族群</strong>資料建立，適用 <strong>30–79 歲</strong>、<strong>尚未發生過心血管疾病</strong>者（30 年風險僅適用 30–59 歲）。用於亞洲族群時結果可能有偏差，<strong>僅供衛教參考、不是診斷工具</strong>。實際風險與治療，請由您的醫師依整體狀況評估。
 </div>
 </div>
 <div class="source">
-計算公式：美國心臟學會 PREVENT 方程式（Khan SS 等，<em>Circulation</em> 2024;149:430-449）之基礎（base）模型。係數取自官方補充資料並已對照驗證。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。
+計算公式：美國心臟學會 PREVENT 方程式（Khan SS 等，<em>Circulation</em> 2024;149:430-449）之基礎（base）模型。係數取自官方補充資料並已對照驗證。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。｜最後更新：2026 年 8 月 20 日
 </div>
 </div>
 </div>
