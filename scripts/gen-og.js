@@ -51,6 +51,8 @@ const TONE = {
   ink:    ['rgba(20,50,58,.08)', '#14323a'],
 };
 const CAT_TONE = { prevent: 'teal', risk: 'gold', treatment: 'blue', exam: 'teal', disease: 'red', symptom: 'green' };
+// 文章分類（tagCls）→ 色調，沿用分類頁配色
+const TAG_TONE = { meeting: 'violet', podcast: 'green', trial: 'teal', guideline: 'gold', news: 'orange' };
 
 // ── 從 health.html 解析 28 篇衛教 ───────────────────
 function eduPages() {
@@ -91,6 +93,21 @@ const OTHER = [
   { name: 'fish-oil-evidence', title: '魚油能顧心臟嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/fish-oil.svg' },
   { name: 'zeus-inflammation', title: '抗發炎能救心臟嗎？', label: '醫療新知', tone: 'orange', illo: 'img/illo/cad.jpg' },
 ];
+
+// ── 所有 articles.json 文章（自動,每篇非 hero 文章都產一張品牌卡）──
+// hero 文章的 img/og/<slug>.png 是手放的主圖（同時也是分享圖）,不覆蓋。
+function articlePages() {
+  const arr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'articles.json'), 'utf8'));
+  return arr
+    .filter(a => !a.hero)
+    .map(a => ({
+      name: a.slug,
+      title: a.title,               // 標題過長時 titleSize() 會自動縮小字級
+      label: a.tagLabel || '臨床筆記',
+      tone: TAG_TONE[a.tagCls] || 'ink',
+      illo: 'img/illo/_brand.svg',
+    }));
+}
 
 // ── 卡片 HTML ─────────────────────────────────────
 function titleSize(t) {
@@ -146,7 +163,10 @@ function render(entry) {
 }
 
 const only = process.argv.slice(2);
-let all = [...eduPages(), ...OTHER];
+// 衛教頁 + 手寫靜態清單優先；其餘 articles.json 文章自動補上（不重複、custom illo 者以 OTHER 為準）
+const primary = [...eduPages(), ...OTHER];
+const taken = new Set(primary.map(e => e.name));
+let all = [...primary, ...articlePages().filter(e => !taken.has(e.name))];
 if (only.length) all = all.filter(e => only.includes(e.name));
 console.log(`產生 ${all.length} 張分享卡 …`);
 let ok = 0;
