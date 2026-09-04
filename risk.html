@@ -317,6 +317,7 @@ gtag('config', 'G-BC1Z8X6BQT');
     if(!(age>=30&&age<=79)) p.push('年齡需在 30–79 歲');
     if(!(tc>=130&&tc<=320)) p.push('總膽固醇需在 130–320 mg/dL');
     if(!(hdl>=20&&hdl<=100)) p.push('HDL 需在 20–100 mg/dL');
+    if(hdl>=20&&hdl<=100&&tc>=130&&tc<=320&&hdl>=tc) p.push('HDL 不應高於或等於總膽固醇，請檢查數值');
     if(ldlRaw!==''&&!(ldl>=40&&ldl<=300)) p.push('LDL 需在 40–300 mg/dL（或留空）');
     if(ldlRaw!==''&&ldl>=40&&ldl<=300&&tc>=130&&tc<=320&&hdl>=20&&hdl<=100&&ldl>tc-hdl) p.push('LDL 不應高於「總膽固醇 − HDL」（非 HDL＝'+(tc-hdl)+'）；請檢查 LDL、總膽固醇或 HDL 是否輸入錯誤');
     if(!(sbp>=90&&sbp<=200)) p.push('收縮壓需在 90–200 mmHg');
@@ -339,15 +340,21 @@ gtag('config', 'G-BC1Z8X6BQT');
     document.getElementById('riskNum').textContent=pct(a10);
     document.getElementById('riskNum').style.color=b.c;
     var be=document.getElementById('riskBand'); be.textContent=b.t; be.style.color=b.c;
-    var note='<strong>10 年風險：</strong>總心血管疾病 '+pct(c10)+' ‧ 心臟衰竭 '+pct(h10);
+    function mcard(lbl,val,sub,hl){return '<div style="flex:1;min-width:92px;text-align:center;padding:9px 6px;background:'+(hl?'#fff7f0':'#fff')+';border:1px solid '+(hl?b.c:'#e6ded1')+';border-radius:10px;margin:3px"><div style="font-size:.76rem;color:#8a7f78;line-height:1.3">'+lbl+'</div><div style="font-size:1.2rem;font-weight:700;color:'+(hl?b.c:'#14323a')+'">'+pct(val)+'</div><div style="font-size:.68rem;color:#a89e93">'+sub+'</div></div>';}
+    var note='<div style="font-weight:700;margin-bottom:2px">10 年風險</div>'+
+      '<div style="display:flex;flex-wrap:wrap;margin:0 -3px">'+
+      mcard('ASCVD',a10,'心臟病＋中風',true)+mcard('總 CVD',c10,'ASCVD＋心衰')+mcard('心臟衰竭 HF',h10,'心臟衰竭')+'</div>'+
+      '<div style="font-size:.78rem;color:#8a7f78;margin-top:5px">＊<strong>ASCVD</strong>（心臟病＋中風）是指引用來分級的主要指標，也是上方的大數字；<strong>總 CVD</strong>＝ASCVD 再加上心臟衰竭。</div>';
     var a30=NaN;
     if(age<60){
       a30=riskFrom(PV.ascvd30[sx],pp,true);
       var c30=riskFrom(PV.cvd30[sx],pp,true);
       var h30=riskFrom(PV.hf30[sx],pp,true);
-      note+='<br><strong>30 年風險：</strong>ASCVD '+pct(a30)+' ‧ 總 CVD '+pct(c30)+' ‧ 心臟衰竭 '+pct(h30);
+      note+='<div style="font-weight:700;margin:14px 0 2px">30 年風險 <span style="font-weight:400;color:#8a7f78;font-size:.82rem">（30–59 歲適用）</span></div>'+
+        '<div style="display:flex;flex-wrap:wrap;margin:0 -3px">'+
+        mcard('ASCVD',a30,'心臟病＋中風')+mcard('總 CVD',c30,'ASCVD＋心衰')+mcard('心臟衰竭 HF',h30,'心臟衰竭')+'</div>';
     }
-    note+='<br><br>'+advice(a10);
+    note+='<div style="margin-top:14px">'+advice(a10)+'</div>';
     var ckmItems=ckm(o,a10,c10,h10,a30);
     if(ckmItems.length){
       note+='<br><br><strong>心腎代謝（CKM）與用藥判讀：</strong><ul style="margin:8px 0 0;padding-left:20px;line-height:1.7"><li style="margin-bottom:6px">'+ckmItems.join('</li><li style="margin-bottom:6px">')+'</li></ul>';
