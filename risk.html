@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://drluyy.com/img/og/risk.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（AHA PREVENT）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://drluyy.com/risk.html","description":"採用 AHA PREVENT 方程式估算 10 年與 30 年心血管疾病風險，並依 2026 CKM／血脂指引給出糖尿病、心臟衰竭、高血壓與他汀用藥判讀的全中文計算器。","dateModified":"2026-09-01","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://drluyy.com/about.html","sameAs":["https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058","https://www.threads.com/@aluminum001"]},"publisher":{"@type":"Organization","name":"台安醫院心臟內科。呂侑穎醫師。臨床筆記"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"心血管風險計算器（AHA PREVENT）","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"zh-TW","url":"https://drluyy.com/risk.html","description":"採用 AHA PREVENT 方程式估算 10 年與 30 年心血管疾病風險，並依 2026 CKM／血脂指引給出糖尿病、心臟衰竭、高血壓與他汀用藥判讀的全中文計算器。","dateModified":"2026-09-04","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"呂侑穎","jobTitle":"心臟內科醫師","url":"https://drluyy.com/about.html","sameAs":["https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058","https://www.threads.com/@aluminum001"]},"publisher":{"@type":"Organization","name":"台安醫院心臟內科。呂侑穎醫師。臨床筆記"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://drluyy.com/"},{"@type":"ListItem","position":2,"name":"心血管風險計算器","item":"https://drluyy.com/risk.html"}]}
@@ -200,7 +200,7 @@ gtag('config', 'G-BC1Z8X6BQT');
 </div>
 </div>
 <div class="source">
-計算公式：美國心臟學會 PREVENT 方程式（Khan SS 等，<em>Circulation</em> 2024;149:430-449）之基礎（base）模型。係數取自官方補充資料並已對照驗證。心腎代謝（CKM）與用藥判讀切點參考 2026 ACC／AHA 血脂與 CKM 相關指引。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。｜最後更新：2026 年 9 月 1 日
+計算公式：美國心臟學會 PREVENT 方程式（Khan SS 等，<em>Circulation</em> 2024;149:430-449）之基礎（base）模型。係數取自官方補充資料並已對照驗證。心腎代謝（CKM）與用藥判讀切點參考 2026 ACC／AHA 血脂與 CKM 相關指引。本工具於前端本機運算，不上傳、不儲存您輸入的任何資料｜僅供衛教參考，不構成臨床診療建議。｜最後更新：2026 年 9 月 4 日
 </div>
 </div>
 </div>
@@ -318,6 +318,7 @@ gtag('config', 'G-BC1Z8X6BQT');
     if(!(tc>=130&&tc<=320)) p.push('總膽固醇需在 130–320 mg/dL');
     if(!(hdl>=20&&hdl<=100)) p.push('HDL 需在 20–100 mg/dL');
     if(ldlRaw!==''&&!(ldl>=40&&ldl<=300)) p.push('LDL 需在 40–300 mg/dL（或留空）');
+    if(ldlRaw!==''&&ldl>=40&&ldl<=300&&tc>=130&&tc<=320&&hdl>=20&&hdl<=100&&ldl>tc-hdl) p.push('LDL 不應高於「總膽固醇 − HDL」（非 HDL＝'+(tc-hdl)+'）；請檢查 LDL、總膽固醇或 HDL 是否輸入錯誤');
     if(!(sbp>=90&&sbp<=200)) p.push('收縮壓需在 90–200 mmHg');
     if(!(egfr>=15&&egfr<=140)) p.push('eGFR 需在 15–140 mL/min');
     if(!(bmi>=18&&bmi<=50)) p.push('BMI 需在 18–50');
