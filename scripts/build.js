@@ -997,6 +997,29 @@ gtag('config', '${GA_ID}');
   console.log(`  placeAnalytics: ${n} page(s)`);
 }
 // 每頁專屬社群分享圖：把 og:image / twitter:image 指到 img/og/<name>.png（若已產生）
+// 在衛教頁 hero 顯示「最後更新」一行（數值取自該頁 JSON-LD 的 dateModified；idempotent）
+function placeUpdatedDate() {
+  let n = 0;
+  for (const f of TOPIC_PAGES) {
+    const p = path.join(ROOT, f);
+    if (!fs.existsSync(p)) continue;
+    let html = fs.readFileSync(p, 'utf8');
+    const m = html.match(/"dateModified"\s*:\s*"(\d{4})-(\d{2})-\d{2}"/);
+    if (!m) continue;
+    const label = `最後更新：${m[1]} 年 ${parseInt(m[2], 10)} 月`;
+    const before = html;
+    if (html.includes('class="page-updated"')) {
+      html = html.replace(/(<p class="page-updated">)[^<]*(<\/p>)/, `$1${label}$2`);
+    } else {
+      // 注入在 hero 內、第一個 <h1>…<p>…</p> 之後、hero 的 </div> 之前
+      html = html.replace(/(<div class="hero">[\s\S]*?<\/p>)(\s*<\/div>)/,
+        `$1\n<p class="page-updated">${label}</p>$2`);
+    }
+    if (html !== before) { fs.writeFileSync(p, html); n++; }
+  }
+  console.log(`  placeUpdatedDate: ${n} page(s)`);
+}
+
 function placeOgImages() {
   let n = 0;
   for (const [file, name] of Object.entries(OG_MAP)) {
@@ -1384,6 +1407,7 @@ function main() {
   placeShare();
   placeComments();
   placeAnalytics();
+  placeUpdatedDate();
   placeOgImages();
 
   write('sitemap.xml', renderSitemap(articles, featured, quizzes));
