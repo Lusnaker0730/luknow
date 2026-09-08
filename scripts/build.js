@@ -250,6 +250,16 @@ function renderFeaturedBand(featured) {
 }
 
 function renderHome(articles, featured) {
+  const latestCards = articles.slice(0, 6).map(a => `<a class="card" href="posts/${a.slug}.html">
+<div class="card-header">
+<span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
+<div class="card-title">${escHtml(a.title)}</div>
+<div class="card-subtitle">${escHtml(a.subtitle)}</div>
+<div class="card-meta">${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('')}</div>
+</div>
+<div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
+</a>`).join('\n');
+
   const cards = articles.slice(0, 4).map(a => `<a class="card" href="posts/${a.slug}.html">
 <div class="card-header">
 <span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
@@ -351,23 +361,33 @@ ${shellHeader('index.html', '')}
 
 ${renderClinicBand(CLINIC)}
 
+<section class="band" id="latest">
+<div class="wrap">
+<div class="sec-head">
+<div><div class="kicker">Latest Updates</div><h2>最新更新文章</h2></div>
+<a href="posts.html" class="more">查看全部 ${articles.length} 篇 →</a>
+</div>
+<div class="cards" style="padding-left:0;padding-right:0">
+${latestCards}
+</div>
+</div>
+</section>
+
 ${renderFeaturedBand(featured)}
 
 <section class="band">
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Patient Education</div><h2>心血管衛教專區</h2></div>
-<a href="health.html" class="more">查看全部 32 個主題 →</a>
+<a href="health.html" class="more">查看全部 ${TOPIC_PAGES.size} 個主題 →</a>
 </div>
 <div class="tilegrid">
 <a class="tile" href="cath.html"><img class="tile-illo" src="img/illo/cath.jpg" alt=""><span class="tag exam">檢查介紹</span><h4>心導管檢查</h4><p>適應症、流程、住院幾天、傷口大小、風險與術後照護。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="heart-stent.html"><img class="tile-illo" src="img/illo/stent.jpg" alt=""><span class="tag exam">治療介紹</span><h4>心臟支架</h4><p>為什麼放支架、裸金屬／塗藥／可吸收怎麼選、術後吃藥與照護。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="htn.html"><img class="tile-illo" src="img/illo/htn.jpg" alt=""><span class="tag risk">危險因子</span><h4>高血壓</h4><p>血壓分類、為何是「沉默的殺手」、你能做到的八大生活型態改變。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="chol.html"><img class="tile-illo" src="img/illo/chol.jpg" alt=""><span class="tag risk">危險因子</span><h4>膽固醇</h4><p>LDL／HDL／三酸甘油酯、血脂參考數值，以及如何控制。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="dm.html"><img class="tile-illo" src="img/illo/dm.jpg" alt=""><span class="tag risk">危險因子</span><h4>糖尿病與心血管</h4><p>為何大幅提高心臟病與中風風險，以及 ABC 控制重點。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="stroke.html"><img class="tile-illo" src="img/illo/stroke.jpg" alt=""><span class="tag disease">疾病</span><h4>中風</h4><p>三種類型、F.A.S.T. 辨識、為何分秒必爭、風險與預防。</p><span class="go">閱讀 →</span></a>
 <a class="tile" href="afib.html"><img class="tile-illo" src="img/illo/afib.jpg" alt=""><span class="tag disease">疾病</span><h4>心房顫動</h4><p>中風風險約 5 倍、診斷，以及抗凝／心率／節律三方向治療。</p><span class="go">閱讀 →</span></a>
-<a class="tile" href="le8.html"><img class="tile-illo" src="img/illo/le8.jpg" alt=""><span class="tag prevent">預防保健</span><h4>保健八要素</h4><p>Life's Essential 8：四項健康行為＋四項健康因子。</p><span class="go">閱讀 →</span></a>
 </div>
 </div>
 </section>
