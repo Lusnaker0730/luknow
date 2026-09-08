@@ -136,6 +136,12 @@ const slug = id => id.replace(/^article-/, '');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const write = (f, c) => fs.writeFileSync(path.join(ROOT, f), c);
 const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// 把已跳脫的內文中的純文字 http(s) 連結轉成可點的 <a>(URL 中的 & 此時已是 &amp;)
+// 結尾的中英文標點不吞進網址;連結一律新分頁開啟並帶 noopener
+const autoLink = s => String(s).replace(
+  /(https?:\/\/[^\s<>"，。、；）)】」]+)/g,
+  '<a href="$1" target="_blank" rel="noopener">$1</a>'
+);
 const escAttr = s => escHtml(s).replace(/"/g, '&quot;');
 const decodeEnt = s => String(s).replace(/&rarr;/g, '→').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&middot;/g, '·').replace(/&le;/g, '≤').replace(/&ge;/g, '≥');
 const toDesc = s => decodeEnt(String(s).replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim().slice(0, 150);
@@ -471,7 +477,7 @@ ${metaHtml}
 </div>
 </div>
 <div class="content-card">
-${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}<div class="article-body">${escHtml(a.body)}</div>
+${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}<div class="article-body">${autoLink(escHtml(a.body))}</div>
 </div>
 </div>
 
