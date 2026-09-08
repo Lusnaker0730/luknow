@@ -70,6 +70,7 @@ nav.top a.cta:hover{background:var(--accent);color:#fff}
 .card-tag.reading{background:rgba(20,50,58,.08);color:var(--ink)}
 .card-tag.news{background:#fbe6da;color:#c05a2a}
 .card-tag.symptom{background:#eef3ef;color:#4a6b60}
+.card-tag.health,.card-tag.treatment{background:#e3efe7;color:#2f7a53}
 .card-tag.treatment{background:rgba(58,90,156,.1);color:#3a5a9c}
 /* 衛教分類快捷篩選 */
 .cat-filter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:920px;margin:0 auto 26px;padding:0 20px}
