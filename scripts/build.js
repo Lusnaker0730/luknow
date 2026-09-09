@@ -160,6 +160,14 @@ function loadFeatured() {
   return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 }
 
+// 首頁「最新更新文章」——手動指定一篇（可為衛教頁或文章，跨來源）；
+// 讀不到 data/latest.json 時 fallback 回 articles.json 第一篇。
+function loadLatest() {
+  const dataPath = path.join(ROOT, 'data', 'latest.json');
+  if (!fs.existsSync(dataPath)) return null;
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+}
+
 // ---------------------------------------------------------------------------
 // shared shell pieces
 // ---------------------------------------------------------------------------
@@ -250,16 +258,22 @@ function renderFeaturedBand(featured) {
 </section>`;
 }
 
-function renderHome(articles, featured) {
-  const latestCards = articles.slice(0, 6).map(a => `<a class="card" href="posts/${a.slug}.html">
+function renderHome(articles, featured, latest) {
+  // 最新更新文章：手動指定一篇（latest.json，可跨衛教頁／文章）；沒有就用最新文章
+  const L = latest || (articles[0] && {
+    href: `posts/${articles[0].slug}.html`, tagCls: articles[0].tagCls,
+    tagLabel: articles[0].tagLabel, title: articles[0].title,
+    subtitle: articles[0].subtitle, date: ''
+  });
+  const latestCards = L ? `<a class="card" href="${L.href}">
 <div class="card-header">
-<span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
-<div class="card-title">${escHtml(a.title)}</div>
-<div class="card-subtitle">${escHtml(a.subtitle)}</div>
-<div class="card-meta">${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('')}</div>
+<span class="card-tag ${L.tagCls}">${escHtml(L.tagLabel)}</span>
+<div class="card-title">${escHtml(L.title)}</div>
+<div class="card-subtitle">${escHtml(L.subtitle || '')}</div>
+<div class="card-meta">${L.date ? `<span>${escHtml(L.date)}</span>` : ''}</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
-</a>`).join('\n');
+</a>` : '';
 
   const cards = articles.slice(0, 4).map(a => `<a class="card" href="posts/${a.slug}.html">
 <div class="card-header">
@@ -366,7 +380,7 @@ ${renderClinicBand(CLINIC)}
 <div class="wrap">
 <div class="sec-head">
 <div><div class="kicker">Latest Updates</div><h2>最新更新文章</h2></div>
-<a href="posts.html" class="more">查看全部 ${articles.length} 篇 →</a>
+<a href="posts.html" class="more">查看全部文章 →</a>
 </div>
 <div class="cards" style="padding-left:0;padding-right:0">
 ${latestCards}
@@ -1393,9 +1407,11 @@ function main() {
   console.log(`  ${articles.length} articles loaded`);
   const featured = loadFeatured();
   const quizzes = loadQuizzes();
+  const latest = loadLatest();
   console.log(`  ${featured.length} featured reads loaded`);
+  console.log(`  latest update: ${latest ? latest.title : '(fallback to newest article)'}`);
 
-  write('index.html', renderHome(articles, featured));
+  write('index.html', renderHome(articles, featured, latest));
   console.log('  wrote index.html (branded homepage)');
 
   write('posts.html', renderNotesPage(articles));
