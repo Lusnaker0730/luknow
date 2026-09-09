@@ -72,9 +72,10 @@ const BASE_PAGES = [
   { f: 'cardio-oncology.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'bp-meds-stop.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'liver-statin.html', changefreq: 'monthly', priority: '0.8' },
+  { f: 'apple-watch-afib.html', changefreq: 'monthly', priority: '0.8' },
 ];
 const ROOT_HTML = BASE_PAGES.map(p => p.f);
-const TOPIC_PAGES = new Set(['cath.html', 'cath-aftercare.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'pvc.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'ldl-apheresis.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html', 'fish-oil.html', 'metabolic-syndrome.html', 'coronary-calcium.html', 'cardiac-ct.html', 'apob.html', 'weight-loss-medications.html', 'glp1-hair-loss.html', 'low-diastolic-bp.html', 'cardio-oncology.html', 'bp-meds-stop.html', 'liver-statin.html']);
+const TOPIC_PAGES = new Set(['cath.html', 'cath-aftercare.html', 'cad.html', 'hf.html', 'htn.html', 'chol.html', 'stroke.html', 'afib.html', 'palpitations.html', 'pvc.html', 'mi.html', 'dm.html', 'pad.html', 'dvt.html', 'mvp.html', 'as.html', 'tg.html', 'ckd.html', 'stent.html', 'heart-stent.html', 'weight-loss-injection.html', 'le8.html', 'coffee.html', 'lipoprotein-a.html', 'ldl-apheresis.html', 'vitamin-d.html', 'psvt.html', 'post-thrombotic.html', 'fish-oil.html', 'metabolic-syndrome.html', 'coronary-calcium.html', 'cardiac-ct.html', 'apob.html', 'weight-loss-medications.html', 'glp1-hair-loss.html', 'low-diastolic-bp.html', 'cardio-oncology.html', 'bp-meds-stop.html', 'liver-statin.html', 'apple-watch-afib.html']);
 // 每頁專屬社群分享圖：檔名 → img/og/<name>.png（衛教頁自動用 slug，其餘手列）
 const OG_MAP = {};
 for (const f of TOPIC_PAGES) OG_MAP[f] = f.replace('.html', '');
@@ -910,6 +911,7 @@ const TOPIC_ILLO = {
   'pad.html': ['pad', '周邊動脈疾病'], 'le8.html': ['le8', '心血管保健八要素'],
   'ckd.html': ['ckd', '慢性腎臟病'], 'stent.html': ['stent', '可吸收支架'],
   'liver-statin.html': ['chol', '肝指數與降膽固醇藥'],
+  'apple-watch-afib.html': ['afib', 'Apple Watch 測心房顫動'],
 };
 function placeIllos() {
   let n = 0;
