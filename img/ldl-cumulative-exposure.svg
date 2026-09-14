@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-label="膽固醇累積暴露理論：LDL-C 乘以年齡等於心血管風險累積值。以 Ference 2018 的門檻示意三種情境。" font-family="'Noto Sans TC','Noto Serif TC',sans-serif">
+<rect x="0" y="0" width="1200" height="780" fill="#fffdf9"/>
+
+<!-- Title -->
+<text x="600" y="46" text-anchor="middle" font-size="30" font-weight="900" fill="#14323a">膽固醇累積暴露理論：LDL-C × 年齡 = 心血管風險累積值</text>
+<text x="600" y="76" text-anchor="middle" font-size="17" fill="#3c5158">累積暴露到 <tspan font-weight="700" fill="#c9821f">5,000</tspan> 起，心肌梗塞風險開始浮現；到 <tspan font-weight="700" fill="#c43d34">7,500</tspan>（約 60 歲）風險再明顯上升</text>
+
+<!-- ================= shared threshold labels (top) ================= -->
+<g font-size="14">
+<rect x="470" y="98" width="150" height="26" rx="6" fill="#c9821f"/>
+<text x="545" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#fffdf9">5,000 起漲點</text>
+<text x="545" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">40 歲・MI 約 1%</text>
+
+<rect x="905" y="98" width="168" height="26" rx="6" fill="#c43d34"/>
+<text x="989" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#fffdf9">7,500 風險門檻</text>
+<text x="989" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">60 歲・MI 約 4%</text>
+</g>
+
+<!-- ============================================================= -->
+<!-- Panel geometry: plot x from 250..1090 (age 0..100), each panel h=176 -->
+<!-- y-axis: cumulative 0..10000 -->
+<!-- 5000 line at x = 250 + 840*(50/100)=670? no. We map AGE on x. -->
+<!-- age->x: x = 250 + age*8.4  (age 0->250, age100->1090) -->
+<!-- threshold VERTICAL guides are drawn per-panel at the age where curve hits 5000/7500 -->
+<!-- but shared dashed guides at fixed x for 5000-label(545) & 7500-label(989) act as visual anchors -->
+
+<!-- faint age gridlines (every 20 yrs) as neutral background reference -->
+<g stroke="#e3dbcc" stroke-width="1" stroke-dasharray="3 6" opacity="0.7">
+<line x1="418" y1="156" x2="418" y2="704"/>
+<line x1="586" y1="156" x2="586" y2="704"/>
+<line x1="754" y1="156" x2="754" y2="704"/>
+<line x1="922" y1="156" x2="922" y2="704"/>
+</g>
+
+<!-- ===================== PANEL A : 情境 A ===================== -->
+<g>
+<rect x="24" y="156" width="1152" height="176" rx="10" fill="#fdf6e8"/>
+<!-- left caption -->
+<rect x="40" y="170" width="86" height="22" rx="5" fill="#c9821f"/>
+<text x="83" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#fffdf9">情境 A</text>
+<text x="40" y="214" font-size="16" font-weight="800" fill="#14323a">邊緣偏高，未治療</text>
+<text x="40" y="238" font-size="13" fill="#3c5158">LDL-C 長期維持在</text>
+<text x="40" y="266" font-size="26" font-weight="900" fill="#c9821f">125<tspan font-size="13" font-weight="500" fill="#7d8a8c"> mg/dL</tspan></text>
+<text x="40" y="294" font-size="12" fill="#7d8a8c">40 歲即達起漲點，與現代人</text>
+<text x="40" y="310" font-size="12" fill="#7d8a8c">首次心肌梗塞平均年齡相當吻合</text>
+
+<!-- plot area: x 250..1090, y 176(=0) .. 322(=10000) baseline y=322 top 176 -->
+<!-- baseline -->
+<line x1="250" y1="322" x2="1096" y2="322" stroke="#e3dbcc" stroke-width="1.5"/>
+<!-- curve: LDL125 -> cum = 125*age ; at age100 =12500(cap). y=322 - cum/10000*146 -->
+<!-- points: age0 y322 ; age40 cum5000 y=322-73=249 ; age60 cum7500 y=322-109.5=212.5 ; age80 cum10000 y=176 -->
+<!-- LDL125: age->x=250+age*8.4 ; cum=125*age ; y=322-cum/10000*146 ; age80 cum10000 y=176 -->
+<polyline points="250,322 586,249 754,212.5 1090,176" fill="none" stroke="#c9821f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- markers -->
+<circle cx="586" cy="249" r="6" fill="#fffdf9" stroke="#c9821f" stroke-width="3"/>
+<text x="601" y="245" font-size="13" font-weight="700" fill="#c9821f">40 歲</text>
+<text x="601" y="262" font-size="11.5" fill="#7d8a8c">125 × 40 = 5,000</text>
+<circle cx="754" cy="212.5" r="6" fill="#fffdf9" stroke="#c43d34" stroke-width="3"/>
+<text x="769" y="208" font-size="13" font-weight="700" fill="#c43d34">60 歲</text>
+<text x="769" y="225" font-size="11.5" fill="#7d8a8c">125 × 60 = 7,500</text>
+</g>
+
+<!-- ===================== PANEL B : 情境 B ===================== -->
+<g>
+<rect x="24" y="342" width="1152" height="176" rx="10" fill="#fbeae8"/>
+<rect x="40" y="356" width="86" height="22" rx="5" fill="#c43d34"/>
+<text x="83" y="372" text-anchor="middle" font-size="13" font-weight="700" fill="#fffdf9">情境 B</text>
+<text x="40" y="400" font-size="16" font-weight="800" fill="#14323a">家族性高膽固醇血症 (FH)</text>
+<text x="40" y="424" font-size="13" fill="#3c5158">LDL-C 高達</text>
+<text x="40" y="452" font-size="26" font-weight="900" fill="#c43d34">200<tspan font-size="13" font-weight="500" fill="#7d8a8c"> mg/dL</tspan></text>
+<text x="40" y="480" font-size="12" fill="#7d8a8c">25 歲就到起漲點、約 37～38 歲</text>
+<text x="40" y="496" font-size="12" fill="#7d8a8c">達門檻——解釋為何年輕就心梗</text>
+
+<line x1="250" y1="508" x2="1096" y2="508" stroke="#e3dbcc" stroke-width="1.5"/>
+<!-- LDL200: age25 cum5000 x=250+25*8.4=460 y=508-73=435 ; age37.5 cum7500 x=250+37.5*8.4=565 y=508-109.5=398.5 ; age50 cum10000 x=670 y=362 -->
+<polyline points="250,508 460,435 565,398.5 670,362" fill="none" stroke="#c43d34" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="460" cy="435" r="6" fill="#fffdf9" stroke="#c9821f" stroke-width="3"/>
+<text x="475" y="431" font-size="13" font-weight="700" fill="#c9821f">25 歲</text>
+<text x="475" y="448" font-size="11.5" fill="#7d8a8c">200 × 25 = 5,000</text>
+<circle cx="565" cy="398.5" r="6" fill="#fffdf9" stroke="#c43d34" stroke-width="3"/>
+<text x="580" y="394" font-size="13" font-weight="700" fill="#c43d34">約 37.5 歲</text>
+<text x="580" y="411" font-size="11.5" fill="#7d8a8c">200 × 37.5 = 7,500</text>
+</g>
+
+<!-- ===================== PANEL C : 情境 C ===================== -->
+<g>
+<rect x="24" y="528" width="1152" height="176" rx="10" fill="#e9f2ea"/>
+<rect x="40" y="542" width="86" height="22" rx="5" fill="#2e7d52"/>
+<text x="83" y="558" text-anchor="middle" font-size="13" font-weight="700" fill="#fffdf9">情境 C</text>
+<text x="40" y="586" font-size="16" font-weight="800" fill="#14323a">優良控制</text>
+<text x="40" y="610" font-size="13" fill="#3c5158">LDL-C 維持在理想的</text>
+<text x="40" y="638" font-size="26" font-weight="900" fill="#2e7d52">80<tspan font-size="13" font-weight="500" fill="#7d8a8c"> mg/dL</tspan></text>
+<text x="40" y="666" font-size="12" fill="#7d8a8c">起漲點推遲到約 62 歲、</text>
+<text x="40" y="682" font-size="12" fill="#7d8a8c">門檻推遲到約 94 歲</text>
+
+<line x1="250" y1="694" x2="1096" y2="694" stroke="#e3dbcc" stroke-width="1.5"/>
+<!-- LDL80: age62.5 cum5000 x=250+62.5*8.4=775 y=694-73=621 ; age93.75 cum7500 x=250+93.75*8.4=1037.5 y=694-109.5=584.5 ; age100 cum8000 x=1090 y=694-116.8=577 -->
+<polyline points="250,694 775,621 1037.5,584.5 1090,577" fill="none" stroke="#2e7d52" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="775" cy="621" r="6" fill="#fffdf9" stroke="#c9821f" stroke-width="3"/>
+<text x="763" y="606" text-anchor="end" font-size="13" font-weight="700" fill="#c9821f">約 62 歲</text>
+<text x="763" y="623" text-anchor="end" font-size="11.5" fill="#7d8a8c">80 × 62.5 = 5,000</text>
+<circle cx="1037.5" cy="584.5" r="6" fill="#fffdf9" stroke="#c43d34" stroke-width="3"/>
+<text x="1025" y="569" text-anchor="end" font-size="13" font-weight="700" fill="#c43d34">約 94 歲</text>
+<text x="1025" y="586" text-anchor="end" font-size="11.5" fill="#7d8a8c">80 × 93.75 = 7,500</text>
+</g>
+
+<!-- x-axis (age) at bottom -->
+<g font-size="12.5" fill="#7d8a8c">
+<text x="250" y="722" text-anchor="middle">0</text>
+<text x="418" y="722" text-anchor="middle">20</text>
+<text x="586" y="722" text-anchor="middle">40</text>
+<text x="754" y="722" text-anchor="middle">60</text>
+<text x="922" y="722" text-anchor="middle">80</text>
+<text x="1090" y="722" text-anchor="middle">100</text>
+<text x="670" y="742" text-anchor="middle" font-size="13" fill="#3c5158">年齡（歲）→ 縱軸為 LDL-C × 年齡的累積暴露值（mg·years）</text>
+</g>
+
+<!-- footer note -->
+<rect x="24" y="750" width="1152" height="26" rx="6" fill="#f4f0e8"/>
+<text x="600" y="767" text-anchor="middle" font-size="12.5" fill="#3c5158">💡 越早把 LDL-C 壓低，累積曲線越平，抵達風險門檻的時間就越晚——時間和數值一樣重要。門檻數字依 Ference 2018。</text>
+</svg>
