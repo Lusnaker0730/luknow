@@ -3,17 +3,17 @@
 
 <!-- Title -->
 <text x="600" y="46" text-anchor="middle" font-size="30" font-weight="900" fill="#14323a">膽固醇累積暴露理論：LDL-C × 年齡 = 心血管風險累積值</text>
-<text x="600" y="76" text-anchor="middle" font-size="17" fill="#3c5158">累積暴露到 <tspan font-weight="700" fill="#c9821f">5,000</tspan> 起，心肌梗塞風險開始浮現；到 <tspan font-weight="700" fill="#c43d34">7,500</tspan>（約 60 歲）風險再明顯上升</text>
+<text x="600" y="76" text-anchor="middle" font-size="17" fill="#3c5158">累積暴露到 <tspan font-weight="700" fill="#c9821f">5,000</tspan> 起，終生心肌梗塞風險開始浮現；到 <tspan font-weight="700" fill="#c43d34">7,500</tspan>（約 60 歲）再明顯上升</text>
 
 <!-- ================= shared threshold labels (top) ================= -->
 <g font-size="14">
 <rect x="470" y="98" width="150" height="26" rx="6" fill="#c9821f"/>
 <text x="545" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#fffdf9">5,000 起漲點</text>
-<text x="545" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">40 歲・MI 約 1%</text>
+<text x="545" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">40 歲・終生 MI 約 1%</text>
 
 <rect x="905" y="98" width="168" height="26" rx="6" fill="#c43d34"/>
 <text x="989" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#fffdf9">7,500 風險門檻</text>
-<text x="989" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">60 歲・MI 約 4%</text>
+<text x="989" y="140" text-anchor="middle" font-size="12.5" fill="#7d8a8c">60 歲・終生 MI 約 4%</text>
 </g>
 
 <!-- ============================================================= -->
@@ -117,5 +117,5 @@
 
 <!-- footer note -->
 <rect x="24" y="750" width="1152" height="26" rx="6" fill="#f4f0e8"/>
-<text x="600" y="767" text-anchor="middle" font-size="12.5" fill="#3c5158">💡 越早把 LDL-C 壓低，累積曲線越平，抵達風險門檻的時間就越晚——時間和數值一樣重要。門檻數字依 Ference 2018。</text>
+<text x="600" y="767" text-anchor="middle" font-size="12.5" fill="#3c5158">💡 越早把 LDL-C 壓低，累積曲線越平，抵達風險門檻的時間就越晚——時間和數值一樣重要。門檻與終生風險數字依 Ference 2018（男性 30–80 歲）。</text>
 </svg>
