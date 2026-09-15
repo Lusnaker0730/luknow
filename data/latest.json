@@ -1,8 +1,8 @@
 {
-  "href": "ldl-cumulative-exposure.html",
-  "tagCls": "risk",
-  "tagLabel": "衛教 · 危險因子",
-  "title": "膽固醇是「累積」出來的：LDL × 年齡，為什麼要趁早降",
-  "subtitle": "壞膽固醇對血管的傷害不是看「今天多少」，而是看「多高 × 多久」——像帳單越積越多。三種情境講清楚為何有人年輕就心梗、為何越早降 LDL 越好",
-  "date": "2026-09-14"
+  "href": "posts/semaglutide-inflammation-select.html",
+  "tagCls": "news",
+  "tagLabel": "醫療新知",
+  "title": "瘦瘦針不只是「瘦」:semaglutide 抗發炎護心的新證據",
+  "subtitle": "SELECT 試驗(17,604 人)的預先設定次分析:打 semaglutide 的人發炎指標 hsCRP 兩年降約 38%,而且早在明顯減重之前(第 4–8 週)就開始降、連沒瘦的人也降。代表瘦瘦針護心的好處,有一部分來自壓低慢性發炎,不只是減重。",
+  "date": "2026-09-15"
 }
