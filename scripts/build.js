@@ -264,13 +264,19 @@ function renderFeaturedBand(featured) {
 }
 
 function renderHome(articles, featured, latest) {
-  // 最新更新文章：手動指定一篇（latest.json，可跨衛教頁／文章）；沒有就用最新文章
-  const L = latest || (articles[0] && {
-    href: `posts/${articles[0].slug}.html`, tagCls: articles[0].tagCls,
-    tagLabel: articles[0].tagLabel, title: articles[0].title,
-    subtitle: articles[0].subtitle, date: ''
+  // 最新更新文章：手動指定（latest.json，可跨衛教頁／文章，可為單篇或最多兩篇陣列）；
+  // 沒有指定時 fallback 回最新的兩篇文章。
+  const fallbackFrom = a => ({
+    href: `posts/${a.slug}.html`, tagCls: a.tagCls,
+    tagLabel: a.tagLabel, title: a.title, subtitle: a.subtitle, date: ''
   });
-  const latestCards = L ? `<a class="card" href="${L.href}">
+  let latestList;
+  if (Array.isArray(latest)) latestList = latest;
+  else if (latest) latestList = [latest];
+  else latestList = articles.slice(0, 2).map(fallbackFrom);
+  latestList = latestList.filter(Boolean).slice(0, 2);
+
+  const latestCards = latestList.map(L => `<a class="card" href="${L.href}">
 <div class="card-header">
 <span class="card-tag ${L.tagCls}">${escHtml(L.tagLabel)}</span>
 <div class="card-title">${escHtml(L.title)}</div>
@@ -278,9 +284,13 @@ function renderHome(articles, featured, latest) {
 <div class="card-meta">${L.date ? `<span>${escHtml(L.date)}</span>` : ''}</div>
 </div>
 <div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
-</a>` : '';
+</a>`).join('\n');
 
-  const cards = articles.slice(0, 4).map(a => `<a class="card" href="posts/${a.slug}.html">
+  // 下方「所有文章」列表去掉已在「最新更新」出現的,避免重複
+  const latestHrefs = new Set(latestList.map(L => L.href));
+  const cards = articles
+    .filter(a => !latestHrefs.has(`posts/${a.slug}.html`))
+    .slice(0, 4).map(a => `<a class="card" href="posts/${a.slug}.html">
 <div class="card-header">
 <span class="card-tag ${a.tagCls}">${escHtml(a.tagLabel)}</span>
 <div class="card-title">${escHtml(a.title)}</div>
@@ -1418,7 +1428,8 @@ function main() {
   const quizzes = loadQuizzes();
   const latest = loadLatest();
   console.log(`  ${featured.length} featured reads loaded`);
-  console.log(`  latest update: ${latest ? latest.title : '(fallback to newest article)'}`);
+  const latestTitles = Array.isArray(latest) ? latest.map(x => x.title) : (latest ? [latest.title] : []);
+  console.log(`  latest update: ${latestTitles.length ? latestTitles.join(' / ') : '(fallback to newest articles)'}`);
 
   write('index.html', renderHome(articles, featured, latest));
   console.log('  wrote index.html (branded homepage)');
