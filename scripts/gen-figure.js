@@ -77,7 +77,65 @@ ${f.callout ? `<div class="callout">${f.callout.map(esc).join('<br>').replace(/\
 </body></html>`;
 }
 
-const TEMPLATES = { checklist: checklistHtml };
+// 證據金字塔:tiers 由上(證據最硬、最窄)到下;bins = 底下並排的「沒效/有害」框
+function pyramidHtml(f) {
+  const n = f.tiers.length;
+  const tiers = f.tiers.map((t, i) => {
+    const wTop = 46 + (54 / n) * i, wBot = 46 + (54 / n) * (i + 1); // 寬度百分比
+    const inset = (100 - wTop) / 2 - (100 - wBot) / 2;               // 斜邊內縮(相對本層寬度)
+    const pct = inset / wBot * 100;
+    return `
+<div class="tier" style="width:${wBot}%;background:${t.color};clip-path:polygon(${pct}% 0,${100 - pct}% 0,100% 100%,0 100%)">
+  <div class="rank">${esc(t.rank)}</div>
+  <div class="tlabel">${esc(t.label)}</div>
+  <div class="titems">${esc(t.items)}</div>
+</div>`;
+  }).join('');
+  const bins = (f.bins || []).map(b => `
+<div class="bin" style="border-color:${b.color}">
+  <div class="bhead" style="color:${b.color}">${esc(b.head)}</div>
+  <div class="bitems">${esc(b.items)}</div>
+</div>`).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NSerif';src:url('${SERIF}') format('opentype');font-weight:900}
+@font-face{font-family:'NSans';src:url('${SANS}') format('woff2');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:${W}px;height:${H}px}
+body{display:flex;flex-direction:column;background:#fffdf9;font-family:'NSans',sans-serif;
+padding:48px 56px 36px;color:#14323a}
+.tagline{color:#c43d34;font-size:22px;font-weight:700;letter-spacing:.12em}
+h1{font-family:'NSerif';font-size:56px;line-height:1.2;font-weight:900;margin-top:10px}
+.sub{font-size:26px;color:#3c5158;margin-top:10px;line-height:1.45}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px}
+.tier{color:#fff;text-align:center;padding:16px 0 18px}
+.rank{font-size:22px;letter-spacing:.08em;opacity:.85}
+.tlabel{font-size:33px;line-height:1.3;margin-top:4px}
+.titems{font-size:25px;line-height:1.45;margin:6px auto 0;max-width:90%;color:#fff8ec;white-space:pre-line}
+.bins{display:flex;gap:16px;margin-top:18px}
+.bin{flex:1;border:3px solid;border-radius:20px;padding:12px 22px;background:#fff}
+.bhead{font-size:29px}
+.bitems{font-size:23px;color:#3c5158;line-height:1.5;margin-top:4px;white-space:pre-line}
+.note{font-size:21px;color:#9c2f28;margin-top:10px;line-height:1.4}
+.foot{display:flex;align-items:flex-end;gap:16px;border-top:2px solid #ece5d8;padding-top:14px;margin-top:auto}
+.src{font-size:16px;color:#7d8a8c;line-height:1.45;flex:1}
+.brand{text-align:right;flex-shrink:0}
+.brand .n{font-size:23px;font-weight:700}
+.brand .u{font-size:23px;font-weight:700;color:#9c2f28}
+</style></head><body>
+<div class="tagline">CARDIOLOGY · 心臟內科</div>
+<h1>${esc(f.title)}</h1>
+${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
+<div class="pyr">${tiers}</div>
+<div class="bins"${f.binsStack ? ' style="flex-direction:column;gap:12px"' : ''}>${bins}</div>
+${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
+<div class="foot">
+  <div class="src">${esc(f.sources)}</div>
+  <div class="brand"><div class="n">呂侑穎醫師的臨床筆記</div><div class="u">drluyy.com</div></div>
+</div>
+</body></html>`;
+}
+
+const TEMPLATES = { checklist: checklistHtml, pyramid: pyramidHtml };
 
 function render(f) {
   const tpl = TEMPLATES[f.template];
