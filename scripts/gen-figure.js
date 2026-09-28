@@ -106,16 +106,16 @@ padding:48px 56px 36px;color:#14323a}
 .tagline{color:#c43d34;font-size:22px;font-weight:700;letter-spacing:.12em}
 h1{font-family:'NSerif';font-size:56px;line-height:1.2;font-weight:900;margin-top:10px}
 .sub{font-size:26px;color:#3c5158;margin-top:10px;line-height:1.45}
-.pyr{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:30px}
-.tier{color:#fff;text-align:center;padding:26px 0 28px}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px}
+.tier{color:#fff;text-align:center;padding:16px 0 18px}
 .rank{font-size:22px;letter-spacing:.08em;opacity:.85}
 .tlabel{font-size:33px;line-height:1.3;margin-top:4px}
-.titems{font-size:26px;line-height:1.5;margin:10px auto 0;max-width:86%;color:#fff8ec;white-space:pre-line}
-.bins{display:flex;gap:16px;margin-top:26px}
-.bin{flex:1;border:3px solid;border-radius:20px;padding:18px 22px;background:#fff}
+.titems{font-size:25px;line-height:1.45;margin:6px auto 0;max-width:90%;color:#fff8ec;white-space:pre-line}
+.bins{display:flex;gap:16px;margin-top:18px}
+.bin{flex:1;border:3px solid;border-radius:20px;padding:12px 22px;background:#fff}
 .bhead{font-size:29px}
-.bitems{font-size:24px;color:#3c5158;line-height:1.55;margin-top:8px;white-space:pre-line}
-.note{font-size:22px;color:#9c2f28;margin-top:14px;line-height:1.45}
+.bitems{font-size:23px;color:#3c5158;line-height:1.5;margin-top:4px;white-space:pre-line}
+.note{font-size:21px;color:#9c2f28;margin-top:10px;line-height:1.4}
 .foot{display:flex;align-items:flex-end;gap:16px;border-top:2px solid #ece5d8;padding-top:14px;margin-top:auto}
 .src{font-size:16px;color:#7d8a8c;line-height:1.45;flex:1}
 .brand{text-align:right;flex-shrink:0}
@@ -126,7 +126,7 @@ h1{font-family:'NSerif';font-size:56px;line-height:1.2;font-weight:900;margin-to
 <h1>${esc(f.title)}</h1>
 ${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
 <div class="pyr">${tiers}</div>
-<div class="bins">${bins}</div>
+<div class="bins"${f.binsStack ? ' style="flex-direction:column;gap:12px"' : ''}>${bins}</div>
 ${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
 <div class="foot">
   <div class="src">${esc(f.sources)}</div>
