@@ -527,7 +527,7 @@ ${metaHtml}
 </div>
 </div>
 <div class="content-card">
-${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}<div class="article-body">${autoLink(escHtml(a.body))}</div>
+${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}${(a.figures || []).map(f => `<figure class="article-figure"><a href="../img/fig/${escAttr(f.name)}.png" target="_blank" rel="noopener"><img src="../img/fig/${escAttr(f.name)}.png" alt="${escAttr(f.alt)}" width="1080" height="1350" loading="lazy"></a>${f.caption ? `<figcaption>${escHtml(f.caption)}</figcaption>` : ''}</figure>\n`).join('')}<div class="article-body">${autoLink(escHtml(a.body))}</div>
 </div>
 </div>
 
