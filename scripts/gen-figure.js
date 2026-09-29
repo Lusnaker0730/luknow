@@ -135,7 +135,74 @@ ${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
 </body></html>`;
 }
 
-const TEMPLATES = { checklist: checklistHtml, pyramid: pyramidHtml };
+// 單篇研究摘要:study=[[數字,說明]]、habits=[文字]、headline={value,text}、bars=[{label,value,dir:'down'|'up'}]
+function studyHtml(f) {
+  const max = Math.max(...f.bars.map(b => b.value));
+  const stats = f.study.map(([v, t]) => `<div class="stat"><div class="sv">${esc(v)}</div><div class="st">${esc(t)}</div></div>`).join('');
+  const habits = f.habits.map((h, i) => `<div class="hab"><span class="hn">${i + 1}</span>${esc(h)}</div>`).join('');
+  const bars = f.bars.map(b => `
+<div class="bar${b.dir === 'up' ? ' up' : ''}">
+  <div class="bl">${esc(b.label)}</div>
+  <div class="bt"><div class="bf" style="width:${(b.value / max) * 100}%"></div></div>
+  <div class="bv">${b.dir === 'up' ? '高' : '低'} ${b.value}%</div>
+</div>`).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NSerif';src:url('${SERIF}') format('opentype');font-weight:900}
+@font-face{font-family:'NSans';src:url('${SANS}') format('woff2');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:${W}px;height:${H}px}
+body{display:flex;flex-direction:column;background:#fffdf9;font-family:'NSans',sans-serif;
+padding:44px 56px 32px;color:#14323a}
+.tagline{color:#c43d34;font-size:21px;font-weight:700;letter-spacing:.12em}
+h1{font-family:'NSerif';font-size:52px;line-height:1.2;font-weight:900;margin-top:8px}
+.sub{font-size:24px;color:#3c5158;margin-top:8px;line-height:1.45}
+.stats{display:flex;gap:12px;margin-top:18px}
+.stat{flex:1;background:#14323a;color:#fff;border-radius:16px;padding:12px 16px;text-align:center}
+.sv{font-family:'NSerif';font-size:34px}
+.st{font-size:19px;opacity:.85;margin-top:2px}
+.habs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.hab{background:#e6f2f1;color:#0f5a60;border-radius:999px;padding:8px 18px 8px 8px;font-size:23px;display:flex;align-items:center;gap:10px}
+.hn{width:32px;height:32px;border-radius:50%;background:#0f7a82;color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center}
+.head{display:flex;align-items:center;gap:22px;margin-top:18px;background:#fff;border:3px solid #0f7a82;border-radius:20px;padding:14px 24px}
+.hv{font-family:'NSerif';font-size:66px;color:#0f7a82;line-height:1}
+.ht{font-size:26px;line-height:1.35}
+.ht small{display:block;font-size:20px;color:#7d8a8c}
+.btitle{font-size:22px;color:#3c5158;margin-top:16px}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+.bar{display:flex;align-items:center;gap:12px}
+.bl{width:150px;text-align:right;font-size:21px;flex-shrink:0}
+.bt{flex:1;height:22px;background:#f0ebe1;border-radius:6px;overflow:hidden}
+.bf{height:100%;background:#3f8f7f;border-radius:6px}
+.bar.up .bf{background:#c43d34}
+.bar.up .bl,.bar.up .bv{color:#c43d34}
+.bv{width:90px;font-size:20px;flex-shrink:0}
+.callout{margin-top:14px;background:#14323a;color:#fff;border-radius:18px;padding:12px 22px;font-size:22px;line-height:1.5}
+.callout b{color:#ffd9a8}
+.note{font-size:19px;color:#9c2f28;margin-top:8px;line-height:1.4}
+.foot{display:flex;align-items:flex-end;gap:16px;border-top:2px solid #ece5d8;padding-top:12px;margin-top:auto}
+.src{font-size:15px;color:#7d8a8c;line-height:1.45;flex:1}
+.brand{text-align:right;flex-shrink:0}
+.brand .n{font-size:22px;font-weight:700}
+.brand .u{font-size:22px;font-weight:700;color:#9c2f28}
+</style></head><body>
+<div class="tagline">CARDIOLOGY · 心臟內科</div>
+<h1>${esc(f.title)}</h1>
+${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
+<div class="stats">${stats}</div>
+<div class="habs">${habits}</div>
+<div class="head"><div class="hv">${esc(f.headline.value)}</div><div class="ht">${esc(f.headline.text)}${f.headline.small ? `<small>${esc(f.headline.small)}</small>` : ''}</div></div>
+<div class="btitle">${esc(f.barsTitle)}</div>
+<div class="bars">${bars}</div>
+${f.callout ? `<div class="callout">${f.callout.map(esc).join('<br>').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</div>` : ''}
+${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
+<div class="foot">
+  <div class="src">${esc(f.sources)}</div>
+  <div class="brand"><div class="n">呂侑穎醫師的臨床筆記</div><div class="u">drluyy.com</div></div>
+</div>
+</body></html>`;
+}
+
+const TEMPLATES = { checklist: checklistHtml, pyramid: pyramidHtml, study: studyHtml };
 
 function render(f) {
   const tpl = TEMPLATES[f.template];
