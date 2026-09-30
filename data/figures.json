@@ -209,5 +209,39 @@
       "曾被用來支持「LMHR 沒關係」的 2025 年 KETO-CTA 研究,**已於 2026 年撤稿**"
     ],
     "sources": "資料來源:2026 ACC/AHA 血脂異常處理指引(4.2.4.3 節、表 15);Joo M, Nutr Rev 2023;Ference BA, Eur Heart J 2017;Bergström G, Circulation 2021;Kronenberg F, Eur Heart J 2022;Norwitz 2022、Lechner 2026 病例;JACC Adv 2026 撤稿聲明。本圖為衛教整理,不構成個別建議。"
+  },
+  {
+    "name": "birds-nest-5-facts",
+    "template": "checklist",
+    "title": "燕窩到底補什麼?5 個研究心得",
+    "subtitle": "皮膚有初步研究,疾病防治還沒被證實",
+    "items": [
+      {
+        "head": "人體試驗很少",
+        "text": "口服燕窩的人體隨機試驗只有少數幾篇,主要看皮膚和血液代謝物,約三個月。"
+      },
+      {
+        "head": "護心、降血壓、降血糖:證據不足",
+        "text": "目前沒有足夠的已發表人體證據;多數說法來自動物和細胞實驗。"
+      },
+      {
+        "head": "「有變化」不等於「有好處」",
+        "text": "2026 新研究:血液代謝物有變化,與安慰劑的差異到第 12 週減弱;是否改善健康還不清楚。"
+      },
+      {
+        "head": "可能引起嚴重過敏",
+        "text": "曾是新加坡華人兒童因食物引起嚴重過敏而住院的最常見原因;吃過沒事也可能發生。",
+        "note": "曾過敏者別再吃;別靠「試一點點」判斷安全"
+      },
+      {
+        "head": "紅色不代表更營養",
+        "text": "「血燕」的紅來自環境中含氮物質引起的化學變化,不是血;選購時留意來源與品質。"
+      }
+    ],
+    "callout": [
+      "同樣的預算,買**蔬果、堅果、豆類、魚**,護心證據強多了",
+      "有慢性病的人:燕窩**不能取代藥物**"
+    ],
+    "sources": "資料來源:Zhou S, Food Res Int 2026;Kim HM, Front Pharmacol 2022;Yu S, Food Sci Hum Wellness 2025;Zhang W, J Funct Foods 2026;Rusanuar ND, Int J Mol Sci 2025;Goh DL, J Pediatr 2000;But PP, J Ethnopharmacol 2013。本圖為衛教整理,不針對任何品牌,不構成個別建議。"
   }
 ]
