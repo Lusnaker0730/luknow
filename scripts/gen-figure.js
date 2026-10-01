@@ -68,7 +68,7 @@ font-size:25px;line-height:1.5}
 <div class="tagline">CARDIOLOGY · 心臟內科</div>
 <h1>${esc(f.title)}</h1>
 ${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
-<div class="list">${items}</div>
+${f.compact ? '<style>.list{gap:9px!important;margin-top:16px!important}.item{padding:12px 24px!important}.note{margin-top:5px!important}</style>' : ''}<div class="list">${items}</div>
 ${f.callout ? `<div class="callout">${f.callout.map(esc).join('<br>').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</div>` : ''}
 <div class="foot">
   <div class="src">${esc(f.sources)}</div>
