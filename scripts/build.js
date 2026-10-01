@@ -103,6 +103,7 @@ const TOPNAV = [
   ['news.html', '醫療新知'],
   ['health.html', '衛教'],
   ['quizzes.html', '測驗'],
+  ['videos.html', '短影音'],
   ['clinic.html', '門診時刻表'],
   ['risk.html', '風險計算'],
   ['about.html', '醫師介紹'],
@@ -164,6 +165,13 @@ function loadFeatured() {
   return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 }
 
+// 衛教短影音 — data/videos.json(新的放最前面);影片檔與封面在 video/<slug>.mp4 / .jpg
+function loadVideos() {
+  const dataPath = path.join(ROOT, 'data', 'videos.json');
+  if (!fs.existsSync(dataPath)) return [];
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+}
+
 // 首頁「最新更新文章」——手動指定一篇（可為衛教頁或文章，跨來源）；
 // 讀不到 data/latest.json 時 fallback 回 articles.json 第一篇。
 function loadLatest() {
@@ -211,6 +219,7 @@ function shellFooter(prefix) {
 <a href="${prefix}meetings.html">會議重點</a>
 <a href="${prefix}news.html">醫療新知</a>
 <a href="${prefix}featured.html">每周精選閱讀</a>
+<a href="${prefix}videos.html">衛教短影音</a>
 <a href="${prefix}clinic.html">門診時刻表</a>
 <a href="${prefix}risk.html">風險計算器</a>
 <a href="${prefix}about.html">醫師介紹</a>
@@ -707,6 +716,86 @@ ${shellFooter('')}
 }
 
 // ---------------------------------------------------------------------------
+// 衛教短影音專區 — videos.html(網站直接播放 + 臉書/Threads/完整衛教連結)
+// ---------------------------------------------------------------------------
+function renderVideosPage(videos) {
+  const cards = videos.map(v => `<article class="video-card" id="${escAttr(v.slug)}">
+<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="540" height="960">
+<source src="video/${escAttr(v.slug)}.mp4" type="video/mp4">
+</video>
+<div class="video-body">
+<h2 class="video-title">${escHtml(v.title)}</h2>
+<div class="video-meta"><span>${escHtml(v.date || '')}</span>${v.duration ? `<span>${escHtml(v.duration)}</span>` : ''}</div>
+<p class="video-desc">${escHtml(v.desc || '')}</p>
+<div class="video-links">
+${v.article ? `<a class="vl-article" href="${escAttr(v.article)}">${escHtml(v.articleLabel || '完整衛教')} →</a>` : ''}
+${v.fb ? `<a class="vl-fb" href="${escAttr(v.fb)}" target="_blank" rel="noopener">臉書</a>` : ''}
+${v.threads ? `<a class="vl-threads" href="${escAttr(v.threads)}" target="_blank" rel="noopener">Threads</a>` : ''}
+</div>
+</div>
+</article>`).join('\n');
+
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: '衛教短影音', url: BASE_URL + '/videos.html', inLanguage: 'zh-TW',
+    description: '呂侑穎醫師的心臟衛教短影音,一分半鐘看懂一個重點。',
+    hasPart: videos.map(v => ({
+      '@type': 'VideoObject', name: v.title, description: v.desc,
+      thumbnailUrl: `${BASE_URL}/video/${v.slug}.jpg`, contentUrl: `${BASE_URL}/video/${v.slug}.mp4`,
+      uploadDate: v.date,
+    })),
+  };
+
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衛教短影音 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<meta name="description" content="呂侑穎醫師的心臟衛教短影音:一分半鐘看懂脂蛋白(a)、心臟病發作警訊等重點,網站直接播放,也可到臉書、Threads 觀看分享。">
+<meta name="keywords" content="衛教影片,短影音,心臟病,脂蛋白(a),心臟病發作,呂侑穎">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${BASE_URL}/videos.html">
+<meta property="og:title" content="衛教短影音 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:description" content="一分半鐘看懂一個心臟衛教重點。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${BASE_URL}/videos.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${OG_IMAGE}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader('videos.html', '')}
+
+<div class="hero">
+<h1>衛教短影音</h1>
+<p>一分半鐘看懂一個心臟衛教重點。可以直接在這裡播放,也歡迎到臉書、Threads 按讚分享。</p>
+</div>
+<div class="article-count">${videos.length} 支影片</div>
+
+<div class="video-grid">
+${cards}
+</div>
+
+${shellFooter('')}
+
+</body>
+</html>
+`;
+}
+
+// ---------------------------------------------------------------------------
 // all clinical notes listing — posts.html
 // ---------------------------------------------------------------------------
 function renderNotesPage(articles) {
@@ -1117,6 +1206,12 @@ function renderSitemap(articles, featured, quizzes) {
     <priority>0.9</priority>
   </url>`);
   urls.push(`  <url>
+    <loc>${BASE_URL}/videos.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+  urls.push(`  <url>
     <loc>${BASE_URL}/clinic.html</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>monthly</changefreq>
@@ -1448,6 +1543,12 @@ function main() {
     fs.mkdirSync(path.join(ROOT, 'featured'), { recursive: true });
     for (const f of featured) write(`featured/${f.slug}.html`, renderFeaturedPost(f));
     console.log(`  generated featured.html + ${featured.length} featured/`);
+  }
+
+  const videos = loadVideos();
+  if (videos.length) {
+    write('videos.html', renderVideosPage(videos));
+    console.log(`  wrote videos.html (${videos.length} 支短影音)`);
   }
 
   if (quizzes.length) {
