@@ -788,7 +788,7 @@ ${shellHeader('videos.html', '')}
 
 <div class="hero">
 <h1>衛教短影音</h1>
-<p>一分半鐘看懂一個心臟衛教重點。可以直接在這裡播放,也歡迎到臉書、Threads 按讚分享。</p>
+<p>一分半鐘看懂一個心臟衛教重點。可以直接在這裡播放,也歡迎到 YouTube、臉書、Threads 訂閱分享。</p>
 </div>
 <div class="article-count">${videos.length} 支影片</div>
 
