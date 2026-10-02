@@ -719,8 +719,9 @@ ${shellFooter('')}
 // 衛教短影音專區 — videos.html(網站直接播放 + 臉書/Threads/完整衛教連結)
 // ---------------------------------------------------------------------------
 function renderVideosPage(videos) {
-  const cards = videos.map(v => `<article class="video-card" id="${escAttr(v.slug)}">
-<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="540" height="960">
+  // 橫式長片(landscape)用寬卡片,佔兩欄
+  const cards = videos.map(v => `<article class="video-card${v.landscape ? ' wide' : ''}" id="${escAttr(v.slug)}">
+<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}">
 <source src="video/${escAttr(v.slug)}.mp4" type="video/mp4">
 </video>
 <div class="video-body">
