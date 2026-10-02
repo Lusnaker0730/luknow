@@ -720,10 +720,15 @@ ${shellFooter('')}
 // ---------------------------------------------------------------------------
 function renderVideosPage(videos) {
   // 橫式長片(landscape)用寬卡片,佔兩欄
-  const cards = videos.map(v => `<article class="video-card${v.landscape ? ' wide' : ''}" id="${escAttr(v.slug)}">
-<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}">
+  // 長片(寬卡片)排最前面,避免夾在直式卡片中間留下空格
+  const ordered = [...videos.filter(v => v.landscape), ...videos.filter(v => !v.landscape)];
+  const cards = ordered.map(v => `<article class="video-card${v.landscape ? ' wide' : ''}" id="${escAttr(v.slug)}">
+${v.youtube
+  // YouTube:先只放封面,點了才載入播放器(不拖慢網頁)
+  ? `<button class="yt-lite" data-yt="${escAttr(v.youtube)}" aria-label="播放影片:${escAttr(v.title)}"><img src="video/${escAttr(v.slug)}.jpg" alt="" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}" loading="lazy"><span class="yt-play"></span></button>`
+  : `<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}">
 <source src="video/${escAttr(v.slug)}.mp4" type="video/mp4">
-</video>
+</video>`}
 <div class="video-body">
 <h2 class="video-title">${escHtml(v.title)}</h2>
 <div class="video-meta"><span>${escHtml(v.date || '')}</span>${v.duration ? `<span>${escHtml(v.duration)}</span>` : ''}</div>
@@ -732,6 +737,7 @@ function renderVideosPage(videos) {
 ${v.article ? `<a class="vl-article" href="${escAttr(v.article)}">${escHtml(v.articleLabel || '完整衛教')} →</a>` : ''}
 ${v.fb ? `<a class="vl-fb" href="${escAttr(v.fb)}" target="_blank" rel="noopener">臉書</a>` : ''}
 ${v.threads ? `<a class="vl-threads" href="${escAttr(v.threads)}" target="_blank" rel="noopener">Threads</a>` : ''}
+${v.youtube ? `<a class="vl-yt" href="https://www.youtube.com/watch?v=${escAttr(v.youtube)}" target="_blank" rel="noopener">YouTube</a>` : ''}
 </div>
 </div>
 </article>`).join('\n');
@@ -742,7 +748,8 @@ ${v.threads ? `<a class="vl-threads" href="${escAttr(v.threads)}" target="_blank
     description: '呂侑穎醫師的心臟衛教短影音,一分半鐘看懂一個重點。',
     hasPart: videos.map(v => ({
       '@type': 'VideoObject', name: v.title, description: v.desc,
-      thumbnailUrl: `${BASE_URL}/video/${v.slug}.jpg`, contentUrl: `${BASE_URL}/video/${v.slug}.mp4`,
+      thumbnailUrl: `${BASE_URL}/video/${v.slug}.jpg`,
+      ...(v.youtube ? { embedUrl: `https://www.youtube.com/embed/${v.youtube}` } : { contentUrl: `${BASE_URL}/video/${v.slug}.mp4` }),
       uploadDate: v.date,
     })),
   };
@@ -790,6 +797,15 @@ ${cards}
 </div>
 
 ${shellFooter('')}
+<script>
+document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
+  const f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+  f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  f.allowFullscreen = true; f.title = b.getAttribute('aria-label');
+  b.replaceWith(f);
+}));
+</script>
 
 </body>
 </html>
