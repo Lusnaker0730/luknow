@@ -433,3 +433,24 @@ section.band{position:relative;z-index:2;padding:30px 0}
 @media(max-width:899px){.video-card.wide .yt-lite{width:100%}}
 .video-links a.vl-yt:hover{border-color:#e00;color:#e00}
 @media(min-width:900px){.video-card.wide iframe{width:66%}}
+/* 主題專區(hubs.json)*/
+.hub-toc{max-width:var(--maxw);margin:18px auto 0;padding:0 28px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;position:relative;z-index:2}
+.hub-toc a{font-size:.9rem;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2)}
+.hub-toc a:hover{border-color:var(--teal);color:var(--teal)}
+.hub-sec{max-width:var(--maxw);margin:0 auto;padding:40px 28px 0;position:relative;z-index:2;scroll-margin-top:80px}
+.hub-sec-head{display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:14px}
+.hub-num{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--accent);line-height:1}
+.hub-sec-head h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin:0 0 4px}
+.hub-sec-head p{color:var(--ink-2);font-size:.95rem;margin:0}
+.hub-sec .hub-cards{padding:20px 0 8px}
+.hub-sec .hub-videos{padding:20px 0 8px;grid-template-columns:repeat(auto-fill,minmax(260px,320px))}
+.hub-banner-wrap{max-width:var(--readw);margin:28px auto 8px;padding:0 20px;position:relative;z-index:2}
+.cards + .hub-banner-wrap,.hub-banner-wrap{max-width:var(--maxw)}
+.hub-banner{display:grid;grid-template-columns:1fr auto;grid-template-areas:"k go" "t go" "x go";gap:2px 16px;align-items:center;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#0f7a82,#14323a);color:#fff;box-shadow:var(--shadow);text-decoration:none}
+.hub-banner .hb-kicker{grid-area:k;font-size:.78rem;letter-spacing:.08em;opacity:.8}
+.hub-banner .hb-title{grid-area:t;font-family:var(--serif);font-size:1.35rem;font-weight:600}
+.hub-banner .hb-text{grid-area:x;font-size:.9rem;opacity:.9}
+.hub-banner .hb-go{grid-area:go;font-weight:700;white-space:nowrap;background:#fff;color:#0f7a82;padding:9px 16px;border-radius:999px;font-size:.9rem}
+.hub-banner:hover .hb-go{background:#ffe9a8}
+@media(max-width:560px){.hub-banner{grid-template-columns:1fr;grid-template-areas:"k" "t" "x" "go"}.hub-banner .hb-go{justify-self:start;margin-top:10px}}
+.hub-cards .card-subtitle{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
