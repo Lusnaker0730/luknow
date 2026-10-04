@@ -172,6 +172,18 @@ function loadVideos() {
   return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 }
 
+// 主題專區(例如瘦瘦針專區)— data/hubs.json → <slug>.html;收錄的文章/衛教頁會自動加上「收錄於專區」連結
+function loadHubs() {
+  const dataPath = path.join(ROOT, 'data', 'hubs.json');
+  if (!fs.existsSync(dataPath)) return [];
+  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+}
+let HUBS = [];
+const hubsFor = ref => HUBS.filter(h => h.sections.some(sec => (sec.items || []).some(it => it.post === ref || it.page === ref)));
+function hubBanner(h, prefix) {
+  return `<a class="hub-banner" href="${prefix}${h.slug}.html"><span class="hb-kicker">收錄於專區</span><span class="hb-title">${escHtml(h.title)}</span><span class="hb-text">${escHtml(h.bannerText || '')}</span><span class="hb-go">前往專區 &rarr;</span></a>`;
+}
+
 // 首頁「最新更新文章」——手動指定一篇（可為衛教頁或文章，跨來源）；
 // 讀不到 data/latest.json 時 fallback 回 articles.json 第一篇。
 function loadLatest() {
@@ -228,6 +240,7 @@ function shellFooter(prefix) {
 <div class="col">
 <h5>衛教</h5>
 <a href="${prefix}health.html">衛教專區</a>
+<a href="${prefix}glp1.html">瘦瘦針專區</a>
 <a href="${prefix}htn.html">高血壓</a>
 <a href="${prefix}chol.html">膽固醇</a>
 <a href="${prefix}le8.html">保健八要素</a>
@@ -537,6 +550,7 @@ ${metaHtml}
 <div class="content-card">
 ${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}${(a.figures || []).map(f => `<figure class="article-figure"><a href="../img/fig/${escAttr(f.name)}.png" target="_blank" rel="noopener"><img src="../img/fig/${escAttr(f.name)}.png" alt="${escAttr(f.alt)}" width="1080" height="1350" loading="lazy"></a>${f.caption ? `<figcaption>${escHtml(f.caption)}</figcaption>` : ''}</figure>\n`).join('')}<div class="article-body">${autoLink(escHtml(a.body))}</div>
 </div>
+${hubsFor(a.slug).map(h => `<div class="hub-banner-wrap">${hubBanner(h, '../')}</div>`).join('\n')}
 </div>
 
 ${shellFooter('../')}
@@ -718,29 +732,42 @@ ${shellFooter('')}
 // ---------------------------------------------------------------------------
 // 衛教短影音專區 — videos.html(網站直接播放 + 臉書/Threads/完整衛教連結)
 // ---------------------------------------------------------------------------
-function renderVideosPage(videos) {
-  // 橫式長片(landscape)用寬卡片,佔兩欄
-  // 長片(寬卡片)排最前面,避免夾在直式卡片中間留下空格
-  const ordered = [...videos.filter(v => v.landscape), ...videos.filter(v => !v.landscape)];
-  const cards = ordered.map(v => `<article class="video-card${v.landscape ? ' wide' : ''}" id="${escAttr(v.slug)}">
+function videoCard(v, prefix) {
+  return `<article class="video-card${v.landscape ? ' wide' : ''}" id="${escAttr(v.slug)}">
 ${v.youtube
   // YouTube:先只放封面,點了才載入播放器(不拖慢網頁)
-  ? `<button class="yt-lite" data-yt="${escAttr(v.youtube)}" aria-label="播放影片:${escAttr(v.title)}"><img src="video/${escAttr(v.slug)}.jpg" alt="" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}" loading="lazy"><span class="yt-play"></span></button>`
-  : `<video controls playsinline preload="none" poster="video/${escAttr(v.slug)}.jpg" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}">
-<source src="video/${escAttr(v.slug)}.mp4" type="video/mp4">
+  ? `<button class="yt-lite" data-yt="${escAttr(v.youtube)}" aria-label="播放影片:${escAttr(v.title)}"><img src="${prefix}video/${escAttr(v.slug)}.jpg" alt="" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}" loading="lazy"><span class="yt-play"></span></button>`
+  : `<video controls playsinline preload="none" poster="${prefix}video/${escAttr(v.slug)}.jpg" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}">
+<source src="${prefix}video/${escAttr(v.slug)}.mp4" type="video/mp4">
 </video>`}
 <div class="video-body">
 <h2 class="video-title">${escHtml(v.title)}</h2>
 <div class="video-meta"><span>${escHtml(v.date || '')}</span>${v.duration ? `<span>${escHtml(v.duration)}</span>` : ''}</div>
 <p class="video-desc">${escHtml(v.desc || '')}</p>
 <div class="video-links">
-${v.article ? `<a class="vl-article" href="${escAttr(v.article)}">${escHtml(v.articleLabel || '完整衛教')} →</a>` : ''}
+${v.article ? `<a class="vl-article" href="${prefix}${escAttr(v.article)}">${escHtml(v.articleLabel || '完整衛教')} →</a>` : ''}
 ${v.fb ? `<a class="vl-fb" href="${escAttr(v.fb)}" target="_blank" rel="noopener">臉書</a>` : ''}
 ${v.threads ? `<a class="vl-threads" href="${escAttr(v.threads)}" target="_blank" rel="noopener">Threads</a>` : ''}
 ${v.youtube ? `<a class="vl-yt" href="https://www.youtube.com/watch?v=${escAttr(v.youtube)}" target="_blank" rel="noopener">YouTube</a>` : ''}
 </div>
 </div>
-</article>`).join('\n');
+</article>`;
+}
+const YT_LITE_JS = `<script>
+document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
+  const f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+  f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  f.allowFullscreen = true; f.title = b.getAttribute('aria-label');
+  b.replaceWith(f);
+}));
+</script>`;
+
+function renderVideosPage(videos) {
+  // 橫式長片(landscape)用寬卡片,佔兩欄
+  // 長片(寬卡片)排最前面,避免夾在直式卡片中間留下空格
+  const ordered = [...videos.filter(v => v.landscape), ...videos.filter(v => !v.landscape)];
+  const cards = ordered.map(v => videoCard(v, '')).join('\n');
 
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'CollectionPage',
@@ -797,19 +824,129 @@ ${cards}
 </div>
 
 ${shellFooter('')}
-<script>
-document.querySelectorAll('.yt-lite').forEach(b => b.addEventListener('click', () => {
-  const f = document.createElement('iframe');
-  f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
-  f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
-  f.allowFullscreen = true; f.title = b.getAttribute('aria-label');
-  b.replaceWith(f);
-}));
-</script>
+${YT_LITE_JS}
 
 </body>
 </html>
 `;
+}
+
+// ---------------------------------------------------------------------------
+// 主題專區 — data/hubs.json → <slug>.html(分段整理衛教頁、文章、短影音)
+// ---------------------------------------------------------------------------
+function hubItem(it, articles) {
+  if (it.post) {
+    const a = articles.find(x => x.slug === it.post);
+    if (!a) throw new Error(`hub: article not found: ${it.post}`);
+    return { href: `posts/${a.slug}.html`, tagCls: a.tagCls, tag: a.tagLabel, title: it.title || a.title, desc: it.desc || a.subtitle };
+  }
+  if (!fs.existsSync(path.join(ROOT, it.page))) throw new Error(`hub: page not found: ${it.page}`);
+  return { href: it.page, tagCls: 'prevent', tag: '衛教', title: it.title, desc: it.desc };
+}
+function renderHubPage(h, articles, videos) {
+  const url = `${BASE_URL}/${h.slug}.html`;
+  const ogImg = fs.existsSync(path.join(ROOT, 'img', 'og', `${h.slug}.png`)) ? `${BASE_URL}/img/og/${h.slug}.png` : OG_IMAGE;
+  const parts = [];
+  const sections = h.sections.map((sec, i) => {
+    let inner;
+    if (sec.videos) {
+      const vs = sec.videos.map(sl => videos.find(v => v.slug === sl)).filter(Boolean);
+      inner = `<div class="video-grid hub-videos">\n${vs.map(v => videoCard(v, '')).join('\n')}\n</div>`;
+      vs.forEach(v => parts.push({ '@type': 'VideoObject', name: v.title, description: v.desc, thumbnailUrl: `${BASE_URL}/video/${v.slug}.jpg`, uploadDate: v.date, ...(v.youtube ? { embedUrl: `https://www.youtube.com/embed/${v.youtube}` } : {}) }));
+    } else {
+      const items = sec.items.map(it => hubItem(it, articles));
+      items.forEach(x => parts.push({ '@type': 'WebPage', name: x.title, url: `${BASE_URL}/${x.href}` }));
+      inner = `<div class="cards hub-cards">\n${items.map(x => `<a class="card" href="${escAttr(x.href)}">
+<div class="card-header">
+<span class="card-tag ${x.tagCls}">${escHtml(x.tag)}</span>
+<div class="card-title">${escHtml(x.title)}</div>
+<div class="card-subtitle">${escHtml(x.desc || '')}</div>
+</div>
+<div class="card-footer"><span class="read-btn">閱讀全文 &rarr;</span></div>
+</a>`).join('\n')}\n</div>`;
+    }
+    return `<section class="hub-sec" id="sec-${i + 1}">
+<div class="hub-sec-head"><span class="hub-num">${String(i + 1).padStart(2, '0')}</span><div><h2>${escHtml(sec.title)}</h2>${sec.desc ? `<p>${escHtml(sec.desc)}</p>` : ''}</div></div>
+${inner}
+</section>`;
+  });
+  const toc = h.sections.map((sec, i) => `<a href="#sec-${i + 1}">${escHtml(sec.title)}</a>`).join('\n');
+  const jsonld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h.title, url, inLanguage: 'zh-TW', description: h.lead, hasPart: parts };
+  const title = `${h.title} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記`;
+  return `<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escHtml(title)}</title>
+<meta name="description" content="${escAttr(h.lead)}">
+<meta name="keywords" content="${escAttr(h.keywords || '')}">
+<meta name="author" content="呂侑穎醫師">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${url}">
+<meta property="og:title" content="${escAttr(title)}">
+<meta property="og:description" content="${escAttr(h.lead)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="台安醫院心臟內科。呂侑穎醫師。臨床筆記">
+<meta property="og:image" content="${ogImg}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${ogImg}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+${JSON.stringify(jsonld)}
+</script>
+${headLinks('')}
+</head>
+<body>
+
+${shellHeader('health.html', '')}
+
+<div class="hero">
+<h1>${escHtml(h.title)}</h1>
+<p>${escHtml(h.lead)}</p>
+</div>
+<nav class="hub-toc" aria-label="專區目錄">
+${toc}
+</nav>
+
+${sections.join('\n\n')}
+
+${shareBar(url)}
+
+${shellFooter('')}
+${YT_LITE_JS}
+
+</body>
+</html>
+`;
+}
+// 收錄於專區的靜態衛教頁、衛教專區首頁:插入專區連結(以註解標記,每次 build 重新產生)
+function placeHubLinks() {
+  const mark = (slug) => [`<!--hub:${slug}-->`, `<!--/hub:${slug}-->`];
+  let n = 0;
+  for (const h of HUBS) {
+    const [a, b] = mark(h.slug);
+    const pages = new Set();
+    h.sections.forEach(sec => (sec.items || []).forEach(it => it.page && pages.add(it.page)));
+    pages.add('health.html');
+    for (const f of pages) {
+      let html = read(f);
+      const before = html;
+      html = html.replace(new RegExp(`\\s*${a}[\\s\\S]*?${b}\\s*`), '\n\n');
+      const block = `${a}\n<div class="hub-banner-wrap">${hubBanner(h, '')}</div>\n${b}`;
+      if (f === 'health.html') html = html.replace('<div class="cat-filter"', `${block}\n\n<div class="cat-filter"`);
+      else {
+        const anchor = html.includes('<div class="share-bar">') ? '<div class="share-bar">' : '<footer>';
+        html = html.replace(anchor, `${block}\n\n${anchor}`);
+      }
+      if (html !== before) { write(f, html); n++; }
+    }
+  }
+  console.log(`  placeHubLinks: ${n} page(s)`);
 }
 
 // ---------------------------------------------------------------------------
@@ -1228,6 +1365,12 @@ function renderSitemap(articles, featured, quizzes) {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
+  for (const h of HUBS) urls.push(`  <url>
+    <loc>${BASE_URL}/${h.slug}.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`);
   urls.push(`  <url>
     <loc>${BASE_URL}/clinic.html</loc>
     <lastmod>${TODAY}</lastmod>
@@ -1490,6 +1633,7 @@ function buildSearchIndex(articles, quizzes) {
   [['health.html', '衛教專區'], ['about.html', '醫師介紹'], ['clinic.html', '門診時刻表'], ['risk.html', '風險計算'], ['featured.html', '精選閱讀']].forEach(([f, c]) => grab(f, f, c));
   for (const a of articles) grab(`posts/${a.slug}.html`, `posts/${a.slug}.html`, a.tagLabel || '文章');
   for (const q of quizzes) grab(`quiz-${q.slug}.html`, `quiz-${q.slug}.html`, '測驗');
+  for (const h of HUBS) grab(`${h.slug}.html`, `${h.slug}.html`, '主題專區');
   write('search-index.json', JSON.stringify(items));
   console.log(`  search-index.json: ${items.length} entries`);
 }
@@ -1538,6 +1682,7 @@ function main() {
   const featured = loadFeatured();
   const quizzes = loadQuizzes();
   const latest = loadLatest();
+  HUBS = loadHubs();
   console.log(`  ${featured.length} featured reads loaded`);
   const latestTitles = Array.isArray(latest) ? latest.map(x => x.title) : (latest ? [latest.title] : []);
   console.log(`  latest update: ${latestTitles.length ? latestTitles.join(' / ') : '(fallback to newest articles)'}`);
@@ -1568,6 +1713,11 @@ function main() {
     console.log(`  wrote videos.html (${videos.length} 支短影音)`);
   }
 
+  for (const h of HUBS) {
+    write(`${h.slug}.html`, renderHubPage(h, articles, videos));
+    console.log(`  wrote ${h.slug}.html (${h.title})`);
+  }
+
   if (quizzes.length) {
     for (const q of quizzes) write(`quiz-${q.slug}.html`, renderQuizPage(q));
     write('quizzes.html', renderQuizzesIndex(quizzes));
@@ -1590,6 +1740,7 @@ function main() {
   placeIllos();
   placeHubIllos();
   placeShare();
+  placeHubLinks();
   placeComments();
   placeAnalytics();
   placeUpdatedDate();
