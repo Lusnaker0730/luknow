@@ -536,5 +536,39 @@
       "類黃酮食物**不能取代**血壓、膽固醇、血糖控制"
     ],
     "sources": "資料來源:Prakasa AE, et al. Food Funct 2026;Crowe-White KM, et al. Adv Nutr 2022;Sesso HD, et al. Am J Clin Nutr 2022(COSMOS);Bondonno NP, et al. Nat Commun 2019;Parmenter BH, et al. Nat Food 2025。本圖為衛教整理,不構成個別建議。"
+  },
+  {
+    "name": "testosterone-heart-5",
+    "template": "checklist",
+    "title": "補睪固酮,心臟安全嗎?",
+    "subtitle": "大型試驗與用藥追蹤重點",
+    "items": [
+      {
+        "head": "先確定「真的缺」",
+        "text": "有相關症狀,且不同日期兩次早上空腹抽血都偏低,再由醫師判斷。"
+      },
+      {
+        "head": "主要心血管結果相近",
+        "text": "TRAVERSE 平均追蹤約 33 個月:心血管死亡、非致命心肌梗塞或中風的合併發生率 7.0% 對 7.3%。",
+        "note": "高風險且睪固酮偏低的男性,使用凝膠"
+      },
+      {
+        "head": "但有其他風險",
+        "text": "心房顫動、肺栓塞、急性腎損傷較多;血壓與血比容也可能上升。"
+      },
+      {
+        "head": "不能當護心或抗老藥",
+        "text": "血脂小幅下降不代表能預防心臟病;睪固酮正常的人不要自行補充。"
+      },
+      {
+        "head": "治療期間要追蹤",
+        "text": "症狀、睪固酮、血比容、血壓,並依年齡與風險安排攝護腺評估。"
+      }
+    ],
+    "callout": [
+      "長期濫用**高劑量合成類固醇**:與心臟功能較差、斑塊較多有關",
+      "**不要自行購買**來源不明的荷爾蒙"
+    ],
+    "sources": "資料來源:Qin H, et al. Endocrine 2026;Lincoff AM, et al. N Engl J Med 2023(TRAVERSE);Snyder PJ, et al. N Engl J Med 2024;Budoff MJ, et al. JAMA 2017;Bhasin S, et al. J Clin Endocrinol Metab 2018;美國食品藥物管理局 2025;台灣食藥署 2016;Baggish AL, et al. Circulation 2017。本圖為衛教整理,不構成個別建議。"
   }
 ]
