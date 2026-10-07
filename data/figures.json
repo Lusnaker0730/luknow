@@ -573,5 +573,41 @@
       "**不要自行購買**來源不明的荷爾蒙"
     ],
     "sources": "資料來源:Qin H, et al. Endocrine 2026;Lincoff AM, et al. N Engl J Med 2023(TRAVERSE);Snyder PJ, et al. N Engl J Med 2024;Budoff MJ, et al. JAMA 2017;Bhasin S, et al. J Clin Endocrinol Metab 2018;美國食品藥物管理局 2025;台灣食藥署 2016;Baggish AL, et al. Circulation 2017。本圖為衛教整理,不構成個別建議。"
+  },
+  {
+    "name": "statin-side-effects-6",
+    "template": "checklist",
+    "title": "吃史他汀,副作用哪些是真的?",
+    "subtitle": "大型雙盲試驗的答案",
+    "items": [
+      {
+        "head": "66 類只有 4 類較多",
+        "text": "肝功能檢查異常、尿液檢查變化、水腫比安慰劑多,而且幅度很小。"
+      },
+      {
+        "head": "肝功能異常只多一點",
+        "text": "每年約多 0.13 個百分點(每 770 人多 1 人),仍需醫師評估。"
+      },
+      {
+        "head": "肌肉痠痛多數不是藥害",
+        "text": "九成以上的肌肉症狀和藥物無關;藥物造成的主要在第一年。"
+      },
+      {
+        "head": "血糖會小幅上升",
+        "text": "多出來的糖尿病多是原本血糖就接近門檻的人;血糖仍要追蹤。"
+      },
+      {
+        "head": "記憶、情緒、睡眠",
+        "text": "失智、憂鬱、睡不好、周邊神經病變,雙盲試驗都不支持是藥物造成。"
+      },
+      {
+        "head": "輕微不適,別自己停藥",
+        "text": "儘早和醫師討論,可換藥、減量或調整吃法,多數人仍能繼續治療。"
+      }
+    ],
+    "callout": [
+      "嚴重肌肉痛、**明顯無力合併尿液變深色**,或**皮膚眼白變黃**:先停藥、立即就醫"
+    ],
+    "sources": "資料來源:CTT Collaboration. Lancet 2026;Lancet 2022;Lancet Diabetes Endocrinol 2024;Lancet 2010;Herrett E, et al. BMJ 2021(StatinWISE);Howard JP, et al. J Am Coll Cardiol 2021(SAMSON)。本圖為衛教整理,不構成個別建議。"
   }
 ]
