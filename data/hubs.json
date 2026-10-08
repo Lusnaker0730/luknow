@@ -1,78 +1,46 @@
 [
- {
-  "slug": "glp1",
-  "title": "瘦瘦針專區",
-  "lead": "週纖達、猛健樂、善纖達這類減重針,從認識藥物、開始打針、副作用、飲食,到換藥和最新研究,依照使用的順序整理在這裡。",
-  "bannerText": "認識藥物、副作用、飲食、換藥、最新研究,一次看",
-  "keywords": "瘦瘦針,減重針,猛健樂,週纖達,善纖達,GLP-1,副作用,飲食,換藥",
-  "sections": [
-   {
-    "title": "先認識瘦瘦針",
-    "desc": "有哪些藥、怎麼作用、誰適合用、效果和心血管好處。",
-    "items": [
-     {
-      "page": "weight-loss-injection.html",
-      "title": "減重針(瘦瘦針)完整介紹",
-      "desc": "GLP-1 與猛健樂怎麼分類、差在哪裡、減重效果、心血管好處與注意事項。"
-     },
-     {
-      "page": "weight-loss-medications.html",
-      "title": "減肥藥物總覽",
-      "desc": "誰適合用減重藥物、口服與針劑有哪些、能減多少、常見副作用。"
-     }
+  {
+    "slug": "glp1",
+    "title": "瘦瘦針專區",
+    "lead": "週纖達、猛健樂、善纖達這類減重針,從認識藥物、開始打針、副作用、飲食,到換藥和最新研究,依照使用的順序整理在這裡。",
+    "bannerText": "認識藥物、副作用、飲食、換藥、最新研究,一次看",
+    "keywords": "瘦瘦針,減重針,猛健樂,週纖達,善纖達,GLP-1,副作用,飲食,換藥",
+    "sections": [
+      {
+        "title": "先認識瘦瘦針",
+        "desc": "有哪些藥、怎麼作用、誰適合用、效果和心血管好處。",
+        "items": [
+          { "page": "weight-loss-injection.html", "title": "減重針(瘦瘦針)完整介紹", "desc": "GLP-1 與猛健樂怎麼分類、差在哪裡、減重效果、心血管好處與注意事項。" },
+          { "page": "weight-loss-medications.html", "title": "減肥藥物總覽", "desc": "誰適合用減重藥物、口服與針劑有哪些、能減多少、常見副作用。" }
+        ]
+      },
+      {
+        "title": "開始打針之後",
+        "desc": "加量、腸胃不適、吃什麼、掉頭髮、換藥,打針期間最常遇到的問題。",
+        "items": [
+          { "post": "glp1-dose-titration" },
+          { "post": "glp1-gi-side-effects" },
+          { "post": "glp1-diet" },
+          { "page": "glp1-hair-loss.html", "title": "瘦瘦針會讓人掉頭髮嗎?", "desc": "研究怎麼說、為什麼會掉、多久會長回來,以及怎麼預防。" },
+          { "post": "glp1-switching" }
+        ]
+      },
+      {
+        "title": "衛教短影音",
+        "desc": "兩分鐘看懂重點,可以直接播放。",
+        "videos": ["glp1-diet"]
+      },
+      {
+        "title": "最新研究與專家觀點",
+        "desc": "減重之外,瘦瘦針對心臟、發炎、失智、皮膚的研究進展。",
+        "items": [
+          { "post": "glp1-sleep-apnea" },
+          { "post": "semaglutide-inflammation-select" },
+          { "post": "glp1-dementia" },
+          { "post": "glp1-skin-inflammation" },
+          { "post": "glp1update" }
+        ]
+      }
     ]
-   },
-   {
-    "title": "開始打針之後",
-    "desc": "加量、腸胃不適、吃什麼、掉頭髮、換藥,打針期間最常遇到的問題。",
-    "items": [
-     {
-      "post": "glp1-dose-titration"
-     },
-     {
-      "post": "glp1-gi-side-effects"
-     },
-     {
-      "post": "glp1-diet"
-     },
-     {
-      "page": "glp1-hair-loss.html",
-      "title": "瘦瘦針會讓人掉頭髮嗎?",
-      "desc": "研究怎麼說、為什麼會掉、多久會長回來,以及怎麼預防。"
-     },
-     {
-      "post": "glp1-switching"
-     }
-    ]
-   },
-   {
-    "title": "衛教短影音",
-    "desc": "兩分鐘看懂重點,可以直接播放。",
-    "videos": [
-     "glp1-diet"
-    ]
-   },
-   {
-    "title": "最新研究與專家觀點",
-    "desc": "減重之外,瘦瘦針對心臟、發炎、失智、皮膚的研究進展。",
-    "items": [
-     {
-      "post": "glp1-sleep-apnea"
-     },
-     {
-      "post": "semaglutide-inflammation-select"
-     },
-     {
-      "post": "glp1-dementia"
-     },
-     {
-      "post": "glp1-skin-inflammation"
-     },
-     {
-      "post": "glp1update"
-     }
-    ]
-   }
-  ]
- }
+  }
 ]
