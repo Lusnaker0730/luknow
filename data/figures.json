@@ -647,5 +647,43 @@
       "有適應症不等於有健保給付,**使用前先和醫師確認**"
     ],
     "sources": "資料來源:Malhotra A, et al. N Engl J Med 2024(SURMOUNT-OSA);Sleep Breath 2026 統合分析;Blackman A, et al. Int J Obes 2016;Yeghiazarians Y, et al. Circulation 2021;美國 Zepbound 仿單;台灣食藥署猛健樂仿單。本圖為衛教整理。"
+  },
+  {
+    "name": "mced-blood-cancer-screening-6",
+    "template": "checklist",
+    "tagline": "CANCER SCREENING · 癌症篩檢",
+    "title": "抽一管血篩多種癌症,有用嗎?",
+    "subtitle": "英格蘭約 14 萬人隨機試驗 NHS-Galleri",
+    "items": [
+      {
+        "head": "未證實晚期癌症減少",
+        "text": "每年抽血、共三輪:12 種癌症第三、四期 706 人 對 688 人,差異不顯著。"
+      },
+      {
+        "head": "第四期可能較少,仍待確認",
+        "text": "估計約低 14%,但第三期較多;次要指標,沒有正式檢定。"
+      },
+      {
+        "head": "早期較多、急診發現較少",
+        "text": "事後分析:第一、二期 647 對 559;急診才發現少約 21%,不等於少死亡。"
+      },
+      {
+        "head": "驗出訊號:約一半確診",
+        "text": "1,801 人驗出訊號,937 人(52%)確診;其餘沒確診,但要多做檢查。"
+      },
+      {
+        "head": "陰性不能排除癌症",
+        "text": "檢測組確診的癌症,只有約四分之一是驗血發現,大多靠症狀或原本篩檢。"
+      },
+      {
+        "head": "尚未證實減少死亡",
+        "text": "死亡資料之後才分析;過度診斷還不清楚;研究由檢測公司出資。"
+      }
+    ],
+    "callout": [
+      "**不能取代**國家癌症篩檢:乳癌、子宮頸癌、大腸癌、口腔癌、肺癌",
+      "有警訊症狀,**即使驗血陰性也要就醫**"
+    ],
+    "sources": "資料來源:Sasieni P, et al. N Engl J Med 2026;395:1374-86(NHS-Galleri);國民健康署癌症篩檢。本圖為衛教整理,不構成個別建議。"
   }
 ]

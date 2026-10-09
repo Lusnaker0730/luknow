@@ -65,7 +65,7 @@ font-size:25px;line-height:1.5}
 .brand .n{font-size:24px;font-weight:700}
 .brand .u{font-size:24px;font-weight:700;color:#9c2f28}
 </style></head><body>
-<div class="tagline">CARDIOLOGY · 心臟內科</div>
+<div class="tagline">${esc(f.tagline || 'CARDIOLOGY · 心臟內科')}</div>
 <h1>${esc(f.title)}</h1>
 ${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
 ${f.compact ? '<style>.list{gap:9px!important;margin-top:16px!important}.item{padding:12px 24px!important}.note{margin-top:5px!important}</style>' : ''}<div class="list">${items}</div>
@@ -122,7 +122,7 @@ h1{font-family:'NSerif';font-size:56px;line-height:1.2;font-weight:900;margin-to
 .brand .n{font-size:23px;font-weight:700}
 .brand .u{font-size:23px;font-weight:700;color:#9c2f28}
 </style></head><body>
-<div class="tagline">CARDIOLOGY · 心臟內科</div>
+<div class="tagline">${esc(f.tagline || 'CARDIOLOGY · 心臟內科')}</div>
 <h1>${esc(f.title)}</h1>
 ${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
 <div class="pyr">${tiers}</div>
@@ -185,7 +185,7 @@ h1{font-family:'NSerif';font-size:52px;line-height:1.2;font-weight:900;margin-to
 .brand .n{font-size:22px;font-weight:700}
 .brand .u{font-size:22px;font-weight:700;color:#9c2f28}
 </style></head><body>
-<div class="tagline">CARDIOLOGY · 心臟內科</div>
+<div class="tagline">${esc(f.tagline || 'CARDIOLOGY · 心臟內科')}</div>
 <h1>${esc(f.title)}</h1>
 ${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
 <div class="stats">${stats}</div>
