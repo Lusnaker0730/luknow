@@ -324,7 +324,7 @@
   </url>
   <url>
     <loc>https://drluyy.com/featured.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -336,6 +336,18 @@
   </url>
   <url>
     <loc>https://drluyy.com/glp1.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://drluyy.com/cholesterol.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://drluyy.com/blood-pressure.html</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -712,6 +724,12 @@
   </url>
   <url>
     <loc>https://drluyy.com/posts/maslid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://drluyy.com/featured/mced-blood-cancer-screening.html</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

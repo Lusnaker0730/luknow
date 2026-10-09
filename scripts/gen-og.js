@@ -77,6 +77,8 @@ const OTHER = [
   { name: 'news',       title: '醫療新知',           label: '醫療新知',   tone: 'orange', illo: 'img/illo/_brand.svg' },
   { name: 'health',     title: '心血管衛教專區',      label: '衛教專區',   tone: 'red',    illo: 'img/illo/_brand.svg' },
   { name: 'glp1',       title: '瘦瘦針專區',          label: '主題專區',   tone: 'teal',   illo: 'img/illo/weight.svg' },
+  { name: 'cholesterol', title: '膽固醇專區',        label: '主題專區',   tone: 'teal',   illo: 'img/illo/chol.jpg' },
+  { name: 'blood-pressure', title: '高血壓專區',     label: '主題專區',   tone: 'teal',   illo: 'img/illo/htn.jpg' },
   { name: 'prevention', title: '護心生活型態與預防',    label: '預防保健',   tone: 'teal',   illo: 'img/illo/le8.jpg' },
   { name: 'about',      title: '呂侑穎 醫師',        label: '醫師介紹',   tone: 'ink',    illo: 'img/illo/_brand.svg' },
   { name: 'clinic',     title: '門診時刻表',         label: '門診資訊',   tone: 'gold',   illo: 'img/illo/_brand.svg' },

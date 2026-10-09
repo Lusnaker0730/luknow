@@ -42,5 +42,97 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "cholesterol",
+    "title": "膽固醇專區",
+    "lead": "壞膽固醇、三酸甘油酯、脂蛋白(a)是什麼,史他汀副作用與怎麼吃,飲食和魚油,加上最新研究與指南,依照看懂、治療、生活的順序整理在這裡。",
+    "bannerText": "認識膽固醇、吃藥與副作用、飲食、最新研究,一次看",
+    "keywords": "膽固醇,壞膽固醇,低密度脂蛋白,史他汀,降膽固醇藥,三酸甘油酯,脂蛋白(a),魚油,血脂",
+    "sections": [
+      {
+        "title": "先認識膽固醇",
+        "desc": "壞膽固醇、三酸甘油酯、脂蛋白(a)、apoB 各代表什麼,為什麼要早點控制。",
+        "items": [
+          { "page": "chol.html", "title": "膽固醇完整衛教", "desc": "好膽固醇、壞膽固醇怎麼看,目標要多少,什麼時候需要吃藥。" },
+          { "page": "ldl-cumulative-exposure.html", "title": "膽固醇是「累積」出來的", "desc": "壞膽固醇高多少、高多久,決定心血管風險;越早控制越划算。" },
+          { "page": "tg.html", "title": "高三酸甘油酯血症", "desc": "三酸甘油酯偏高的原因、風險,飲食和藥物怎麼處理。" },
+          { "page": "lipoprotein-a.html", "title": "脂蛋白(a)是什麼?", "desc": "由基因決定的心血管風險因子,誰該驗、驗出來高怎麼辦。" },
+          { "page": "apob.html", "title": "載脂蛋白 B(apoB)", "desc": "比壞膽固醇更準的風險指標,什麼情況下值得多驗一項。" }
+        ]
+      },
+      {
+        "title": "吃藥與治療",
+        "desc": "史他汀副作用、肝功能、長者要不要吃,以及其他降膽固醇方法。",
+        "items": [
+          { "post": "statin-side-effects" },
+          { "page": "liver-statin.html", "title": "肝指數高,還能吃降膽固醇藥嗎?", "desc": "脂肪肝、肝指數偏高時,史他汀怎麼用、要追蹤什麼。" },
+          { "post": "staree-statin-elderly-2026" },
+          { "post": "dyslipidemia-older-adults-2026" },
+          { "post": "cholesterol-dementia" },
+          { "page": "ldl-apheresis.html", "title": "洗血能降膽固醇嗎?", "desc": "脂蛋白分離術適合誰,坊間「洗血保養血管」是真是假。" }
+        ]
+      },
+      {
+        "title": "飲食與生活",
+        "desc": "生酮飲食、魚油、保健品,吃什麼才有證據。",
+        "items": [
+          { "post": "keto-ldl-lmhr" },
+          { "page": "fish-oil.html", "title": "魚油對心臟好不好?", "desc": "魚油的好處、心房顫動風險,以及哪些人適合吃。" },
+          { "post": "fish-oil-evidence" },
+          { "post": "fish-oil-how-to-choose" },
+          { "post": "cv-diet-supplement-evidence" }
+        ]
+      },
+      {
+        "title": "衛教短影音",
+        "desc": "兩分鐘看懂重點,可以直接播放。",
+        "videos": ["statin-side-effects", "ldl-cumulative-exposure", "lipoprotein-a", "fish-oil-story"]
+      },
+      {
+        "title": "最新研究與指南",
+        "desc": "新版血脂指南、新藥與大型試驗。",
+        "items": [
+          { "post": "lipid" },
+          { "post": "react-silent-atherosclerosis" },
+          { "post": "pelacarsen-lpa-horizon-2026" },
+          { "post": "coralreef" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "blood-pressure",
+    "title": "高血壓專區",
+    "lead": "怎麼量才準、什麼才算高血壓、藥要不要一直吃、早上還是睡前吃,到長輩血壓偏低能不能減藥,依照診斷、治療、追蹤的順序整理在這裡。",
+    "bannerText": "量血壓、診斷、吃藥、減藥、最新研究,一次看",
+    "keywords": "高血壓,血壓,降血壓藥,居家血壓,舒張壓,血壓藥,減藥,代謝症候群",
+    "sections": [
+      {
+        "title": "先認識高血壓",
+        "desc": "血壓怎麼量才準、什麼才算高血壓,要做哪些檢查。",
+        "items": [
+          { "page": "htn.html", "title": "高血壓完整衛教", "desc": "高血壓的標準、風險、生活調整與治療目標。" },
+          { "page": "bp-diagnosis.html", "title": "量血壓高就是高血壓嗎?", "desc": "診間、居家、24 小時血壓怎麼判讀,確診前該做哪些檢查。" },
+          { "page": "metabolic-syndrome.html", "title": "代謝症候群", "desc": "腰圍、血壓、血糖、血脂五項中了三項,心臟病與糖尿病風險就上升。" },
+          { "page": "low-diastolic-bp.html", "title": "舒張壓偏低", "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。" }
+        ]
+      },
+      {
+        "title": "吃藥與追蹤",
+        "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
+        "items": [
+          { "page": "bp-meds-stop.html", "title": "高血壓藥吃了就不能停嗎?", "desc": "會不會上癮、什麼情況可以減藥,自己停藥的風險。" },
+          { "post": "bp-medication-timing" },
+          { "post": "circadian-blood-pressure" },
+          { "post": "bp-deprescribing-frail-elderly" }
+        ]
+      },
+      {
+        "title": "衛教短影音",
+        "desc": "兩分鐘看懂重點,可以直接播放。",
+        "videos": ["bp-deprescribing-frail-elderly"]
+      }
+    ]
   }
 ]
