@@ -22,7 +22,9 @@ const ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://drluyy.com';
 const OG_IMAGE = BASE_URL + '/og-image.png';
 const GA_ID = 'G-BC1Z8X6BQT';
-const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期，供 lastmod / dateModified 使用
+const TODAY = new Date().toISOString().slice(0, 10); // 建置當天日期(只在真的不知道日期時才用)
+let ARTICLE_SLUGS = new Set();
+let ARTICLES = [];
 const BASE_PAGES = [
   { f: 'index.html',      changefreq: 'weekly',  priority: '1.0' },
   { f: 'posts.html',      changefreq: 'weekly',  priority: '0.9' },
@@ -493,6 +495,31 @@ ${shellFooter('')}
 // ---------------------------------------------------------------------------
 // article post
 // ---------------------------------------------------------------------------
+// 相關文章:以標題+副標的中文雙字組相似度挑 4 篇,同專區的優先(站內連結,給讀者也給搜尋引擎)
+function bigrams(t) {
+  const s = String(t || '').replace(/[\s\p{P}\p{S}]/gu, '');
+  const set = new Set();
+  for (let i = 0; i < s.length - 1; i++) set.add(s.slice(i, i + 2));
+  return set;
+}
+function relatedPosts(a, n = 4) {
+  const A = bigrams(a.title + a.subtitle);
+  const myHubs = new Set(hubsFor(a.slug).map(h => h.slug));
+  return ARTICLES.filter(b => b.slug !== a.slug).map(b => {
+    const B = bigrams(b.title + b.subtitle);
+    let inter = 0; for (const x of A) if (B.has(x)) inter++;
+    let score = inter / (A.size + B.size - inter || 1);
+    if (hubsFor(b.slug).some(h => myHubs.has(h.slug))) score += 0.1;
+    return { b, score };
+  }).filter(x => x.score > 0.04).sort((x, y) => y.score - x.score).slice(0, n).map(x => x.b);
+}
+function relatedBlock(a) {
+  const rel = relatedPosts(a);
+  if (!rel.length) return '';
+  return `<nav class="related-posts" aria-label="相關文章"><h2>相關文章</h2><ul>
+${rel.map(b => `<li><a href="${escAttr(b.slug)}.html">${escHtml(b.title)}</a></li>`).join('\n')}
+</ul></nav>`;
+}
 function renderPost(a) {
   const url = `${BASE_URL}/posts/${a.slug}.html`;
   const ogImg = `${BASE_URL}/img/og/${a.slug}.png`;
@@ -503,7 +530,7 @@ function renderPost(a) {
     headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: ['https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058', 'https://www.threads.com/@aluminum001'] },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
-    dateModified: TODAY, mainEntityOfPage: url,
+    dateModified: a.updated || a.date || TODAY, mainEntityOfPage: url,
   };
   if (a.date) jsonld.datePublished = a.date;
 
@@ -512,7 +539,7 @@ function renderPost(a) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(a.title)} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>${escHtml(a.title)} — 呂侑穎醫師</title>
 <meta name="description" content="${escAttr(desc)}">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
@@ -551,6 +578,7 @@ ${metaHtml}
 ${a.hero ? `<img class="article-hero" src="../img/og/${a.slug}.png" alt="${escAttr(a.title)}" loading="eager">\n` : ''}${(a.figures || []).map(f => `<figure class="article-figure"><a href="../img/fig/${escAttr(f.name)}.png" target="_blank" rel="noopener"><img src="../img/fig/${escAttr(f.name)}.png" alt="${escAttr(f.alt)}" width="1080" height="1350" loading="lazy"></a>${f.caption ? `<figcaption>${escHtml(f.caption)}</figcaption>` : ''}</figure>\n`).join('')}<div class="article-body">${autoLink(escHtml(a.body))}</div>
 </div>
 ${hubsFor(a.slug).map(h => `<div class="hub-banner-wrap">${hubBanner(h, '../')}</div>`).join('\n')}
+${relatedBlock(a)}
 </div>
 
 ${shellFooter('../')}
@@ -584,8 +612,15 @@ ${notes}
 </div>`;
   }).join('\n');
 }
+// 精選導讀若與站內文章/衛教頁同題(同 slug),canonical 指向那一頁,避免兩頁互搶排名
+function featuredCanonical(f) {
+  if (fs.existsSync(path.join(ROOT, 'posts', f.slug + '.html')) || ARTICLE_SLUGS.has(f.slug)) return `${BASE_URL}/posts/${f.slug}.html`;
+  if (fs.existsSync(path.join(ROOT, f.slug + '.html'))) return `${BASE_URL}/${f.slug}.html`;
+  return null;
+}
 function renderFeaturedPost(f) {
   const url = `${BASE_URL}/featured/${f.slug}.html`;
+  const canon = featuredCanonical(f) || url;
   const desc = toDesc(f.lead || f.body);
   const srcLabel = f.sourceLabel || f.source || '原文';
   const ogImg = f.image ? `${BASE_URL}/${f.image}` : OG_IMAGE;
@@ -596,7 +631,7 @@ function renderFeaturedPost(f) {
     headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: ['https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058', 'https://www.threads.com/@aluminum001'] },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
-    dateModified: TODAY, mainEntityOfPage: url,
+    dateModified: f.updated || f.date || TODAY, mainEntityOfPage: url,
     citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
   };
   if (f.date) jsonld.datePublished = f.date;
@@ -606,11 +641,11 @@ function renderFeaturedPost(f) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(f.title)} — 每周精選閱讀 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>${escHtml(f.title)} — 每周精選閱讀 — 呂侑穎醫師</title>
 <meta name="description" content="${escAttr(desc)}">
 <meta name="author" content="呂侑穎醫師">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="${url}">
+<link rel="canonical" href="${canon}">
 <meta property="og:title" content="${escAttr(f.title)}">
 <meta property="og:description" content="${escAttr(desc)}">
 <meta property="og:type" content="article">
@@ -685,7 +720,7 @@ function renderFeaturedArchive(featured) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每周精選閱讀 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>每周精選閱讀 — 呂侑穎醫師</title>
 <meta name="description" content="每周精選一篇值得一讀的心血管好文，附中文重點導讀並連回原文，整理自 AHA／ACC／ESC 等權威來源。">
 <meta name="keywords" content="心血管,精選閱讀,衛教,膽固醇,AHA,ACC,ESC,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
@@ -786,7 +821,7 @@ function renderVideosPage(videos) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>衛教短影音 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>衛教短影音 — 呂侑穎醫師</title>
 <meta name="description" content="呂侑穎醫師的心臟衛教短影音:一分半鐘看懂脂蛋白(a)、心臟病發作警訊等重點,網站直接播放,也可到臉書、Threads 觀看分享。">
 <meta name="keywords" content="衛教影片,短影音,心臟病,脂蛋白(a),心臟病發作,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
@@ -872,7 +907,7 @@ ${inner}
   });
   const toc = h.sections.map((sec, i) => `<a href="#sec-${i + 1}">${escHtml(sec.title)}</a>`).join('\n');
   const jsonld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h.title, url, inLanguage: 'zh-TW', description: h.lead, hasPart: parts };
-  const title = `${h.title} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記`;
+  const title = `${h.title} — 呂侑穎醫師`;
   return `<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -974,7 +1009,7 @@ function renderNotesPage(articles) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全部臨床筆記 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>全部臨床筆記 — 呂侑穎醫師</title>
 <meta name="description" content="呂侑穎醫師的心臟醫學臨床筆記全部文章：臨床試驗、臨床指南、會議重點、醫療新知與 Podcast 整理，來源為 ACC、AHA、ESC 等國際會議與最新指南。">
 <meta name="keywords" content="臨床筆記,心臟醫學,臨床試驗,臨床指南,會議重點,醫療新知,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
@@ -1346,10 +1381,21 @@ function placeOgImages() {
 // ---------------------------------------------------------------------------
 // sitemap
 // ---------------------------------------------------------------------------
+// 頁面真正的更新日期:手寫衛教頁取其 JSON-LD dateModified;列表頁取最新文章日期;不知道就不寫(不灌當天日期)
+function fileDateModified(f) {
+  const p = path.join(ROOT, f);
+  if (!fs.existsSync(p)) return null;
+  const m = fs.readFileSync(p, 'utf8').match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
+  return m ? m[1] : null;
+}
+const LISTING_PAGES = new Set(['index.html', 'posts.html', 'trials.html', 'guidelines.html', 'meetings.html', 'news.html']);
+function lm(d) { return d ? `\n    <lastmod>${d}</lastmod>` : ''; }
 function renderSitemap(articles, featured, quizzes) {
+  const newest = articles.map(a => a.updated || a.date).filter(Boolean).sort().pop() || null;
+  const videos = loadVideos();
+  const newestVideo = videos.map(v => v.date).filter(Boolean).sort().pop() || null;
   const urls = BASE_PAGES.map(p => `  <url>
-    <loc>${BASE_URL}/${p.f === 'index.html' ? '' : p.f}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <loc>${BASE_URL}/${p.f === 'index.html' ? '' : p.f}</loc>${lm(LISTING_PAGES.has(p.f) ? newest : fileDateModified(p.f))}
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`);
@@ -1360,14 +1406,12 @@ function renderSitemap(articles, featured, quizzes) {
     <priority>0.9</priority>
   </url>`);
   urls.push(`  <url>
-    <loc>${BASE_URL}/videos.html</loc>
-    <lastmod>${TODAY}</lastmod>
+    <loc>${BASE_URL}/videos.html</loc>${lm(newestVideo)}
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
   for (const h of HUBS) urls.push(`  <url>
-    <loc>${BASE_URL}/${h.slug}.html</loc>
-    <lastmod>${TODAY}</lastmod>
+    <loc>${BASE_URL}/${h.slug}.html</loc>${lm(newest)}
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`);
@@ -1378,26 +1422,22 @@ function renderSitemap(articles, featured, quizzes) {
     <priority>0.7</priority>
   </url>`);
   for (const a of articles) urls.push(`  <url>
-    <loc>${BASE_URL}/posts/${a.slug}.html</loc>
-    <lastmod>${a.date || TODAY}</lastmod>
+    <loc>${BASE_URL}/posts/${a.slug}.html</loc>${lm(a.updated || a.date)}
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
   for (const f of featured) urls.push(`  <url>
-    <loc>${BASE_URL}/featured/${f.slug}.html</loc>
-    <lastmod>${f.date || TODAY}</lastmod>
+    <loc>${BASE_URL}/featured/${f.slug}.html</loc>${lm(f.updated || f.date)}
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
   urls.push(`  <url>
     <loc>${BASE_URL}/quizzes.html</loc>
-    <lastmod>${TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`);
   for (const q of (quizzes || [])) urls.push(`  <url>
-    <loc>${BASE_URL}/quiz-${q.slug}.html</loc>
-    <lastmod>${TODAY}</lastmod>
+    <loc>${BASE_URL}/quiz-${q.slug}.html</loc>${lm(q.updated)}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`);
@@ -1485,14 +1525,15 @@ function renderQuizPage(quiz) {
     name: quiz.title, description: desc, url, inLanguage: 'zh-TW',
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html` },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
-    dateModified: TODAY, mainEntityOfPage: url,
+    mainEntityOfPage: url,
   };
+  if (quiz.updated) jsonld.dateModified = quiz.updated;
   return `<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(quiz.title)} — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>${escHtml(quiz.title)} — 呂侑穎醫師</title>
 <meta name="description" content="${escAttr(desc)}">
 <meta name="keywords" content="${escAttr(quiz.keywords || '衛教測驗,呂侑穎')}">
 <meta name="author" content="呂侑穎醫師">
@@ -1570,7 +1611,7 @@ function renderQuizzesIndex(quizzes) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>衛教知識測驗 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>衛教知識測驗 — 呂侑穎醫師</title>
 <meta name="description" content="心血管與健康衛教的互動小測驗：測完即時看正解與依據，整理自國際指南與臨床試驗。台安醫院心臟內科呂侑穎醫師。">
 <meta name="keywords" content="衛教測驗,健康知識測驗,心臟衛教,維生素D 測驗,呂侑穎">
 <meta name="author" content="呂侑穎醫師">
@@ -1644,7 +1685,7 @@ function renderSearchPage() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>站內搜尋 — 台安醫院心臟內科。呂侑穎醫師。臨床筆記</title>
+<title>站內搜尋 — 呂侑穎醫師</title>
 <meta name="description" content="搜尋台安醫院心臟內科呂侑穎醫師臨床筆記站內的衛教主題、文章與知識測驗。">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${BASE_URL}/search.html">
@@ -1678,6 +1719,8 @@ ${shellFooter('')}
 function main() {
   console.log('luknow build (v2)');
   const articles = loadArticles();
+  ARTICLES = articles;
+  ARTICLE_SLUGS = new Set(articles.map(a => a.slug));
   console.log(`  ${articles.length} articles loaded`);
   const featured = loadFeatured();
   const quizzes = loadQuizzes();
