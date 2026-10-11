@@ -797,5 +797,43 @@
       "**開始打針時**,就和醫療團隊想好之後怎麼維持"
     ],
     "sources": "資料來源:梅約診所 On Nutrition 訪談 James Hill;Aronne LJ, et al. JAMA 2024(SURMOUNT-4);Wilding JPH, et al. Diabetes Obes Metab 2022;Lundgren JR, et al. N Engl J Med 2021;Ello-Martin JA, et al. Am J Clin Nutr 2007;Wing RR, et al. 2005;Thomas JG, et al. 2014。生活型態建議屬一般原則,尚未證實能避免停藥後復胖。"
+  },
+  {
+    "name": "calorie-restriction-6",
+    "template": "checklist",
+    "tagline": "NUTRITION · 營養與長壽",
+    "title": "少吃真的能活更久嗎?",
+    "subtitle": "從老鼠、猴子到人類的熱量限制研究",
+    "items": [
+      {
+        "head": "老鼠:少吃能延壽",
+        "text": "少吃 40% 延壽最多,但流失瘦體組織、免疫細胞改變。"
+      },
+      {
+        "head": "猴子:壽命結果不一致",
+        "text": "兩個長期研究一個延壽、一個沒看到;都有部分健康好處,如腫瘤較少。"
+      },
+      {
+        "head": "人類:還沒有延壽的證據",
+        "text": "CALERIE 試驗 2 年,看到血壓、膽固醇、胰島素敏感度等指標改善。"
+      },
+      {
+        "head": "目標少吃 25%,平均做到約 12%",
+        "text": "體重平均減約 7.5 公斤;但平均骨密度下降,也要監測貧血。"
+      },
+      {
+        "head": "加上限時進食,沒有更好",
+        "text": "熱量控制一樣時,再加限時進食,一年後體重與代謝指標沒明顯差別。"
+      },
+      {
+        "head": "長者減重要練肌力",
+        "text": "肌力訓練讓肌肉和髖部骨質流失較少;有氧加肌力,身體功能進步最多。"
+      }
+    ],
+    "callout": [
+      "先顧飲食品質、別吃過量,**不必刻意挨餓**",
+      "長者、體重過輕、懷孕、飲食疾患、用降血糖藥者:**先問醫師再節食**"
+    ],
+    "sources": "資料來源:Di Francesco A, et al. Nature 2024;Colman RJ, et al. Science 2009;Mattison JA, et al. Nature 2012、Nat Commun 2017;CALERIE(Ravussin 2015、Kraus 2019、Romashkan 2016、Waziry 2023);Liu D, et al. NEJM 2022;Villareal DT, et al. NEJM 2017。本圖為衛教整理。"
   }
 ]
