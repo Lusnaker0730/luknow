@@ -1487,7 +1487,8 @@ ${(a.meta || []).map(s => `<span>${escHtml(s)}</span>`).join('\n')}
 // auto-fill category listing pages (news/trials/guidelines/meetings) from articles.json
 function buildCategoryPages(articles) {
   for (const [file, tags] of Object.entries(CATEGORY_PAGES)) {
-    const list = articles.filter(a => tags.includes(a.tagCls));
+    // 主分類看 tagCls;文章另外可用 alsoIn 同時列在其他分類(例如醫療新知裡以臨床試驗為主的文章,也列進臨床試驗)
+    const list = articles.filter(a => tags.includes(a.tagCls) || (a.alsoIn || []).some(t => tags.includes(t)));
     const cards = list.map(categoryCard).join('\n\n');
     let html = read(file);
     html = replaceDivBlock(html, '<div class="cards">', cards);
