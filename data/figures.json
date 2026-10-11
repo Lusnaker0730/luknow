@@ -760,5 +760,42 @@
       "控制血壓血糖、戒菸、維持適當體重、少鹽,**腎臟和心臟一起顧**"
     ],
     "sources": "資料來源:Butler J, et al. Eur Heart J 2026(摘要);CKD Prognosis Consortium, JAMA 2023、Lancet Diabetes Endocrinol 2015;KDIGO 2024;國民健康署。本圖為衛教整理。"
+  },
+  {
+    "name": "glp1-stopping-6",
+    "template": "checklist",
+    "title": "瘦瘦針可以停嗎?",
+    "subtitle": "停藥後如何管理復胖風險",
+    "items": [
+      {
+        "head": "繼續打也是選項",
+        "text": "是否繼續或停藥,先和醫師討論療效、風險和之後的追蹤計畫。"
+      },
+      {
+        "head": "停藥後,體重常回升",
+        "text": "SURMOUNT-4:之後一年繼續打平均再減 5.5%,停藥平均增加 14%。"
+      },
+      {
+        "head": "吃得飽,但不過量",
+        "text": "多蔬果、控制份量、澱粉配蛋白質、用香料取代多餘油糖鹽。"
+      },
+      {
+        "head": "運動,而且要練肌力",
+        "text": "逐步做到每週兩天肌力訓練加有氧,吃夠蛋白質,有助維持肌肉。"
+      },
+      {
+        "head": "心態與身邊的人",
+        "text": "短期體重起伏不代表失敗;多和支持你的人相處。"
+      },
+      {
+        "head": "體重回升,早點回診",
+        "text": "定期記錄體重;持續回升就回診,評估是否需要再用藥。"
+      }
+    ],
+    "callout": [
+      "體重停住不動,常常是**到了新的平衡點**,不一定是藥失效",
+      "**開始打針時**,就和醫療團隊想好之後怎麼維持"
+    ],
+    "sources": "資料來源:梅約診所 On Nutrition 訪談 James Hill;Aronne LJ, et al. JAMA 2024(SURMOUNT-4);Wilding JPH, et al. Diabetes Obes Metab 2022;Lundgren JR, et al. N Engl J Med 2021;Ello-Martin JA, et al. Am J Clin Nutr 2007;Wing RR, et al. 2005;Thomas JG, et al. 2014。生活型態建議屬一般原則,尚未證實能避免停藥後復胖。"
   }
 ]
