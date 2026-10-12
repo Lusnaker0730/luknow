@@ -530,7 +530,7 @@ function renderPost(a) {
     headline: a.title, name: a.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: ['https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058', 'https://www.threads.com/@aluminum001'] },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
-    dateModified: a.updated || a.date || TODAY, mainEntityOfPage: url,
+    dateModified: a.updated || a.date || undefined, mainEntityOfPage: url,
   };
   if (a.date) jsonld.datePublished = a.date;
 
@@ -631,7 +631,7 @@ function renderFeaturedPost(f) {
     headline: f.title, name: f.title, description: desc, url, inLanguage: 'zh-TW', image: ogImg,
     author: { '@type': 'Person', name: '呂侑穎', jobTitle: '心臟內科醫師', url: `${BASE_URL}/about.html`, sameAs: ['https://www.tahsda.org.tw/doctors/doctorcard.php?doctorid=058', 'https://www.threads.com/@aluminum001'] },
     publisher: { '@type': 'Organization', name: '台安醫院心臟內科。呂侑穎醫師。臨床筆記' },
-    dateModified: f.updated || f.date || TODAY, mainEntityOfPage: url,
+    dateModified: f.updated || f.date || undefined, mainEntityOfPage: url,
     citation: f.sourceUrl ? { '@type': 'CreativeWork', name: f.source, url: f.sourceUrl } : undefined,
   };
   if (f.date) jsonld.datePublished = f.date;
@@ -1078,7 +1078,7 @@ function renderClinicGrid(c) {
 
 function renderClinic(c) {
   const url = `${BASE_URL}/clinic.html`;
-  const desc = `${c.hospital}${c.dept}${c.doctor.replace(/\s/g, '')}門診時刻表：週一、三、四下午 ${c.pmTime}，週二上午 ${c.amTime}（2026 年 8 月起新增），週日上午 ${c.amTime}（2026 年 10 月起改為隔週，下一診 10/11）。實際門診請以醫院官方掛號系統公告為準。`;
+  const desc = `${c.hospital}${c.dept}${c.doctor.replace(/\s/g, '')}門診時刻表：週一、三、四下午 ${c.pmTime}，週二上午 ${c.amTime}（2026 年 8 月起新增），週日上午 ${c.amTime}（2026 年 10 月起改為隔週，看診日期見下方）。實際門診請以醫院官方掛號系統公告為準。`;
   const sessionBoxes = c.sessions.map(s =>
     `<div class="session-box"><div class="d">${escHtml(s.day)}<span> ${escHtml(s.period)}診</span></div><div class="t">${escHtml(s.time)}</div>${s.note ? `<div class="p">${escHtml(s.note)}看診</div>` : ''}</div>`).join('\n');
   const datePills = c.sundayDates.map(d => `<span class="date-pill">${fmtMD(d)}（日）</span>`).join('\n');
@@ -1086,7 +1086,7 @@ function renderClinic(c) {
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'MedicalWebPage',
     name: `${c.doctor.replace(/\s/g, '')}門診時刻表`, description: desc, url, inLanguage: 'zh-TW', image: OG_IMAGE,
-    dateModified: TODAY, mainEntityOfPage: url,
+    mainEntityOfPage: url,
     about: {
       '@type': 'Physician', name: c.doctor.replace(/\s*醫師$/, ''), medicalSpecialty: 'Cardiovascular',
       worksFor: { '@type': 'Hospital', name: c.hospital },
