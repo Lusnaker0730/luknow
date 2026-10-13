@@ -67,6 +67,7 @@
         "desc": "史他汀副作用、肝功能、長者要不要吃,以及其他降膽固醇方法。",
         "items": [
           { "post": "statin-side-effects" },
+          { "post": "cac-score-rise-on-statin" },
           { "page": "liver-statin.html", "title": "肝指數高,還能吃降膽固醇藥嗎?", "desc": "脂肪肝、肝指數偏高時,史他汀怎麼用、要追蹤什麼。" },
           { "post": "staree-statin-elderly-2026" },
           { "post": "dyslipidemia-older-adults-2026" },
