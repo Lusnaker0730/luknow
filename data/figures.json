@@ -835,5 +835,43 @@
       "長者、體重過輕、懷孕、飲食疾患、用降血糖藥者:**先問醫師再節食**"
     ],
     "sources": "資料來源:Di Francesco A, et al. Nature 2024;Colman RJ, et al. Science 2009;Mattison JA, et al. Nature 2012、Nat Commun 2017;CALERIE(Ravussin 2015、Kraus 2019、Romashkan 2016、Waziry 2023);Liu D, et al. NEJM 2022;Villareal DT, et al. NEJM 2017。本圖為衛教整理。"
+  },
+  {
+    "name": "dha-brain-6",
+    "template": "checklist",
+    "tagline": "BRAIN HEALTH · 大腦健康",
+    "title": "高劑量 DHA 能顧大腦嗎?",
+    "subtitle": "腦脊髓液 DHA 上升,兩年認知卻沒比安慰劑好",
+    "items": [
+      {
+        "head": "365 位認知正常的長者",
+        "text": "55–80 歲、平常 DHA 吃很少;每天 2 公克 DHA 或安慰劑,吃 2 年。"
+      },
+      {
+        "head": "腦脊髓液 DHA 指標上升",
+        "text": "6 個月時明顯上升;24 個月紅血球 Omega-3 指數約 4.9% 升到 11%。"
+      },
+      {
+        "head": "整體認知未見額外改善",
+        "text": "2 年後 DHA 組進步 2.76 分、安慰劑組 2.67 分,只差 0.09 分。"
+      },
+      {
+        "head": "海馬迴體積也沒比較好",
+        "text": "是否帶有阿茲海默症風險基因型(APOE ε4),沒有明確改變結果。"
+      },
+      {
+        "head": "研究有限制",
+        "text": "單一中心、約 38% 未完成、受試者認知好;沒有直接測失智發生率。"
+      },
+      {
+        "head": "和過去研究一致",
+        "text": "VITAL 每天 1 公克魚油膠囊、約 2 到 3 年,認知也沒有明確好處。"
+      }
+    ],
+    "callout": [
+      "只為顧大腦吃高劑量魚油,**目前證據不足**",
+      "控制血壓、規律運動、顧好血糖體重,**多重危險因子一起顧**"
+    ],
+    "sources": "資料來源:Yassine HN, et al. eBioMedicine 2026;129:106316(PreventE4 試驗);VITAL 認知研究(Alzheimers Dement 2022)。本圖為衛教整理。"
   }
 ]
