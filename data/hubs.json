@@ -118,6 +118,7 @@
           { "page": "htn.html", "title": "高血壓完整衛教", "desc": "高血壓的標準、風險、生活調整與治療目標。" },
           { "page": "bp-diagnosis.html", "title": "量血壓高就是高血壓嗎?", "desc": "診間、居家、24 小時血壓怎麼判讀,確診前該做哪些檢查。" },
           { "post": "urine-albumin-heart" },
+          { "post": "pregnancy-hypertension-heart" },
           { "page": "metabolic-syndrome.html", "title": "代謝症候群", "desc": "腰圍、血壓、血糖、血脂五項中了三項,心臟病與糖尿病風險就上升。" },
           { "page": "low-diastolic-bp.html", "title": "舒張壓偏低", "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。" }
         ]
