@@ -987,5 +987,43 @@
       "懷孕時血壓高過:**往後定期量血壓,告訴醫師這段病史**"
     ],
     "sources": "資料來源:Tita AT, et al. NEJM 2022(CHAP);Rolnik DL, et al. NEJM 2017(ASPRE);Bellamy L, et al. BMJ 2007;Wu P, et al. Circ Cardiovasc Qual Outcomes 2017;2026 ACC/AHA 血脂指引;ACOG。本圖為衛教整理。"
+  },
+  {
+    "name": "diabetes-remission-6",
+    "template": "checklist",
+    "tagline": "DIABETES · RESET for Remission 試驗",
+    "title": "年輕就得糖尿病,還可逆嗎?",
+    "subtitle": "低熱量飲食加上運動,24 週時約一半病患可以不需要吃藥",
+    "items": [
+      {
+        "head": "診斷 6 年內、合併肥胖、尚未使用胰島素",
+        "text": "96 位 18–45 歲患者,隨機分成介入組 50 人、對照組 46 人。"
+      },
+      {
+        "head": "介入方式:12 週低熱量飲食+運動",
+        "text": "每天 800–900 大卡;第 3 週起每週 2 次有人指導的有氧+肌力訓練。"
+      },
+      {
+        "head": "24 週緩解率:介入組 54%,對照組 4%",
+        "text": "緩解:停降血糖藥至少 12 週,糖化血色素仍低於 6.5%。"
+      },
+      {
+        "head": "除了體重改善,主要是脂肪減少",
+        "text": "多減約 7.5 公斤,其中約 6.5 公斤是脂肪;肝臟、胰臟的脂肪也下降。"
+      },
+      {
+        "head": "介入組體能、握力較好",
+        "text": "心肺耐力(以體重校正)好約 10%、握力好約 7.6%;血壓、心跳也較低。"
+      },
+      {
+        "head": "剛開始常有不適,要醫療團隊監督",
+        "text": "頭痛、便秘、頭暈常見;少數低血糖、低血壓。"
+      }
+    ],
+    "callout": [
+      "低熱量飲食和停藥,**一定要在醫療團隊監督下進行**",
+      "剛診斷、體重過重的年輕患者:**緩解是可以和醫師討論的目標**"
+    ],
+    "sources": "資料來源:Dasgupta K, et al. Lancet Reg Health Am 2026(RESET for Remission);Lean MEJ, et al. Lancet 2018(DiRECT)。本圖為衛教整理。"
   }
 ]
