@@ -949,5 +949,43 @@
       "預防胃癌更重要:**檢測幽門桿菌、陽性就除菌**,少吃醃燻食物"
     ],
     "sources": "資料來源:Gweon TG, et al. Gastro Hep Adv 2026;Chazelas E, et al. BMJ 2019;Laguna JC, et al. Clin Nutr 2021。本圖為衛教整理。"
+  },
+  {
+    "name": "pregnancy-hypertension-6",
+    "template": "checklist",
+    "tagline": "WOMEN'S HEART · 女性心臟",
+    "title": "懷孕時血壓高,生完就沒事了嗎?",
+    "subtitle": "懷孕像一次提早的心血管壓力測試",
+    "items": [
+      {
+        "head": "約 5–10% 的懷孕會遇到",
+        "text": "慢性高血壓、妊娠高血壓、子癲前症,是母嬰併發症的重要原因。"
+      },
+      {
+        "head": "輕度慢性高血壓:目標 140/90 以下",
+        "text": "CHAP 試驗:不良結果 30.2% 對 37.0%,胎兒過小沒有明顯增加。"
+      },
+      {
+        "head": "高風險孕婦:低劑量阿斯匹靈",
+        "text": "ASPRE 試驗:37 週前子癲前症 1.6% 對 4.3%;由醫師評估。"
+      },
+      {
+        "head": "產後 7–10 天內要評估血壓",
+        "text": "劇烈頭痛、視力模糊、喘、胸痛、上腹痛,要立刻就醫。"
+      },
+      {
+        "head": "日後心血管風險較高",
+        "text": "子癲前症病史(相對風險):高血壓約 3–4 倍、冠心病約 2 倍、心衰約 4 倍。"
+      },
+      {
+        "head": "把這段病史告訴醫師",
+        "text": "2026 美國血脂指引:評估風險時,把不良懷孕結果納入考量。"
+      }
+    ],
+    "callout": [
+      "準備懷孕的高血壓患者:**先和醫師討論換成懷孕可用的藥**",
+      "懷孕時血壓高過:**往後定期量血壓,告訴醫師這段病史**"
+    ],
+    "sources": "資料來源:Tita AT, et al. NEJM 2022(CHAP);Rolnik DL, et al. NEJM 2017(ASPRE);Bellamy L, et al. BMJ 2007;Wu P, et al. Circ Cardiovasc Qual Outcomes 2017;2026 ACC/AHA 血脂指引;ACOG。本圖為衛教整理。"
   }
 ]
