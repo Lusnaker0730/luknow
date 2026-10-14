@@ -987,5 +987,43 @@
       "懷孕時血壓高過:**往後定期量血壓,告訴醫師這段病史**"
     ],
     "sources": "資料來源:Tita AT, et al. NEJM 2022(CHAP);Rolnik DL, et al. NEJM 2017(ASPRE);Bellamy L, et al. BMJ 2007;Wu P, et al. Circ Cardiovasc Qual Outcomes 2017;2026 ACC/AHA 血脂指引;ACOG。本圖為衛教整理。"
+  },
+  {
+    "name": "diabetes-remission-6",
+    "template": "checklist",
+    "tagline": "DIABETES · 糖尿病",
+    "title": "年輕就得糖尿病,有機會緩解嗎?",
+    "subtitle": "低熱量飲食加運動,24 週時約一半達到緩解",
+    "items": [
+      {
+        "head": "96 位 18–45 歲的患者",
+        "text": "診斷 6 年內、合併肥胖、沒打胰島素;隨機分成兩組。"
+      },
+      {
+        "head": "12 週低熱量飲食+運動",
+        "text": "每天 800–900 大卡;第 3 週起每週 2 次有人指導的運動。"
+      },
+      {
+        "head": "24 週緩解率 54% 對 4%",
+        "text": "停藥至少 12 週,糖化血色素仍低於 6.5%。"
+      },
+      {
+        "head": "減的主要是脂肪",
+        "text": "多減約 7.5 公斤;去脂體重兩組沒明顯差別,體能、握力較好。"
+      },
+      {
+        "head": "剛開始常有不適",
+        "text": "頭痛、便秘、疲倦、頭暈常見;少數低血糖、低血壓。"
+      },
+      {
+        "head": "能維持多久還不知道",
+        "text": "只追蹤 24 週、人數少;緩解後仍要定期追蹤。"
+      }
+    ],
+    "callout": [
+      "低熱量飲食和停藥,**一定要在醫療團隊監督下進行**",
+      "剛診斷、體重過重的年輕患者:**緩解是可以和醫師討論的目標**"
+    ],
+    "sources": "資料來源:Dasgupta K, et al. Lancet Reg Health Am 2026(RESET for Remission);Lean MEJ, et al. Lancet 2018(DiRECT)。本圖為衛教整理。"
   }
 ]
