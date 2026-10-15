@@ -560,7 +560,10 @@ function renderPost(a) {
 <script type="application/ld+json">
 ${JSON.stringify(jsonld)}
 </script>
-${headLinks('../')}
+${a.faq ? `<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: a.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })}
+</script>
+` : ''}${headLinks('../')}
 </head>
 <body>
 
@@ -908,7 +911,7 @@ ${inner}
   });
   const toc = h.sections.map((sec, i) => `<a href="#sec-${i + 1}">${escHtml(sec.title)}</a>`).join('\n');
   const jsonld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h.title, url, inLanguage: 'zh-TW', description: h.lead, hasPart: parts };
-  const title = `${h.title} — 呂侑穎醫師`;
+  const title = `${h.seoTitle || h.title} — 呂侑穎醫師`;
   return `<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -959,6 +962,52 @@ ${YT_LITE_JS}
 </body>
 </html>
 `;
+}
+// 文章/衛教頁嵌入自己的短影音(videos.json 的 article 欄位)+ VideoObject 結構化資料;以註解標記,每次 build 重新產生
+function isoDuration(d) {
+  const m = String(d || '').match(/^(\d+):(\d{2})$/);
+  return m ? `PT${+m[1]}M${+m[2]}S` : undefined;
+}
+function placeArticleVideos() {
+  const VIDEOS = loadVideos();
+  let n = 0;
+  for (const v of VIDEOS) {
+    if (!v.youtube || !v.article) continue;
+    const f = v.article;
+    if (!fs.existsSync(path.join(ROOT, f))) { console.warn(`  placeArticleVideos: page not found: ${f}`); continue; }
+    const prefix = f.includes('/') ? '../' : '';
+    const [a, b] = [`<!--vid:${v.slug}-->`, `<!--/vid:${v.slug}-->`];
+    let html = read(f);
+    const before = html;
+    html = html.replace(new RegExp(`\\s*${a}[\\s\\S]*?${b}\\s*`), '\n');
+    const ld = {
+      '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description: v.desc,
+      thumbnailUrl: `${BASE_URL}/video/${v.slug}.jpg`, uploadDate: v.date,
+      embedUrl: `https://www.youtube.com/embed/${v.youtube}`, duration: isoDuration(v.duration),
+    };
+    const block = `${a}
+<div class="article-video${v.landscape ? ' wide' : ''}">
+<button class="yt-lite" data-yt="${escAttr(v.youtube)}" aria-label="播放影片:${escAttr(v.title)}"><img src="${prefix}video/${escAttr(v.slug)}.jpg" alt="${escAttr(v.title)} 影片封面" width="${v.landscape ? 960 : 540}" height="${v.landscape ? 540 : 960}" loading="lazy"><span class="yt-play"></span></button>
+<div class="av-text">
+<div class="av-kicker">衛教短影音${v.duration ? `・${escHtml(v.duration)}` : ''}</div>
+<div class="av-title">${escHtml(v.title)}</div>
+<p class="av-desc">${escHtml(v.desc || '')}</p>
+<div class="av-links"><a href="https://www.youtube.com/watch?v=${escAttr(v.youtube)}" target="_blank" rel="noopener">在 YouTube 觀看</a><a href="${prefix}videos.html#${escAttr(v.slug)}">更多短影音</a></div>
+</div>
+</div>
+<script type="application/ld+json">
+${JSON.stringify(ld)}
+</script>
+<script>
+if(!window.__ytl){window.__ytl=1;document.addEventListener('click',e=>{const b=e.target.closest('.article-video .yt-lite');if(!b)return;const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');b.replaceWith(f);});}
+</script>
+${b}`;
+    const anchor = '<div class="content-card">';
+    if (!html.includes(anchor)) { console.warn(`  placeArticleVideos: no content-card in ${f}`); continue; }
+    html = html.replace(anchor, `${anchor}\n${block}`);
+    if (html !== before) { write(f, html); n++; }
+  }
+  console.log(`  placeArticleVideos: ${n} page(s)`);
 }
 // 收錄於專區的靜態衛教頁、衛教專區首頁:插入專區連結(以註解標記,每次 build 重新產生)
 function placeHubLinks() {
@@ -1786,6 +1835,7 @@ function main() {
   placeHubIllos();
   placeShare();
   placeHubLinks();
+  placeArticleVideos();
   placeComments();
   placeAnalytics();
   placeUpdatedDate();
