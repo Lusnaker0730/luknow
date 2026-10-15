@@ -245,6 +245,7 @@ function shellFooter(prefix) {
 <a href="${prefix}glp1.html">瘦瘦針專區</a>
 <a href="${prefix}cholesterol.html">膽固醇專區</a>
 <a href="${prefix}blood-pressure.html">高血壓專區</a>
+<a href="${prefix}longevity.html">長壽專區</a>
 <a href="${prefix}le8.html">保健八要素</a>
 </div>
 </div>
