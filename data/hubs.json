@@ -11,36 +11,71 @@
         "title": "先認識瘦瘦針",
         "desc": "有哪些藥、怎麼作用、誰適合用、效果和心血管好處。",
         "items": [
-          { "page": "weight-loss-injection.html", "title": "減重針(瘦瘦針)完整介紹", "desc": "GLP-1 與猛健樂怎麼分類、差在哪裡、減重效果、心血管好處與注意事項。" },
-          { "page": "weight-loss-medications.html", "title": "減肥藥物總覽", "desc": "誰適合用減重藥物、口服與針劑有哪些、能減多少、常見副作用。" }
+          {
+            "page": "weight-loss-injection.html",
+            "title": "減重針(瘦瘦針)完整介紹",
+            "desc": "GLP-1 與猛健樂怎麼分類、差在哪裡、減重效果、心血管好處與注意事項。"
+          },
+          {
+            "page": "weight-loss-medications.html",
+            "title": "減肥藥物總覽",
+            "desc": "誰適合用減重藥物、口服與針劑有哪些、能減多少、常見副作用。"
+          }
         ]
       },
       {
         "title": "開始打針之後",
         "desc": "加量、腸胃不適、吃什麼、掉頭髮、換藥,打針期間最常遇到的問題。",
         "items": [
-          { "post": "glp1-dose-titration" },
-          { "post": "glp1-gi-side-effects" },
-          { "post": "glp1-diet" },
-          { "page": "glp1-hair-loss.html", "title": "瘦瘦針會讓人掉頭髮嗎?", "desc": "研究怎麼說、為什麼會掉、多久會長回來,以及怎麼預防。" },
-          { "post": "glp1-switching" },
-          { "post": "glp1-stopping" }
+          {
+            "post": "glp1-dose-titration"
+          },
+          {
+            "post": "glp1-gi-side-effects"
+          },
+          {
+            "post": "glp1-diet"
+          },
+          {
+            "page": "glp1-hair-loss.html",
+            "title": "瘦瘦針會讓人掉頭髮嗎?",
+            "desc": "研究怎麼說、為什麼會掉、多久會長回來,以及怎麼預防。"
+          },
+          {
+            "post": "glp1-switching"
+          },
+          {
+            "post": "glp1-stopping"
+          }
         ]
       },
       {
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
-        "videos": ["glp1-sleep-apnea", "glp1-diet"]
+        "videos": [
+          "glp1-sleep-apnea",
+          "glp1-diet"
+        ]
       },
       {
         "title": "最新研究與專家觀點",
         "desc": "減重之外,瘦瘦針對睡眠呼吸中止、心臟、發炎、失智、皮膚的研究進展。",
         "items": [
-          { "post": "glp1-sleep-apnea" },
-          { "post": "semaglutide-inflammation-select" },
-          { "post": "glp1-dementia" },
-          { "post": "glp1-skin-inflammation" },
-          { "post": "glp1update" }
+          {
+            "post": "glp1-sleep-apnea"
+          },
+          {
+            "post": "semaglutide-inflammation-select"
+          },
+          {
+            "post": "glp1-dementia"
+          },
+          {
+            "post": "glp1-skin-inflammation"
+          },
+          {
+            "post": "glp1update"
+          }
         ]
       }
     ]
@@ -57,51 +92,120 @@
         "title": "先認識膽固醇",
         "desc": "壞膽固醇、三酸甘油酯、脂蛋白(a)、apoB 各代表什麼,為什麼要早點控制。",
         "items": [
-          { "page": "chol.html", "title": "膽固醇完整衛教", "desc": "好膽固醇、壞膽固醇怎麼看,目標要多少,什麼時候需要吃藥。" },
-          { "page": "ldl-cumulative-exposure.html", "title": "膽固醇是「累積」出來的", "desc": "壞膽固醇高多少、高多久,決定心血管風險;越早控制越划算。" },
-          { "page": "tg.html", "title": "高三酸甘油酯血症", "desc": "三酸甘油酯偏高的原因、風險,飲食和藥物怎麼處理。" },
-          { "page": "lipoprotein-a.html", "title": "脂蛋白(a)是什麼?", "desc": "由基因決定的心血管風險因子,誰該驗、驗出來高怎麼辦。" },
-          { "page": "apob.html", "title": "載脂蛋白 B(apoB)", "desc": "比壞膽固醇更準的風險指標,什麼情況下值得多驗一項。" }
+          {
+            "page": "chol.html",
+            "title": "膽固醇完整衛教",
+            "desc": "好膽固醇、壞膽固醇怎麼看,目標要多少,什麼時候需要吃藥。"
+          },
+          {
+            "page": "ldl-cumulative-exposure.html",
+            "title": "膽固醇是「累積」出來的",
+            "desc": "壞膽固醇高多少、高多久,決定心血管風險;越早控制越划算。"
+          },
+          {
+            "page": "tg.html",
+            "title": "高三酸甘油酯血症",
+            "desc": "三酸甘油酯偏高的原因、風險,飲食和藥物怎麼處理。"
+          },
+          {
+            "page": "lipoprotein-a.html",
+            "title": "脂蛋白(a)是什麼?",
+            "desc": "由基因決定的心血管風險因子,誰該驗、驗出來高怎麼辦。"
+          },
+          {
+            "page": "apob.html",
+            "title": "載脂蛋白 B(apoB)",
+            "desc": "比壞膽固醇更準的風險指標,什麼情況下值得多驗一項。"
+          }
         ]
       },
       {
         "title": "吃藥與治療",
         "desc": "史他汀副作用、肝功能、長者要不要吃,以及其他降膽固醇方法。",
         "items": [
-          { "post": "statin-side-effects" },
-          { "post": "cac-score-rise-on-statin" },
-          { "page": "liver-statin.html", "title": "肝指數高,還能吃降膽固醇藥嗎?", "desc": "脂肪肝、肝指數偏高時,史他汀怎麼用、要追蹤什麼。" },
-          { "post": "staree-statin-elderly-2026" },
-          { "post": "dyslipidemia-older-adults-2026" },
-          { "post": "cholesterol-dementia" },
-          { "page": "ldl-apheresis.html", "title": "洗血能降膽固醇嗎?", "desc": "脂蛋白分離術適合誰,坊間「洗血保養血管」是真是假。" }
+          {
+            "post": "statin-side-effects"
+          },
+          {
+            "post": "cac-score-rise-on-statin"
+          },
+          {
+            "page": "liver-statin.html",
+            "title": "肝指數高,還能吃降膽固醇藥嗎?",
+            "desc": "脂肪肝、肝指數偏高時,史他汀怎麼用、要追蹤什麼。"
+          },
+          {
+            "post": "staree-statin-elderly-2026"
+          },
+          {
+            "post": "dyslipidemia-older-adults-2026"
+          },
+          {
+            "post": "cholesterol-dementia"
+          },
+          {
+            "page": "ldl-apheresis.html",
+            "title": "洗血能降膽固醇嗎?",
+            "desc": "脂蛋白分離術適合誰,坊間「洗血保養血管」是真是假。"
+          }
         ]
       },
       {
         "title": "飲食與生活",
         "desc": "生酮飲食、魚油、保健品,吃什麼才有證據。",
         "items": [
-          { "post": "keto-ldl-lmhr" },
-          { "page": "fish-oil.html", "title": "魚油對心臟好不好?", "desc": "魚油的好處、心房顫動風險,以及哪些人適合吃。" },
-          { "post": "fish-oil-evidence" },
-          { "post": "fish-oil-how-to-choose" },
-          { "post": "dha-brain-dementia-trial" },
-          { "post": "cv-diet-supplement-evidence" }
+          {
+            "post": "keto-ldl-lmhr"
+          },
+          {
+            "page": "fish-oil.html",
+            "title": "魚油對心臟好不好?",
+            "desc": "魚油的好處、心房顫動風險,以及哪些人適合吃。"
+          },
+          {
+            "post": "fish-oil-evidence"
+          },
+          {
+            "post": "fish-oil-how-to-choose"
+          },
+          {
+            "post": "dha-brain-dementia-trial"
+          },
+          {
+            "post": "cv-diet-supplement-evidence"
+          }
         ]
       },
       {
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
-        "videos": ["staree-statin-elderly-2026", "statin-side-effects", "cac-statin", "ldl-cumulative-exposure", "lipoprotein-a", "fish-oil-story", "dha-brain"]
+        "videos": [
+          "staree-statin-elderly-2026",
+          "statin-side-effects",
+          "liver-statin",
+          "cac-statin",
+          "ldl-cumulative-exposure",
+          "lipoprotein-a",
+          "fish-oil-story",
+          "dha-brain"
+        ]
       },
       {
         "title": "最新研究與指南",
         "desc": "新版血脂指南、新藥與大型試驗。",
         "items": [
-          { "post": "lipid" },
-          { "post": "react-silent-atherosclerosis" },
-          { "post": "pelacarsen-lpa-horizon-2026" },
-          { "post": "coralreef" }
+          {
+            "post": "lipid"
+          },
+          {
+            "post": "react-silent-atherosclerosis"
+          },
+          {
+            "post": "pelacarsen-lpa-horizon-2026"
+          },
+          {
+            "post": "coralreef"
+          }
         ]
       }
     ]
@@ -118,28 +222,62 @@
         "title": "先認識高血壓",
         "desc": "血壓怎麼量才準、什麼才算高血壓,要做哪些檢查。",
         "items": [
-          { "page": "htn.html", "title": "高血壓完整衛教", "desc": "高血壓的標準、風險、生活調整與治療目標。" },
-          { "page": "bp-diagnosis.html", "title": "量血壓高就是高血壓嗎?", "desc": "診間、居家、24 小時血壓怎麼判讀,確診前該做哪些檢查。" },
-          { "post": "urine-albumin-heart" },
-          { "post": "pregnancy-hypertension-heart" },
-          { "page": "metabolic-syndrome.html", "title": "代謝症候群", "desc": "腰圍、血壓、血糖、血脂五項中了三項,心臟病與糖尿病風險就上升。" },
-          { "page": "low-diastolic-bp.html", "title": "舒張壓偏低", "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。" }
+          {
+            "page": "htn.html",
+            "title": "高血壓完整衛教",
+            "desc": "高血壓的標準、風險、生活調整與治療目標。"
+          },
+          {
+            "page": "bp-diagnosis.html",
+            "title": "量血壓高就是高血壓嗎?",
+            "desc": "診間、居家、24 小時血壓怎麼判讀,確診前該做哪些檢查。"
+          },
+          {
+            "post": "urine-albumin-heart"
+          },
+          {
+            "post": "pregnancy-hypertension-heart"
+          },
+          {
+            "page": "metabolic-syndrome.html",
+            "title": "代謝症候群",
+            "desc": "腰圍、血壓、血糖、血脂五項中了三項,心臟病與糖尿病風險就上升。"
+          },
+          {
+            "page": "low-diastolic-bp.html",
+            "title": "舒張壓偏低",
+            "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。"
+          }
         ]
       },
       {
         "title": "吃藥與追蹤",
         "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
         "items": [
-          { "page": "bp-meds-stop.html", "title": "高血壓藥吃了就不能停嗎?", "desc": "會不會上癮、什麼情況可以減藥,自己停藥的風險。" },
-          { "post": "bp-medication-timing" },
-          { "post": "circadian-blood-pressure" },
-          { "post": "bp-deprescribing-frail-elderly" }
+          {
+            "page": "bp-meds-stop.html",
+            "title": "高血壓藥吃了就不能停嗎?",
+            "desc": "會不會上癮、什麼情況可以減藥,自己停藥的風險。"
+          },
+          {
+            "post": "bp-medication-timing"
+          },
+          {
+            "post": "circadian-blood-pressure"
+          },
+          {
+            "post": "bp-deprescribing-frail-elderly"
+          }
         ]
       },
       {
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
-        "videos": ["pregnancy-bp", "urine-albumin-heart", "bp-deprescribing-frail-elderly"]
+        "videos": [
+          "pregnancy-bp",
+          "urine-albumin-heart",
+          "bp-deprescribing-frail-elderly"
+        ]
       }
     ]
   },
@@ -155,61 +293,130 @@
         "title": "長壽的基礎:生活習慣",
         "desc": "心血管保健八要素、哪些習慣同時護心又防癌,飲食和運動哪個重要。",
         "items": [
-          { "page": "le8.html", "title": "心血管保健八要素", "desc": "美國心臟協會的八項指標:飲食、運動、尼古丁、睡眠、體重、血脂、血糖、血壓。" },
-          { "page": "heart-lifestyle.html", "title": "護心從生活開始:七個長壽習慣", "desc": "心腎代謝症候群是什麼,七個有實證的長壽生活習慣。" },
-          { "page": "prevention.html", "title": "護心生活型態與預防", "desc": "運動、飲食、體重、危險因子一次看。" },
-          { "post": "lifestyle-cancer-heart" },
-          { "post": "diet-vs-exercise-cardiometabolic" }
+          {
+            "page": "le8.html",
+            "title": "心血管保健八要素",
+            "desc": "美國心臟協會的八項指標:飲食、運動、尼古丁、睡眠、體重、血脂、血糖、血壓。"
+          },
+          {
+            "page": "heart-lifestyle.html",
+            "title": "護心從生活開始:七個長壽習慣",
+            "desc": "心腎代謝症候群是什麼,七個有實證的長壽生活習慣。"
+          },
+          {
+            "page": "prevention.html",
+            "title": "護心生活型態與預防",
+            "desc": "運動、飲食、體重、危險因子一次看。"
+          },
+          {
+            "post": "lifestyle-cancer-heart"
+          },
+          {
+            "post": "diet-vs-exercise-cardiometabolic"
+          }
         ]
       },
       {
         "title": "吃什麼、怎麼吃",
         "desc": "長壽飲食原則、少吃能不能活更久,咖啡、茶、酒、含糖飲料的研究。",
         "items": [
-          { "post": "longevity-mayo" },
-          { "post": "calorie-restriction-longevity" },
-          { "post": "cv-diet-supplement-evidence" },
-          { "post": "flavonoid-vascular" },
-          { "post": "coffee-liver" },
-          { "page": "coffee.html", "title": "有心律不整、心臟病,還能喝咖啡嗎?", "desc": "一天幾杯才安全,美國心臟協會 2026 聲明與 DECAF 試驗。" },
-          { "post": "alcohol-health-mayo-2026" },
-          { "post": "sugary-drinks-cancer" }
+          {
+            "post": "longevity-mayo"
+          },
+          {
+            "post": "calorie-restriction-longevity"
+          },
+          {
+            "post": "cv-diet-supplement-evidence"
+          },
+          {
+            "post": "flavonoid-vascular"
+          },
+          {
+            "post": "coffee-liver"
+          },
+          {
+            "page": "coffee.html",
+            "title": "有心律不整、心臟病,還能喝咖啡嗎?",
+            "desc": "一天幾杯才安全,美國心臟協會 2026 聲明與 DECAF 試驗。"
+          },
+          {
+            "post": "alcohol-health-mayo-2026"
+          },
+          {
+            "post": "sugary-drinks-cancer"
+          }
         ]
       },
       {
         "title": "運動與肌肉",
         "desc": "肌力訓練、肌酸,以及得過心臟病之後怎麼運動。",
         "items": [
-          { "post": "creatine-resistance-training" },
-          { "post": "cardiac-rehab-chd" }
+          {
+            "post": "creatine-resistance-training"
+          },
+          {
+            "post": "cardiac-rehab-chd"
+          }
         ]
       },
       {
         "title": "保健品:哪些有用、哪些沒用",
         "desc": "魚油、DHA、維生素 D、燕窩,研究到底怎麼說。",
         "items": [
-          { "post": "fish-oil-how-to-choose" },
-          { "post": "fish-oil-evidence" },
-          { "post": "dha-brain-dementia-trial" },
-          { "page": "vitamin-d.html", "title": "維生素 D 要不要驗、要不要補?", "desc": "2024 新指南翻轉觀念:哪些人需要補,哪些人不必驗。" },
-          { "post": "edible-birds-nest" }
+          {
+            "post": "fish-oil-how-to-choose"
+          },
+          {
+            "post": "fish-oil-evidence"
+          },
+          {
+            "post": "dha-brain-dementia-trial"
+          },
+          {
+            "page": "vitamin-d.html",
+            "title": "維生素 D 要不要驗、要不要補?",
+            "desc": "2024 新指南翻轉觀念:哪些人需要補,哪些人不必驗。"
+          },
+          {
+            "post": "edible-birds-nest"
+          }
         ]
       },
       {
         "title": "長輩照護與篩檢",
         "desc": "長輩的降膽固醇藥、血壓藥怎麼調整,疫苗與癌症篩檢的新證據。",
         "items": [
-          { "post": "staree-statin-elderly-2026" },
-          { "post": "dyslipidemia-older-adults-2026" },
-          { "post": "bp-deprescribing-frail-elderly" },
-          { "page": "adult-vaccines.html", "title": "成年人該打哪些疫苗?", "desc": "從護心角度看流感、肺炎鏈球菌、帶狀疱疹等疫苗。" },
-          { "post": "mced-blood-cancer-screening" }
+          {
+            "post": "staree-statin-elderly-2026"
+          },
+          {
+            "post": "dyslipidemia-older-adults-2026"
+          },
+          {
+            "post": "bp-deprescribing-frail-elderly"
+          },
+          {
+            "page": "adult-vaccines.html",
+            "title": "成年人該打哪些疫苗?",
+            "desc": "從護心角度看流感、肺炎鏈球菌、帶狀疱疹等疫苗。"
+          },
+          {
+            "post": "mced-blood-cancer-screening"
+          }
         ]
       },
       {
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
-        "videos": ["coffee-liver", "flavonoid-vascular", "fish-oil-story", "dha-brain", "staree-statin-elderly-2026", "mced-blood-cancer-screening"]
+        "videos": [
+          "coffee-liver",
+          "flavonoid-vascular",
+          "fish-oil-story",
+          "dha-brain",
+          "staree-statin-elderly-2026",
+          "mced-blood-cancer-screening"
+        ]
       }
     ]
   }
