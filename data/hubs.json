@@ -123,7 +123,8 @@
           { "post": "urine-albumin-heart" },
           { "post": "pregnancy-hypertension-heart" },
           { "page": "metabolic-syndrome.html", "title": "代謝症候群", "desc": "腰圍、血壓、血糖、血脂五項中了三項,心臟病與糖尿病風險就上升。" },
-          { "page": "low-diastolic-bp.html", "title": "舒張壓偏低", "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。" }
+          { "page": "low-diastolic-bp.html", "title": "舒張壓偏低", "desc": "舒張壓偏低的原因、什麼時候要注意,吃藥時怎麼調整。" },
+          { "page": "high-diastolic-bp.html", "title": "舒張壓偏高", "desc": "收縮壓正常或已達標、下面的數字還是高,要不要吃藥?" }
         ]
       },
       {
