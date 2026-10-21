@@ -1,5 +1,13 @@
 [
   {
+    "href": "posts/vesalius.html",
+    "tagCls": "news",
+    "tagLabel": "醫療新知",
+    "title": "還沒心肌梗塞,就該積極降膽固醇嗎?VESALIUS-CV 試驗告訴我們什麼",
+    "subtitle": "VESALIUS-CV 試驗:沒有心肌梗塞或中風病史、但有動脈硬化或高風險糖尿病的人,加打 PCSK9 抑制劑瑞百安(evolocumab),壞膽固醇一年後約 45 mg/dL,心肌梗塞、中風、冠心病死亡 5 年從 8.0% 降到 6.2%。死亡較少但屬探索性結果。先和醫師評估 statin、怡妥錠是否用足。",
+    "date": "2026-10-22"
+  },
+  {
     "href": "posts/womens-kidney.html",
     "tagCls": "news",
     "tagLabel": "醫療新知",
