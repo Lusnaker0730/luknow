@@ -106,7 +106,7 @@ function articlePages() {
     .filter(a => !a.hero)
     .map(a => ({
       name: a.slug,
-      title: a.title,               // 標題過長時 titleSize() 會自動縮小字級
+      title: a.ogTitle || a.title, // 標題過長時 titleSize() 會自動縮小字級;太長的可在 articles.json 設 ogTitle
       label: a.tagLabel || '臨床筆記',
       tone: TAG_TONE[a.tagCls] || 'ink',
       illo: 'img/illo/_brand.svg',
