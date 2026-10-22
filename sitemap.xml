@@ -366,7 +366,13 @@
   </url>
   <url>
     <loc>https://drluyy.com/clinic.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://drluyy.com/posts/twic-2026-10-18.html</loc>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
