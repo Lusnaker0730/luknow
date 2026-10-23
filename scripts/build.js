@@ -35,6 +35,7 @@ const BASE_PAGES = [
   { f: 'health.html',     changefreq: 'monthly', priority: '0.8' },
   { f: 'prevention.html', changefreq: 'monthly', priority: '0.8' },
   { f: 'about.html',      changefreq: 'yearly',  priority: '0.7' },
+  { f: 'privacy.html',    changefreq: 'yearly',  priority: '0.2' },
   { f: 'risk.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cath.html',       changefreq: 'monthly', priority: '0.8' },
   { f: 'cath-aftercare.html', changefreq: 'monthly', priority: '0.9' },
@@ -252,7 +253,7 @@ function shellFooter(prefix) {
 </div>
 <div class="foot-bottom">
 <span>© 2026 台安醫院心臟內科。呂侑穎醫師。臨床筆記</span>
-<span>內容僅供衛教與學術參考，不構成臨床診療建議</span>
+<span>內容僅供衛教與學術參考，不構成臨床診療建議・<a href="${prefix}privacy.html">隱私權政策</a></span>
 </div>
 </footer>`;
 }
