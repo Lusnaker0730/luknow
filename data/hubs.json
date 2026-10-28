@@ -279,6 +279,9 @@
         "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
         "items": [
           {
+            "post": "elderly-bp-guideline-2026"
+          },
+          {
             "page": "bp-meds-stop.html",
             "title": "高血壓藥吃了就不能停嗎?",
             "desc": "會不會上癮、什麼情況可以減藥,自己停藥的風險。"
