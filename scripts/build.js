@@ -302,15 +302,19 @@ function renderHome(articles, featured, latest) {
   else latestList = articles.slice(0, 2).map(fallbackFrom);
   latestList = latestList.filter(Boolean).slice(0, 2);
 
-  const latestCards = latestList.map(L => `<a class="card" href="${L.href}">
-<div class="card-header">
+  // 有短影音的文章(videos.json 的 article 欄位對到 href):卡片右側放直式縮圖,點了進文章看影片
+  const vidByHref = {};
+  for (const v of loadVideos()) if (v.article && !vidByHref[v.article] && fs.existsSync(path.join(ROOT, 'video', `${v.slug}.jpg`))) vidByHref[v.article] = v;
+  const latestCards = latestList.map(L => { const V = vidByHref[L.href]; return `<a class="card${V ? ' has-video' : ''}" href="${L.href}">
+<div class="card-header">${V ? `
+<div class="card-vthumb"><img src="video/${V.slug}.jpg" alt="${escHtml(V.title)} 短影音" loading="lazy" width="540" height="960"><span class="card-vplay">▶ 短影音${V.duration ? ' ' + escHtml(V.duration) : ''}</span></div>` : ''}
 <span class="card-tag ${L.tagCls}">${escHtml(L.tagLabel)}</span>
 <div class="card-title">${escHtml(L.title)}</div>
 <div class="card-subtitle">${escHtml(L.subtitle || '')}</div>
 <div class="card-meta">${L.date ? `<span>${escHtml(L.date)}</span>` : ''}</div>
 </div>
-<div class="card-footer"><span class="read-btn">閱讀全文 →</span></div>
-</a>`).join('\n');
+<div class="card-footer"><span class="read-btn">${V ? '看影片與全文 →' : '閱讀全文 →'}</span></div>
+</a>`; }).join('\n');
 
   // 下方「所有文章」列表去掉已在「最新更新」出現的,避免重複
   const latestHrefs = new Set(latestList.map(L => L.href));
