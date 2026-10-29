@@ -477,3 +477,10 @@ section.band{position:relative;z-index:2;padding:30px 0}
 .article-video:has(iframe){grid-template-columns:1fr}
 .article-video:has(iframe) iframe{max-width:360px;margin:0 auto}
 .article-video.wide:has(iframe) iframe{max-width:none}
+
+/* 首頁最新文章:有短影音時右側直式縮圖 */
+.card.has-video .card-header{display:flow-root}
+.card-vthumb{float:right;position:relative;width:118px;margin:0 0 10px 16px;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.12);aspect-ratio:9/16;background:#1c3349}
+.card-vthumb img{display:block;width:100%;height:100%;object-fit:cover}
+.card-vplay{position:absolute;left:0;right:0;bottom:0;background:rgba(20,30,34,.82);color:#fff;font-size:.68rem;font-weight:700;text-align:center;padding:5px 2px}
+@media (max-width:560px){.card-vthumb{width:96px}}
