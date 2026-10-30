@@ -49,6 +49,9 @@
             "post": "glp1-diet"
           },
           {
+            "post": "creatine-middle-age"
+          },
+          {
             "page": "glp1-hair-loss.html",
             "title": "瘦瘦針會讓人掉頭髮嗎?",
             "desc": "研究怎麼說、為什麼會掉、多久會長回來,以及怎麼預防。"
@@ -65,6 +68,7 @@
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
         "videos": [
+          "creatine-middle-age",
           "retatrutide-triumph",
           "orforglipron-achieve",
           "mounjaro-wegovy",
