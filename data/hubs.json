@@ -150,6 +150,9 @@
             "post": "cac-score-rise-on-statin"
           },
           {
+            "post": "flowpromote-plaque-regression"
+          },
+          {
             "page": "liver-statin.html",
             "title": "肝指數高,還能吃降膽固醇藥嗎?",
             "desc": "脂肪肝、肝指數偏高時,史他汀怎麼用、要追蹤什麼。"
@@ -203,6 +206,7 @@
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
         "videos": [
+          "flowpromote-plaque-regression",
           "ldl-apheresis",
           "vesalius",
           "staree-statin-elderly-2026",
