@@ -1595,5 +1595,43 @@
       "**手臂痠痛較常見**:多 1、2 天就好"
     ],
     "sources": "資料來源:NEJM 2025(DANFLU-2、GALFLU)、Lancet 2025(FLUNITY-HD)、Circulation 2026、JAMA Netw Open 2026、疾管署 115 年度流感疫苗計畫。"
+  },
+  {
+    "name": "flowpromote-plaque-regression",
+    "template": "checklist",
+    "tagline": "冠心病 · 膽固醇",
+    "title": "膽固醇降更低\n斑塊真的會變小?",
+    "subtitle": "FLOWPROMOTE 試驗(JAMA Cardiol 2026)",
+    "items": [
+      {
+        "head": "試驗",
+        "text": "丹麥 104 位剛診斷冠心病的人,兩種降膽固醇處方,18 個月照電腦斷層。"
+      },
+      {
+        "head": "壞膽固醇",
+        "text": "一組降到約 70,另一組(加強處方)降到約 42 mg/dL。"
+      },
+      {
+        "head": "斑塊縮小",
+        "text": "約 14% 對 21%;縮的主要是比較軟的非鈣化斑塊。"
+      },
+      {
+        "head": "鈣化變多",
+        "text": "兩組都增加,和斑塊變穩定方向一致,本身不代表治療失敗。"
+      },
+      {
+        "head": "台灣目標",
+        "text": "冠心病 LDL<70;極高風險可考慮 <55,甚至 <50,請和醫師確認。"
+      },
+      {
+        "head": "一步步加藥",
+        "text": "史他汀→加 ezetimibe→再討論針劑;研究的 40 毫克劑量不要照搬。"
+      }
+    ],
+    "callout": [
+      "**影像研究**:斑塊縮小不能直接換算成少多少心肌梗塞",
+      "**斑塊變小也別自己停藥**:停藥膽固醇會回升"
+    ],
+    "sources": "資料來源:JAMA Cardiol 2026(FLOWPROMOTE)、NEJM 2015(IMPROVE-IT)、Lancet 2022(RACING)、台灣血脂指引 2022、台灣心臟學會 2023。"
   }
 ]
