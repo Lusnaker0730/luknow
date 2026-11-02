@@ -68,6 +68,7 @@
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
         "videos": [
+          "glp1-pmos",
           "fatty-liver-fibrosis",
           "creatine-middle-age",
           "retatrutide-triumph",
@@ -82,6 +83,7 @@
         "title": "最新研究與專家觀點",
         "desc": "減重之外,瘦瘦針對睡眠呼吸中止、心臟、發炎、失智、皮膚的研究進展。",
         "items": [
+          {"post": "glp1-pmos"},
           {"post": "fatty-liver-fibrosis"},
           {
             "post": "glp1-sleep-apnea"
