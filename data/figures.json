@@ -1671,5 +1671,43 @@
       "**脂肪肝的人,心血管病也是重要死因**"
     ],
     "sources": "資料來源:Lancet 2026(LITMUS)、AASLD 2023、EASL-EASD-EASO 2024、NEJM 2025(ESSENCE)、NEJM 2024(MAESTRO-NASH)、健保署 2026。"
+  },
+  {
+    "name": "glp1-pmos",
+    "template": "checklist",
+    "tagline": "PMOS · 瘦瘦針",
+    "title": "瘦瘦針能治多囊嗎?",
+    "subtitle": "PMOS(原稱 PCOS)的四個治療目標",
+    "items": [
+      {
+        "head": "代謝・體重",
+        "text": "最明確的用途:體重管理(BMI ≥30,或 ≥27 合併相關疾病)。"
+      },
+      {
+        "head": "月經",
+        "text": "可能變規則,證據弱;第一線仍是複方口服避孕藥。"
+      },
+      {
+        "head": "雄性素",
+        "text": "抽血數值下降;多毛、痘痘改善證據不足。"
+      },
+      {
+        "head": "想懷孕",
+        "text": "自然懷孕可能增加,活產未確立;不孕第一線是 letrozole。"
+      },
+      {
+        "head": "備孕停藥",
+        "text": "semaglutide 計畫懷孕前至少停 2 個月,等待期間仍要避孕。"
+      },
+      {
+        "head": "避孕",
+        "text": "猛健樂開始與每次加量後 4 週:口服避孕藥加保險套或改非口服。"
+      }
+    ],
+    "callout": [
+      "**不是 PMOS 的核准適應症**:依體重管理適應症使用,自費",
+      "**想懷孕先找婦產科**:瘦瘦針只是孕前減重的輔助"
+    ],
+    "sources": "資料來源:2023 國際 PCOS 指引、Lancet 2026 更名、Eur J Endocrinol 2026、Diabetes Obes Metab 2026、Eur J Obstet Gynecol Reprod Biol 2026、NEJM 2014、台灣仿單。"
   }
 ]
