@@ -1823,5 +1823,43 @@
       "**不要自己停口服藥**:打針後 1–3 個月抽血追蹤"
     ],
     "sources": "資料來源:台灣仿單 2025-07、JACC 2021、JACC Asia 2024、NEJM 2017、ORION-4、2026 ACC/AHA 血脂指引。"
+  },
+  {
+    "name": "coffee-chocolate-skin",
+    "template": "checklist",
+    "tagline": "皮膚 · 飲食",
+    "title": "愛喝咖啡、吃巧克力\n皮膚會變黑嗎?",
+    "subtitle": "未找到足夠的直接人體證據;不等於已證明完全沒影響",
+    "items": [
+      {
+        "head": "黑色素是身體自己做的",
+        "text": "不是把吃進去的深色搬到皮膚。"
+      },
+      {
+        "head": "咖啡:沒看到黑斑較多",
+        "text": "日本 244 位女性:喝較多者黑斑分數較低;只是觀察,不能說美白。"
+      },
+      {
+        "head": "巧克力:沒有直接證據",
+        "text": "未找到會增加黑色素或肝斑的可靠人體試驗。"
+      },
+      {
+        "head": "可可「防曬」試驗測的是曬紅",
+        "text": "結果不一致,吃巧克力不能取代防曬。"
+      },
+      {
+        "head": "痘印是局部的事",
+        "text": "巧克力和痘痘有小型研究訊號;痘印不等於全身變黑。"
+      },
+      {
+        "head": "真正會變深的原因",
+        "text": "日曬、遺傳、荷爾蒙、皮膚發炎、部分藥物。"
+      }
+    ],
+    "callout": [
+      "怕變黑:**先做好防曬,治療痘痘和皮膚發炎**",
+      "醫師因用藥或手術要你少喝咖啡:**先照做,問清楚原因**"
+    ],
+    "sources": "資料來源:Fukushima Y, et al. CCID 2020;Shi Y, et al. J Cosmet Dermatol 2025;Heinrich U, et al. J Nutr 2006;Williams S, et al. J Cosmet Dermatol 2009;Mogollon JA, et al. Nutr J 2014;Vongraviopap S, et al. Int J Dermatol 2016。"
   }
 ]
