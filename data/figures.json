@@ -1861,5 +1861,43 @@
       "醫師因用藥或手術要你少喝咖啡:**先照做,問清楚原因**"
     ],
     "sources": "資料來源:Fukushima Y, et al. CCID 2020;Shi Y, et al. J Cosmet Dermatol 2025;Heinrich U, et al. J Nutr 2006;Williams S, et al. J Cosmet Dermatol 2009;Mogollon JA, et al. Nutr J 2014;Vongraviopap S, et al. Int J Dermatol 2016。"
+  },
+  {
+    "name": "familial-hypercholesterolemia",
+    "template": "checklist",
+    "tagline": "膽固醇 · 遺傳",
+    "title": "家族性高膽固醇血症\n什麼人要懷疑?怎麼治療?",
+    "subtitle": "全球研究估計約每 310 人 1 人,很多人不知道自己有",
+    "items": [
+      {
+        "head": "沒吃藥時壞膽固醇 190 以上",
+        "text": "要重複驗血,排除其他原因;低於 190 也不能排除,孩子標準更低。"
+      },
+      {
+        "head": "家族史",
+        "text": "一等親有這個病,或很年輕就心肌梗塞(台灣標準:男 45 歲、女 55 歲前)。"
+      },
+      {
+        "head": "身體線索",
+        "text": "肌腱黃色瘤、45 歲前的角膜環;沒有也不能排除。"
+      },
+      {
+        "head": "瘦、吃素、運動不能排除",
+        "text": "這是遺傳,單靠飲食通常不夠。"
+      },
+      {
+        "head": "治療一步一步加",
+        "text": "史他汀 → ezetimibe → 針劑;同合子要到專科中心。"
+      },
+      {
+        "head": "早治療差很多",
+        "text": "從小用藥的孩子到 39 歲心血管事件 1%,父母輩 26%(跨世代觀察)。"
+      }
+    ],
+    "callout": [
+      "一人確診:**爸媽、兄弟姊妹、孩子都要檢查**",
+      "正在吃藥:**不要自己停藥重驗,帶舊報告給醫師**"
+    ],
+    "sources": "資料來源:Beheshti SO, et al. JACC 2020;Luirink IK, et al. NEJM 2019;2017 台灣高風險血脂指引;2025 台灣血脂路徑;2026 ACC/AHA 指引。"
   }
 ]
