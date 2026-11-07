@@ -60,6 +60,9 @@
             "post": "glp1-switching"
           },
           {
+            "post": "wegovy-to-mounjaro"
+          },
+          {
             "post": "glp1-stopping"
           }
         ]
