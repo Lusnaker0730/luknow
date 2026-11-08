@@ -311,6 +311,9 @@
         "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
         "items": [
           {
+            "post": "optimal-diabetes-bp"
+          },
+          {
             "post": "elderly-bp-guideline-2026"
           },
           {
@@ -333,6 +336,7 @@
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
         "videos": [
+          "optimal-diabetes-bp",
           "elderly-bp-guideline-2026",
           "pregnancy-bp",
           "urine-albumin-heart",
