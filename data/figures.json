@@ -2080,5 +2080,43 @@
       "可以考慮停:**嚴重衰弱、晚期疾病、預期壽命有限,依照護目標一起決定**"
     ],
     "sources": "資料來源:Rodondi N, et al. NEJM 2026;Bonnet F, et al. Lancet Healthy Longev 2026。"
+  },
+  {
+    "name": "lpa-horizon-full",
+    "template": "checklist",
+    "tagline": "膽固醇 · 脂蛋白(a)",
+    "title": "脂蛋白(a) 降了近八成\n心血管事件沒有減少",
+    "subtitle": "Lp(a)HORIZON 試驗(NEJM 2026):8,322 位已有心血管疾病、脂蛋白(a) 偏高的人",
+    "items": [
+      {
+        "head": "一年後降了 78%",
+        "text": "每月打一次 pelacarsen,脂蛋白(a) 中位數從約 236 降到 64 nmol/L。"
+      },
+      {
+        "head": "主要事件:12.3% 對 12.1%",
+        "text": "藥物 對 安慰劑,追蹤中位數 4.7 年,沒有看到減少。"
+      },
+      {
+        "head": "延伸分析也沒看到好處",
+        "text": "持續用藥、降得多、各種次族群,都沒有明確效益(探索性分析)。"
+      },
+      {
+        "head": "副作用比較多",
+        "text": "類流感反應 32% 對 6%,注射部位反應 26% 對 3%,因副作用停藥 21% 對 8%。"
+      },
+      {
+        "head": "其他新藥還在等",
+        "text": "olpasiran、lepodisiran、muvalaplin 的結果試驗進行中,尚未公布。"
+      },
+      {
+        "head": "偏高的人現在怎麼做",
+        "text": "把壞膽固醇、血壓、血糖、菸顧好;不要買保健品降數字。"
+      }
+    ],
+    "callout": [
+      "成人至少驗一次:**脂蛋白(a) 仍是有用的風險指標**",
+      "已有心臟病:**照醫師開的藥規律吃,不要自己停**"
+    ],
+    "sources": "資料來源:Cho L, et al. NEJM 2026;Nissen SE, et al. NEJM Evidence 2026。"
   }
 ]
