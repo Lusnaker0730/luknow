@@ -1,5 +1,13 @@
 [
   {
+    "href": "posts/optimal-stroke-bp.html",
+    "tagCls": "news",
+    "tagLabel": "醫療新知",
+    "title": "中風過,血壓要降到 120 以下嗎?OPTIMAL-STROKE 試驗的結果與實際做法",
+    "subtitle": "NEJM 2026:4,368 位曾腦梗塞或暫時性腦缺血的人,收縮壓目標低於 120 對低於 140,主要心血管事件 10.9% 對 13.5%,腎臟事件 3.9% 對 2.2%。慢性期先到低於 130/80,要不要再往下和醫師討論。",
+    "date": "2026-11-09"
+  },
+  {
     "href": "posts/zeus-full.html",
     "tagCls": "news",
     "tagLabel": "醫療新知",
