@@ -315,6 +315,9 @@
         "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
         "items": [
           {
+            "post": "optimal-stroke-bp"
+          },
+          {
             "post": "optimal-diabetes-bp"
           },
           {
