@@ -87,6 +87,7 @@
         "title": "最新研究與專家觀點",
         "desc": "減重之外,瘦瘦針對睡眠呼吸中止、心臟、發炎、失智、皮膚的研究進展。",
         "items": [
+          {"post": "glp1-knee-oa"},
           {"post": "glp1-pmos"},
           {"post": "fatty-liver-fibrosis"},
           {
