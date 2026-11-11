@@ -2308,5 +2308,43 @@
       "**突然出現就打 119,不要等門診**"
     ],
     "sources": "資料來源:國民健康署;AHA/ASA;Amin HP, et al. Stroke 2023。"
+  },
+  {
+    "name": "glp1-knee-oa",
+    "template": "checklist",
+    "tagline": "瘦瘦針 · 膝關節退化",
+    "title": "瘦瘦針減重\n能改善膝蓋痛嗎?",
+    "subtitle": "TRIUMPH-4、TRIUMPH-1-OA(NEJM 2026);STEP 9(NEJM 2024)",
+    "items": [
+      {
+        "head": "減重約 14% 到 25%",
+        "text": "依藥物、劑量和試驗而不同;安慰劑約 3% 到 5%。"
+      },
+      {
+        "head": "膝蓋疼痛比安慰劑多改善",
+        "text": "retatrutide:約六到七成疼痛減半,安慰劑約四成。"
+      },
+      {
+        "head": "安慰劑組也改善三到四成",
+        "text": "看的是打藥組多出來的那一段。"
+      },
+      {
+        "head": "還沒證明的事",
+        "text": "延緩關節退化、減少換人工關節。"
+      },
+      {
+        "head": "基本功不能省",
+        "text": "減重 5% 到 10%,加上運動和肌力訓練。"
+      },
+      {
+        "head": "用藥要和醫師討論",
+        "text": "週纖達自費;retatrutide 未上市,別買來路不明的針。"
+      }
+    ],
+    "callout": [
+      "膝關節退化不是瘦瘦針的核准適應症",
+      "**甲狀腺髓質癌家族史等禁忌,先告訴醫師**"
+    ],
+    "sources": "資料來源:Schnitzer TJ, et al. NEJM 2026;Bliddal H, et al. NEJM 2024。"
   }
 ]
