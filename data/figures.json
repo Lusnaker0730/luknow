@@ -1,5 +1,43 @@
 [
   {
+    "name": "hair-loss-minoxidil",
+    "template": "checklist",
+    "tagline": "掉髮 · 生髮藥",
+    "title": "頭髮一直掉\n先分清楚是哪一種",
+    "subtitle": "休止期落髮多會長回來;雄性禿越早治療越好",
+    "items": [
+      {
+        "head": "突然掉很多:休止期落髮",
+        "text": "大病、生產、確診、急速減重後兩三個月出現;原因解除後多會長回來。"
+      },
+      {
+        "head": "慢慢變稀:雄性禿",
+        "text": "男性額角、頭頂;女性分線變寬。越早治療越能保住。"
+      },
+      {
+        "head": "擦的落建(minoxidil)",
+        "text": "藥局指示藥,4 到 6 個月先評估,要長期用。"
+      },
+      {
+        "head": "男性柔沛(finasteride)",
+        "text": "處方藥,每天一次;孕婦不可碰觸破碎藥錠。"
+      },
+      {
+        "head": "口服 minoxidil 是降血壓藥",
+        "text": "試驗未證明比擦的好;常見毛變多,少數水腫、心跳快。"
+      },
+      {
+        "head": "這些人不適合口服",
+        "text": "心臟衰竭、心包膜積水或心包膜炎病史、懷孕哺乳。"
+      }
+    ],
+    "callout": [
+      "迷迭香油、居家滾針證據弱或不建議",
+      "**吃口服生髮藥後胸痛、很喘、昏倒,立即就醫**"
+    ],
+    "sources": "資料來源:Penha MA, et al. JAMA Dermatol 2024;Akiska YM, et al. JAMA Dermatol 2025;歐洲 S3 指引。"
+  },
+  {
     "name": "fish-oil-label",
     "template": "checklist",
     "title": "買魚油,標籤看這 5 點",
