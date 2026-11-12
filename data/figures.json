@@ -1,5 +1,43 @@
 [
   {
+    "name": "zoster-vaccine-dementia",
+    "template": "checklist",
+    "tagline": "皮蛇 · 失智",
+    "title": "皮蛇疫苗\n可能有額外好處",
+    "subtitle": "防失智還沒有隨機試驗證實,但疫苗本身值得打",
+    "items": [
+      {
+        "head": "皰疹病毒會躲在神經裡",
+        "text": "水痘病毒再活化就是皮蛇;研究懷疑反覆活化和失智有關。"
+      },
+      {
+        "head": "威爾斯自然實驗",
+        "text": "打疫苗的人 7 年內失智診斷少 3.5 個百分點,相對少約兩成。"
+      },
+      {
+        "head": "新型重組疫苗也有類似訊號",
+        "text": "和舊型疫苗比,沒被診斷失智的時間多 17%。"
+      },
+      {
+        "head": "還不是定論",
+        "text": "隨機試驗進行中;效果大小有學者質疑。"
+      },
+      {
+        "head": "抗病毒藥不能防失智",
+        "text": "早期阿茲海默症試驗中,吃藥組認知退步反而較多。"
+      },
+      {
+        "head": "誰該打",
+        "text": "50 歲以上、18 歲以上免疫低下:2 劑,間隔 2 到 6 個月。"
+      }
+    ],
+    "callout": [
+      "預防皮蛇的效果約九成,本來就值得打",
+      "**不要只為防失智去打,也不要因爭議而不打**"
+    ],
+    "sources": "資料來源:Eyting M, et al. Nature 2025;Taquet M, et al. Nat Med 2024;Devanand DP, et al. JAMA 2026;疾管署。"
+  },
+  {
     "name": "hair-loss-minoxidil",
     "template": "checklist",
     "tagline": "掉髮 · 生髮藥",
