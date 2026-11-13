@@ -2422,5 +2422,43 @@
       "**甲狀腺髓質癌家族史等禁忌,先告訴醫師**"
     ],
     "sources": "資料來源:Schnitzer TJ, et al. NEJM 2026;Bliddal H, et al. NEJM 2024。"
+  },
+  {
+    "name": "dementia-prevention",
+    "template": "checklist",
+    "tagline": "失智 · 預防",
+    "title": "預防失智\n顧心臟也是顧大腦",
+    "subtitle": "約 45% 的失智和 14 個可改變的風險因子有關",
+    "items": [
+      {
+        "head": "血壓控制好",
+        "text": "3 萬多人的試驗:積極降壓,失智相對風險少 15%。"
+      },
+      {
+        "head": "驗血脂、控血糖、戒菸、少喝酒",
+        "text": "中年壞膽固醇偏高是占比最大的因子之一。"
+      },
+      {
+        "head": "規律運動",
+        "text": "每週至少 150 分鐘中等強度,加 2 天肌力訓練。"
+      },
+      {
+        "head": "聽力、視力有問題就處理",
+        "text": "聽力損失是占比最大的因子之一,需要就戴助聽器。"
+      },
+      {
+        "head": "睡好、顧心情、多社交",
+        "text": "中年每晚睡 6 小時以下,之後失智風險較高。"
+      },
+      {
+        "head": "沒有神奇藥丸",
+        "text": "保健品、阿斯匹靈都沒證實能預防失智;沒症狀不必抽血驗阿茲海默。"
+      }
+    ],
+    "callout": [
+      "基因和家族史會提高風險,但不決定命運",
+      "**從最容易的一兩項開始,中年就要開始顧**"
+    ],
+    "sources": "資料來源:Livingston G, et al. Lancet 2024;He J, et al. Nat Med 2025;Baker LD, et al. JAMA 2025;Sabia S, et al. Nat Commun 2021。"
   }
 ]
