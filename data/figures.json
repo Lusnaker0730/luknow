@@ -2498,5 +2498,43 @@
       "**心悸常發作,24 小時心電圖可以抓發作當下的心律**"
     ],
     "sources": "資料來源:Chung TH, Raj SR. JAMA 2026;Raj SR, et al. Can J Cardiol 2020;Freeman R, et al. Clin Auton Res 2011;Ricci F, et al. Eur Heart J 2015。"
+  },
+  {
+    "name": "hpylori-gastric-cancer",
+    "template": "checklist",
+    "tagline": "胃癌 · 幽門桿菌",
+    "title": "殺掉幽門桿菌\n就不會得胃癌嗎?",
+    "subtitle": "可以降低風險,但不是歸零",
+    "items": [
+      {
+        "head": "胃癌約八到九成和它有關",
+        "text": "台灣成人約三成感染,多數沒有症狀。"
+      },
+      {
+        "head": "殺菌:胃癌相對風險約少一半",
+        "text": "7 個隨機試驗合併,相對風險 0.54(Cochrane 2020)。"
+      },
+      {
+        "head": "越早越好",
+        "text": "最好在胃黏膜萎縮、腸化生之前;已有病變殺菌仍有好處。"
+      },
+      {
+        "head": "45–74 歲公費糞便檢測",
+        "text": "終身一次,可和大腸癌篩檢同一次採便。"
+      },
+      {
+        "head": "陽性:除菌 + 複驗",
+        "text": "依醫囑吃完藥,結束後至少 4 週複驗確認成功。"
+      },
+      {
+        "head": "殺完還要照胃鏡嗎",
+        "text": "有萎縮、腸化生、家族史或切除過早期胃癌:依醫師追蹤。"
+      }
+    ],
+    "callout": [
+      "糞便檢測是驗感染,不是驗胃癌",
+      "**體重減輕、黑便、吞嚥困難、貧血:直接看腸胃科**"
+    ],
+    "sources": "資料來源:衛福部國健署 2026;Ford AC, et al. Cochrane 2020;Choi IJ, et al. NEJM 2018, 2020;Liou JM, et al. Gut 2025。"
   }
 ]
