@@ -1,5 +1,13 @@
 [
   {
+    "href": "posts/hpylori-gastric-cancer.html",
+    "tagCls": "news",
+    "tagLabel": "醫療新知",
+    "title": "國健署糞便抗原檢測胃幽門螺旋桿菌,我應該做嗎?",
+    "subtitle": "幽門螺旋桿菌與胃癌的關係。2026 年起 45 到 74 歲有終身一次公費糞便檢測;隨機試驗顯示殺菌能讓胃癌的相對風險約少一半,但不是歸零。這篇整理證據、誰該驗、陽性怎麼除菌與複驗,以及殺完還要不要照胃鏡。",
+    "date": "2026-11-14"
+  },
+  {
     "href": "posts/dysautonomia.html",
     "tagCls": "news",
     "tagLabel": "醫療新知",
