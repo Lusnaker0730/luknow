@@ -2536,5 +2536,43 @@
       "**體重減輕、黑便、吞嚥困難、貧血:直接看腸胃科**"
     ],
     "sources": "資料來源:衛福部國健署 2026;Ford AC, et al. Cochrane 2020;Choi IJ, et al. NEJM 2018, 2020;Liou JM, et al. Gut 2025。"
+  },
+  {
+    "name": "bariatric-vs-glp1-lean-mass",
+    "template": "checklist",
+    "tagline": "減重 · 肌肉",
+    "title": "減重手術 vs 瘦瘦針\n瘦的是油還是肌肉?",
+    "subtitle": "兩種都主要減脂肪,也都會掉一些瘦體重",
+    "items": [
+      {
+        "head": "手術瘦得多,掉的公斤數也多",
+        "text": "一年脂肪減約一半;瘦體重也掉得比藥物多。"
+      },
+      {
+        "head": "比例上,無法判定誰較保肌肉",
+        "text": "都是間接比較,研究差異大(Obes Surg 2026)。"
+      },
+      {
+        "head": "藥物:瘦掉的約 1/4 到 4 成是瘦體重",
+        "text": "脂肪掉更多,身體瘦體重占比反而上升。"
+      },
+      {
+        "head": "女性較容易掉去脂體重",
+        "text": "美國 3,066 人追蹤兩年,男性保存得較好。"
+      },
+      {
+        "head": "蛋白質吃夠",
+        "text": "減重期間可考慮每公斤 1.2–1.6 公克;腎功能差先問醫師。"
+      },
+      {
+        "head": "肌力訓練",
+        "text": "每週至少 2 天練大肌群,循序增加負荷。"
+      }
+    ],
+    "callout": [
+      "瘦體重不等於肌肉,量減少也不代表功能一定變差",
+      "**年長、衰弱者:治療前後評估肌力與走路速度**"
+    ],
+    "sources": "資料來源:Urbina J, et al. Obes Surg 2026;Wang Z, et al. JAMA Netw Open 2026;Look M, et al. Diabetes Obes Metab 2025;Mozaffarian D, et al. Obes Pillars 2025。"
   }
 ]
