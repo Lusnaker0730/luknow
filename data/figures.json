@@ -2574,5 +2574,43 @@
       "**年長、衰弱者:治療前後評估肌力與走路速度**"
     ],
     "sources": "資料來源:Urbina J, et al. Obes Surg 2026;Wang Z, et al. JAMA Netw Open 2026;Look M, et al. Diabetes Obes Metab 2025;Mozaffarian D, et al. Obes Pillars 2025。"
+  },
+  {
+    "name": "microplastics-cancer",
+    "template": "checklist",
+    "tagline": "環境 · 健康",
+    "title": "塑膠微粒、塑化劑\n會傷身嗎?",
+    "subtitle": "多是觀察性研究,但方向一致:能少就少",
+    "items": [
+      {
+        "head": "腫瘤組織裡驗得到",
+        "text": "攝護腺、大腸、肺、乳房都有研究報告。"
+      },
+      {
+        "head": "實驗:氧化壓力、DNA 損傷、發炎",
+        "text": "和癌症有關的可能途徑。"
+      },
+      {
+        "head": "斑塊有塑膠:心血管事件較多",
+        "text": "約 3 年 20.0% vs 7.5%(NEJM 2024)。"
+      },
+      {
+        "head": "微波改用玻璃、陶瓷",
+        "text": "熱的、油的食物不裝塑膠袋、塑膠杯。"
+      },
+      {
+        "head": "塑膠砧板換木頭",
+        "text": "切菜也會掉塑膠屑。"
+      },
+      {
+        "head": "多吃新鮮、少吃包裝加工品",
+        "text": "3 天:尿中雙酚 A −66%(20 人小型研究)。"
+      }
+    ],
+    "callout": [
+      "常擦拭打掃,減少灰塵裡的塑膠纖維",
+      "**寶寶奶瓶可選玻璃,但消毒照常**"
+    ],
+    "sources": "資料來源:Vasilopoulou MA, et al. Int J Mol Med 2026;Marfella R, et al. N Engl J Med 2024;Yadav H, et al. Environ Sci Technol 2023;Rudel RA, et al. Environ Health Perspect 2011。"
   }
 ]
