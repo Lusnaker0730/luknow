@@ -2578,39 +2578,39 @@
   {
     "name": "microplastics-cancer",
     "template": "checklist",
-    "tagline": "環境 · 癌症",
-    "title": "塑膠微粒\n會致癌嗎?",
-    "subtitle": "驗得到不等於是它造成的,目前證據還不夠",
+    "tagline": "環境 · 健康",
+    "title": "塑膠微粒、塑化劑\n會傷身嗎?",
+    "subtitle": "多是觀察性研究,但方向一致:能少就少",
     "items": [
       {
         "head": "腫瘤組織裡驗得到",
-        "text": "攝護腺、大腸、肺、乳房都有報告,但樣本小、只測一次。"
+        "text": "攝護腺、大腸、肺、乳房都有研究報告。"
       },
       {
-        "head": "實驗室看到可能機轉",
-        "text": "氧化壓力、DNA 損傷、發炎;劑量和型態與人體不同。"
+        "head": "實驗:氧化壓力、DNA 損傷、發炎",
+        "text": "和癌症有關的可能途徑。"
       },
       {
-        "head": "人體研究:有關聯,未確認因果",
-        "text": "多為病例對照或用居住地推估暴露(UK Biobank 2026)。"
+        "head": "斑塊有塑膠:心血管事件較多",
+        "text": "約 3 年 20.0% vs 7.5%(NEJM 2024)。"
       },
       {
-        "head": "檢測方法有爭議",
-        "text": "富含脂肪的組織可能被高估,不同實驗室數字難比較。"
+        "head": "微波改用玻璃、陶瓷",
+        "text": "熱的、油的食物不裝塑膠袋、塑膠杯。"
       },
       {
-        "head": "能少就少",
-        "text": "微波用玻璃、陶瓷;熱食少用塑膠袋、塑膠杯。"
+        "head": "塑膠砧板換木頭",
+        "text": "切菜也會掉塑膠屑。"
       },
       {
-        "head": "防癌先顧大事",
-        "text": "戒菸、少酒、不嚼檳榔、控制體重、依建議篩檢。"
+        "head": "多吃新鮮、少吃包裝加工品",
+        "text": "3 天:尿中雙酚 A −66%(20 人小型研究)。"
       }
     ],
     "callout": [
-      "WHO、IARC:證據不足以判斷,但不等於證實無害",
-      "**奶瓶仍要照常消毒,不要為了避塑膠而省略**"
+      "常擦拭打掃,減少灰塵裡的塑膠纖維",
+      "**寶寶奶瓶可選玻璃,但消毒照常**"
     ],
-    "sources": "資料來源:Vasilopoulou MA, et al. Int J Mol Med 2026;You S, et al. Cancer Control 2026;Liu X, et al. Int J Surg 2025;WHO 2022。"
+    "sources": "資料來源:Vasilopoulou MA, et al. Int J Mol Med 2026;Marfella R, et al. N Engl J Med 2024;Yadav H, et al. Environ Sci Technol 2023;Rudel RA, et al. Environ Health Perspect 2011。"
   }
 ]
