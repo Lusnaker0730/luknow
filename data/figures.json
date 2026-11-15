@@ -2574,5 +2574,43 @@
       "**年長、衰弱者:治療前後評估肌力與走路速度**"
     ],
     "sources": "資料來源:Urbina J, et al. Obes Surg 2026;Wang Z, et al. JAMA Netw Open 2026;Look M, et al. Diabetes Obes Metab 2025;Mozaffarian D, et al. Obes Pillars 2025。"
+  },
+  {
+    "name": "microplastics-cancer",
+    "template": "checklist",
+    "tagline": "環境 · 癌症",
+    "title": "塑膠微粒\n會致癌嗎?",
+    "subtitle": "驗得到不等於是它造成的,目前證據還不夠",
+    "items": [
+      {
+        "head": "腫瘤組織裡驗得到",
+        "text": "攝護腺、大腸、肺、乳房都有報告,但樣本小、只測一次。"
+      },
+      {
+        "head": "實驗室看到可能機轉",
+        "text": "氧化壓力、DNA 損傷、發炎;劑量和型態與人體不同。"
+      },
+      {
+        "head": "人體研究:有關聯,未確認因果",
+        "text": "多為病例對照或用居住地推估暴露(UK Biobank 2026)。"
+      },
+      {
+        "head": "檢測方法有爭議",
+        "text": "富含脂肪的組織可能被高估,不同實驗室數字難比較。"
+      },
+      {
+        "head": "能少就少",
+        "text": "微波用玻璃、陶瓷;熱食少用塑膠袋、塑膠杯。"
+      },
+      {
+        "head": "防癌先顧大事",
+        "text": "戒菸、少酒、不嚼檳榔、控制體重、依建議篩檢。"
+      }
+    ],
+    "callout": [
+      "WHO、IARC:證據不足以判斷,但不等於證實無害",
+      "**奶瓶仍要照常消毒,不要為了避塑膠而省略**"
+    ],
+    "sources": "資料來源:Vasilopoulou MA, et al. Int J Mol Med 2026;You S, et al. Cancer Control 2026;Liu X, et al. Int J Surg 2025;WHO 2022。"
   }
 ]
