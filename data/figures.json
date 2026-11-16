@@ -2612,5 +2612,43 @@
       "**寶寶奶瓶可選玻璃,但消毒照常**"
     ],
     "sources": "資料來源:Vasilopoulou MA, et al. Int J Mol Med 2026;Marfella R, et al. N Engl J Med 2024;Yadav H, et al. Environ Sci Technol 2023;Rudel RA, et al. Environ Health Perspect 2011。"
+  },
+  {
+    "name": "early-onset-crc-obesity",
+    "template": "checklist",
+    "tagline": "大腸癌 · 肥胖",
+    "title": "50 歲前得大腸癌\n和肥胖有關嗎?",
+    "subtitle": "早發型大腸癌在增加,肥胖是可改變的危險因子",
+    "items": [
+      {
+        "head": "年輕病人變多",
+        "text": "美國 55 歲以下占比:11% → 20%(1995–2019)。"
+      },
+      {
+        "head": "肥胖風險約 1.5–1.9 倍",
+        "text": "多篇統合分析;年輕時偏重、成年後增重多也較高。"
+      },
+      {
+        "head": "家族史更要注意",
+        "text": "一等親有大腸癌,風險約 4.2 倍,篩檢要提早。"
+      },
+      {
+        "head": "警訊症狀別拖",
+        "text": "血便、腹痛、排便習慣改變、缺鐵性貧血。"
+      },
+      {
+        "head": "公費篩檢(2025 起)",
+        "text": "45–74 歲;40–44 歲一等親家族史,每 2 年 1 次。"
+      },
+      {
+        "head": "日常怎麼做",
+        "text": "健康體重、不喝酒不吸菸、多纖維少加工肉、多動。"
+      }
+    ],
+    "callout": [
+      "有症狀不是篩檢,要直接就醫",
+      "**糞便潛血陽性,一定要做大腸鏡**"
+    ],
+    "sources": "資料來源:Liu J, et al. Int J Cancer 2026;Siegel RL, et al. CA Cancer J Clin 2023;Li H, et al. Am J Gastroenterol 2021;Liu PH, et al. JAMA Oncol 2019;國民健康署。"
   }
 ]
