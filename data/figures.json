@@ -1,5 +1,43 @@
 [
   {
+    "name": "kids-glp1-semaglutide",
+    "template": "checklist",
+    "tagline": "兒童肥胖 · 瘦瘦針",
+    "title": "小孩能不能\n打瘦瘦針?",
+    "subtitle": "6 到 12 歲兒童的新試驗,與台灣目前的規定",
+    "items": [
+      {
+        "head": "台灣:12 歲以上才核准",
+        "text": "週纖達(semaglutide)、善纖達(liraglutide);肥胖且體重超過 60 公斤。"
+      },
+      {
+        "head": "6–12 歲新試驗",
+        "text": "BMI 降 13.5% vs 升 2.7%;38% 降到肥胖標準以下。"
+      },
+      {
+        "head": "最常見副作用",
+        "text": "嘔吐、腹瀉、噁心,多在加劑量期間。"
+      },
+      {
+        "head": "長高、發育",
+        "text": "打藥組 2 年長高較少(8.8 vs 12.1 公分);發育、骨齡兩組相近。"
+      },
+      {
+        "head": "停藥會回升",
+        "text": "兒童肥胖是慢性病,停藥要有維持計畫。"
+      },
+      {
+        "head": "全家一起改",
+        "text": "少含糖飲料、多活動、睡飽、少螢幕。"
+      }
+    ],
+    "callout": [
+      "藥物是輔助,不是取代生活習慣",
+      "**要不要用藥,請找兒科醫師評估**"
+    ],
+    "sources": "資料來源:Jastreboff AM, et al. NEJM 2026(STEP Young);Weghuber D, et al. NEJM 2022(STEP TEENS);Fox CK, et al. NEJM 2025;衛福部食藥署仿單。"
+  },
+  {
     "name": "zoster-vaccine-dementia",
     "template": "checklist",
     "tagline": "皮蛇 · 失智",

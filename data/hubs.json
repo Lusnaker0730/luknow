@@ -17,6 +17,9 @@
             "desc": "GLP-1 與猛健樂怎麼分類、差在哪裡、減重效果、心血管好處與注意事項。"
           },
           {
+            "post": "kids-glp1-semaglutide"
+          },
+          {
             "post": "mounjaro-vs-wegovy"
           },
           {
@@ -74,6 +77,7 @@
         "title": "衛教短影音",
         "desc": "兩分鐘看懂重點,可以直接播放。",
         "videos": [
+          "kids-glp1-semaglutide",
           "glp1-knee-oa",
           "wegovy-to-mounjaro",
           "glp1-pmos",
