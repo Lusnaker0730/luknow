@@ -1,5 +1,43 @@
 [
   {
+    "name": "nr-parkinson-nopark",
+    "template": "checklist",
+    "tagline": "抗老保健品 · 帕金森氏症",
+    "title": "抗老保健品 NR\n治帕金森氏症?",
+    "subtitle": "JAMA 第三期 NOPARK 試驗:410 人吃一年",
+    "items": [
+      {
+        "head": "NR 是什麼",
+        "text": "菸鹼醯胺核糖(nicotinamide riboside),製造 NAD+ 的原料。"
+      },
+      {
+        "head": "沒有比較好",
+        "text": "一年後總評分 +2.45 vs −0.27,差 2.72 分。"
+      },
+      {
+        "head": "差距不大,方向不利",
+        "text": "低於病人有感的參考值 5.2 分,但次群組方向一致。"
+      },
+      {
+        "head": "血液上升 ≠ 病變好",
+        "text": "血液 NAD 明顯上升,腦中 NAD 沒看到差異。"
+      },
+      {
+        "head": "嚴重不良事件沒有比較多",
+        "text": "8.3% vs 14.1%;高血壓、葉酸不足數字較多。"
+      },
+      {
+        "head": "健康的人呢",
+        "text": "不能直接套用,但也還沒有證據能延緩老化。"
+      }
+    ],
+    "callout": [
+      "有帕金森氏症,不要自己加吃 NR",
+      "**想吃保健品,先問醫師**"
+    ],
+    "sources": "資料來源:Brakedal B, et al. JAMA 2026(NOPARK);Brakedal B, et al. Cell Metab 2022;Damgaard MV, et al. Sci Adv 2023;衛福部食藥署。"
+  },
+  {
     "name": "kids-glp1-semaglutide",
     "template": "checklist",
     "tagline": "兒童肥胖 · 瘦瘦針",
