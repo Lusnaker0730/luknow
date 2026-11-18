@@ -1,5 +1,43 @@
 [
   {
+    "name": "lean-fatty-liver",
+    "template": "checklist",
+    "tagline": "脂肪肝 · 肝纖維化",
+    "title": "不胖也會脂肪肝\n瘦子比較沒關係嗎?",
+    "subtitle": "JAMA 2026:41 國、18,326 名切片確診病人",
+    "items": [
+      {
+        "head": "瘦型:亞洲 BMI < 23",
+        "text": "約占 6.7%,亞洲最多約 11%。"
+      },
+      {
+        "head": "纖維化平均較輕",
+        "text": "晚期纖維化 29% vs 37%,瘦型仍近 3 成。"
+      },
+      {
+        "head": "風險沒有顯著較低",
+        "text": "死亡率每 100 人年 1.08 vs 0.91,調整後無差異。"
+      },
+      {
+        "head": "關鍵是纖維化",
+        "text": "晚期纖維化:死亡約 2.1 倍、臨床事件約 3.4 倍。"
+      },
+      {
+        "head": "檢查方式",
+        "text": "瘦的人 FIB-4 易誤報偏高;彈性檢查區辨較好。"
+      },
+      {
+        "head": "生活習慣",
+        "text": "減重 3–5%、少含糖飲料;肌少症重肌力與營養。"
+      }
+    ],
+    "callout": [
+      "不胖,不代表脂肪肝比較安全",
+      "**評估纖維化,才是重點**"
+    ],
+    "sources": "資料來源:de Avila L, et al. JAMA 2026;Long MT, et al. Gastroenterology 2022(美國腸胃科醫學會)。"
+  },
+  {
     "name": "nr-parkinson-nopark",
     "template": "checklist",
     "tagline": "抗老保健品 · 帕金森氏症",
