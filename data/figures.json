@@ -2802,5 +2802,43 @@
       "**順便檢查血壓、血脂、血糖**"
     ],
     "sources": "資料來源:Castelo-Branco C, et al. Gynecol Endocrinol 2026(歐洲婦科學會);北美更年期學會 Menopause 2023。"
+  },
+  {
+    "name": "tmao-heart",
+    "template": "checklist",
+    "tagline": "TMAO · 心血管",
+    "title": "TMAO 是心臟病新兇手?\n最新研究怎麼說",
+    "subtitle": "腸道細菌分解膽鹼、肉鹼後的產物",
+    "items": [
+      {
+        "head": "怎麼來的",
+        "text": "膽鹼、肉鹼 → 腸道細菌 → 肝臟 → TMAO,靠腎臟排出。"
+      },
+      {
+        "head": "食物",
+        "text": "紅肉 4 週 TMAO 升到 2 倍以上;吃魚濃度最高;每天 4 顆蛋未顯著升高。"
+      },
+      {
+        "head": "2013 年",
+        "text": "最高 vs 最低四分之一:未調整 2.54 倍,調整後 1.43 倍。"
+      },
+      {
+        "head": "關聯被高估",
+        "text": "2026 統合分析:多 20%,校正可能的發表偏誤後不到 1 成。"
+      },
+      {
+        "head": "腎功能是關鍵",
+        "text": "一般族群調整腎功能後,關聯不顯著;基因研究未找到因果證據。"
+      },
+      {
+        "head": "不建議自費驗",
+        "text": "沒有公認正常值,降下來也沒證據能護心。"
+      }
+    ],
+    "callout": [
+      "魚照常吃,蛋不用因 TMAO 不敢吃",
+      "**少吃紅肉、避開加工肉;先顧好血壓、血脂、血糖、腎功能**"
+    ],
+    "sources": "資料來源:Tang WHW, et al. NEJM 2013;Budoff MJ, et al. Sci Rep 2025;Obeid R, et al. Nutr Metab 2026。"
   }
 ]
