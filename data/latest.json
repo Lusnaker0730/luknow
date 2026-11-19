@@ -1,5 +1,13 @@
 [
   {
+    "href": "posts/tmao-heart.html",
+    "tagCls": "news",
+    "tagLabel": "醫療新知",
+    "title": "TMAO 是心臟病新兇手?吃蛋、紅肉、魚要擔心嗎?最新研究怎麼說",
+    "subtitle": "TMAO 是腸道細菌分解膽鹼、肉鹼後產生的物質。2013 年研究發現它高的人心血管事件較多,但 2026 年統合分析認為關聯被高估,腎功能是重要干擾因素,基因研究也沒找到因果證據。不建議自費驗 TMAO,魚照常吃,少吃紅肉、避開加工肉的理由不是 TMAO。",
+    "date": "2026-11-19"
+  },
+  {
     "href": "posts/menopause-nonhormonal.html",
     "tagCls": "news",
     "tagLabel": "醫療新知",

@@ -1,5 +1,15 @@
 [
  {
+  "slug": "tmao-heart",
+  "title": "TMAO 是心臟病新兇手?吃蛋、紅肉、魚要擔心嗎?",
+  "desc": "2013 年研究讓 TMAO 爆紅,但一般民眾調整腎功能後關聯不顯著,2026 統合分析認為被高估;不建議自費驗,魚照吃,少吃紅肉、避開加工肉。",
+  "date": "2026-11-19",
+  "duration": "2:30",
+  "article": "posts/tmao-heart.html",
+  "articleLabel": "完整衛教",
+  "youtube": "fGwTDaoUdpc"
+ },
+ {
   "slug": "lean-fatty-liver",
   "title": "不胖也會脂肪肝:瘦子的脂肪肝比較沒關係嗎?",
   "desc": "JAMA 41 國切片研究:瘦型纖維化較輕,但風險沒有顯著較低;和預後最相關的是纖維化;瘦的人 FIB-4 易誤報偏高,彈性檢查較好。",
