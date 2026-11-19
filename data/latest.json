@@ -1,5 +1,13 @@
 [
   {
+    "href": "posts/glp1-naion.html",
+    "tagCls": "news",
+    "tagLabel": "醫療新知",
+    "title": "打瘦瘦針會失明嗎?FDA 要求 GLP-1 藥物加註視神經缺血(NAION)風險",
+    "subtitle": "FDA 2026/11/9 要求所有 GLP-1 類藥物仿單加註 NAION 風險:126 個試驗中每 10 萬人年 6.4 vs 3.8 例,只有 15 例、估計不確定,因果未證實。不要自己停藥;單眼突然、不痛的視力變差要立即就醫。台灣含 semaglutide 藥品仿單規定確診應停藥。",
+    "date": "2026-11-19"
+  },
+  {
     "href": "posts/tmao-heart.html",
     "tagCls": "news",
     "tagLabel": "醫療新知",
