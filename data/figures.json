@@ -2764,5 +2764,43 @@
       "**糞便潛血陽性,一定要做大腸鏡**"
     ],
     "sources": "資料來源:Liu J, et al. Int J Cancer 2026;Siegel RL, et al. CA Cancer J Clin 2023;Li H, et al. Am J Gastroenterol 2021;Liu PH, et al. JAMA Oncol 2019;國民健康署。"
+  },
+  {
+    "name": "menopause-nonhormonal",
+    "template": "checklist",
+    "tagline": "更年期 · 熱潮紅",
+    "title": "熱潮紅不想吃荷爾蒙\n還有哪些選擇?",
+    "subtitle": "歐洲婦科學會 2026 非荷爾蒙治療聲明",
+    "items": [
+      {
+        "head": "生活習慣是基礎",
+        "text": "運動、肌力訓練、地中海飲食、戒菸少酒。"
+      },
+      {
+        "head": "新藥效果最好",
+        "text": "fezolinetant 等新藥,12 週約少六成以上;要驗肝功能,台灣查無藥證。"
+      },
+      {
+        "head": "老藥新用",
+        "text": "部分抗憂鬱藥、gabapentin;吃 tamoxifen 要選對藥。"
+      },
+      {
+        "head": "認知行為治療、催眠",
+        "text": "減輕困擾、改善睡眠,歐美學會都推薦。"
+      },
+      {
+        "head": "大豆、黑升麻等",
+        "text": "歐洲:證據中等到有限;北美:不建議。"
+      },
+      {
+        "head": "私密處乾澀",
+        "text": "潤滑劑、保濕劑、玻尿酸、骨盆底肌;雷射不建議。"
+      }
+    ],
+    "callout": [
+      "荷爾蒙仍最有效,先確認自己能不能用",
+      "**順便檢查血壓、血脂、血糖**"
+    ],
+    "sources": "資料來源:Castelo-Branco C, et al. Gynecol Endocrinol 2026(歐洲婦科學會);北美更年期學會 Menopause 2023。"
   }
 ]
