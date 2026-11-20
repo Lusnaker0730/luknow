@@ -1,5 +1,15 @@
 [
  {
+  "slug": "glp1-alcohol",
+  "title": "醫生,我想戒酒,瘦瘦針有用嗎?",
+  "desc": "有幫助的跡象:合併肥胖、同時做心理治療的人,每月重度喝酒日約比安慰劑再少 4 天;還沒證實能完全戒掉,也不是戒酒藥。",
+  "date": "2026-11-20",
+  "duration": "1:01",
+  "article": "posts/glp1-alcohol.html",
+  "articleLabel": "完整衛教",
+  "youtube": "DAKnE5R5Vkw"
+ },
+ {
   "slug": "glp1-alcohol-long",
   "title": "醫生,我想戒酒,瘦瘦針有用嗎?(完整版)",
   "desc": "三個試驗一次看懂:重度喝酒日變少,但還沒證實能戒掉;副作用、證據限制、戒斷與酮酸中毒要小心、台灣的戒酒資源。",
