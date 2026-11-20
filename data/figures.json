@@ -2878,5 +2878,43 @@
       "**以前得過 NAION,用藥前先告訴醫師**"
     ],
     "sources": "資料來源:美國 FDA 藥品安全通訊 2026/11/9;美國眼科學會、北美神經眼科學會 2026;食藥署 2026/6 仿單修訂。"
+  },
+  {
+    "name": "glp1-alcohol",
+    "template": "checklist",
+    "tagline": "瘦瘦針 · 戒酒",
+    "title": "想戒酒\n瘦瘦針有用嗎?",
+    "subtitle": "週纖達的成分 semaglutide 小型試驗",
+    "items": [
+      {
+        "head": "先講答案",
+        "text": "可能減少重度喝酒;還沒證實能完全戒掉,也不是戒酒藥。"
+      },
+      {
+        "head": "一個數字",
+        "text": "合併肥胖+心理治療,26 週:每月重度喝酒日約再少 4 天。"
+      },
+      {
+        "head": "證據還小",
+        "text": "三個試驗 48–108 人、8–26 週,有些指標沒改善。"
+      },
+      {
+        "head": "小心戒斷",
+        "text": "大量喝酒突然少喝:抽搐、意識混亂要馬上急診。"
+      },
+      {
+        "head": "台灣戒酒藥",
+        "text": "naltrexone(納霍利)、acamprosate(戒酒妥)。"
+      },
+      {
+        "head": "治療補助",
+        "text": "衛福部酒癮治療補助,符合資格每年最多 4 萬元。"
+      }
+    ],
+    "callout": [
+      "瘦瘦針不能取代戒酒治療",
+      "**想戒酒,先找身心科**"
+    ],
+    "sources": "資料來源:Klausen MK, et al. Lancet 2026;Hendershot CS, et al. JAMA Psychiatry 2025;Schacht JP, et al. Am J Psychiatry 2026;衛福部 115 年酒癮治療費用補助方案。"
   }
 ]
