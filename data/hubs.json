@@ -308,6 +308,9 @@
             "desc": "診間、居家、24 小時血壓怎麼判讀,確診前該做哪些檢查。"
           },
           {
+            "post": "bp-home-measure"
+          },
+          {
             "post": "urine-albumin-heart"
           },
           {
