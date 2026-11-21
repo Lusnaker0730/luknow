@@ -1,5 +1,16 @@
 [
  {
+  "slug": "bp-home-measure-long",
+  "title": "醫生,血壓要怎麼量?(完整版)",
+  "desc": "722 怎麼量、量哪一手、姿勢和壓脈帶尺寸差多少、第一天不算早晚分開平均、多久量一輪。",
+  "date": "2026-11-21",
+  "duration": "2:29",
+  "article": "posts/bp-home-measure.html",
+  "articleLabel": "完整衛教",
+  "youtube": "WQU47QW2r9M",
+  "landscape": true
+ },
+ {
   "slug": "glp1-alcohol",
   "title": "醫生,我想戒酒,瘦瘦針有用嗎?",
   "desc": "有幫助的跡象:合併肥胖、同時做心理治療的人,每月重度喝酒日約比安慰劑再少 4 天;還沒證實能完全戒掉,也不是戒酒藥。",
