@@ -1,5 +1,15 @@
 [
  {
+  "slug": "bp-home-measure",
+  "title": "醫生,血壓要怎麼量?量哪一手?什麼時候量?",
+  "desc": "記住 722;第一次兩手都量、之後量較高那手;背靠椅背、雙腳平放、手臂放桌上,手臂垂在旁邊量收縮壓平均高約 6.5。",
+  "date": "2026-11-21",
+  "duration": "1:09",
+  "article": "posts/bp-home-measure.html",
+  "articleLabel": "完整衛教",
+  "youtube": "OVKGkM3L3rQ"
+ },
+ {
   "slug": "bp-home-measure-long",
   "title": "醫生,血壓要怎麼量?(完整版)",
   "desc": "722 怎麼量、量哪一手、姿勢和壓脈帶尺寸差多少、第一天不算早晚分開平均、多久量一輪。",
