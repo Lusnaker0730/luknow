@@ -1,5 +1,15 @@
 [
  {
+  "slug": "snoring-sleep-test",
+  "title": "醫生,打呼要不要做睡眠檢查?",
+  "desc": "打呼不一定是病;被看到呼吸會停、白天很想睡就該找醫師評估;STOP-Bang 不能診斷;中重度呼吸中止四年後有高血壓的勝算約 2.9 倍(關聯)。",
+  "date": "2026-11-23",
+  "duration": "1:30",
+  "article": "posts/snoring-sleep-test.html",
+  "articleLabel": "完整衛教",
+  "youtube": "1jpzqSHIqoo"
+ },
+ {
   "slug": "snoring-sleep-test-long",
   "title": "醫生,打呼要不要做睡眠檢查?(完整版)",
   "desc": "哪些警訊該檢查、AHA 建議哪些心臟病人篩檢、STOP-Bang、打呼與高血壓研究、居家或睡眠中心檢查、確診後怎麼治療。",
