@@ -1,5 +1,15 @@
 [
  {
+  "slug": "daily-steps",
+  "title": "醫生,每天要走幾步才夠?",
+  "desc": "一萬步不是研究門檻;60 歲以上約 6000–8000 步、未滿 60 約 8000–10000 步後全死因死亡風險趨平;步數可當追蹤的生命徵象,從自己的平均慢慢增加。",
+  "date": "2026-11-25",
+  "duration": "1:22",
+  "article": "posts/daily-steps.html",
+  "articleLabel": "完整衛教",
+  "youtube": "UsBLfillgeI"
+ },
+ {
   "slug": "daily-steps-long",
   "title": "醫生,每天要走幾步才夠?(完整版)",
   "desc": "一萬步從哪來、步數當生命徵象、全死因死亡與心血管研究、七千步、走快有差嗎、手機手錶準不準、怎麼開始。",
