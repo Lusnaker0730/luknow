@@ -3082,5 +3082,48 @@
       "**不要自行加量或突然停藥,和醫師討論**"
     ],
     "sources": "資料來源:ACP 2016 慢性失眠指引;歐洲失眠指引 2023;AASM 2017;De Crescenzo 等 Lancet 2022;AGS Beers 2023;Kunz 等 CNS Drugs 2023;TFDA 藥證資料。"
+  },
+  {
+    "name": "daily-steps",
+    "template": "checklist",
+    "tagline": "Paluch 2022 · Paluch 2023 · Ding 2025",
+    "title": "每天要走幾步?\n一萬步不是門檻",
+    "items": [
+      {
+        "head": "一萬步從哪來",
+        "text": "來自日本的行銷活動,不是研究訂出來的門檻。",
+        "note": "Paluch 2022"
+      },
+      {
+        "head": "60 歲以上",
+        "text": "約每天 6000–8000 步後,全死因死亡風險趨於平緩。",
+        "note": "未滿 60 歲約 8000–10000 步"
+      },
+      {
+        "head": "心臟",
+        "text": "60 歲以上約 6000–9000 步,比約 2000 步的心血管事件風險低約 40–50%。",
+        "note": "Paluch 2023;冠心病、中風、心衰竭"
+      },
+      {
+        "head": "7000 步",
+        "text": "相較 2000 步,心血管疾病發生風險約低 25%。",
+        "note": "Ding 2025;依身體狀況調整的參考目標"
+      },
+      {
+        "head": "步數當生命徵象",
+        "text": "用同一個裝置看自己的平均,當作追蹤活動的指標。",
+        "note": "研究與市售裝置讀值可能差 20% 以上"
+      },
+      {
+        "head": "先和醫師討論",
+        "text": "心臟病、關節問題、行動不便、容易跌倒的人。",
+        "note": "從自己目前的平均循序增加"
+      }
+    ],
+    "callout": [
+      "都是觀察性研究:走得多的人風險較低,不等於證明因果",
+      "**從現在的平均往上加,不必一開始就追一萬步**"
+    ],
+    "sources": "資料來源:Paluch 等 Lancet Public Health 2022;Paluch 等 Circulation 2023;Ding 等 Lancet Public Health 2025;Adams 等 J Gen Intern Med 2025。"
   }
 ]

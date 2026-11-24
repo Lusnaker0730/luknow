@@ -1,5 +1,26 @@
 [
  {
+  "slug": "daily-steps",
+  "title": "醫生,每天要走幾步才夠?",
+  "desc": "一萬步不是研究門檻;60 歲以上約 6000–8000 步、未滿 60 約 8000–10000 步後全死因死亡風險趨平;步數可當追蹤的生命徵象,從自己的平均慢慢增加。",
+  "date": "2026-11-25",
+  "duration": "1:22",
+  "article": "posts/daily-steps.html",
+  "articleLabel": "完整衛教",
+  "youtube": "UsBLfillgeI"
+ },
+ {
+  "slug": "daily-steps-long",
+  "title": "醫生,每天要走幾步才夠?(完整版)",
+  "desc": "一萬步從哪來、步數當生命徵象、全死因死亡與心血管研究、七千步、走快有差嗎、手機手錶準不準、怎麼開始。",
+  "date": "2026-11-25",
+  "duration": "4:50",
+  "article": "posts/daily-steps.html",
+  "articleLabel": "完整衛教",
+  "youtube": "9vbnceeZNUU",
+  "landscape": true
+ },
+ {
   "slug": "hypnotics-addiction",
   "title": "醫生,安眠藥都一樣嗎?",
   "desc": "沒有保證零成癮風險的安眠藥;長期失眠先做失眠認知行為治療;苯二氮平類、Z 藥物短期為主;新一代藥停藥未見戒斷但不保證不成癮;不要自己突然停藥或加量。",
