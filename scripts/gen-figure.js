@@ -202,7 +202,86 @@ ${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
 </body></html>`;
 }
 
-const TEMPLATES = { checklist: checklistHtml, pyramid: pyramidHtml, study: studyHtml };
+// 分組長條圖(例:依風險分 10 組的兩組事件率):study=[[數字,說明]]、headline={value,text,small?}、
+// groups=[{label, a, b, top:[行1,行2], hi?:true, warn?:true}](a=治療組、b=對照組,單位 %)、legend=[a名,b名]、
+// chartTitle、axisLabel、yMax、callout?、notes?
+function groupsHtml(f) {
+  const yMax = f.yMax || Math.max(...f.groups.flatMap(g => [g.a, g.b])) * 1.1;
+  const CH = f.chartHeight || 380;
+  const stats = f.study.map(([v, t]) => `<div class="stat"><div class="sv">${esc(v)}</div><div class="st">${esc(t)}</div></div>`).join('');
+  const groups = f.groups.map(g => `
+<div class="grp${g.hi ? ' hi' : ''}${g.warn ? ' warn' : ''}">
+  <div class="plot">
+    <div class="col"><div class="lab">${esc(g.top[0])}<br><span>${esc(g.top[1])}</span></div>
+      <div class="pair">
+        <div class="b a" style="height:${(g.a / yMax) * CH}px"><i>${Number(g.a).toFixed(1)}</i></div>
+        <div class="b c" style="height:${(g.b / yMax) * CH}px"><i>${Number(g.b).toFixed(1)}</i></div>
+      </div></div>
+  </div>
+  <div class="gl">${esc(g.label)}</div>
+</div>`).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'NSerif';src:url('${SERIF}') format('opentype');font-weight:900}
+@font-face{font-family:'NSans';src:url('${SANS}') format('woff2');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:${W}px;height:${H}px}
+body{display:flex;flex-direction:column;background:#fffdf9;font-family:'NSans',sans-serif;
+padding:42px 48px 30px;color:#14323a}
+.tagline{color:#c43d34;font-size:21px;font-weight:700;letter-spacing:.12em}
+h1{font-family:'NSerif';font-size:50px;line-height:1.2;font-weight:900;margin-top:8px}
+.sub{font-size:23px;color:#3c5158;margin-top:8px;line-height:1.45}
+.stats{display:flex;gap:12px;margin-top:14px}
+.stat{flex:1;background:#14323a;color:#fff;border-radius:16px;padding:10px 14px;text-align:center}
+.sv{font-family:'NSerif';font-size:31px}
+.st{font-size:18px;opacity:.85;margin-top:2px}
+.head{display:flex;align-items:center;gap:20px;margin-top:14px;background:#fff;border:3px solid #0f7a82;border-radius:20px;padding:10px 22px}
+.hv{font-family:'NSerif';font-size:52px;color:#0f7a82;line-height:1;flex-shrink:0}
+.ht{font-size:23px;line-height:1.35}
+.ht small{display:block;font-size:18px;color:#7d8a8c}
+.ctitle{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:21px;color:#3c5158}
+.leg{display:flex;gap:16px;font-size:19px}
+.leg span::before{content:'';display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:6px;vertical-align:-2px;background:var(--c)}
+.chart{display:flex;gap:4px;margin-top:6px;border-bottom:3px solid #14323a;padding:0 2px}
+.grp{flex:1;display:flex;flex-direction:column;align-items:center}
+.plot{height:${CH + 70}px;display:flex;align-items:flex-end}
+.col{display:flex;flex-direction:column;align-items:center}
+.lab{font-size:17px;text-align:center;line-height:1.2;margin-bottom:24px;color:#14323a;white-space:nowrap}
+.lab span{color:#7d8a8c;font-size:16px}
+.grp.hi .lab{color:#0f7a82}.grp.hi .lab span{color:#0f7a82}
+.grp.warn .lab,.grp.warn .lab span{color:#c43d34}
+.pair{display:flex;gap:3px;align-items:flex-end}
+.b{width:36px;border-radius:5px 5px 0 0;position:relative}
+.b.a{background:#0f7a82}.b.c{background:#b9b2a6}
+.b i{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-style:normal;font-size:14px;color:#3c5158}
+.gl{font-size:15px;color:#3c5158;margin-top:6px;text-align:center;line-height:1.2;white-space:nowrap}
+.axis{font-size:17px;color:#7d8a8c;text-align:center;margin-top:30px}
+.callout{margin-top:12px;background:#14323a;color:#fff;border-radius:18px;padding:11px 22px;font-size:21px;line-height:1.5}
+.callout b{color:#ffd9a8}
+.note{font-size:18px;color:#9c2f28;margin-top:7px;line-height:1.4}
+.foot{display:flex;align-items:flex-end;gap:16px;border-top:2px solid #ece5d8;padding-top:10px;margin-top:auto}
+.src{font-size:15px;color:#7d8a8c;line-height:1.45;flex:1}
+.brand{text-align:right;flex-shrink:0}
+.brand .n{font-size:21px;font-weight:700}
+.brand .u{font-size:21px;font-weight:700;color:#9c2f28}
+</style></head><body>
+<div class="tagline">${esc(f.tagline || 'CARDIOLOGY · 心臟內科')}</div>
+<h1>${esc(f.title).replace(/\n/g, "<br>")}</h1>
+${f.subtitle ? `<div class="sub">${esc(f.subtitle)}</div>` : ''}
+<div class="stats">${stats}</div>
+<div class="head"><div class="hv">${esc(f.headline.value)}</div><div class="ht">${esc(f.headline.text)}${f.headline.small ? `<small>${esc(f.headline.small)}</small>` : ''}</div></div>
+<div class="ctitle"><div>${esc(f.chartTitle)}</div><div class="leg"><span style="--c:#0f7a82">${esc(f.legend[0])}</span><span style="--c:#b9b2a6">${esc(f.legend[1])}</span></div></div>
+<div class="chart">${groups}</div>
+<div class="axis" style="margin-top:6px">${esc(f.axisLabel)}</div>
+${f.callout ? `<div class="callout">${f.callout.map(esc).join('<br>').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</div>` : ''}
+${f.notes ? f.notes.map(x => `<div class="note">${esc(x)}</div>`).join('') : ''}
+<div class="foot">
+  <div class="src">${esc(f.sources)}</div>
+  <div class="brand"><div class="n">呂侑穎醫師的臨床筆記</div><div class="u">drluyy.com</div></div>
+</div>
+</body></html>`;
+}
+
+const TEMPLATES = { checklist: checklistHtml, pyramid: pyramidHtml, study: studyHtml, groups: groupsHtml };
 
 function render(f) {
   const tpl = TEMPLATES[f.template];
