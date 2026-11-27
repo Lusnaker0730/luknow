@@ -179,6 +179,9 @@
         "desc": "史他汀副作用、肝功能、長者要不要吃,以及其他降膽固醇方法。",
         "items": [
           {
+            "post": "lower-is-better-health-numbers"
+          },
+          {
             "post": "statin-side-effects"
           },
           {
@@ -350,6 +353,9 @@
         "title": "吃藥與追蹤",
         "desc": "血壓藥要不要一直吃、什麼時候吃,夜間血壓與長輩減藥。",
         "items": [
+          {
+            "post": "lower-is-better-health-numbers"
+          },
           {
             "post": "optimal-stroke-bp"
           },
